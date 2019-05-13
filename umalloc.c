@@ -9,9 +9,12 @@
 typedef long Align;
 
 union header {
+    int pmalloced;
+    int protected;
   struct {
     union header *ptr;
     uint size;
+
   } s;
   Align x;
 };
@@ -63,28 +66,95 @@ morecore(uint nu)
 void*
 malloc(uint nbytes)
 {
-  Header *p, *prevp;
-  uint nunits;
+    Header *p, *prevp;
+    uint nunits;
 
-  nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
-  if((prevp = freep) == 0){
-    base.s.ptr = freep = prevp = &base;
-    base.s.size = 0;
-  }
-  for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
-    if(p->s.size >= nunits){
-      if(p->s.size == nunits)
-        prevp->s.ptr = p->s.ptr;
-      else {
-        p->s.size -= nunits;
-        p += p->s.size;
-        p->s.size = nunits;
-      }
-      freep = prevp;
-      return (void*)(p + 1);
+    nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
+    if((prevp = freep) == 0){
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
     }
-    if(p == freep)
-      if((p = morecore(nunits)) == 0)
-        return 0;
-  }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+        if(p->s.size >= nunits){
+            if(p->s.size == nunits)
+                prevp->s.ptr = p->s.ptr;
+            else {
+                p->s.size -= nunits;
+                p += p->s.size;
+                p->s.size = nunits;
+            }
+            freep = prevp;
+            return (void*)(p + 1);
+        }
+        if(p == freep)
+            if((p = morecore(nunits)) == 0)
+                return 0;
+    }
 }
+
+
+// TODO we are not sure where we should do the page protected and read only PTE_W...
+
+void*
+pmalloc()
+{
+    Header *p, *prevp;
+    uint nunits;
+
+    nunits = ( 4096 + sizeof(Header) - 1)/sizeof(Header) + 1;
+    if((prevp = freep) == 0){
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+        if(p->s.size == nunits){
+            prevp->s.ptr = p->s.ptr;
+            freep = prevp;
+            (p+1)->x = 1;
+            return (void*)(p + 1);
+        }
+
+        if(p == freep)
+            if((p = morecore(nunits)) == 0)
+                return 0;
+    }
+}
+
+
+int protect_page(void* ap)
+{
+    Header *p;
+    if( ap )
+    {
+        if( (uint)ap % 4096 != 0 )
+            return -1;
+
+        p = ap;
+        if( !p->pmalloced )
+            return -1;
+
+        p->protected = 1;
+        return 1;
+    }
+    else
+        return -1;
+}
+
+
+
+int pfree(void* ap) {
+    Header *p;
+    if (ap) {
+        if ((uint) ap % 4096 != 0)
+            return -1;
+
+        p = ap;
+        if (p->protected) {
+            free(ap);
+            return 1;
+        }
+    }
+    return -1;
+}
+
+

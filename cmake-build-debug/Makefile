@@ -48,10 +48,10 @@ RM = /opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/weilern/os192/ass3/OS_ass3-Memory
+CMAKE_SOURCE_DIR = /home/yoav/Desktop/Git3/OS_ass3-Memory
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug
+CMAKE_BINARY_DIR = /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

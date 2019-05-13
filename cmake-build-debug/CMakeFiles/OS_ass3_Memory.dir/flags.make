@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/weilern/os192/ass3/OS_ass3-Memory/. 
+C_INCLUDES = -I/home/yoav/Desktop/Git3/OS_ass3-Memory/. 
 
