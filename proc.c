@@ -112,7 +112,7 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
-  p->swapFile = createSwapFile(p);
+  p->swapFile = (struct file *)createSwapFile(p);
   return p;
 }
 
@@ -183,7 +183,7 @@ fork(void) {
     int i, pid;
     struct proc *np;
     struct proc *curproc = myproc();
-    char *buffer[PGSIZE];
+    char buffer[PGSIZE];
     // Allocate process.
     if ((np = allocproc()) == 0) {
         return -1;
@@ -202,21 +202,21 @@ fork(void) {
 
     //TODO
     if(readFromSwapFile(curproc,buffer,0,PGSIZE)==-1) {
-        panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
+        //panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
         kfree(np->kstack);
         np->kstack = 0;
         np->state = UNUSED;
-        removeSwapFile(np->swapFile); //clear swapFile
+        removeSwapFile(np); //clear swapFile
         return -1;
     }
 
     //TODO
     if(writeToSwapFile(np,buffer,0,PGSIZE)==-1) {
-        panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
+        //panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
         kfree(np->kstack);
         np->kstack = 0;
         np->state = UNUSED;
-        removeSwapFile(np->swapFile); //clear swapFile
+        removeSwapFile(np); //clear swapFile
         return -1;
     }
 
@@ -315,7 +315,7 @@ wait(void) {
                 p->name[0] = 0;
                 p->killed = 0;
                 p->state = UNUSED;
-                removeSwapFile(p->swapFile);
+                //removeSwapFile(p);
                 release(&ptable.lock);
                 return pid;
             }
