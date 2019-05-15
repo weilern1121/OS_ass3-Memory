@@ -78,6 +78,8 @@ trap(struct trapframe *tf)
     lapiceoi();
     break;
 
+    //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
+
   //PAGEBREAK: 13
   default:
     if(myproc() == 0 || (tf->cs&3) == 0){

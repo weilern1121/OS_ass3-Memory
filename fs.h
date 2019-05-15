@@ -24,6 +24,8 @@ struct superblock {
 #define NDIRECT 12
 #define NINDIRECT (BSIZE / sizeof(uint))
 #define MAXFILE (NDIRECT + NINDIRECT)
+#define MAX_PSYC_PAGES 16
+#define MAX_TOTAL_PAGES 32
 
 // On-disk inode structure
 struct dinode {

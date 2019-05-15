@@ -112,6 +112,7 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
+  p->swapFile = createSwapFile(p);
   return p;
 }
 
@@ -178,47 +179,67 @@ growproc(int n)
 // Sets up stack to return as if from system call.
 // Caller must set state of returned proc to RUNNABLE.
 int
-fork(void)
-{
-  int i, pid;
-  struct proc *np;
-  struct proc *curproc = myproc();
+fork(void) {
+    int i, pid;
+    struct proc *np;
+    struct proc *curproc = myproc();
+    char *buffer[PGSIZE];
+    // Allocate process.
+    if ((np = allocproc()) == 0) {
+        return -1;
+    }
 
-  // Allocate process.
-  if((np = allocproc()) == 0){
-    return -1;
-  }
+    // Copy process state from proc.
+    if ((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0) {
+        kfree(np->kstack);
+        np->kstack = 0;
+        np->state = UNUSED;
+        return -1;
+    }
+    np->sz = curproc->sz;
+    np->parent = curproc;
+    *np->tf = *curproc->tf;
 
-  // Copy process state from proc.
-  if((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0){
-    kfree(np->kstack);
-    np->kstack = 0;
-    np->state = UNUSED;
-    return -1;
-  }
-  np->sz = curproc->sz;
-  np->parent = curproc;
-  *np->tf = *curproc->tf;
+    //TODO
+    if(readFromSwapFile(curproc,buffer,0,PGSIZE)==-1) {
+        panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
+        kfree(np->kstack);
+        np->kstack = 0;
+        np->state = UNUSED;
+        removeSwapFile(np->swapFile); //clear swapFile
+        return -1;
+    }
 
-  // Clear %eax so that fork returns 0 in the child.
-  np->tf->eax = 0;
+    //TODO
+    if(writeToSwapFile(np,buffer,0,PGSIZE)==-1) {
+        panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
+        kfree(np->kstack);
+        np->kstack = 0;
+        np->state = UNUSED;
+        removeSwapFile(np->swapFile); //clear swapFile
+        return -1;
+    }
 
-  for(i = 0; i < NOFILE; i++)
-    if(curproc->ofile[i])
-      np->ofile[i] = filedup(curproc->ofile[i]);
-  np->cwd = idup(curproc->cwd);
 
-  safestrcpy(np->name, curproc->name, sizeof(curproc->name));
+    // Clear %eax so that fork returns 0 in the child.
+    np->tf->eax = 0;
 
-  pid = np->pid;
+    for (i = 0; i < NOFILE; i++)
+        if (curproc->ofile[i])
+            np->ofile[i] = filedup(curproc->ofile[i]);
+    np->cwd = idup(curproc->cwd);
 
-  acquire(&ptable.lock);
+    safestrcpy(np->name, curproc->name, sizeof(curproc->name));
 
-  np->state = RUNNABLE;
+    pid = np->pid;
 
-  release(&ptable.lock);
+    acquire(&ptable.lock);
 
-  return pid;
+    np->state = RUNNABLE;
+
+    release(&ptable.lock);
+
+    return pid;
 }
 
 // Exit the current process.  Does not return.
@@ -270,45 +291,45 @@ exit(void)
 // Wait for a child process to exit and return its pid.
 // Return -1 if this process has no children.
 int
-wait(void)
-{
-  struct proc *p;
-  int havekids, pid;
-  struct proc *curproc = myproc();
-  
-  acquire(&ptable.lock);
-  for(;;){
-    // Scan through table looking for exited children.
-    havekids = 0;
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->parent != curproc)
-        continue;
-      havekids = 1;
-      if(p->state == ZOMBIE){
-        // Found one.
-        pid = p->pid;
-        kfree(p->kstack);
-        p->kstack = 0;
-        freevm(p->pgdir);
-        p->pid = 0;
-        p->parent = 0;
-        p->name[0] = 0;
-        p->killed = 0;
-        p->state = UNUSED;
-        release(&ptable.lock);
-        return pid;
-      }
-    }
+wait(void) {
+    struct proc *p;
+    int havekids, pid;
+    struct proc *curproc = myproc();
 
-    // No point waiting if we don't have any children.
-    if(!havekids || curproc->killed){
-      release(&ptable.lock);
-      return -1;
-    }
+    acquire(&ptable.lock);
+    for (;;) {
+        // Scan through table looking for exited children.
+        havekids = 0;
+        for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+            if (p->parent != curproc)
+                continue;
+            havekids = 1;
+            if (p->state == ZOMBIE) {
+                // Found one.
+                pid = p->pid;
+                kfree(p->kstack);
+                p->kstack = 0;
+                freevm(p->pgdir);
+                p->pid = 0;
+                p->parent = 0;
+                p->name[0] = 0;
+                p->killed = 0;
+                p->state = UNUSED;
+                removeSwapFile(p->swapFile);
+                release(&ptable.lock);
+                return pid;
+            }
+        }
 
-    // Wait for children to exit.  (See wakeup1 call in proc_exit.)
-    sleep(curproc, &ptable.lock);  //DOC: wait-sleep
-  }
+        // No point waiting if we don't have any children.
+        if (!havekids || curproc->killed) {
+            release(&ptable.lock);
+            return -1;
+        }
+
+        // Wait for children to exit.  (See wakeup1 call in proc_exit.)
+        sleep(curproc, &ptable.lock);  //DOC: wait-sleep
+    }
 }
 
 //PAGEBREAK: 42

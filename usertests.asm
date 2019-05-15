@@ -12,27 +12,27 @@ Disassembly of section .text:
        b:	89 e5                	mov    %esp,%ebp
        d:	51                   	push   %ecx
        e:	83 ec 0c             	sub    $0xc,%esp
-      11:	68 06 4d 00 00       	push   $0x4d06
+      11:	68 ee 4d 00 00       	push   $0x4dee
       16:	6a 01                	push   $0x1
       18:	e8 d3 39 00 00       	call   39f0 <printf>
       1d:	59                   	pop    %ecx
       1e:	58                   	pop    %eax
       1f:	6a 00                	push   $0x0
-      21:	68 1a 4d 00 00       	push   $0x4d1a
+      21:	68 02 4e 00 00       	push   $0x4e02
       26:	e8 b7 38 00 00       	call   38e2 <open>
       2b:	83 c4 10             	add    $0x10,%esp
       2e:	85 c0                	test   %eax,%eax
       30:	78 13                	js     45 <main+0x45>
       32:	52                   	push   %edx
       33:	52                   	push   %edx
-      34:	68 84 54 00 00       	push   $0x5484
+      34:	68 6c 55 00 00       	push   $0x556c
       39:	6a 01                	push   $0x1
       3b:	e8 b0 39 00 00       	call   39f0 <printf>
       40:	e8 5d 38 00 00       	call   38a2 <exit>
       45:	50                   	push   %eax
       46:	50                   	push   %eax
       47:	68 00 02 00 00       	push   $0x200
-      4c:	68 1a 4d 00 00       	push   $0x4d1a
+      4c:	68 02 4e 00 00       	push   $0x4e02
       51:	e8 8c 38 00 00       	call   38e2 <open>
       56:	89 04 24             	mov    %eax,(%esp)
       59:	e8 6c 38 00 00       	call   38ca <close>
@@ -84,61 +84,61 @@ Disassembly of section .text:
      120:	55                   	push   %ebp
      121:	89 e5                	mov    %esp,%ebp
      123:	83 ec 10             	sub    $0x10,%esp
-     126:	68 ac 3d 00 00       	push   $0x3dac
-     12b:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     126:	68 94 3e 00 00       	push   $0x3e94
+     12b:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      131:	e8 ba 38 00 00       	call   39f0 <printf>
-     136:	c7 04 24 3f 3d 00 00 	movl   $0x3d3f,(%esp)
+     136:	c7 04 24 27 3e 00 00 	movl   $0x3e27,(%esp)
      13d:	e8 c8 37 00 00       	call   390a <mkdir>
      142:	83 c4 10             	add    $0x10,%esp
      145:	85 c0                	test   %eax,%eax
      147:	78 58                	js     1a1 <iputtest+0x81>
      149:	83 ec 0c             	sub    $0xc,%esp
-     14c:	68 3f 3d 00 00       	push   $0x3d3f
+     14c:	68 27 3e 00 00       	push   $0x3e27
      151:	e8 bc 37 00 00       	call   3912 <chdir>
      156:	83 c4 10             	add    $0x10,%esp
      159:	85 c0                	test   %eax,%eax
      15b:	0f 88 85 00 00 00    	js     1e6 <iputtest+0xc6>
      161:	83 ec 0c             	sub    $0xc,%esp
-     164:	68 3c 3d 00 00       	push   $0x3d3c
+     164:	68 24 3e 00 00       	push   $0x3e24
      169:	e8 84 37 00 00       	call   38f2 <unlink>
      16e:	83 c4 10             	add    $0x10,%esp
      171:	85 c0                	test   %eax,%eax
      173:	78 5a                	js     1cf <iputtest+0xaf>
      175:	83 ec 0c             	sub    $0xc,%esp
-     178:	68 61 3d 00 00       	push   $0x3d61
+     178:	68 49 3e 00 00       	push   $0x3e49
      17d:	e8 90 37 00 00       	call   3912 <chdir>
      182:	83 c4 10             	add    $0x10,%esp
      185:	85 c0                	test   %eax,%eax
      187:	78 2f                	js     1b8 <iputtest+0x98>
      189:	83 ec 08             	sub    $0x8,%esp
-     18c:	68 e4 3d 00 00       	push   $0x3de4
-     191:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     18c:	68 cc 3e 00 00       	push   $0x3ecc
+     191:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      197:	e8 54 38 00 00       	call   39f0 <printf>
      19c:	83 c4 10             	add    $0x10,%esp
      19f:	c9                   	leave  
      1a0:	c3                   	ret    
      1a1:	50                   	push   %eax
      1a2:	50                   	push   %eax
-     1a3:	68 18 3d 00 00       	push   $0x3d18
-     1a8:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     1a3:	68 00 3e 00 00       	push   $0x3e00
+     1a8:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      1ae:	e8 3d 38 00 00       	call   39f0 <printf>
      1b3:	e8 ea 36 00 00       	call   38a2 <exit>
      1b8:	50                   	push   %eax
      1b9:	50                   	push   %eax
-     1ba:	68 63 3d 00 00       	push   $0x3d63
-     1bf:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     1ba:	68 4b 3e 00 00       	push   $0x3e4b
+     1bf:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      1c5:	e8 26 38 00 00       	call   39f0 <printf>
      1ca:	e8 d3 36 00 00       	call   38a2 <exit>
      1cf:	52                   	push   %edx
      1d0:	52                   	push   %edx
-     1d1:	68 47 3d 00 00       	push   $0x3d47
-     1d6:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     1d1:	68 2f 3e 00 00       	push   $0x3e2f
+     1d6:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      1dc:	e8 0f 38 00 00       	call   39f0 <printf>
      1e1:	e8 bc 36 00 00       	call   38a2 <exit>
      1e6:	51                   	push   %ecx
      1e7:	51                   	push   %ecx
-     1e8:	68 26 3d 00 00       	push   $0x3d26
-     1ed:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     1e8:	68 0e 3e 00 00       	push   $0x3e0e
+     1ed:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      1f3:	e8 f8 37 00 00       	call   39f0 <printf>
      1f8:	e8 a5 36 00 00       	call   38a2 <exit>
      1fd:	8d 76 00             	lea    0x0(%esi),%esi
@@ -147,8 +147,8 @@ Disassembly of section .text:
      200:	55                   	push   %ebp
      201:	89 e5                	mov    %esp,%ebp
      203:	83 ec 10             	sub    $0x10,%esp
-     206:	68 73 3d 00 00       	push   $0x3d73
-     20b:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     206:	68 5b 3e 00 00       	push   $0x3e5b
+     20b:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      211:	e8 da 37 00 00       	call   39f0 <printf>
      216:	e8 7f 36 00 00       	call   389a <fork>
      21b:	83 c4 10             	add    $0x10,%esp
@@ -156,19 +156,19 @@ Disassembly of section .text:
      220:	0f 88 82 00 00 00    	js     2a8 <exitiputtest+0xa8>
      226:	75 48                	jne    270 <exitiputtest+0x70>
      228:	83 ec 0c             	sub    $0xc,%esp
-     22b:	68 3f 3d 00 00       	push   $0x3d3f
+     22b:	68 27 3e 00 00       	push   $0x3e27
      230:	e8 d5 36 00 00       	call   390a <mkdir>
      235:	83 c4 10             	add    $0x10,%esp
      238:	85 c0                	test   %eax,%eax
      23a:	0f 88 96 00 00 00    	js     2d6 <exitiputtest+0xd6>
      240:	83 ec 0c             	sub    $0xc,%esp
-     243:	68 3f 3d 00 00       	push   $0x3d3f
+     243:	68 27 3e 00 00       	push   $0x3e27
      248:	e8 c5 36 00 00       	call   3912 <chdir>
      24d:	83 c4 10             	add    $0x10,%esp
      250:	85 c0                	test   %eax,%eax
      252:	78 6b                	js     2bf <exitiputtest+0xbf>
      254:	83 ec 0c             	sub    $0xc,%esp
-     257:	68 3c 3d 00 00       	push   $0x3d3c
+     257:	68 24 3e 00 00       	push   $0x3e24
      25c:	e8 91 36 00 00       	call   38f2 <unlink>
      261:	83 c4 10             	add    $0x10,%esp
      264:	85 c0                	test   %eax,%eax
@@ -177,34 +177,34 @@ Disassembly of section .text:
      26d:	8d 76 00             	lea    0x0(%esi),%esi
      270:	e8 35 36 00 00       	call   38aa <wait>
      275:	83 ec 08             	sub    $0x8,%esp
-     278:	68 96 3d 00 00       	push   $0x3d96
-     27d:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     278:	68 7e 3e 00 00       	push   $0x3e7e
+     27d:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      283:	e8 68 37 00 00       	call   39f0 <printf>
      288:	83 c4 10             	add    $0x10,%esp
      28b:	c9                   	leave  
      28c:	c3                   	ret    
      28d:	8d 76 00             	lea    0x0(%esi),%esi
      290:	83 ec 08             	sub    $0x8,%esp
-     293:	68 47 3d 00 00       	push   $0x3d47
-     298:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     293:	68 2f 3e 00 00       	push   $0x3e2f
+     298:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      29e:	e8 4d 37 00 00       	call   39f0 <printf>
      2a3:	e8 fa 35 00 00       	call   38a2 <exit>
      2a8:	51                   	push   %ecx
      2a9:	51                   	push   %ecx
-     2aa:	68 59 4c 00 00       	push   $0x4c59
-     2af:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     2aa:	68 41 4d 00 00       	push   $0x4d41
+     2af:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      2b5:	e8 36 37 00 00       	call   39f0 <printf>
      2ba:	e8 e3 35 00 00       	call   38a2 <exit>
      2bf:	50                   	push   %eax
      2c0:	50                   	push   %eax
-     2c1:	68 82 3d 00 00       	push   $0x3d82
-     2c6:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     2c1:	68 6a 3e 00 00       	push   $0x3e6a
+     2c6:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      2cc:	e8 1f 37 00 00       	call   39f0 <printf>
      2d1:	e8 cc 35 00 00       	call   38a2 <exit>
      2d6:	52                   	push   %edx
      2d7:	52                   	push   %edx
-     2d8:	68 18 3d 00 00       	push   $0x3d18
-     2dd:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     2d8:	68 00 3e 00 00       	push   $0x3e00
+     2dd:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      2e3:	e8 08 37 00 00       	call   39f0 <printf>
      2e8:	e8 b5 35 00 00       	call   38a2 <exit>
      2ed:	8d 76 00             	lea    0x0(%esi),%esi
@@ -213,10 +213,10 @@ Disassembly of section .text:
      2f0:	55                   	push   %ebp
      2f1:	89 e5                	mov    %esp,%ebp
      2f3:	83 ec 10             	sub    $0x10,%esp
-     2f6:	68 a8 3d 00 00       	push   $0x3da8
-     2fb:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     2f6:	68 90 3e 00 00       	push   $0x3e90
+     2fb:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      301:	e8 ea 36 00 00       	call   39f0 <printf>
-     306:	c7 04 24 b7 3d 00 00 	movl   $0x3db7,(%esp)
+     306:	c7 04 24 9f 3e 00 00 	movl   $0x3e9f,(%esp)
      30d:	e8 f8 35 00 00       	call   390a <mkdir>
      312:	83 c4 10             	add    $0x10,%esp
      315:	85 c0                	test   %eax,%eax
@@ -227,29 +227,29 @@ Disassembly of section .text:
      32a:	75 34                	jne    360 <openiputtest+0x70>
      32c:	83 ec 08             	sub    $0x8,%esp
      32f:	6a 02                	push   $0x2
-     331:	68 b7 3d 00 00       	push   $0x3db7
+     331:	68 9f 3e 00 00       	push   $0x3e9f
      336:	e8 a7 35 00 00       	call   38e2 <open>
      33b:	83 c4 10             	add    $0x10,%esp
      33e:	85 c0                	test   %eax,%eax
      340:	78 5e                	js     3a0 <openiputtest+0xb0>
      342:	83 ec 08             	sub    $0x8,%esp
-     345:	68 3c 4d 00 00       	push   $0x4d3c
-     34a:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     345:	68 24 4e 00 00       	push   $0x4e24
+     34a:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      350:	e8 9b 36 00 00       	call   39f0 <printf>
      355:	e8 48 35 00 00       	call   38a2 <exit>
      35a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
      360:	83 ec 0c             	sub    $0xc,%esp
      363:	6a 01                	push   $0x1
      365:	e8 c8 35 00 00       	call   3932 <sleep>
-     36a:	c7 04 24 b7 3d 00 00 	movl   $0x3db7,(%esp)
+     36a:	c7 04 24 9f 3e 00 00 	movl   $0x3e9f,(%esp)
      371:	e8 7c 35 00 00       	call   38f2 <unlink>
      376:	83 c4 10             	add    $0x10,%esp
      379:	85 c0                	test   %eax,%eax
      37b:	75 56                	jne    3d3 <openiputtest+0xe3>
      37d:	e8 28 35 00 00       	call   38aa <wait>
      382:	83 ec 08             	sub    $0x8,%esp
-     385:	68 e0 3d 00 00       	push   $0x3de0
-     38a:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     385:	68 c8 3e 00 00       	push   $0x3ec8
+     38a:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      390:	e8 5b 36 00 00       	call   39f0 <printf>
      395:	83 c4 10             	add    $0x10,%esp
      398:	c9                   	leave  
@@ -258,20 +258,20 @@ Disassembly of section .text:
      3a0:	e8 fd 34 00 00       	call   38a2 <exit>
      3a5:	51                   	push   %ecx
      3a6:	51                   	push   %ecx
-     3a7:	68 bd 3d 00 00       	push   $0x3dbd
-     3ac:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     3a7:	68 a5 3e 00 00       	push   $0x3ea5
+     3ac:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      3b2:	e8 39 36 00 00       	call   39f0 <printf>
      3b7:	e8 e6 34 00 00       	call   38a2 <exit>
      3bc:	52                   	push   %edx
      3bd:	52                   	push   %edx
-     3be:	68 59 4c 00 00       	push   $0x4c59
-     3c3:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     3be:	68 41 4d 00 00       	push   $0x4d41
+     3c3:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      3c9:	e8 22 36 00 00       	call   39f0 <printf>
      3ce:	e8 cf 34 00 00       	call   38a2 <exit>
      3d3:	50                   	push   %eax
      3d4:	50                   	push   %eax
-     3d5:	68 d1 3d 00 00       	push   $0x3dd1
-     3da:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     3d5:	68 b9 3e 00 00       	push   $0x3eb9
+     3da:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      3e0:	e8 0b 36 00 00       	call   39f0 <printf>
      3e5:	e8 b8 34 00 00       	call   38a2 <exit>
      3ea:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
@@ -280,13 +280,13 @@ Disassembly of section .text:
      3f0:	55                   	push   %ebp
      3f1:	89 e5                	mov    %esp,%ebp
      3f3:	83 ec 10             	sub    $0x10,%esp
-     3f6:	68 f2 3d 00 00       	push   $0x3df2
-     3fb:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     3f6:	68 da 3e 00 00       	push   $0x3eda
+     3fb:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      401:	e8 ea 35 00 00       	call   39f0 <printf>
      406:	58                   	pop    %eax
      407:	5a                   	pop    %edx
      408:	6a 00                	push   $0x0
-     40a:	68 fd 3d 00 00       	push   $0x3dfd
+     40a:	68 e5 3e 00 00       	push   $0x3ee5
      40f:	e8 ce 34 00 00       	call   38e2 <open>
      414:	83 c4 10             	add    $0x10,%esp
      417:	85 c0                	test   %eax,%eax
@@ -297,28 +297,28 @@ Disassembly of section .text:
      424:	5a                   	pop    %edx
      425:	59                   	pop    %ecx
      426:	6a 00                	push   $0x0
-     428:	68 15 3e 00 00       	push   $0x3e15
+     428:	68 fd 3e 00 00       	push   $0x3efd
      42d:	e8 b0 34 00 00       	call   38e2 <open>
      432:	83 c4 10             	add    $0x10,%esp
      435:	85 c0                	test   %eax,%eax
      437:	79 2f                	jns    468 <opentest+0x78>
      439:	83 ec 08             	sub    $0x8,%esp
-     43c:	68 40 3e 00 00       	push   $0x3e40
-     441:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     43c:	68 28 3f 00 00       	push   $0x3f28
+     441:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      447:	e8 a4 35 00 00       	call   39f0 <printf>
      44c:	83 c4 10             	add    $0x10,%esp
      44f:	c9                   	leave  
      450:	c3                   	ret    
      451:	50                   	push   %eax
      452:	50                   	push   %eax
-     453:	68 02 3e 00 00       	push   $0x3e02
-     458:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     453:	68 ea 3e 00 00       	push   $0x3eea
+     458:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      45e:	e8 8d 35 00 00       	call   39f0 <printf>
      463:	e8 3a 34 00 00       	call   38a2 <exit>
      468:	50                   	push   %eax
      469:	50                   	push   %eax
-     46a:	68 22 3e 00 00       	push   $0x3e22
-     46f:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     46a:	68 0a 3f 00 00       	push   $0x3f0a
+     46f:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      475:	e8 76 35 00 00       	call   39f0 <printf>
      47a:	e8 23 34 00 00       	call   38a2 <exit>
      47f:	90                   	nop
@@ -329,13 +329,13 @@ Disassembly of section .text:
      483:	56                   	push   %esi
      484:	53                   	push   %ebx
      485:	83 ec 08             	sub    $0x8,%esp
-     488:	68 4e 3e 00 00       	push   $0x3e4e
-     48d:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     488:	68 36 3f 00 00       	push   $0x3f36
+     48d:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      493:	e8 58 35 00 00       	call   39f0 <printf>
      498:	58                   	pop    %eax
      499:	5a                   	pop    %edx
      49a:	68 02 02 00 00       	push   $0x202
-     49f:	68 5f 3e 00 00       	push   $0x3e5f
+     49f:	68 47 3f 00 00       	push   $0x3f47
      4a4:	e8 39 34 00 00       	call   38e2 <open>
      4a9:	83 c4 10             	add    $0x10,%esp
      4ac:	85 c0                	test   %eax,%eax
@@ -343,14 +343,14 @@ Disassembly of section .text:
      4b4:	83 ec 08             	sub    $0x8,%esp
      4b7:	89 c6                	mov    %eax,%esi
      4b9:	31 db                	xor    %ebx,%ebx
-     4bb:	68 65 3e 00 00       	push   $0x3e65
-     4c0:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     4bb:	68 4d 3f 00 00       	push   $0x3f4d
+     4c0:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      4c6:	e8 25 35 00 00       	call   39f0 <printf>
      4cb:	83 c4 10             	add    $0x10,%esp
      4ce:	66 90                	xchg   %ax,%ax
      4d0:	83 ec 04             	sub    $0x4,%esp
      4d3:	6a 0a                	push   $0xa
-     4d5:	68 9c 3e 00 00       	push   $0x3e9c
+     4d5:	68 84 3f 00 00       	push   $0x3f84
      4da:	56                   	push   %esi
      4db:	e8 e2 33 00 00       	call   38c2 <write>
      4e0:	83 c4 10             	add    $0x10,%esp
@@ -358,7 +358,7 @@ Disassembly of section .text:
      4e6:	0f 85 d9 00 00 00    	jne    5c5 <writetest+0x145>
      4ec:	83 ec 04             	sub    $0x4,%esp
      4ef:	6a 0a                	push   $0xa
-     4f1:	68 a7 3e 00 00       	push   $0x3ea7
+     4f1:	68 8f 3f 00 00       	push   $0x3f8f
      4f6:	56                   	push   %esi
      4f7:	e8 c6 33 00 00       	call   38c2 <write>
      4fc:	83 c4 10             	add    $0x10,%esp
@@ -368,46 +368,46 @@ Disassembly of section .text:
      50b:	83 fb 64             	cmp    $0x64,%ebx
      50e:	75 c0                	jne    4d0 <writetest+0x50>
      510:	83 ec 08             	sub    $0x8,%esp
-     513:	68 b2 3e 00 00       	push   $0x3eb2
-     518:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     513:	68 9a 3f 00 00       	push   $0x3f9a
+     518:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      51e:	e8 cd 34 00 00       	call   39f0 <printf>
      523:	89 34 24             	mov    %esi,(%esp)
      526:	e8 9f 33 00 00       	call   38ca <close>
      52b:	5b                   	pop    %ebx
      52c:	5e                   	pop    %esi
      52d:	6a 00                	push   $0x0
-     52f:	68 5f 3e 00 00       	push   $0x3e5f
+     52f:	68 47 3f 00 00       	push   $0x3f47
      534:	e8 a9 33 00 00       	call   38e2 <open>
      539:	83 c4 10             	add    $0x10,%esp
      53c:	85 c0                	test   %eax,%eax
      53e:	89 c3                	mov    %eax,%ebx
      540:	0f 88 b1 00 00 00    	js     5f7 <writetest+0x177>
      546:	83 ec 08             	sub    $0x8,%esp
-     549:	68 bd 3e 00 00       	push   $0x3ebd
-     54e:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     549:	68 a5 3f 00 00       	push   $0x3fa5
+     54e:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      554:	e8 97 34 00 00       	call   39f0 <printf>
      559:	83 c4 0c             	add    $0xc,%esp
      55c:	68 d0 07 00 00       	push   $0x7d0
-     561:	68 a0 85 00 00       	push   $0x85a0
+     561:	68 20 87 00 00       	push   $0x8720
      566:	53                   	push   %ebx
      567:	e8 4e 33 00 00       	call   38ba <read>
      56c:	83 c4 10             	add    $0x10,%esp
      56f:	3d d0 07 00 00       	cmp    $0x7d0,%eax
      574:	0f 85 94 00 00 00    	jne    60e <writetest+0x18e>
      57a:	83 ec 08             	sub    $0x8,%esp
-     57d:	68 f1 3e 00 00       	push   $0x3ef1
-     582:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     57d:	68 d9 3f 00 00       	push   $0x3fd9
+     582:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      588:	e8 63 34 00 00       	call   39f0 <printf>
      58d:	89 1c 24             	mov    %ebx,(%esp)
      590:	e8 35 33 00 00       	call   38ca <close>
-     595:	c7 04 24 5f 3e 00 00 	movl   $0x3e5f,(%esp)
+     595:	c7 04 24 47 3f 00 00 	movl   $0x3f47,(%esp)
      59c:	e8 51 33 00 00       	call   38f2 <unlink>
      5a1:	83 c4 10             	add    $0x10,%esp
      5a4:	85 c0                	test   %eax,%eax
      5a6:	78 7d                	js     625 <writetest+0x1a5>
      5a8:	83 ec 08             	sub    $0x8,%esp
-     5ab:	68 19 3f 00 00       	push   $0x3f19
-     5b0:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     5ab:	68 01 40 00 00       	push   $0x4001
+     5b0:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      5b6:	e8 35 34 00 00       	call   39f0 <printf>
      5bb:	83 c4 10             	add    $0x10,%esp
      5be:	8d 65 f8             	lea    -0x8(%ebp),%esp
@@ -417,38 +417,38 @@ Disassembly of section .text:
      5c4:	c3                   	ret    
      5c5:	83 ec 04             	sub    $0x4,%esp
      5c8:	53                   	push   %ebx
-     5c9:	68 60 4d 00 00       	push   $0x4d60
-     5ce:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     5c9:	68 48 4e 00 00       	push   $0x4e48
+     5ce:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      5d4:	e8 17 34 00 00       	call   39f0 <printf>
      5d9:	e8 c4 32 00 00       	call   38a2 <exit>
      5de:	83 ec 04             	sub    $0x4,%esp
      5e1:	53                   	push   %ebx
-     5e2:	68 84 4d 00 00       	push   $0x4d84
-     5e7:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     5e2:	68 6c 4e 00 00       	push   $0x4e6c
+     5e7:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      5ed:	e8 fe 33 00 00       	call   39f0 <printf>
      5f2:	e8 ab 32 00 00       	call   38a2 <exit>
      5f7:	51                   	push   %ecx
      5f8:	51                   	push   %ecx
-     5f9:	68 d6 3e 00 00       	push   $0x3ed6
-     5fe:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     5f9:	68 be 3f 00 00       	push   $0x3fbe
+     5fe:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      604:	e8 e7 33 00 00       	call   39f0 <printf>
      609:	e8 94 32 00 00       	call   38a2 <exit>
      60e:	52                   	push   %edx
      60f:	52                   	push   %edx
-     610:	68 1d 42 00 00       	push   $0x421d
-     615:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     610:	68 05 43 00 00       	push   $0x4305
+     615:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      61b:	e8 d0 33 00 00       	call   39f0 <printf>
      620:	e8 7d 32 00 00       	call   38a2 <exit>
      625:	50                   	push   %eax
      626:	50                   	push   %eax
-     627:	68 04 3f 00 00       	push   $0x3f04
-     62c:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     627:	68 ec 3f 00 00       	push   $0x3fec
+     62c:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      632:	e8 b9 33 00 00       	call   39f0 <printf>
      637:	e8 66 32 00 00       	call   38a2 <exit>
      63c:	50                   	push   %eax
      63d:	50                   	push   %eax
-     63e:	68 80 3e 00 00       	push   $0x3e80
-     643:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     63e:	68 68 3f 00 00       	push   $0x3f68
+     643:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      649:	e8 a2 33 00 00       	call   39f0 <printf>
      64e:	e8 4f 32 00 00       	call   38a2 <exit>
      653:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
@@ -460,13 +460,13 @@ Disassembly of section .text:
      663:	56                   	push   %esi
      664:	53                   	push   %ebx
      665:	83 ec 08             	sub    $0x8,%esp
-     668:	68 2d 3f 00 00       	push   $0x3f2d
-     66d:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     668:	68 15 40 00 00       	push   $0x4015
+     66d:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      673:	e8 78 33 00 00       	call   39f0 <printf>
      678:	58                   	pop    %eax
      679:	5a                   	pop    %edx
      67a:	68 02 02 00 00       	push   $0x202
-     67f:	68 a7 3f 00 00       	push   $0x3fa7
+     67f:	68 8f 40 00 00       	push   $0x408f
      684:	e8 59 32 00 00       	call   38e2 <open>
      689:	83 c4 10             	add    $0x10,%esp
      68c:	85 c0                	test   %eax,%eax
@@ -476,9 +476,9 @@ Disassembly of section .text:
      698:	90                   	nop
      699:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
      6a0:	83 ec 04             	sub    $0x4,%esp
-     6a3:	89 1d a0 85 00 00    	mov    %ebx,0x85a0
+     6a3:	89 1d 20 87 00 00    	mov    %ebx,0x8720
      6a9:	68 00 02 00 00       	push   $0x200
-     6ae:	68 a0 85 00 00       	push   $0x85a0
+     6ae:	68 20 87 00 00       	push   $0x8720
      6b3:	56                   	push   %esi
      6b4:	e8 09 32 00 00       	call   38c2 <write>
      6b9:	83 c4 10             	add    $0x10,%esp
@@ -493,7 +493,7 @@ Disassembly of section .text:
      6db:	5b                   	pop    %ebx
      6dc:	5e                   	pop    %esi
      6dd:	6a 00                	push   $0x0
-     6df:	68 a7 3f 00 00       	push   $0x3fa7
+     6df:	68 8f 40 00 00       	push   $0x408f
      6e4:	e8 f9 31 00 00       	call   38e2 <open>
      6e9:	83 c4 10             	add    $0x10,%esp
      6ec:	85 c0                	test   %eax,%eax
@@ -504,13 +504,13 @@ Disassembly of section .text:
      6fa:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
      700:	3d 00 02 00 00       	cmp    $0x200,%eax
      705:	0f 85 9f 00 00 00    	jne    7aa <writetest1+0x14a>
-     70b:	a1 a0 85 00 00       	mov    0x85a0,%eax
+     70b:	a1 20 87 00 00       	mov    0x8720,%eax
      710:	39 d8                	cmp    %ebx,%eax
      712:	75 7f                	jne    793 <writetest1+0x133>
      714:	83 c3 01             	add    $0x1,%ebx
      717:	83 ec 04             	sub    $0x4,%esp
      71a:	68 00 02 00 00       	push   $0x200
-     71f:	68 a0 85 00 00       	push   $0x85a0
+     71f:	68 20 87 00 00       	push   $0x8720
      724:	56                   	push   %esi
      725:	e8 90 31 00 00       	call   38ba <read>
      72a:	83 c4 10             	add    $0x10,%esp
@@ -521,14 +521,14 @@ Disassembly of section .text:
      73d:	83 ec 0c             	sub    $0xc,%esp
      740:	56                   	push   %esi
      741:	e8 84 31 00 00       	call   38ca <close>
-     746:	c7 04 24 a7 3f 00 00 	movl   $0x3fa7,(%esp)
+     746:	c7 04 24 8f 40 00 00 	movl   $0x408f,(%esp)
      74d:	e8 a0 31 00 00       	call   38f2 <unlink>
      752:	83 c4 10             	add    $0x10,%esp
      755:	85 c0                	test   %eax,%eax
      757:	0f 88 af 00 00 00    	js     80c <writetest1+0x1ac>
      75d:	83 ec 08             	sub    $0x8,%esp
-     760:	68 ce 3f 00 00       	push   $0x3fce
-     765:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     760:	68 b6 40 00 00       	push   $0x40b6
+     765:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      76b:	e8 80 32 00 00       	call   39f0 <printf>
      770:	83 c4 10             	add    $0x10,%esp
      773:	8d 65 f8             	lea    -0x8(%ebp),%esp
@@ -538,44 +538,44 @@ Disassembly of section .text:
      779:	c3                   	ret    
      77a:	83 ec 04             	sub    $0x4,%esp
      77d:	53                   	push   %ebx
-     77e:	68 57 3f 00 00       	push   $0x3f57
-     783:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     77e:	68 3f 40 00 00       	push   $0x403f
+     783:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      789:	e8 62 32 00 00       	call   39f0 <printf>
      78e:	e8 0f 31 00 00       	call   38a2 <exit>
      793:	50                   	push   %eax
      794:	53                   	push   %ebx
-     795:	68 a8 4d 00 00       	push   $0x4da8
-     79a:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     795:	68 90 4e 00 00       	push   $0x4e90
+     79a:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      7a0:	e8 4b 32 00 00       	call   39f0 <printf>
      7a5:	e8 f8 30 00 00       	call   38a2 <exit>
      7aa:	83 ec 04             	sub    $0x4,%esp
      7ad:	50                   	push   %eax
-     7ae:	68 ab 3f 00 00       	push   $0x3fab
-     7b3:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     7ae:	68 93 40 00 00       	push   $0x4093
+     7b3:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      7b9:	e8 32 32 00 00       	call   39f0 <printf>
      7be:	e8 df 30 00 00       	call   38a2 <exit>
      7c3:	52                   	push   %edx
      7c4:	68 8b 00 00 00       	push   $0x8b
-     7c9:	68 8e 3f 00 00       	push   $0x3f8e
-     7ce:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     7c9:	68 76 40 00 00       	push   $0x4076
+     7ce:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      7d4:	e8 17 32 00 00       	call   39f0 <printf>
      7d9:	e8 c4 30 00 00       	call   38a2 <exit>
      7de:	51                   	push   %ecx
      7df:	51                   	push   %ecx
-     7e0:	68 75 3f 00 00       	push   $0x3f75
-     7e5:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     7e0:	68 5d 40 00 00       	push   $0x405d
+     7e5:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      7eb:	e8 00 32 00 00       	call   39f0 <printf>
      7f0:	e8 ad 30 00 00       	call   38a2 <exit>
      7f5:	50                   	push   %eax
      7f6:	50                   	push   %eax
-     7f7:	68 3d 3f 00 00       	push   $0x3f3d
-     7fc:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     7f7:	68 25 40 00 00       	push   $0x4025
+     7fc:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      802:	e8 e9 31 00 00       	call   39f0 <printf>
      807:	e8 96 30 00 00       	call   38a2 <exit>
      80c:	50                   	push   %eax
      80d:	50                   	push   %eax
-     80e:	68 bb 3f 00 00       	push   $0x3fbb
-     813:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     80e:	68 a3 40 00 00       	push   $0x40a3
+     813:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      819:	e8 d2 31 00 00       	call   39f0 <printf>
      81e:	e8 7f 30 00 00       	call   38a2 <exit>
      823:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
@@ -587,39 +587,39 @@ Disassembly of section .text:
      833:	53                   	push   %ebx
      834:	bb 30 00 00 00       	mov    $0x30,%ebx
      839:	83 ec 0c             	sub    $0xc,%esp
-     83c:	68 c8 4d 00 00       	push   $0x4dc8
-     841:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     83c:	68 b0 4e 00 00       	push   $0x4eb0
+     841:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      847:	e8 a4 31 00 00       	call   39f0 <printf>
-     84c:	c6 05 a0 a5 00 00 61 	movb   $0x61,0xa5a0
-     853:	c6 05 a2 a5 00 00 00 	movb   $0x0,0xa5a2
+     84c:	c6 05 20 a7 00 00 61 	movb   $0x61,0xa720
+     853:	c6 05 22 a7 00 00 00 	movb   $0x0,0xa722
      85a:	83 c4 10             	add    $0x10,%esp
      85d:	8d 76 00             	lea    0x0(%esi),%esi
      860:	83 ec 08             	sub    $0x8,%esp
-     863:	88 1d a1 a5 00 00    	mov    %bl,0xa5a1
+     863:	88 1d 21 a7 00 00    	mov    %bl,0xa721
      869:	83 c3 01             	add    $0x1,%ebx
      86c:	68 02 02 00 00       	push   $0x202
-     871:	68 a0 a5 00 00       	push   $0xa5a0
+     871:	68 20 a7 00 00       	push   $0xa720
      876:	e8 67 30 00 00       	call   38e2 <open>
      87b:	89 04 24             	mov    %eax,(%esp)
      87e:	e8 47 30 00 00       	call   38ca <close>
      883:	83 c4 10             	add    $0x10,%esp
      886:	80 fb 64             	cmp    $0x64,%bl
      889:	75 d5                	jne    860 <createtest+0x30>
-     88b:	c6 05 a0 a5 00 00 61 	movb   $0x61,0xa5a0
-     892:	c6 05 a2 a5 00 00 00 	movb   $0x0,0xa5a2
+     88b:	c6 05 20 a7 00 00 61 	movb   $0x61,0xa720
+     892:	c6 05 22 a7 00 00 00 	movb   $0x0,0xa722
      899:	bb 30 00 00 00       	mov    $0x30,%ebx
      89e:	66 90                	xchg   %ax,%ax
      8a0:	83 ec 0c             	sub    $0xc,%esp
-     8a3:	88 1d a1 a5 00 00    	mov    %bl,0xa5a1
+     8a3:	88 1d 21 a7 00 00    	mov    %bl,0xa721
      8a9:	83 c3 01             	add    $0x1,%ebx
-     8ac:	68 a0 a5 00 00       	push   $0xa5a0
+     8ac:	68 20 a7 00 00       	push   $0xa720
      8b1:	e8 3c 30 00 00       	call   38f2 <unlink>
      8b6:	83 c4 10             	add    $0x10,%esp
      8b9:	80 fb 64             	cmp    $0x64,%bl
      8bc:	75 e2                	jne    8a0 <createtest+0x70>
      8be:	83 ec 08             	sub    $0x8,%esp
-     8c1:	68 f0 4d 00 00       	push   $0x4df0
-     8c6:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     8c1:	68 d8 4e 00 00       	push   $0x4ed8
+     8c6:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      8cc:	e8 1f 31 00 00       	call   39f0 <printf>
      8d1:	83 c4 10             	add    $0x10,%esp
      8d4:	8b 5d fc             	mov    -0x4(%ebp),%ebx
@@ -631,61 +631,61 @@ Disassembly of section .text:
      8e0:	55                   	push   %ebp
      8e1:	89 e5                	mov    %esp,%ebp
      8e3:	83 ec 10             	sub    $0x10,%esp
-     8e6:	68 dc 3f 00 00       	push   $0x3fdc
-     8eb:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     8e6:	68 c4 40 00 00       	push   $0x40c4
+     8eb:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      8f1:	e8 fa 30 00 00       	call   39f0 <printf>
-     8f6:	c7 04 24 e8 3f 00 00 	movl   $0x3fe8,(%esp)
+     8f6:	c7 04 24 d0 40 00 00 	movl   $0x40d0,(%esp)
      8fd:	e8 08 30 00 00       	call   390a <mkdir>
      902:	83 c4 10             	add    $0x10,%esp
      905:	85 c0                	test   %eax,%eax
      907:	78 58                	js     961 <dirtest+0x81>
      909:	83 ec 0c             	sub    $0xc,%esp
-     90c:	68 e8 3f 00 00       	push   $0x3fe8
+     90c:	68 d0 40 00 00       	push   $0x40d0
      911:	e8 fc 2f 00 00       	call   3912 <chdir>
      916:	83 c4 10             	add    $0x10,%esp
      919:	85 c0                	test   %eax,%eax
      91b:	0f 88 85 00 00 00    	js     9a6 <dirtest+0xc6>
      921:	83 ec 0c             	sub    $0xc,%esp
-     924:	68 8d 45 00 00       	push   $0x458d
+     924:	68 75 46 00 00       	push   $0x4675
      929:	e8 e4 2f 00 00       	call   3912 <chdir>
      92e:	83 c4 10             	add    $0x10,%esp
      931:	85 c0                	test   %eax,%eax
      933:	78 5a                	js     98f <dirtest+0xaf>
      935:	83 ec 0c             	sub    $0xc,%esp
-     938:	68 e8 3f 00 00       	push   $0x3fe8
+     938:	68 d0 40 00 00       	push   $0x40d0
      93d:	e8 b0 2f 00 00       	call   38f2 <unlink>
      942:	83 c4 10             	add    $0x10,%esp
      945:	85 c0                	test   %eax,%eax
      947:	78 2f                	js     978 <dirtest+0x98>
      949:	83 ec 08             	sub    $0x8,%esp
-     94c:	68 25 40 00 00       	push   $0x4025
-     951:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     94c:	68 0d 41 00 00       	push   $0x410d
+     951:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      957:	e8 94 30 00 00       	call   39f0 <printf>
      95c:	83 c4 10             	add    $0x10,%esp
      95f:	c9                   	leave  
      960:	c3                   	ret    
      961:	50                   	push   %eax
      962:	50                   	push   %eax
-     963:	68 18 3d 00 00       	push   $0x3d18
-     968:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     963:	68 00 3e 00 00       	push   $0x3e00
+     968:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      96e:	e8 7d 30 00 00       	call   39f0 <printf>
      973:	e8 2a 2f 00 00       	call   38a2 <exit>
      978:	50                   	push   %eax
      979:	50                   	push   %eax
-     97a:	68 11 40 00 00       	push   $0x4011
-     97f:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     97a:	68 f9 40 00 00       	push   $0x40f9
+     97f:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      985:	e8 66 30 00 00       	call   39f0 <printf>
      98a:	e8 13 2f 00 00       	call   38a2 <exit>
      98f:	52                   	push   %edx
      990:	52                   	push   %edx
-     991:	68 00 40 00 00       	push   $0x4000
-     996:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     991:	68 e8 40 00 00       	push   $0x40e8
+     996:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      99c:	e8 4f 30 00 00       	call   39f0 <printf>
      9a1:	e8 fc 2e 00 00       	call   38a2 <exit>
      9a6:	51                   	push   %ecx
      9a7:	51                   	push   %ecx
-     9a8:	68 ed 3f 00 00       	push   $0x3fed
-     9ad:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     9a8:	68 d5 40 00 00       	push   $0x40d5
+     9ad:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      9b3:	e8 38 30 00 00       	call   39f0 <printf>
      9b8:	e8 e5 2e 00 00       	call   38a2 <exit>
      9bd:	8d 76 00             	lea    0x0(%esi),%esi
@@ -694,13 +694,13 @@ Disassembly of section .text:
      9c0:	55                   	push   %ebp
      9c1:	89 e5                	mov    %esp,%ebp
      9c3:	83 ec 10             	sub    $0x10,%esp
-     9c6:	68 34 40 00 00       	push   $0x4034
-     9cb:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     9c6:	68 1c 41 00 00       	push   $0x411c
+     9cb:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      9d1:	e8 1a 30 00 00       	call   39f0 <printf>
      9d6:	5a                   	pop    %edx
      9d7:	59                   	pop    %ecx
-     9d8:	68 cc 5d 00 00       	push   $0x5dcc
-     9dd:	68 fd 3d 00 00       	push   $0x3dfd
+     9d8:	68 40 5f 00 00       	push   $0x5f40
+     9dd:	68 e5 3e 00 00       	push   $0x3ee5
      9e2:	e8 f3 2e 00 00       	call   38da <exec>
      9e7:	83 c4 10             	add    $0x10,%esp
      9ea:	85 c0                	test   %eax,%eax
@@ -709,8 +709,8 @@ Disassembly of section .text:
      9ef:	c3                   	ret    
      9f0:	50                   	push   %eax
      9f1:	50                   	push   %eax
-     9f2:	68 3f 40 00 00       	push   $0x403f
-     9f7:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+     9f2:	68 27 41 00 00       	push   $0x4127
+     9f7:	ff 35 3c 5f 00 00    	pushl  0x5f3c
      9fd:	e8 ee 2f 00 00       	call   39f0 <printf>
      a02:	e8 9b 2e 00 00       	call   38a2 <exit>
      a07:	89 f6                	mov    %esi,%esi
@@ -742,7 +742,7 @@ Disassembly of section .text:
      a56:	c7 45 d4 00 00 00 00 	movl   $0x0,-0x2c(%ebp)
      a5d:	83 ec 04             	sub    $0x4,%esp
      a60:	57                   	push   %edi
-     a61:	68 a0 85 00 00       	push   $0x85a0
+     a61:	68 20 87 00 00       	push   $0x8720
      a66:	ff 75 e0             	pushl  -0x20(%ebp)
      a69:	e8 4c 2e 00 00       	call   38ba <read>
      a6e:	83 c4 10             	add    $0x10,%esp
@@ -751,7 +751,7 @@ Disassembly of section .text:
      a79:	89 d9                	mov    %ebx,%ecx
      a7b:	8d 34 18             	lea    (%eax,%ebx,1),%esi
      a7e:	f7 d9                	neg    %ecx
-     a80:	38 9c 0b a0 85 00 00 	cmp    %bl,0x85a0(%ebx,%ecx,1)
+     a80:	38 9c 0b 20 87 00 00 	cmp    %bl,0x8720(%ebx,%ecx,1)
      a87:	8d 53 01             	lea    0x1(%ebx),%edx
      a8a:	75 1b                	jne    aa7 <pipe1+0x97>
      a8c:	39 f2                	cmp    %esi,%edx
@@ -764,7 +764,7 @@ Disassembly of section .text:
      aa2:	0f 4f f8             	cmovg  %eax,%edi
      aa5:	eb b6                	jmp    a5d <pipe1+0x4d>
      aa7:	83 ec 08             	sub    $0x8,%esp
-     aaa:	68 6e 40 00 00       	push   $0x406e
+     aaa:	68 56 41 00 00       	push   $0x4156
      aaf:	6a 01                	push   $0x1
      ab1:	e8 3a 2f 00 00       	call   39f0 <printf>
      ab6:	83 c4 10             	add    $0x10,%esp
@@ -785,13 +785,13 @@ Disassembly of section .text:
      ada:	f7 d8                	neg    %eax
      adc:	29 da                	sub    %ebx,%edx
      ade:	66 90                	xchg   %ax,%ax
-     ae0:	88 84 03 a0 85 00 00 	mov    %al,0x85a0(%ebx,%eax,1)
+     ae0:	88 84 03 20 87 00 00 	mov    %al,0x8720(%ebx,%eax,1)
      ae7:	83 c0 01             	add    $0x1,%eax
      aea:	39 d0                	cmp    %edx,%eax
      aec:	75 f2                	jne    ae0 <pipe1+0xd0>
      aee:	83 ec 04             	sub    $0x4,%esp
      af1:	68 09 04 00 00       	push   $0x409
-     af6:	68 a0 85 00 00       	push   $0x85a0
+     af6:	68 20 87 00 00       	push   $0x8720
      afb:	ff 75 e4             	pushl  -0x1c(%ebp)
      afe:	e8 bf 2d 00 00       	call   38c2 <write>
      b03:	83 c4 10             	add    $0x10,%esp
@@ -809,7 +809,7 @@ Disassembly of section .text:
      b38:	e8 6d 2d 00 00       	call   38aa <wait>
      b3d:	5a                   	pop    %edx
      b3e:	59                   	pop    %ecx
-     b3f:	68 93 40 00 00       	push   $0x4093
+     b3f:	68 7b 41 00 00       	push   $0x417b
      b44:	6a 01                	push   $0x1
      b46:	e8 a5 2e 00 00       	call   39f0 <printf>
      b4b:	83 c4 10             	add    $0x10,%esp
@@ -821,25 +821,25 @@ Disassembly of section .text:
      b55:	c3                   	ret    
      b56:	53                   	push   %ebx
      b57:	ff 75 d4             	pushl  -0x2c(%ebp)
-     b5a:	68 7c 40 00 00       	push   $0x407c
+     b5a:	68 64 41 00 00       	push   $0x4164
      b5f:	6a 01                	push   $0x1
      b61:	e8 8a 2e 00 00       	call   39f0 <printf>
      b66:	e8 37 2d 00 00       	call   38a2 <exit>
      b6b:	57                   	push   %edi
      b6c:	57                   	push   %edi
-     b6d:	68 51 40 00 00       	push   $0x4051
+     b6d:	68 39 41 00 00       	push   $0x4139
      b72:	6a 01                	push   $0x1
      b74:	e8 77 2e 00 00       	call   39f0 <printf>
      b79:	e8 24 2d 00 00       	call   38a2 <exit>
      b7e:	50                   	push   %eax
      b7f:	50                   	push   %eax
-     b80:	68 9d 40 00 00       	push   $0x409d
+     b80:	68 85 41 00 00       	push   $0x4185
      b85:	6a 01                	push   $0x1
      b87:	e8 64 2e 00 00       	call   39f0 <printf>
      b8c:	e8 11 2d 00 00       	call   38a2 <exit>
      b91:	56                   	push   %esi
      b92:	56                   	push   %esi
-     b93:	68 60 40 00 00       	push   $0x4060
+     b93:	68 48 41 00 00       	push   $0x4148
      b98:	6a 01                	push   $0x1
      b9a:	e8 51 2e 00 00       	call   39f0 <printf>
      b9f:	e8 fe 2c 00 00       	call   38a2 <exit>
@@ -853,7 +853,7 @@ Disassembly of section .text:
      bb4:	56                   	push   %esi
      bb5:	53                   	push   %ebx
      bb6:	83 ec 24             	sub    $0x24,%esp
-     bb9:	68 ac 40 00 00       	push   $0x40ac
+     bb9:	68 94 41 00 00       	push   $0x4194
      bbe:	6a 01                	push   $0x1
      bc0:	e8 2b 2e 00 00       	call   39f0 <printf>
      bc5:	e8 d0 2c 00 00       	call   389a <fork>
@@ -881,7 +881,7 @@ Disassembly of section .text:
      c02:	e8 c3 2c 00 00       	call   38ca <close>
      c07:	83 c4 0c             	add    $0xc,%esp
      c0a:	6a 01                	push   $0x1
-     c0c:	68 71 46 00 00       	push   $0x4671
+     c0c:	68 59 47 00 00       	push   $0x4759
      c11:	ff 75 e4             	pushl  -0x1c(%ebp)
      c14:	e8 a9 2c 00 00       	call   38c2 <write>
      c19:	83 c4 10             	add    $0x10,%esp
@@ -889,7 +889,7 @@ Disassembly of section .text:
      c1f:	74 11                	je     c32 <preempt+0x82>
      c21:	50                   	push   %eax
      c22:	50                   	push   %eax
-     c23:	68 b6 40 00 00       	push   $0x40b6
+     c23:	68 9e 41 00 00       	push   $0x419e
      c28:	6a 01                	push   $0x1
      c2a:	e8 c1 2d 00 00       	call   39f0 <printf>
      c2f:	83 c4 10             	add    $0x10,%esp
@@ -903,7 +903,7 @@ Disassembly of section .text:
      c48:	e8 7d 2c 00 00       	call   38ca <close>
      c4d:	83 c4 0c             	add    $0xc,%esp
      c50:	68 00 20 00 00       	push   $0x2000
-     c55:	68 a0 85 00 00       	push   $0x85a0
+     c55:	68 20 87 00 00       	push   $0x8720
      c5a:	ff 75 e0             	pushl  -0x20(%ebp)
      c5d:	e8 58 2c 00 00       	call   38ba <read>
      c62:	83 c4 10             	add    $0x10,%esp
@@ -911,7 +911,7 @@ Disassembly of section .text:
      c68:	74 19                	je     c83 <preempt+0xd3>
      c6a:	50                   	push   %eax
      c6b:	50                   	push   %eax
-     c6c:	68 ca 40 00 00       	push   $0x40ca
+     c6c:	68 b2 41 00 00       	push   $0x41b2
      c71:	6a 01                	push   $0x1
      c73:	e8 78 2d 00 00       	call   39f0 <printf>
      c78:	83 c4 10             	add    $0x10,%esp
@@ -926,7 +926,7 @@ Disassembly of section .text:
      c89:	e8 3c 2c 00 00       	call   38ca <close>
      c8e:	58                   	pop    %eax
      c8f:	5a                   	pop    %edx
-     c90:	68 dd 40 00 00       	push   $0x40dd
+     c90:	68 c5 41 00 00       	push   $0x41c5
      c95:	6a 01                	push   $0x1
      c97:	e8 54 2d 00 00       	call   39f0 <printf>
      c9c:	89 3c 24             	mov    %edi,(%esp)
@@ -937,7 +937,7 @@ Disassembly of section .text:
      caf:	e8 1e 2c 00 00       	call   38d2 <kill>
      cb4:	59                   	pop    %ecx
      cb5:	5b                   	pop    %ebx
-     cb6:	68 e6 40 00 00       	push   $0x40e6
+     cb6:	68 ce 41 00 00       	push   $0x41ce
      cbb:	6a 01                	push   $0x1
      cbd:	e8 2e 2d 00 00       	call   39f0 <printf>
      cc2:	e8 e3 2b 00 00       	call   38aa <wait>
@@ -945,7 +945,7 @@ Disassembly of section .text:
      ccc:	e8 d9 2b 00 00       	call   38aa <wait>
      cd1:	5e                   	pop    %esi
      cd2:	5f                   	pop    %edi
-     cd3:	68 ef 40 00 00       	push   $0x40ef
+     cd3:	68 d7 41 00 00       	push   $0x41d7
      cd8:	6a 01                	push   $0x1
      cda:	e8 11 2d 00 00       	call   39f0 <printf>
      cdf:	83 c4 10             	add    $0x10,%esp
@@ -972,7 +972,7 @@ Disassembly of section .text:
      d17:	89 c3                	mov    %eax,%ebx
      d19:	79 e5                	jns    d00 <exitwait+0x10>
      d1b:	83 ec 08             	sub    $0x8,%esp
-     d1e:	68 59 4c 00 00       	push   $0x4c59
+     d1e:	68 41 4d 00 00       	push   $0x4d41
      d23:	6a 01                	push   $0x1
      d25:	e8 c6 2c 00 00       	call   39f0 <printf>
      d2a:	83 c4 10             	add    $0x10,%esp
@@ -983,7 +983,7 @@ Disassembly of section .text:
      d33:	c3                   	ret    
      d34:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
      d38:	83 ec 08             	sub    $0x8,%esp
-     d3b:	68 fb 40 00 00       	push   $0x40fb
+     d3b:	68 e3 41 00 00       	push   $0x41e3
      d40:	6a 01                	push   $0x1
      d42:	e8 a9 2c 00 00       	call   39f0 <printf>
      d47:	83 c4 10             	add    $0x10,%esp
@@ -994,7 +994,7 @@ Disassembly of section .text:
      d50:	c3                   	ret    
      d51:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
      d58:	83 ec 08             	sub    $0x8,%esp
-     d5b:	68 0b 41 00 00       	push   $0x410b
+     d5b:	68 f3 41 00 00       	push   $0x41f3
      d60:	6a 01                	push   $0x1
      d62:	e8 89 2c 00 00       	call   39f0 <printf>
      d67:	83 c4 10             	add    $0x10,%esp
@@ -1015,7 +1015,7 @@ Disassembly of section .text:
      d85:	53                   	push   %ebx
      d86:	31 db                	xor    %ebx,%ebx
      d88:	83 ec 14             	sub    $0x14,%esp
-     d8b:	68 18 41 00 00       	push   $0x4118
+     d8b:	68 00 42 00 00       	push   $0x4200
      d90:	6a 01                	push   $0x1
      d92:	e8 59 2c 00 00       	call   39f0 <printf>
      d97:	e8 86 2b 00 00       	call   3922 <getpid>
@@ -1030,7 +1030,7 @@ Disassembly of section .text:
      db2:	89 c3                	mov    %eax,%ebx
      db4:	83 ec 0c             	sub    $0xc,%esp
      db7:	68 11 27 00 00       	push   $0x2711
-     dbc:	e8 5f 2e 00 00       	call   3c20 <malloc>
+     dbc:	e8 bf 2e 00 00       	call   3c80 <malloc>
      dc1:	83 c4 10             	add    $0x10,%esp
      dc4:	85 c0                	test   %eax,%eax
      dc6:	75 e8                	jne    db0 <mem+0x30>
@@ -1047,7 +1047,7 @@ Disassembly of section .text:
      de2:	75 ec                	jne    dd0 <mem+0x50>
      de4:	83 ec 0c             	sub    $0xc,%esp
      de7:	68 00 50 00 00       	push   $0x5000
-     dec:	e8 2f 2e 00 00       	call   3c20 <malloc>
+     dec:	e8 8f 2e 00 00       	call   3c80 <malloc>
      df1:	83 c4 10             	add    $0x10,%esp
      df4:	85 c0                	test   %eax,%eax
      df6:	74 20                	je     e18 <mem+0x98>
@@ -1056,13 +1056,13 @@ Disassembly of section .text:
      dfc:	e8 8f 2d 00 00       	call   3b90 <free>
      e01:	58                   	pop    %eax
      e02:	5a                   	pop    %edx
-     e03:	68 3c 41 00 00       	push   $0x413c
+     e03:	68 24 42 00 00       	push   $0x4224
      e08:	6a 01                	push   $0x1
      e0a:	e8 e1 2b 00 00       	call   39f0 <printf>
      e0f:	e8 8e 2a 00 00       	call   38a2 <exit>
      e14:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
      e18:	83 ec 08             	sub    $0x8,%esp
-     e1b:	68 22 41 00 00       	push   $0x4122
+     e1b:	68 0a 42 00 00       	push   $0x420a
      e20:	6a 01                	push   $0x1
      e22:	e8 c9 2b 00 00       	call   39f0 <printf>
      e27:	89 34 24             	mov    %esi,(%esp)
@@ -1085,15 +1085,15 @@ Disassembly of section .text:
      e54:	56                   	push   %esi
      e55:	53                   	push   %ebx
      e56:	83 ec 34             	sub    $0x34,%esp
-     e59:	68 44 41 00 00       	push   $0x4144
+     e59:	68 2c 42 00 00       	push   $0x422c
      e5e:	6a 01                	push   $0x1
      e60:	e8 8b 2b 00 00       	call   39f0 <printf>
-     e65:	c7 04 24 53 41 00 00 	movl   $0x4153,(%esp)
+     e65:	c7 04 24 3b 42 00 00 	movl   $0x423b,(%esp)
      e6c:	e8 81 2a 00 00       	call   38f2 <unlink>
      e71:	59                   	pop    %ecx
      e72:	5b                   	pop    %ebx
      e73:	68 02 02 00 00       	push   $0x202
-     e78:	68 53 41 00 00       	push   $0x4153
+     e78:	68 3b 42 00 00       	push   $0x423b
      e7d:	e8 60 2a 00 00       	call   38e2 <open>
      e82:	83 c4 10             	add    $0x10,%esp
      e85:	85 c0                	test   %eax,%eax
@@ -1127,7 +1127,7 @@ Disassembly of section .text:
      ed7:	83 f8 0a             	cmp    $0xa,%eax
      eda:	74 e4                	je     ec0 <sharedfd+0x70>
      edc:	83 ec 08             	sub    $0x8,%esp
-     edf:	68 44 4e 00 00       	push   $0x4e44
+     edf:	68 2c 4f 00 00       	push   $0x4f2c
      ee4:	6a 01                	push   $0x1
      ee6:	e8 05 2b 00 00       	call   39f0 <printf>
      eeb:	83 c4 10             	add    $0x10,%esp
@@ -1143,7 +1143,7 @@ Disassembly of section .text:
      f0b:	58                   	pop    %eax
      f0c:	5a                   	pop    %edx
      f0d:	6a 00                	push   $0x0
-     f0f:	68 53 41 00 00       	push   $0x4153
+     f0f:	68 3b 42 00 00       	push   $0x423b
      f14:	e8 c9 29 00 00       	call   38e2 <open>
      f19:	83 c4 10             	add    $0x10,%esp
      f1c:	85 c0                	test   %eax,%eax
@@ -1184,7 +1184,7 @@ Disassembly of section .text:
      f78:	89 fb                	mov    %edi,%ebx
      f7a:	89 c7                	mov    %eax,%edi
      f7c:	e8 49 29 00 00       	call   38ca <close>
-     f81:	c7 04 24 53 41 00 00 	movl   $0x4153,(%esp)
+     f81:	c7 04 24 3b 42 00 00 	movl   $0x423b,(%esp)
      f88:	e8 65 29 00 00       	call   38f2 <unlink>
      f8d:	83 c4 10             	add    $0x10,%esp
      f90:	81 ff 10 27 00 00    	cmp    $0x2710,%edi
@@ -1192,7 +1192,7 @@ Disassembly of section .text:
      f98:	81 fb 10 27 00 00    	cmp    $0x2710,%ebx
      f9e:	75 59                	jne    ff9 <sharedfd+0x1a9>
      fa0:	83 ec 08             	sub    $0x8,%esp
-     fa3:	68 5c 41 00 00       	push   $0x415c
+     fa3:	68 44 42 00 00       	push   $0x4244
      fa8:	6a 01                	push   $0x1
      faa:	e8 41 2a 00 00       	call   39f0 <printf>
      faf:	83 c4 10             	add    $0x10,%esp
@@ -1204,7 +1204,7 @@ Disassembly of section .text:
      fb9:	c3                   	ret    
      fba:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
      fc0:	83 ec 08             	sub    $0x8,%esp
-     fc3:	68 18 4e 00 00       	push   $0x4e18
+     fc3:	68 00 4f 00 00       	push   $0x4f00
      fc8:	6a 01                	push   $0x1
      fca:	e8 21 2a 00 00       	call   39f0 <printf>
      fcf:	83 c4 10             	add    $0x10,%esp
@@ -1215,7 +1215,7 @@ Disassembly of section .text:
      fd8:	5d                   	pop    %ebp
      fd9:	c3                   	ret    
      fda:	83 ec 08             	sub    $0x8,%esp
-     fdd:	68 64 4e 00 00       	push   $0x4e64
+     fdd:	68 4c 4f 00 00       	push   $0x4f4c
      fe2:	6a 01                	push   $0x1
      fe4:	e8 07 2a 00 00       	call   39f0 <printf>
      fe9:	83 c4 10             	add    $0x10,%esp
@@ -1228,7 +1228,7 @@ Disassembly of section .text:
      ff4:	e8 a9 28 00 00       	call   38a2 <exit>
      ff9:	53                   	push   %ebx
      ffa:	57                   	push   %edi
-     ffb:	68 69 41 00 00       	push   $0x4169
+     ffb:	68 51 42 00 00       	push   $0x4251
     1000:	6a 01                	push   $0x1
     1002:	e8 e9 29 00 00       	call   39f0 <printf>
     1007:	e8 96 28 00 00       	call   38a2 <exit>
@@ -1240,15 +1240,15 @@ Disassembly of section .text:
     1013:	57                   	push   %edi
     1014:	56                   	push   %esi
     1015:	53                   	push   %ebx
-    1016:	be 7e 41 00 00       	mov    $0x417e,%esi
+    1016:	be 66 42 00 00       	mov    $0x4266,%esi
     101b:	31 db                	xor    %ebx,%ebx
     101d:	83 ec 34             	sub    $0x34,%esp
-    1020:	c7 45 d8 7e 41 00 00 	movl   $0x417e,-0x28(%ebp)
-    1027:	c7 45 dc c7 42 00 00 	movl   $0x42c7,-0x24(%ebp)
-    102e:	68 84 41 00 00       	push   $0x4184
+    1020:	c7 45 d8 66 42 00 00 	movl   $0x4266,-0x28(%ebp)
+    1027:	c7 45 dc af 43 00 00 	movl   $0x43af,-0x24(%ebp)
+    102e:	68 6c 42 00 00       	push   $0x426c
     1033:	6a 01                	push   $0x1
-    1035:	c7 45 e0 cb 42 00 00 	movl   $0x42cb,-0x20(%ebp)
-    103c:	c7 45 e4 81 41 00 00 	movl   $0x4181,-0x1c(%ebp)
+    1035:	c7 45 e0 b3 43 00 00 	movl   $0x43b3,-0x20(%ebp)
+    103c:	c7 45 e4 69 42 00 00 	movl   $0x4269,-0x1c(%ebp)
     1043:	e8 a8 29 00 00       	call   39f0 <printf>
     1048:	83 c4 10             	add    $0x10,%esp
     104b:	83 ec 0c             	sub    $0xc,%esp
@@ -1269,7 +1269,7 @@ Disassembly of section .text:
     107f:	e8 26 28 00 00       	call   38aa <wait>
     1084:	e8 21 28 00 00       	call   38aa <wait>
     1089:	e8 1c 28 00 00       	call   38aa <wait>
-    108e:	c7 45 d0 7e 41 00 00 	movl   $0x417e,-0x30(%ebp)
+    108e:	c7 45 d0 66 42 00 00 	movl   $0x4266,-0x30(%ebp)
     1095:	83 ec 08             	sub    $0x8,%esp
     1098:	31 db                	xor    %ebx,%ebx
     109a:	6a 00                	push   $0x0
@@ -1280,7 +1280,7 @@ Disassembly of section .text:
     10aa:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
     10b0:	83 ec 04             	sub    $0x4,%esp
     10b3:	68 00 20 00 00       	push   $0x2000
-    10b8:	68 a0 85 00 00       	push   $0x85a0
+    10b8:	68 20 87 00 00       	push   $0x8720
     10bd:	ff 75 d4             	pushl  -0x2c(%ebp)
     10c0:	e8 f5 27 00 00       	call   38ba <read>
     10c5:	83 c4 10             	add    $0x10,%esp
@@ -1288,7 +1288,7 @@ Disassembly of section .text:
     10ca:	7e 26                	jle    10f2 <fourfiles+0xe2>
     10cc:	31 d2                	xor    %edx,%edx
     10ce:	66 90                	xchg   %ax,%ax
-    10d0:	0f be b2 a0 85 00 00 	movsbl 0x85a0(%edx),%esi
+    10d0:	0f be b2 20 87 00 00 	movsbl 0x8720(%edx),%esi
     10d7:	83 ff 01             	cmp    $0x1,%edi
     10da:	19 c9                	sbb    %ecx,%ecx
     10dc:	83 c1 31             	add    $0x31,%ecx
@@ -1312,7 +1312,7 @@ Disassembly of section .text:
     111a:	83 ff 01             	cmp    $0x1,%edi
     111d:	75 1a                	jne    1139 <fourfiles+0x129>
     111f:	83 ec 08             	sub    $0x8,%esp
-    1122:	68 c2 41 00 00       	push   $0x41c2
+    1122:	68 aa 42 00 00       	push   $0x42aa
     1127:	6a 01                	push   $0x1
     1129:	e8 c2 28 00 00       	call   39f0 <printf>
     112e:	83 c4 10             	add    $0x10,%esp
@@ -1339,12 +1339,12 @@ Disassembly of section .text:
     1166:	68 00 02 00 00       	push   $0x200
     116b:	53                   	push   %ebx
     116c:	bb 0c 00 00 00       	mov    $0xc,%ebx
-    1171:	68 a0 85 00 00       	push   $0x85a0
+    1171:	68 20 87 00 00       	push   $0x8720
     1176:	e8 85 25 00 00       	call   3700 <memset>
     117b:	83 c4 10             	add    $0x10,%esp
     117e:	83 ec 04             	sub    $0x4,%esp
     1181:	68 f4 01 00 00       	push   $0x1f4
-    1186:	68 a0 85 00 00       	push   $0x85a0
+    1186:	68 20 87 00 00       	push   $0x8720
     118b:	56                   	push   %esi
     118c:	e8 31 27 00 00       	call   38c2 <write>
     1191:	83 c4 10             	add    $0x10,%esp
@@ -1354,31 +1354,31 @@ Disassembly of section .text:
     119e:	75 de                	jne    117e <fourfiles+0x16e>
     11a0:	e8 fd 26 00 00       	call   38a2 <exit>
     11a5:	83 ec 08             	sub    $0x8,%esp
-    11a8:	68 a5 41 00 00       	push   $0x41a5
+    11a8:	68 8d 42 00 00       	push   $0x428d
     11ad:	6a 01                	push   $0x1
     11af:	e8 3c 28 00 00       	call   39f0 <printf>
     11b4:	e8 e9 26 00 00       	call   38a2 <exit>
     11b9:	51                   	push   %ecx
     11ba:	51                   	push   %ecx
-    11bb:	68 1f 44 00 00       	push   $0x441f
+    11bb:	68 07 45 00 00       	push   $0x4507
     11c0:	6a 01                	push   $0x1
     11c2:	e8 29 28 00 00       	call   39f0 <printf>
     11c7:	e8 d6 26 00 00       	call   38a2 <exit>
     11cc:	53                   	push   %ebx
     11cd:	53                   	push   %ebx
-    11ce:	68 59 4c 00 00       	push   $0x4c59
+    11ce:	68 41 4d 00 00       	push   $0x4d41
     11d3:	6a 01                	push   $0x1
     11d5:	e8 16 28 00 00       	call   39f0 <printf>
     11da:	e8 c3 26 00 00       	call   38a2 <exit>
     11df:	50                   	push   %eax
     11e0:	53                   	push   %ebx
-    11e1:	68 b1 41 00 00       	push   $0x41b1
+    11e1:	68 99 42 00 00       	push   $0x4299
     11e6:	6a 01                	push   $0x1
     11e8:	e8 03 28 00 00       	call   39f0 <printf>
     11ed:	e8 b0 26 00 00       	call   38a2 <exit>
     11f2:	52                   	push   %edx
     11f3:	50                   	push   %eax
-    11f4:	68 94 41 00 00       	push   $0x4194
+    11f4:	68 7c 42 00 00       	push   $0x427c
     11f9:	6a 01                	push   $0x1
     11fb:	e8 f0 27 00 00       	call   39f0 <printf>
     1200:	e8 9d 26 00 00       	call   38a2 <exit>
@@ -1393,7 +1393,7 @@ Disassembly of section .text:
     1215:	53                   	push   %ebx
     1216:	31 db                	xor    %ebx,%ebx
     1218:	83 ec 44             	sub    $0x44,%esp
-    121b:	68 d0 41 00 00       	push   $0x41d0
+    121b:	68 b8 42 00 00       	push   $0x42b8
     1220:	6a 01                	push   $0x1
     1222:	e8 c9 27 00 00       	call   39f0 <printf>
     1227:	83 c4 10             	add    $0x10,%esp
@@ -1467,7 +1467,7 @@ Disassembly of section .text:
     130d:	3c 84                	cmp    $0x84,%al
     130f:	75 cf                	jne    12e0 <createdelete+0xd0>
     1311:	83 ec 08             	sub    $0x8,%esp
-    1314:	68 e3 41 00 00       	push   $0x41e3
+    1314:	68 cb 42 00 00       	push   $0x42cb
     1319:	6a 01                	push   $0x1
     131b:	e8 d0 26 00 00       	call   39f0 <printf>
     1320:	8d 65 f4             	lea    -0xc(%ebp),%esp
@@ -1523,7 +1523,7 @@ Disassembly of section .text:
     13b0:	79 ae                	jns    1360 <createdelete+0x150>
     13b2:	52                   	push   %edx
     13b3:	52                   	push   %edx
-    13b4:	68 d1 3d 00 00       	push   $0x3dd1
+    13b4:	68 b9 3e 00 00       	push   $0x3eb9
     13b9:	6a 01                	push   $0x1
     13bb:	e8 30 26 00 00       	call   39f0 <printf>
     13c0:	e8 dd 24 00 00       	call   38a2 <exit>
@@ -1531,19 +1531,19 @@ Disassembly of section .text:
     13c8:	e8 d5 24 00 00       	call   38a2 <exit>
     13cd:	83 ec 04             	sub    $0x4,%esp
     13d0:	57                   	push   %edi
-    13d1:	68 90 4e 00 00       	push   $0x4e90
+    13d1:	68 78 4f 00 00       	push   $0x4f78
     13d6:	6a 01                	push   $0x1
     13d8:	e8 13 26 00 00       	call   39f0 <printf>
     13dd:	e8 c0 24 00 00       	call   38a2 <exit>
     13e2:	51                   	push   %ecx
     13e3:	51                   	push   %ecx
-    13e4:	68 1f 44 00 00       	push   $0x441f
+    13e4:	68 07 45 00 00       	push   $0x4507
     13e9:	6a 01                	push   $0x1
     13eb:	e8 00 26 00 00       	call   39f0 <printf>
     13f0:	e8 ad 24 00 00       	call   38a2 <exit>
     13f5:	53                   	push   %ebx
     13f6:	53                   	push   %ebx
-    13f7:	68 59 4c 00 00       	push   $0x4c59
+    13f7:	68 41 4d 00 00       	push   $0x4d41
     13fc:	6a 01                	push   $0x1
     13fe:	e8 ed 25 00 00       	call   39f0 <printf>
     1403:	e8 9a 24 00 00       	call   38a2 <exit>
@@ -1551,7 +1551,7 @@ Disassembly of section .text:
     140a:	0f 88 b8 fe ff ff    	js     12c8 <createdelete+0xb8>
     1410:	50                   	push   %eax
     1411:	57                   	push   %edi
-    1412:	68 b4 4e 00 00       	push   $0x4eb4
+    1412:	68 9c 4f 00 00       	push   $0x4f9c
     1417:	6a 01                	push   $0x1
     1419:	e8 d2 25 00 00       	call   39f0 <printf>
     141e:	e8 7f 24 00 00       	call   38a2 <exit>
@@ -1564,13 +1564,13 @@ Disassembly of section .text:
     1433:	56                   	push   %esi
     1434:	53                   	push   %ebx
     1435:	83 ec 08             	sub    $0x8,%esp
-    1438:	68 f4 41 00 00       	push   $0x41f4
+    1438:	68 dc 42 00 00       	push   $0x42dc
     143d:	6a 01                	push   $0x1
     143f:	e8 ac 25 00 00       	call   39f0 <printf>
     1444:	5b                   	pop    %ebx
     1445:	5e                   	pop    %esi
     1446:	68 02 02 00 00       	push   $0x202
-    144b:	68 05 42 00 00       	push   $0x4205
+    144b:	68 ed 42 00 00       	push   $0x42ed
     1450:	e8 8d 24 00 00       	call   38e2 <open>
     1455:	83 c4 10             	add    $0x10,%esp
     1458:	85 c0                	test   %eax,%eax
@@ -1578,7 +1578,7 @@ Disassembly of section .text:
     1460:	83 ec 04             	sub    $0x4,%esp
     1463:	89 c3                	mov    %eax,%ebx
     1465:	6a 05                	push   $0x5
-    1467:	68 2a 42 00 00       	push   $0x422a
+    1467:	68 12 43 00 00       	push   $0x4312
     146c:	50                   	push   %eax
     146d:	e8 50 24 00 00       	call   38c2 <write>
     1472:	89 1c 24             	mov    %ebx,(%esp)
@@ -1586,43 +1586,43 @@ Disassembly of section .text:
     147a:	58                   	pop    %eax
     147b:	5a                   	pop    %edx
     147c:	6a 02                	push   $0x2
-    147e:	68 05 42 00 00       	push   $0x4205
+    147e:	68 ed 42 00 00       	push   $0x42ed
     1483:	e8 5a 24 00 00       	call   38e2 <open>
     1488:	83 c4 10             	add    $0x10,%esp
     148b:	85 c0                	test   %eax,%eax
     148d:	89 c3                	mov    %eax,%ebx
     148f:	0f 88 10 01 00 00    	js     15a5 <unlinkread+0x175>
     1495:	83 ec 0c             	sub    $0xc,%esp
-    1498:	68 05 42 00 00       	push   $0x4205
+    1498:	68 ed 42 00 00       	push   $0x42ed
     149d:	e8 50 24 00 00       	call   38f2 <unlink>
     14a2:	83 c4 10             	add    $0x10,%esp
     14a5:	85 c0                	test   %eax,%eax
     14a7:	0f 85 e5 00 00 00    	jne    1592 <unlinkread+0x162>
     14ad:	83 ec 08             	sub    $0x8,%esp
     14b0:	68 02 02 00 00       	push   $0x202
-    14b5:	68 05 42 00 00       	push   $0x4205
+    14b5:	68 ed 42 00 00       	push   $0x42ed
     14ba:	e8 23 24 00 00       	call   38e2 <open>
     14bf:	83 c4 0c             	add    $0xc,%esp
     14c2:	89 c6                	mov    %eax,%esi
     14c4:	6a 03                	push   $0x3
-    14c6:	68 62 42 00 00       	push   $0x4262
+    14c6:	68 4a 43 00 00       	push   $0x434a
     14cb:	50                   	push   %eax
     14cc:	e8 f1 23 00 00       	call   38c2 <write>
     14d1:	89 34 24             	mov    %esi,(%esp)
     14d4:	e8 f1 23 00 00       	call   38ca <close>
     14d9:	83 c4 0c             	add    $0xc,%esp
     14dc:	68 00 20 00 00       	push   $0x2000
-    14e1:	68 a0 85 00 00       	push   $0x85a0
+    14e1:	68 20 87 00 00       	push   $0x8720
     14e6:	53                   	push   %ebx
     14e7:	e8 ce 23 00 00       	call   38ba <read>
     14ec:	83 c4 10             	add    $0x10,%esp
     14ef:	83 f8 05             	cmp    $0x5,%eax
     14f2:	0f 85 87 00 00 00    	jne    157f <unlinkread+0x14f>
-    14f8:	80 3d a0 85 00 00 68 	cmpb   $0x68,0x85a0
+    14f8:	80 3d 20 87 00 00 68 	cmpb   $0x68,0x8720
     14ff:	75 6b                	jne    156c <unlinkread+0x13c>
     1501:	83 ec 04             	sub    $0x4,%esp
     1504:	6a 0a                	push   $0xa
-    1506:	68 a0 85 00 00       	push   $0x85a0
+    1506:	68 20 87 00 00       	push   $0x8720
     150b:	53                   	push   %ebx
     150c:	e8 b1 23 00 00       	call   38c2 <write>
     1511:	83 c4 10             	add    $0x10,%esp
@@ -1631,11 +1631,11 @@ Disassembly of section .text:
     1519:	83 ec 0c             	sub    $0xc,%esp
     151c:	53                   	push   %ebx
     151d:	e8 a8 23 00 00       	call   38ca <close>
-    1522:	c7 04 24 05 42 00 00 	movl   $0x4205,(%esp)
+    1522:	c7 04 24 ed 42 00 00 	movl   $0x42ed,(%esp)
     1529:	e8 c4 23 00 00       	call   38f2 <unlink>
     152e:	58                   	pop    %eax
     152f:	5a                   	pop    %edx
-    1530:	68 ad 42 00 00       	push   $0x42ad
+    1530:	68 95 43 00 00       	push   $0x4395
     1535:	6a 01                	push   $0x1
     1537:	e8 b4 24 00 00       	call   39f0 <printf>
     153c:	83 c4 10             	add    $0x10,%esp
@@ -1646,37 +1646,37 @@ Disassembly of section .text:
     1545:	c3                   	ret    
     1546:	51                   	push   %ecx
     1547:	51                   	push   %ecx
-    1548:	68 10 42 00 00       	push   $0x4210
+    1548:	68 f8 42 00 00       	push   $0x42f8
     154d:	6a 01                	push   $0x1
     154f:	e8 9c 24 00 00       	call   39f0 <printf>
     1554:	e8 49 23 00 00       	call   38a2 <exit>
     1559:	51                   	push   %ecx
     155a:	51                   	push   %ecx
-    155b:	68 94 42 00 00       	push   $0x4294
+    155b:	68 7c 43 00 00       	push   $0x437c
     1560:	6a 01                	push   $0x1
     1562:	e8 89 24 00 00       	call   39f0 <printf>
     1567:	e8 36 23 00 00       	call   38a2 <exit>
     156c:	53                   	push   %ebx
     156d:	53                   	push   %ebx
-    156e:	68 7d 42 00 00       	push   $0x427d
+    156e:	68 65 43 00 00       	push   $0x4365
     1573:	6a 01                	push   $0x1
     1575:	e8 76 24 00 00       	call   39f0 <printf>
     157a:	e8 23 23 00 00       	call   38a2 <exit>
     157f:	56                   	push   %esi
     1580:	56                   	push   %esi
-    1581:	68 66 42 00 00       	push   $0x4266
+    1581:	68 4e 43 00 00       	push   $0x434e
     1586:	6a 01                	push   $0x1
     1588:	e8 63 24 00 00       	call   39f0 <printf>
     158d:	e8 10 23 00 00       	call   38a2 <exit>
     1592:	50                   	push   %eax
     1593:	50                   	push   %eax
-    1594:	68 48 42 00 00       	push   $0x4248
+    1594:	68 30 43 00 00       	push   $0x4330
     1599:	6a 01                	push   $0x1
     159b:	e8 50 24 00 00       	call   39f0 <printf>
     15a0:	e8 fd 22 00 00       	call   38a2 <exit>
     15a5:	50                   	push   %eax
     15a6:	50                   	push   %eax
-    15a7:	68 30 42 00 00       	push   $0x4230
+    15a7:	68 18 43 00 00       	push   $0x4318
     15ac:	6a 01                	push   $0x1
     15ae:	e8 3d 24 00 00       	call   39f0 <printf>
     15b3:	e8 ea 22 00 00       	call   38a2 <exit>
@@ -1688,17 +1688,17 @@ Disassembly of section .text:
     15c1:	89 e5                	mov    %esp,%ebp
     15c3:	53                   	push   %ebx
     15c4:	83 ec 0c             	sub    $0xc,%esp
-    15c7:	68 bc 42 00 00       	push   $0x42bc
+    15c7:	68 a4 43 00 00       	push   $0x43a4
     15cc:	6a 01                	push   $0x1
     15ce:	e8 1d 24 00 00       	call   39f0 <printf>
-    15d3:	c7 04 24 c6 42 00 00 	movl   $0x42c6,(%esp)
+    15d3:	c7 04 24 ae 43 00 00 	movl   $0x43ae,(%esp)
     15da:	e8 13 23 00 00       	call   38f2 <unlink>
-    15df:	c7 04 24 ca 42 00 00 	movl   $0x42ca,(%esp)
+    15df:	c7 04 24 b2 43 00 00 	movl   $0x43b2,(%esp)
     15e6:	e8 07 23 00 00       	call   38f2 <unlink>
     15eb:	58                   	pop    %eax
     15ec:	5a                   	pop    %edx
     15ed:	68 02 02 00 00       	push   $0x202
-    15f2:	68 c6 42 00 00       	push   $0x42c6
+    15f2:	68 ae 43 00 00       	push   $0x43ae
     15f7:	e8 e6 22 00 00       	call   38e2 <open>
     15fc:	83 c4 10             	add    $0x10,%esp
     15ff:	85 c0                	test   %eax,%eax
@@ -1706,7 +1706,7 @@ Disassembly of section .text:
     1607:	83 ec 04             	sub    $0x4,%esp
     160a:	89 c3                	mov    %eax,%ebx
     160c:	6a 05                	push   $0x5
-    160e:	68 2a 42 00 00       	push   $0x422a
+    160e:	68 12 43 00 00       	push   $0x4312
     1613:	50                   	push   %eax
     1614:	e8 a9 22 00 00       	call   38c2 <write>
     1619:	83 c4 10             	add    $0x10,%esp
@@ -1717,26 +1717,26 @@ Disassembly of section .text:
     1629:	e8 9c 22 00 00       	call   38ca <close>
     162e:	5b                   	pop    %ebx
     162f:	58                   	pop    %eax
-    1630:	68 ca 42 00 00       	push   $0x42ca
-    1635:	68 c6 42 00 00       	push   $0x42c6
+    1630:	68 b2 43 00 00       	push   $0x43b2
+    1635:	68 ae 43 00 00       	push   $0x43ae
     163a:	e8 c3 22 00 00       	call   3902 <link>
     163f:	83 c4 10             	add    $0x10,%esp
     1642:	85 c0                	test   %eax,%eax
     1644:	0f 88 60 01 00 00    	js     17aa <linktest+0x1ea>
     164a:	83 ec 0c             	sub    $0xc,%esp
-    164d:	68 c6 42 00 00       	push   $0x42c6
+    164d:	68 ae 43 00 00       	push   $0x43ae
     1652:	e8 9b 22 00 00       	call   38f2 <unlink>
     1657:	58                   	pop    %eax
     1658:	5a                   	pop    %edx
     1659:	6a 00                	push   $0x0
-    165b:	68 c6 42 00 00       	push   $0x42c6
+    165b:	68 ae 43 00 00       	push   $0x43ae
     1660:	e8 7d 22 00 00       	call   38e2 <open>
     1665:	83 c4 10             	add    $0x10,%esp
     1668:	85 c0                	test   %eax,%eax
     166a:	0f 89 27 01 00 00    	jns    1797 <linktest+0x1d7>
     1670:	83 ec 08             	sub    $0x8,%esp
     1673:	6a 00                	push   $0x0
-    1675:	68 ca 42 00 00       	push   $0x42ca
+    1675:	68 b2 43 00 00       	push   $0x43b2
     167a:	e8 63 22 00 00       	call   38e2 <open>
     167f:	83 c4 10             	add    $0x10,%esp
     1682:	85 c0                	test   %eax,%eax
@@ -1744,7 +1744,7 @@ Disassembly of section .text:
     1686:	0f 88 f8 00 00 00    	js     1784 <linktest+0x1c4>
     168c:	83 ec 04             	sub    $0x4,%esp
     168f:	68 00 20 00 00       	push   $0x2000
-    1694:	68 a0 85 00 00       	push   $0x85a0
+    1694:	68 20 87 00 00       	push   $0x8720
     1699:	50                   	push   %eax
     169a:	e8 1b 22 00 00       	call   38ba <read>
     169f:	83 c4 10             	add    $0x10,%esp
@@ -1755,32 +1755,32 @@ Disassembly of section .text:
     16af:	e8 16 22 00 00       	call   38ca <close>
     16b4:	58                   	pop    %eax
     16b5:	5a                   	pop    %edx
-    16b6:	68 ca 42 00 00       	push   $0x42ca
-    16bb:	68 ca 42 00 00       	push   $0x42ca
+    16b6:	68 b2 43 00 00       	push   $0x43b2
+    16bb:	68 b2 43 00 00       	push   $0x43b2
     16c0:	e8 3d 22 00 00       	call   3902 <link>
     16c5:	83 c4 10             	add    $0x10,%esp
     16c8:	85 c0                	test   %eax,%eax
     16ca:	0f 89 8e 00 00 00    	jns    175e <linktest+0x19e>
     16d0:	83 ec 0c             	sub    $0xc,%esp
-    16d3:	68 ca 42 00 00       	push   $0x42ca
+    16d3:	68 b2 43 00 00       	push   $0x43b2
     16d8:	e8 15 22 00 00       	call   38f2 <unlink>
     16dd:	59                   	pop    %ecx
     16de:	5b                   	pop    %ebx
-    16df:	68 c6 42 00 00       	push   $0x42c6
-    16e4:	68 ca 42 00 00       	push   $0x42ca
+    16df:	68 ae 43 00 00       	push   $0x43ae
+    16e4:	68 b2 43 00 00       	push   $0x43b2
     16e9:	e8 14 22 00 00       	call   3902 <link>
     16ee:	83 c4 10             	add    $0x10,%esp
     16f1:	85 c0                	test   %eax,%eax
     16f3:	79 56                	jns    174b <linktest+0x18b>
     16f5:	83 ec 08             	sub    $0x8,%esp
-    16f8:	68 c6 42 00 00       	push   $0x42c6
-    16fd:	68 8e 45 00 00       	push   $0x458e
+    16f8:	68 ae 43 00 00       	push   $0x43ae
+    16fd:	68 76 46 00 00       	push   $0x4676
     1702:	e8 fb 21 00 00       	call   3902 <link>
     1707:	83 c4 10             	add    $0x10,%esp
     170a:	85 c0                	test   %eax,%eax
     170c:	79 2a                	jns    1738 <linktest+0x178>
     170e:	83 ec 08             	sub    $0x8,%esp
-    1711:	68 64 43 00 00       	push   $0x4364
+    1711:	68 4c 44 00 00       	push   $0x444c
     1716:	6a 01                	push   $0x1
     1718:	e8 d3 22 00 00       	call   39f0 <printf>
     171d:	83 c4 10             	add    $0x10,%esp
@@ -1789,55 +1789,55 @@ Disassembly of section .text:
     1724:	c3                   	ret    
     1725:	50                   	push   %eax
     1726:	50                   	push   %eax
-    1727:	68 ce 42 00 00       	push   $0x42ce
+    1727:	68 b6 43 00 00       	push   $0x43b6
     172c:	6a 01                	push   $0x1
     172e:	e8 bd 22 00 00       	call   39f0 <printf>
     1733:	e8 6a 21 00 00       	call   38a2 <exit>
     1738:	50                   	push   %eax
     1739:	50                   	push   %eax
-    173a:	68 48 43 00 00       	push   $0x4348
+    173a:	68 30 44 00 00       	push   $0x4430
     173f:	6a 01                	push   $0x1
     1741:	e8 aa 22 00 00       	call   39f0 <printf>
     1746:	e8 57 21 00 00       	call   38a2 <exit>
     174b:	52                   	push   %edx
     174c:	52                   	push   %edx
-    174d:	68 fc 4e 00 00       	push   $0x4efc
+    174d:	68 e4 4f 00 00       	push   $0x4fe4
     1752:	6a 01                	push   $0x1
     1754:	e8 97 22 00 00       	call   39f0 <printf>
     1759:	e8 44 21 00 00       	call   38a2 <exit>
     175e:	50                   	push   %eax
     175f:	50                   	push   %eax
-    1760:	68 2a 43 00 00       	push   $0x432a
+    1760:	68 12 44 00 00       	push   $0x4412
     1765:	6a 01                	push   $0x1
     1767:	e8 84 22 00 00       	call   39f0 <printf>
     176c:	e8 31 21 00 00       	call   38a2 <exit>
     1771:	51                   	push   %ecx
     1772:	51                   	push   %ecx
-    1773:	68 19 43 00 00       	push   $0x4319
+    1773:	68 01 44 00 00       	push   $0x4401
     1778:	6a 01                	push   $0x1
     177a:	e8 71 22 00 00       	call   39f0 <printf>
     177f:	e8 1e 21 00 00       	call   38a2 <exit>
     1784:	53                   	push   %ebx
     1785:	53                   	push   %ebx
-    1786:	68 08 43 00 00       	push   $0x4308
+    1786:	68 f0 43 00 00       	push   $0x43f0
     178b:	6a 01                	push   $0x1
     178d:	e8 5e 22 00 00       	call   39f0 <printf>
     1792:	e8 0b 21 00 00       	call   38a2 <exit>
     1797:	50                   	push   %eax
     1798:	50                   	push   %eax
-    1799:	68 d4 4e 00 00       	push   $0x4ed4
+    1799:	68 bc 4f 00 00       	push   $0x4fbc
     179e:	6a 01                	push   $0x1
     17a0:	e8 4b 22 00 00       	call   39f0 <printf>
     17a5:	e8 f8 20 00 00       	call   38a2 <exit>
     17aa:	51                   	push   %ecx
     17ab:	51                   	push   %ecx
-    17ac:	68 f3 42 00 00       	push   $0x42f3
+    17ac:	68 db 43 00 00       	push   $0x43db
     17b1:	6a 01                	push   $0x1
     17b3:	e8 38 22 00 00       	call   39f0 <printf>
     17b8:	e8 e5 20 00 00       	call   38a2 <exit>
     17bd:	50                   	push   %eax
     17be:	50                   	push   %eax
-    17bf:	68 e1 42 00 00       	push   $0x42e1
+    17bf:	68 c9 43 00 00       	push   $0x43c9
     17c4:	6a 01                	push   $0x1
     17c6:	e8 25 22 00 00       	call   39f0 <printf>
     17cb:	e8 d2 20 00 00       	call   38a2 <exit>
@@ -1852,7 +1852,7 @@ Disassembly of section .text:
     17d8:	8d 5d ad             	lea    -0x53(%ebp),%ebx
     17db:	bf ab aa aa aa       	mov    $0xaaaaaaab,%edi
     17e0:	83 ec 64             	sub    $0x64,%esp
-    17e3:	68 71 43 00 00       	push   $0x4371
+    17e3:	68 59 44 00 00       	push   $0x4459
     17e8:	6a 01                	push   $0x1
     17ea:	e8 01 22 00 00       	call   39f0 <printf>
     17ef:	c6 45 ad 43          	movb   $0x43,-0x53(%ebp)
@@ -1909,7 +1909,7 @@ Disassembly of section .text:
     188c:	0f 89 28 02 00 00    	jns    1aba <concreate+0x2ea>
     1892:	83 ec 04             	sub    $0x4,%esp
     1895:	53                   	push   %ebx
-    1896:	68 84 43 00 00       	push   $0x4384
+    1896:	68 6c 44 00 00       	push   $0x446c
     189b:	6a 01                	push   $0x1
     189d:	e8 4e 21 00 00       	call   39f0 <printf>
     18a2:	e8 fb 1f 00 00       	call   38a2 <exit>
@@ -1917,7 +1917,7 @@ Disassembly of section .text:
     18a9:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
     18b0:	83 ec 08             	sub    $0x8,%esp
     18b3:	53                   	push   %ebx
-    18b4:	68 81 43 00 00       	push   $0x4381
+    18b4:	68 69 44 00 00       	push   $0x4469
     18b9:	e8 44 20 00 00       	call   3902 <link>
     18be:	83 c4 10             	add    $0x10,%esp
     18c1:	e8 dc 1f 00 00       	call   38a2 <exit>
@@ -1926,7 +1926,7 @@ Disassembly of section .text:
     18d0:	83 ec 08             	sub    $0x8,%esp
     18d3:	83 c6 01             	add    $0x1,%esi
     18d6:	53                   	push   %ebx
-    18d7:	68 81 43 00 00       	push   $0x4381
+    18d7:	68 69 44 00 00       	push   $0x4469
     18dc:	e8 21 20 00 00       	call   3902 <link>
     18e1:	83 c4 10             	add    $0x10,%esp
     18e4:	e8 c1 1f 00 00       	call   38aa <wait>
@@ -1941,7 +1941,7 @@ Disassembly of section .text:
     1902:	5f                   	pop    %edi
     1903:	58                   	pop    %eax
     1904:	6a 00                	push   $0x0
-    1906:	68 8e 45 00 00       	push   $0x458e
+    1906:	68 76 46 00 00       	push   $0x4676
     190b:	8d 7d b0             	lea    -0x50(%ebp),%edi
     190e:	e8 cf 1f 00 00       	call   38e2 <open>
     1913:	83 c4 10             	add    $0x10,%esp
@@ -2047,7 +2047,7 @@ Disassembly of section .text:
     1a49:	e9 6f ff ff ff       	jmp    19bd <concreate+0x1ed>
     1a4e:	66 90                	xchg   %ax,%ax
     1a50:	83 ec 08             	sub    $0x8,%esp
-    1a53:	68 d6 43 00 00       	push   $0x43d6
+    1a53:	68 be 44 00 00       	push   $0x44be
     1a58:	6a 01                	push   $0x1
     1a5a:	e8 91 1f 00 00       	call   39f0 <printf>
     1a5f:	8d 65 f4             	lea    -0xc(%ebp),%esp
@@ -2057,27 +2057,27 @@ Disassembly of section .text:
     1a65:	5d                   	pop    %ebp
     1a66:	c3                   	ret    
     1a67:	83 ec 08             	sub    $0x8,%esp
-    1a6a:	68 59 4c 00 00       	push   $0x4c59
+    1a6a:	68 41 4d 00 00       	push   $0x4d41
     1a6f:	6a 01                	push   $0x1
     1a71:	e8 7a 1f 00 00       	call   39f0 <printf>
     1a76:	e8 27 1e 00 00       	call   38a2 <exit>
     1a7b:	51                   	push   %ecx
     1a7c:	51                   	push   %ecx
-    1a7d:	68 20 4f 00 00       	push   $0x4f20
+    1a7d:	68 08 50 00 00       	push   $0x5008
     1a82:	6a 01                	push   $0x1
     1a84:	e8 67 1f 00 00       	call   39f0 <printf>
     1a89:	e8 14 1e 00 00       	call   38a2 <exit>
     1a8e:	8d 45 b2             	lea    -0x4e(%ebp),%eax
     1a91:	53                   	push   %ebx
     1a92:	50                   	push   %eax
-    1a93:	68 b9 43 00 00       	push   $0x43b9
+    1a93:	68 a1 44 00 00       	push   $0x44a1
     1a98:	6a 01                	push   $0x1
     1a9a:	e8 51 1f 00 00       	call   39f0 <printf>
     1a9f:	e8 fe 1d 00 00       	call   38a2 <exit>
     1aa4:	8d 45 b2             	lea    -0x4e(%ebp),%eax
     1aa7:	56                   	push   %esi
     1aa8:	50                   	push   %eax
-    1aa9:	68 a0 43 00 00       	push   $0x43a0
+    1aa9:	68 88 44 00 00       	push   $0x4488
     1aae:	6a 01                	push   $0x1
     1ab0:	e8 3b 1f 00 00       	call   39f0 <printf>
     1ab5:	e8 e8 1d 00 00       	call   38a2 <exit>
@@ -2096,10 +2096,10 @@ Disassembly of section .text:
     1ad4:	56                   	push   %esi
     1ad5:	53                   	push   %ebx
     1ad6:	83 ec 24             	sub    $0x24,%esp
-    1ad9:	68 e4 43 00 00       	push   $0x43e4
+    1ad9:	68 cc 44 00 00       	push   $0x44cc
     1ade:	6a 01                	push   $0x1
     1ae0:	e8 0b 1f 00 00       	call   39f0 <printf>
-    1ae5:	c7 04 24 71 46 00 00 	movl   $0x4671,(%esp)
+    1ae5:	c7 04 24 59 47 00 00 	movl   $0x4759,(%esp)
     1aec:	e8 01 1e 00 00       	call   38f2 <unlink>
     1af1:	e8 a4 1d 00 00       	call   389a <fork>
     1af6:	83 c4 10             	add    $0x10,%esp
@@ -2117,7 +2117,7 @@ Disassembly of section .text:
     1b20:	83 fa 01             	cmp    $0x1,%edx
     1b23:	74 7b                	je     1ba0 <linkunlink+0xd0>
     1b25:	83 ec 0c             	sub    $0xc,%esp
-    1b28:	68 71 46 00 00       	push   $0x4671
+    1b28:	68 59 47 00 00       	push   $0x4759
     1b2d:	e8 c0 1d 00 00       	call   38f2 <unlink>
     1b32:	83 c4 10             	add    $0x10,%esp
     1b35:	83 eb 01             	sub    $0x1,%ebx
@@ -2133,7 +2133,7 @@ Disassembly of section .text:
     1b53:	75 cb                	jne    1b20 <linkunlink+0x50>
     1b55:	83 ec 08             	sub    $0x8,%esp
     1b58:	68 02 02 00 00       	push   $0x202
-    1b5d:	68 71 46 00 00       	push   $0x4671
+    1b5d:	68 59 47 00 00       	push   $0x4759
     1b62:	e8 7b 1d 00 00       	call   38e2 <open>
     1b67:	89 04 24             	mov    %eax,(%esp)
     1b6a:	e8 5b 1d 00 00       	call   38ca <close>
@@ -2145,7 +2145,7 @@ Disassembly of section .text:
     1b7c:	74 4f                	je     1bcd <linkunlink+0xfd>
     1b7e:	e8 27 1d 00 00       	call   38aa <wait>
     1b83:	83 ec 08             	sub    $0x8,%esp
-    1b86:	68 f9 43 00 00       	push   $0x43f9
+    1b86:	68 e1 44 00 00       	push   $0x44e1
     1b8b:	6a 01                	push   $0x1
     1b8d:	e8 5e 1e 00 00       	call   39f0 <printf>
     1b92:	8d 65 f4             	lea    -0xc(%ebp),%esp
@@ -2156,14 +2156,14 @@ Disassembly of section .text:
     1b99:	c3                   	ret    
     1b9a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
     1ba0:	83 ec 08             	sub    $0x8,%esp
-    1ba3:	68 71 46 00 00       	push   $0x4671
-    1ba8:	68 f5 43 00 00       	push   $0x43f5
+    1ba3:	68 59 47 00 00       	push   $0x4759
+    1ba8:	68 dd 44 00 00       	push   $0x44dd
     1bad:	e8 50 1d 00 00       	call   3902 <link>
     1bb2:	83 c4 10             	add    $0x10,%esp
     1bb5:	e9 7b ff ff ff       	jmp    1b35 <linkunlink+0x65>
     1bba:	52                   	push   %edx
     1bbb:	52                   	push   %edx
-    1bbc:	68 59 4c 00 00       	push   $0x4c59
+    1bbc:	68 41 4d 00 00       	push   $0x4d41
     1bc1:	6a 01                	push   $0x1
     1bc3:	e8 28 1e 00 00       	call   39f0 <printf>
     1bc8:	e8 d5 1c 00 00       	call   38a2 <exit>
@@ -2178,15 +2178,15 @@ Disassembly of section .text:
     1be4:	56                   	push   %esi
     1be5:	53                   	push   %ebx
     1be6:	83 ec 24             	sub    $0x24,%esp
-    1be9:	68 08 44 00 00       	push   $0x4408
+    1be9:	68 f0 44 00 00       	push   $0x44f0
     1bee:	6a 01                	push   $0x1
     1bf0:	e8 fb 1d 00 00       	call   39f0 <printf>
-    1bf5:	c7 04 24 15 44 00 00 	movl   $0x4415,(%esp)
+    1bf5:	c7 04 24 fd 44 00 00 	movl   $0x44fd,(%esp)
     1bfc:	e8 f1 1c 00 00       	call   38f2 <unlink>
     1c01:	5a                   	pop    %edx
     1c02:	59                   	pop    %ecx
     1c03:	68 00 02 00 00       	push   $0x200
-    1c08:	68 15 44 00 00       	push   $0x4415
+    1c08:	68 fd 44 00 00       	push   $0x44fd
     1c0d:	e8 d0 1c 00 00       	call   38e2 <open>
     1c12:	83 c4 10             	add    $0x10,%esp
     1c15:	85 c0                	test   %eax,%eax
@@ -2203,7 +2203,7 @@ Disassembly of section .text:
     1c35:	c6 45 de 78          	movb   $0x78,-0x22(%ebp)
     1c39:	c1 f8 06             	sar    $0x6,%eax
     1c3c:	57                   	push   %edi
-    1c3d:	68 15 44 00 00       	push   $0x4415
+    1c3d:	68 fd 44 00 00       	push   $0x44fd
     1c42:	83 c0 30             	add    $0x30,%eax
     1c45:	c6 45 e1 00          	movb   $0x0,-0x1f(%ebp)
     1c49:	88 45 df             	mov    %al,-0x21(%ebp)
@@ -2220,7 +2220,7 @@ Disassembly of section .text:
     1c68:	81 fe f4 01 00 00    	cmp    $0x1f4,%esi
     1c6e:	75 c0                	jne    1c30 <bigdir+0x50>
     1c70:	83 ec 0c             	sub    $0xc,%esp
-    1c73:	68 15 44 00 00       	push   $0x4415
+    1c73:	68 fd 44 00 00       	push   $0x44fd
     1c78:	e8 75 1c 00 00       	call   38f2 <unlink>
     1c7d:	83 c4 10             	add    $0x10,%esp
     1c80:	89 d8                	mov    %ebx,%eax
@@ -2243,7 +2243,7 @@ Disassembly of section .text:
     1cb1:	81 fb f4 01 00 00    	cmp    $0x1f4,%ebx
     1cb7:	75 c7                	jne    1c80 <bigdir+0xa0>
     1cb9:	83 ec 08             	sub    $0x8,%esp
-    1cbc:	68 57 44 00 00       	push   $0x4457
+    1cbc:	68 3f 45 00 00       	push   $0x453f
     1cc1:	6a 01                	push   $0x1
     1cc3:	e8 28 1d 00 00       	call   39f0 <printf>
     1cc8:	83 c4 10             	add    $0x10,%esp
@@ -2254,18 +2254,18 @@ Disassembly of section .text:
     1cd1:	5d                   	pop    %ebp
     1cd2:	c3                   	ret    
     1cd3:	83 ec 08             	sub    $0x8,%esp
-    1cd6:	68 2e 44 00 00       	push   $0x442e
+    1cd6:	68 16 45 00 00       	push   $0x4516
     1cdb:	6a 01                	push   $0x1
     1cdd:	e8 0e 1d 00 00       	call   39f0 <printf>
     1ce2:	e8 bb 1b 00 00       	call   38a2 <exit>
     1ce7:	83 ec 08             	sub    $0x8,%esp
-    1cea:	68 42 44 00 00       	push   $0x4442
+    1cea:	68 2a 45 00 00       	push   $0x452a
     1cef:	6a 01                	push   $0x1
     1cf1:	e8 fa 1c 00 00       	call   39f0 <printf>
     1cf6:	e8 a7 1b 00 00       	call   38a2 <exit>
     1cfb:	50                   	push   %eax
     1cfc:	50                   	push   %eax
-    1cfd:	68 18 44 00 00       	push   $0x4418
+    1cfd:	68 00 45 00 00       	push   $0x4500
     1d02:	6a 01                	push   $0x1
     1d04:	e8 e7 1c 00 00       	call   39f0 <printf>
     1d09:	e8 94 1b 00 00       	call   38a2 <exit>
@@ -2276,19 +2276,19 @@ Disassembly of section .text:
     1d11:	89 e5                	mov    %esp,%ebp
     1d13:	53                   	push   %ebx
     1d14:	83 ec 0c             	sub    $0xc,%esp
-    1d17:	68 62 44 00 00       	push   $0x4462
+    1d17:	68 4a 45 00 00       	push   $0x454a
     1d1c:	6a 01                	push   $0x1
     1d1e:	e8 cd 1c 00 00       	call   39f0 <printf>
-    1d23:	c7 04 24 eb 44 00 00 	movl   $0x44eb,(%esp)
+    1d23:	c7 04 24 d3 45 00 00 	movl   $0x45d3,(%esp)
     1d2a:	e8 c3 1b 00 00       	call   38f2 <unlink>
-    1d2f:	c7 04 24 88 45 00 00 	movl   $0x4588,(%esp)
+    1d2f:	c7 04 24 70 46 00 00 	movl   $0x4670,(%esp)
     1d36:	e8 cf 1b 00 00       	call   390a <mkdir>
     1d3b:	83 c4 10             	add    $0x10,%esp
     1d3e:	85 c0                	test   %eax,%eax
     1d40:	0f 85 b3 05 00 00    	jne    22f9 <subdir+0x5e9>
     1d46:	83 ec 08             	sub    $0x8,%esp
     1d49:	68 02 02 00 00       	push   $0x202
-    1d4e:	68 c1 44 00 00       	push   $0x44c1
+    1d4e:	68 a9 45 00 00       	push   $0x45a9
     1d53:	e8 8a 1b 00 00       	call   38e2 <open>
     1d58:	83 c4 10             	add    $0x10,%esp
     1d5b:	85 c0                	test   %eax,%eax
@@ -2296,25 +2296,25 @@ Disassembly of section .text:
     1d5f:	0f 88 81 05 00 00    	js     22e6 <subdir+0x5d6>
     1d65:	83 ec 04             	sub    $0x4,%esp
     1d68:	6a 02                	push   $0x2
-    1d6a:	68 eb 44 00 00       	push   $0x44eb
+    1d6a:	68 d3 45 00 00       	push   $0x45d3
     1d6f:	50                   	push   %eax
     1d70:	e8 4d 1b 00 00       	call   38c2 <write>
     1d75:	89 1c 24             	mov    %ebx,(%esp)
     1d78:	e8 4d 1b 00 00       	call   38ca <close>
-    1d7d:	c7 04 24 88 45 00 00 	movl   $0x4588,(%esp)
+    1d7d:	c7 04 24 70 46 00 00 	movl   $0x4670,(%esp)
     1d84:	e8 69 1b 00 00       	call   38f2 <unlink>
     1d89:	83 c4 10             	add    $0x10,%esp
     1d8c:	85 c0                	test   %eax,%eax
     1d8e:	0f 89 3f 05 00 00    	jns    22d3 <subdir+0x5c3>
     1d94:	83 ec 0c             	sub    $0xc,%esp
-    1d97:	68 9c 44 00 00       	push   $0x449c
+    1d97:	68 84 45 00 00       	push   $0x4584
     1d9c:	e8 69 1b 00 00       	call   390a <mkdir>
     1da1:	83 c4 10             	add    $0x10,%esp
     1da4:	85 c0                	test   %eax,%eax
     1da6:	0f 85 14 05 00 00    	jne    22c0 <subdir+0x5b0>
     1dac:	83 ec 08             	sub    $0x8,%esp
     1daf:	68 02 02 00 00       	push   $0x202
-    1db4:	68 be 44 00 00       	push   $0x44be
+    1db4:	68 a6 45 00 00       	push   $0x45a6
     1db9:	e8 24 1b 00 00       	call   38e2 <open>
     1dbe:	83 c4 10             	add    $0x10,%esp
     1dc1:	85 c0                	test   %eax,%eax
@@ -2322,7 +2322,7 @@ Disassembly of section .text:
     1dc5:	0f 88 24 04 00 00    	js     21ef <subdir+0x4df>
     1dcb:	83 ec 04             	sub    $0x4,%esp
     1dce:	6a 02                	push   $0x2
-    1dd0:	68 df 44 00 00       	push   $0x44df
+    1dd0:	68 c7 45 00 00       	push   $0x45c7
     1dd5:	50                   	push   %eax
     1dd6:	e8 e7 1a 00 00       	call   38c2 <write>
     1ddb:	89 1c 24             	mov    %ebx,(%esp)
@@ -2330,7 +2330,7 @@ Disassembly of section .text:
     1de3:	58                   	pop    %eax
     1de4:	5a                   	pop    %edx
     1de5:	6a 00                	push   $0x0
-    1de7:	68 e2 44 00 00       	push   $0x44e2
+    1de7:	68 ca 45 00 00       	push   $0x45ca
     1dec:	e8 f1 1a 00 00       	call   38e2 <open>
     1df1:	83 c4 10             	add    $0x10,%esp
     1df4:	85 c0                	test   %eax,%eax
@@ -2338,65 +2338,65 @@ Disassembly of section .text:
     1df8:	0f 88 de 03 00 00    	js     21dc <subdir+0x4cc>
     1dfe:	83 ec 04             	sub    $0x4,%esp
     1e01:	68 00 20 00 00       	push   $0x2000
-    1e06:	68 a0 85 00 00       	push   $0x85a0
+    1e06:	68 20 87 00 00       	push   $0x8720
     1e0b:	50                   	push   %eax
     1e0c:	e8 a9 1a 00 00       	call   38ba <read>
     1e11:	83 c4 10             	add    $0x10,%esp
     1e14:	83 f8 02             	cmp    $0x2,%eax
     1e17:	0f 85 3a 03 00 00    	jne    2157 <subdir+0x447>
-    1e1d:	80 3d a0 85 00 00 66 	cmpb   $0x66,0x85a0
+    1e1d:	80 3d 20 87 00 00 66 	cmpb   $0x66,0x8720
     1e24:	0f 85 2d 03 00 00    	jne    2157 <subdir+0x447>
     1e2a:	83 ec 0c             	sub    $0xc,%esp
     1e2d:	53                   	push   %ebx
     1e2e:	e8 97 1a 00 00       	call   38ca <close>
     1e33:	5b                   	pop    %ebx
     1e34:	58                   	pop    %eax
-    1e35:	68 22 45 00 00       	push   $0x4522
-    1e3a:	68 be 44 00 00       	push   $0x44be
+    1e35:	68 0a 46 00 00       	push   $0x460a
+    1e3a:	68 a6 45 00 00       	push   $0x45a6
     1e3f:	e8 be 1a 00 00       	call   3902 <link>
     1e44:	83 c4 10             	add    $0x10,%esp
     1e47:	85 c0                	test   %eax,%eax
     1e49:	0f 85 c6 03 00 00    	jne    2215 <subdir+0x505>
     1e4f:	83 ec 0c             	sub    $0xc,%esp
-    1e52:	68 be 44 00 00       	push   $0x44be
+    1e52:	68 a6 45 00 00       	push   $0x45a6
     1e57:	e8 96 1a 00 00       	call   38f2 <unlink>
     1e5c:	83 c4 10             	add    $0x10,%esp
     1e5f:	85 c0                	test   %eax,%eax
     1e61:	0f 85 16 03 00 00    	jne    217d <subdir+0x46d>
     1e67:	83 ec 08             	sub    $0x8,%esp
     1e6a:	6a 00                	push   $0x0
-    1e6c:	68 be 44 00 00       	push   $0x44be
+    1e6c:	68 a6 45 00 00       	push   $0x45a6
     1e71:	e8 6c 1a 00 00       	call   38e2 <open>
     1e76:	83 c4 10             	add    $0x10,%esp
     1e79:	85 c0                	test   %eax,%eax
     1e7b:	0f 89 2c 04 00 00    	jns    22ad <subdir+0x59d>
     1e81:	83 ec 0c             	sub    $0xc,%esp
-    1e84:	68 88 45 00 00       	push   $0x4588
+    1e84:	68 70 46 00 00       	push   $0x4670
     1e89:	e8 84 1a 00 00       	call   3912 <chdir>
     1e8e:	83 c4 10             	add    $0x10,%esp
     1e91:	85 c0                	test   %eax,%eax
     1e93:	0f 85 01 04 00 00    	jne    229a <subdir+0x58a>
     1e99:	83 ec 0c             	sub    $0xc,%esp
-    1e9c:	68 56 45 00 00       	push   $0x4556
+    1e9c:	68 3e 46 00 00       	push   $0x463e
     1ea1:	e8 6c 1a 00 00       	call   3912 <chdir>
     1ea6:	83 c4 10             	add    $0x10,%esp
     1ea9:	85 c0                	test   %eax,%eax
     1eab:	0f 85 b9 02 00 00    	jne    216a <subdir+0x45a>
     1eb1:	83 ec 0c             	sub    $0xc,%esp
-    1eb4:	68 7c 45 00 00       	push   $0x457c
+    1eb4:	68 64 46 00 00       	push   $0x4664
     1eb9:	e8 54 1a 00 00       	call   3912 <chdir>
     1ebe:	83 c4 10             	add    $0x10,%esp
     1ec1:	85 c0                	test   %eax,%eax
     1ec3:	0f 85 a1 02 00 00    	jne    216a <subdir+0x45a>
     1ec9:	83 ec 0c             	sub    $0xc,%esp
-    1ecc:	68 8b 45 00 00       	push   $0x458b
+    1ecc:	68 73 46 00 00       	push   $0x4673
     1ed1:	e8 3c 1a 00 00       	call   3912 <chdir>
     1ed6:	83 c4 10             	add    $0x10,%esp
     1ed9:	85 c0                	test   %eax,%eax
     1edb:	0f 85 21 03 00 00    	jne    2202 <subdir+0x4f2>
     1ee1:	83 ec 08             	sub    $0x8,%esp
     1ee4:	6a 00                	push   $0x0
-    1ee6:	68 22 45 00 00       	push   $0x4522
+    1ee6:	68 0a 46 00 00       	push   $0x460a
     1eeb:	e8 f2 19 00 00       	call   38e2 <open>
     1ef0:	83 c4 10             	add    $0x10,%esp
     1ef3:	85 c0                	test   %eax,%eax
@@ -2404,7 +2404,7 @@ Disassembly of section .text:
     1ef7:	0f 88 e0 04 00 00    	js     23dd <subdir+0x6cd>
     1efd:	83 ec 04             	sub    $0x4,%esp
     1f00:	68 00 20 00 00       	push   $0x2000
-    1f05:	68 a0 85 00 00       	push   $0x85a0
+    1f05:	68 20 87 00 00       	push   $0x8720
     1f0a:	50                   	push   %eax
     1f0b:	e8 aa 19 00 00       	call   38ba <read>
     1f10:	83 c4 10             	add    $0x10,%esp
@@ -2416,141 +2416,141 @@ Disassembly of section .text:
     1f25:	59                   	pop    %ecx
     1f26:	5b                   	pop    %ebx
     1f27:	6a 00                	push   $0x0
-    1f29:	68 be 44 00 00       	push   $0x44be
+    1f29:	68 a6 45 00 00       	push   $0x45a6
     1f2e:	e8 af 19 00 00       	call   38e2 <open>
     1f33:	83 c4 10             	add    $0x10,%esp
     1f36:	85 c0                	test   %eax,%eax
     1f38:	0f 89 65 02 00 00    	jns    21a3 <subdir+0x493>
     1f3e:	83 ec 08             	sub    $0x8,%esp
     1f41:	68 02 02 00 00       	push   $0x202
-    1f46:	68 d6 45 00 00       	push   $0x45d6
+    1f46:	68 be 46 00 00       	push   $0x46be
     1f4b:	e8 92 19 00 00       	call   38e2 <open>
     1f50:	83 c4 10             	add    $0x10,%esp
     1f53:	85 c0                	test   %eax,%eax
     1f55:	0f 89 35 02 00 00    	jns    2190 <subdir+0x480>
     1f5b:	83 ec 08             	sub    $0x8,%esp
     1f5e:	68 02 02 00 00       	push   $0x202
-    1f63:	68 fb 45 00 00       	push   $0x45fb
+    1f63:	68 e3 46 00 00       	push   $0x46e3
     1f68:	e8 75 19 00 00       	call   38e2 <open>
     1f6d:	83 c4 10             	add    $0x10,%esp
     1f70:	85 c0                	test   %eax,%eax
     1f72:	0f 89 0f 03 00 00    	jns    2287 <subdir+0x577>
     1f78:	83 ec 08             	sub    $0x8,%esp
     1f7b:	68 00 02 00 00       	push   $0x200
-    1f80:	68 88 45 00 00       	push   $0x4588
+    1f80:	68 70 46 00 00       	push   $0x4670
     1f85:	e8 58 19 00 00       	call   38e2 <open>
     1f8a:	83 c4 10             	add    $0x10,%esp
     1f8d:	85 c0                	test   %eax,%eax
     1f8f:	0f 89 df 02 00 00    	jns    2274 <subdir+0x564>
     1f95:	83 ec 08             	sub    $0x8,%esp
     1f98:	6a 02                	push   $0x2
-    1f9a:	68 88 45 00 00       	push   $0x4588
+    1f9a:	68 70 46 00 00       	push   $0x4670
     1f9f:	e8 3e 19 00 00       	call   38e2 <open>
     1fa4:	83 c4 10             	add    $0x10,%esp
     1fa7:	85 c0                	test   %eax,%eax
     1fa9:	0f 89 b2 02 00 00    	jns    2261 <subdir+0x551>
     1faf:	83 ec 08             	sub    $0x8,%esp
     1fb2:	6a 01                	push   $0x1
-    1fb4:	68 88 45 00 00       	push   $0x4588
+    1fb4:	68 70 46 00 00       	push   $0x4670
     1fb9:	e8 24 19 00 00       	call   38e2 <open>
     1fbe:	83 c4 10             	add    $0x10,%esp
     1fc1:	85 c0                	test   %eax,%eax
     1fc3:	0f 89 85 02 00 00    	jns    224e <subdir+0x53e>
     1fc9:	83 ec 08             	sub    $0x8,%esp
-    1fcc:	68 6a 46 00 00       	push   $0x466a
-    1fd1:	68 d6 45 00 00       	push   $0x45d6
+    1fcc:	68 52 47 00 00       	push   $0x4752
+    1fd1:	68 be 46 00 00       	push   $0x46be
     1fd6:	e8 27 19 00 00       	call   3902 <link>
     1fdb:	83 c4 10             	add    $0x10,%esp
     1fde:	85 c0                	test   %eax,%eax
     1fe0:	0f 84 55 02 00 00    	je     223b <subdir+0x52b>
     1fe6:	83 ec 08             	sub    $0x8,%esp
-    1fe9:	68 6a 46 00 00       	push   $0x466a
-    1fee:	68 fb 45 00 00       	push   $0x45fb
+    1fe9:	68 52 47 00 00       	push   $0x4752
+    1fee:	68 e3 46 00 00       	push   $0x46e3
     1ff3:	e8 0a 19 00 00       	call   3902 <link>
     1ff8:	83 c4 10             	add    $0x10,%esp
     1ffb:	85 c0                	test   %eax,%eax
     1ffd:	0f 84 25 02 00 00    	je     2228 <subdir+0x518>
     2003:	83 ec 08             	sub    $0x8,%esp
-    2006:	68 22 45 00 00       	push   $0x4522
-    200b:	68 c1 44 00 00       	push   $0x44c1
+    2006:	68 0a 46 00 00       	push   $0x460a
+    200b:	68 a9 45 00 00       	push   $0x45a9
     2010:	e8 ed 18 00 00       	call   3902 <link>
     2015:	83 c4 10             	add    $0x10,%esp
     2018:	85 c0                	test   %eax,%eax
     201a:	0f 84 a9 01 00 00    	je     21c9 <subdir+0x4b9>
     2020:	83 ec 0c             	sub    $0xc,%esp
-    2023:	68 d6 45 00 00       	push   $0x45d6
+    2023:	68 be 46 00 00       	push   $0x46be
     2028:	e8 dd 18 00 00       	call   390a <mkdir>
     202d:	83 c4 10             	add    $0x10,%esp
     2030:	85 c0                	test   %eax,%eax
     2032:	0f 84 7e 01 00 00    	je     21b6 <subdir+0x4a6>
     2038:	83 ec 0c             	sub    $0xc,%esp
-    203b:	68 fb 45 00 00       	push   $0x45fb
+    203b:	68 e3 46 00 00       	push   $0x46e3
     2040:	e8 c5 18 00 00       	call   390a <mkdir>
     2045:	83 c4 10             	add    $0x10,%esp
     2048:	85 c0                	test   %eax,%eax
     204a:	0f 84 67 03 00 00    	je     23b7 <subdir+0x6a7>
     2050:	83 ec 0c             	sub    $0xc,%esp
-    2053:	68 22 45 00 00       	push   $0x4522
+    2053:	68 0a 46 00 00       	push   $0x460a
     2058:	e8 ad 18 00 00       	call   390a <mkdir>
     205d:	83 c4 10             	add    $0x10,%esp
     2060:	85 c0                	test   %eax,%eax
     2062:	0f 84 3c 03 00 00    	je     23a4 <subdir+0x694>
     2068:	83 ec 0c             	sub    $0xc,%esp
-    206b:	68 fb 45 00 00       	push   $0x45fb
+    206b:	68 e3 46 00 00       	push   $0x46e3
     2070:	e8 7d 18 00 00       	call   38f2 <unlink>
     2075:	83 c4 10             	add    $0x10,%esp
     2078:	85 c0                	test   %eax,%eax
     207a:	0f 84 11 03 00 00    	je     2391 <subdir+0x681>
     2080:	83 ec 0c             	sub    $0xc,%esp
-    2083:	68 d6 45 00 00       	push   $0x45d6
+    2083:	68 be 46 00 00       	push   $0x46be
     2088:	e8 65 18 00 00       	call   38f2 <unlink>
     208d:	83 c4 10             	add    $0x10,%esp
     2090:	85 c0                	test   %eax,%eax
     2092:	0f 84 e6 02 00 00    	je     237e <subdir+0x66e>
     2098:	83 ec 0c             	sub    $0xc,%esp
-    209b:	68 c1 44 00 00       	push   $0x44c1
+    209b:	68 a9 45 00 00       	push   $0x45a9
     20a0:	e8 6d 18 00 00       	call   3912 <chdir>
     20a5:	83 c4 10             	add    $0x10,%esp
     20a8:	85 c0                	test   %eax,%eax
     20aa:	0f 84 bb 02 00 00    	je     236b <subdir+0x65b>
     20b0:	83 ec 0c             	sub    $0xc,%esp
-    20b3:	68 6d 46 00 00       	push   $0x466d
+    20b3:	68 55 47 00 00       	push   $0x4755
     20b8:	e8 55 18 00 00       	call   3912 <chdir>
     20bd:	83 c4 10             	add    $0x10,%esp
     20c0:	85 c0                	test   %eax,%eax
     20c2:	0f 84 90 02 00 00    	je     2358 <subdir+0x648>
     20c8:	83 ec 0c             	sub    $0xc,%esp
-    20cb:	68 22 45 00 00       	push   $0x4522
+    20cb:	68 0a 46 00 00       	push   $0x460a
     20d0:	e8 1d 18 00 00       	call   38f2 <unlink>
     20d5:	83 c4 10             	add    $0x10,%esp
     20d8:	85 c0                	test   %eax,%eax
     20da:	0f 85 9d 00 00 00    	jne    217d <subdir+0x46d>
     20e0:	83 ec 0c             	sub    $0xc,%esp
-    20e3:	68 c1 44 00 00       	push   $0x44c1
+    20e3:	68 a9 45 00 00       	push   $0x45a9
     20e8:	e8 05 18 00 00       	call   38f2 <unlink>
     20ed:	83 c4 10             	add    $0x10,%esp
     20f0:	85 c0                	test   %eax,%eax
     20f2:	0f 85 4d 02 00 00    	jne    2345 <subdir+0x635>
     20f8:	83 ec 0c             	sub    $0xc,%esp
-    20fb:	68 88 45 00 00       	push   $0x4588
+    20fb:	68 70 46 00 00       	push   $0x4670
     2100:	e8 ed 17 00 00       	call   38f2 <unlink>
     2105:	83 c4 10             	add    $0x10,%esp
     2108:	85 c0                	test   %eax,%eax
     210a:	0f 84 22 02 00 00    	je     2332 <subdir+0x622>
     2110:	83 ec 0c             	sub    $0xc,%esp
-    2113:	68 9d 44 00 00       	push   $0x449d
+    2113:	68 85 45 00 00       	push   $0x4585
     2118:	e8 d5 17 00 00       	call   38f2 <unlink>
     211d:	83 c4 10             	add    $0x10,%esp
     2120:	85 c0                	test   %eax,%eax
     2122:	0f 88 f7 01 00 00    	js     231f <subdir+0x60f>
     2128:	83 ec 0c             	sub    $0xc,%esp
-    212b:	68 88 45 00 00       	push   $0x4588
+    212b:	68 70 46 00 00       	push   $0x4670
     2130:	e8 bd 17 00 00       	call   38f2 <unlink>
     2135:	83 c4 10             	add    $0x10,%esp
     2138:	85 c0                	test   %eax,%eax
     213a:	0f 88 cc 01 00 00    	js     230c <subdir+0x5fc>
     2140:	83 ec 08             	sub    $0x8,%esp
-    2143:	68 6a 47 00 00       	push   $0x476a
+    2143:	68 52 48 00 00       	push   $0x4852
     2148:	6a 01                	push   $0x1
     214a:	e8 a1 18 00 00       	call   39f0 <printf>
     214f:	83 c4 10             	add    $0x10,%esp
@@ -2559,211 +2559,211 @@ Disassembly of section .text:
     2156:	c3                   	ret    
     2157:	50                   	push   %eax
     2158:	50                   	push   %eax
-    2159:	68 07 45 00 00       	push   $0x4507
+    2159:	68 ef 45 00 00       	push   $0x45ef
     215e:	6a 01                	push   $0x1
     2160:	e8 8b 18 00 00       	call   39f0 <printf>
     2165:	e8 38 17 00 00       	call   38a2 <exit>
     216a:	50                   	push   %eax
     216b:	50                   	push   %eax
-    216c:	68 62 45 00 00       	push   $0x4562
+    216c:	68 4a 46 00 00       	push   $0x464a
     2171:	6a 01                	push   $0x1
     2173:	e8 78 18 00 00       	call   39f0 <printf>
     2178:	e8 25 17 00 00       	call   38a2 <exit>
     217d:	52                   	push   %edx
     217e:	52                   	push   %edx
-    217f:	68 2d 45 00 00       	push   $0x452d
+    217f:	68 15 46 00 00       	push   $0x4615
     2184:	6a 01                	push   $0x1
     2186:	e8 65 18 00 00       	call   39f0 <printf>
     218b:	e8 12 17 00 00       	call   38a2 <exit>
     2190:	50                   	push   %eax
     2191:	50                   	push   %eax
-    2192:	68 df 45 00 00       	push   $0x45df
+    2192:	68 c7 46 00 00       	push   $0x46c7
     2197:	6a 01                	push   $0x1
     2199:	e8 52 18 00 00       	call   39f0 <printf>
     219e:	e8 ff 16 00 00       	call   38a2 <exit>
     21a3:	52                   	push   %edx
     21a4:	52                   	push   %edx
-    21a5:	68 c4 4f 00 00       	push   $0x4fc4
+    21a5:	68 ac 50 00 00       	push   $0x50ac
     21aa:	6a 01                	push   $0x1
     21ac:	e8 3f 18 00 00       	call   39f0 <printf>
     21b1:	e8 ec 16 00 00       	call   38a2 <exit>
     21b6:	52                   	push   %edx
     21b7:	52                   	push   %edx
-    21b8:	68 73 46 00 00       	push   $0x4673
+    21b8:	68 5b 47 00 00       	push   $0x475b
     21bd:	6a 01                	push   $0x1
     21bf:	e8 2c 18 00 00       	call   39f0 <printf>
     21c4:	e8 d9 16 00 00       	call   38a2 <exit>
     21c9:	51                   	push   %ecx
     21ca:	51                   	push   %ecx
-    21cb:	68 34 50 00 00       	push   $0x5034
+    21cb:	68 1c 51 00 00       	push   $0x511c
     21d0:	6a 01                	push   $0x1
     21d2:	e8 19 18 00 00       	call   39f0 <printf>
     21d7:	e8 c6 16 00 00       	call   38a2 <exit>
     21dc:	50                   	push   %eax
     21dd:	50                   	push   %eax
-    21de:	68 ee 44 00 00       	push   $0x44ee
+    21de:	68 d6 45 00 00       	push   $0x45d6
     21e3:	6a 01                	push   $0x1
     21e5:	e8 06 18 00 00       	call   39f0 <printf>
     21ea:	e8 b3 16 00 00       	call   38a2 <exit>
     21ef:	51                   	push   %ecx
     21f0:	51                   	push   %ecx
-    21f1:	68 c7 44 00 00       	push   $0x44c7
+    21f1:	68 af 45 00 00       	push   $0x45af
     21f6:	6a 01                	push   $0x1
     21f8:	e8 f3 17 00 00       	call   39f0 <printf>
     21fd:	e8 a0 16 00 00       	call   38a2 <exit>
     2202:	50                   	push   %eax
     2203:	50                   	push   %eax
-    2204:	68 90 45 00 00       	push   $0x4590
+    2204:	68 78 46 00 00       	push   $0x4678
     2209:	6a 01                	push   $0x1
     220b:	e8 e0 17 00 00       	call   39f0 <printf>
     2210:	e8 8d 16 00 00       	call   38a2 <exit>
     2215:	51                   	push   %ecx
     2216:	51                   	push   %ecx
-    2217:	68 7c 4f 00 00       	push   $0x4f7c
+    2217:	68 64 50 00 00       	push   $0x5064
     221c:	6a 01                	push   $0x1
     221e:	e8 cd 17 00 00       	call   39f0 <printf>
     2223:	e8 7a 16 00 00       	call   38a2 <exit>
     2228:	53                   	push   %ebx
     2229:	53                   	push   %ebx
-    222a:	68 10 50 00 00       	push   $0x5010
+    222a:	68 f8 50 00 00       	push   $0x50f8
     222f:	6a 01                	push   $0x1
     2231:	e8 ba 17 00 00       	call   39f0 <printf>
     2236:	e8 67 16 00 00       	call   38a2 <exit>
     223b:	50                   	push   %eax
     223c:	50                   	push   %eax
-    223d:	68 ec 4f 00 00       	push   $0x4fec
+    223d:	68 d4 50 00 00       	push   $0x50d4
     2242:	6a 01                	push   $0x1
     2244:	e8 a7 17 00 00       	call   39f0 <printf>
     2249:	e8 54 16 00 00       	call   38a2 <exit>
     224e:	50                   	push   %eax
     224f:	50                   	push   %eax
-    2250:	68 4f 46 00 00       	push   $0x464f
+    2250:	68 37 47 00 00       	push   $0x4737
     2255:	6a 01                	push   $0x1
     2257:	e8 94 17 00 00       	call   39f0 <printf>
     225c:	e8 41 16 00 00       	call   38a2 <exit>
     2261:	50                   	push   %eax
     2262:	50                   	push   %eax
-    2263:	68 36 46 00 00       	push   $0x4636
+    2263:	68 1e 47 00 00       	push   $0x471e
     2268:	6a 01                	push   $0x1
     226a:	e8 81 17 00 00       	call   39f0 <printf>
     226f:	e8 2e 16 00 00       	call   38a2 <exit>
     2274:	50                   	push   %eax
     2275:	50                   	push   %eax
-    2276:	68 20 46 00 00       	push   $0x4620
+    2276:	68 08 47 00 00       	push   $0x4708
     227b:	6a 01                	push   $0x1
     227d:	e8 6e 17 00 00       	call   39f0 <printf>
     2282:	e8 1b 16 00 00       	call   38a2 <exit>
     2287:	50                   	push   %eax
     2288:	50                   	push   %eax
-    2289:	68 04 46 00 00       	push   $0x4604
+    2289:	68 ec 46 00 00       	push   $0x46ec
     228e:	6a 01                	push   $0x1
     2290:	e8 5b 17 00 00       	call   39f0 <printf>
     2295:	e8 08 16 00 00       	call   38a2 <exit>
     229a:	50                   	push   %eax
     229b:	50                   	push   %eax
-    229c:	68 45 45 00 00       	push   $0x4545
+    229c:	68 2d 46 00 00       	push   $0x462d
     22a1:	6a 01                	push   $0x1
     22a3:	e8 48 17 00 00       	call   39f0 <printf>
     22a8:	e8 f5 15 00 00       	call   38a2 <exit>
     22ad:	50                   	push   %eax
     22ae:	50                   	push   %eax
-    22af:	68 a0 4f 00 00       	push   $0x4fa0
+    22af:	68 88 50 00 00       	push   $0x5088
     22b4:	6a 01                	push   $0x1
     22b6:	e8 35 17 00 00       	call   39f0 <printf>
     22bb:	e8 e2 15 00 00       	call   38a2 <exit>
     22c0:	53                   	push   %ebx
     22c1:	53                   	push   %ebx
-    22c2:	68 a3 44 00 00       	push   $0x44a3
+    22c2:	68 8b 45 00 00       	push   $0x458b
     22c7:	6a 01                	push   $0x1
     22c9:	e8 22 17 00 00       	call   39f0 <printf>
     22ce:	e8 cf 15 00 00       	call   38a2 <exit>
     22d3:	50                   	push   %eax
     22d4:	50                   	push   %eax
-    22d5:	68 54 4f 00 00       	push   $0x4f54
+    22d5:	68 3c 50 00 00       	push   $0x503c
     22da:	6a 01                	push   $0x1
     22dc:	e8 0f 17 00 00       	call   39f0 <printf>
     22e1:	e8 bc 15 00 00       	call   38a2 <exit>
     22e6:	50                   	push   %eax
     22e7:	50                   	push   %eax
-    22e8:	68 87 44 00 00       	push   $0x4487
+    22e8:	68 6f 45 00 00       	push   $0x456f
     22ed:	6a 01                	push   $0x1
     22ef:	e8 fc 16 00 00       	call   39f0 <printf>
     22f4:	e8 a9 15 00 00       	call   38a2 <exit>
     22f9:	50                   	push   %eax
     22fa:	50                   	push   %eax
-    22fb:	68 6f 44 00 00       	push   $0x446f
+    22fb:	68 57 45 00 00       	push   $0x4557
     2300:	6a 01                	push   $0x1
     2302:	e8 e9 16 00 00       	call   39f0 <printf>
     2307:	e8 96 15 00 00       	call   38a2 <exit>
     230c:	50                   	push   %eax
     230d:	50                   	push   %eax
-    230e:	68 58 47 00 00       	push   $0x4758
+    230e:	68 40 48 00 00       	push   $0x4840
     2313:	6a 01                	push   $0x1
     2315:	e8 d6 16 00 00       	call   39f0 <printf>
     231a:	e8 83 15 00 00       	call   38a2 <exit>
     231f:	52                   	push   %edx
     2320:	52                   	push   %edx
-    2321:	68 43 47 00 00       	push   $0x4743
+    2321:	68 2b 48 00 00       	push   $0x482b
     2326:	6a 01                	push   $0x1
     2328:	e8 c3 16 00 00       	call   39f0 <printf>
     232d:	e8 70 15 00 00       	call   38a2 <exit>
     2332:	51                   	push   %ecx
     2333:	51                   	push   %ecx
-    2334:	68 58 50 00 00       	push   $0x5058
+    2334:	68 40 51 00 00       	push   $0x5140
     2339:	6a 01                	push   $0x1
     233b:	e8 b0 16 00 00       	call   39f0 <printf>
     2340:	e8 5d 15 00 00       	call   38a2 <exit>
     2345:	53                   	push   %ebx
     2346:	53                   	push   %ebx
-    2347:	68 2e 47 00 00       	push   $0x472e
+    2347:	68 16 48 00 00       	push   $0x4816
     234c:	6a 01                	push   $0x1
     234e:	e8 9d 16 00 00       	call   39f0 <printf>
     2353:	e8 4a 15 00 00       	call   38a2 <exit>
     2358:	50                   	push   %eax
     2359:	50                   	push   %eax
-    235a:	68 16 47 00 00       	push   $0x4716
+    235a:	68 fe 47 00 00       	push   $0x47fe
     235f:	6a 01                	push   $0x1
     2361:	e8 8a 16 00 00       	call   39f0 <printf>
     2366:	e8 37 15 00 00       	call   38a2 <exit>
     236b:	50                   	push   %eax
     236c:	50                   	push   %eax
-    236d:	68 fe 46 00 00       	push   $0x46fe
+    236d:	68 e6 47 00 00       	push   $0x47e6
     2372:	6a 01                	push   $0x1
     2374:	e8 77 16 00 00       	call   39f0 <printf>
     2379:	e8 24 15 00 00       	call   38a2 <exit>
     237e:	50                   	push   %eax
     237f:	50                   	push   %eax
-    2380:	68 e2 46 00 00       	push   $0x46e2
+    2380:	68 ca 47 00 00       	push   $0x47ca
     2385:	6a 01                	push   $0x1
     2387:	e8 64 16 00 00       	call   39f0 <printf>
     238c:	e8 11 15 00 00       	call   38a2 <exit>
     2391:	50                   	push   %eax
     2392:	50                   	push   %eax
-    2393:	68 c6 46 00 00       	push   $0x46c6
+    2393:	68 ae 47 00 00       	push   $0x47ae
     2398:	6a 01                	push   $0x1
     239a:	e8 51 16 00 00       	call   39f0 <printf>
     239f:	e8 fe 14 00 00       	call   38a2 <exit>
     23a4:	50                   	push   %eax
     23a5:	50                   	push   %eax
-    23a6:	68 a9 46 00 00       	push   $0x46a9
+    23a6:	68 91 47 00 00       	push   $0x4791
     23ab:	6a 01                	push   $0x1
     23ad:	e8 3e 16 00 00       	call   39f0 <printf>
     23b2:	e8 eb 14 00 00       	call   38a2 <exit>
     23b7:	50                   	push   %eax
     23b8:	50                   	push   %eax
-    23b9:	68 8e 46 00 00       	push   $0x468e
+    23b9:	68 76 47 00 00       	push   $0x4776
     23be:	6a 01                	push   $0x1
     23c0:	e8 2b 16 00 00       	call   39f0 <printf>
     23c5:	e8 d8 14 00 00       	call   38a2 <exit>
     23ca:	50                   	push   %eax
     23cb:	50                   	push   %eax
-    23cc:	68 bb 45 00 00       	push   $0x45bb
+    23cc:	68 a3 46 00 00       	push   $0x46a3
     23d1:	6a 01                	push   $0x1
     23d3:	e8 18 16 00 00       	call   39f0 <printf>
     23d8:	e8 c5 14 00 00       	call   38a2 <exit>
     23dd:	50                   	push   %eax
     23de:	50                   	push   %eax
-    23df:	68 a3 45 00 00       	push   $0x45a3
+    23df:	68 8b 46 00 00       	push   $0x468b
     23e4:	6a 01                	push   $0x1
     23e6:	e8 05 16 00 00       	call   39f0 <printf>
     23eb:	e8 b2 14 00 00       	call   38a2 <exit>
@@ -2775,17 +2775,17 @@ Disassembly of section .text:
     23f4:	53                   	push   %ebx
     23f5:	bb f3 01 00 00       	mov    $0x1f3,%ebx
     23fa:	83 ec 08             	sub    $0x8,%esp
-    23fd:	68 75 47 00 00       	push   $0x4775
+    23fd:	68 5d 48 00 00       	push   $0x485d
     2402:	6a 01                	push   $0x1
     2404:	e8 e7 15 00 00       	call   39f0 <printf>
-    2409:	c7 04 24 84 47 00 00 	movl   $0x4784,(%esp)
+    2409:	c7 04 24 6c 48 00 00 	movl   $0x486c,(%esp)
     2410:	e8 dd 14 00 00       	call   38f2 <unlink>
     2415:	83 c4 10             	add    $0x10,%esp
     2418:	90                   	nop
     2419:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
     2420:	83 ec 08             	sub    $0x8,%esp
     2423:	68 02 02 00 00       	push   $0x202
-    2428:	68 84 47 00 00       	push   $0x4784
+    2428:	68 6c 48 00 00       	push   $0x486c
     242d:	e8 b0 14 00 00       	call   38e2 <open>
     2432:	83 c4 10             	add    $0x10,%esp
     2435:	85 c0                	test   %eax,%eax
@@ -2793,7 +2793,7 @@ Disassembly of section .text:
     2439:	78 7e                	js     24b9 <bigwrite+0xc9>
     243b:	83 ec 04             	sub    $0x4,%esp
     243e:	53                   	push   %ebx
-    243f:	68 a0 85 00 00       	push   $0x85a0
+    243f:	68 20 87 00 00       	push   $0x8720
     2444:	50                   	push   %eax
     2445:	e8 78 14 00 00       	call   38c2 <write>
     244a:	83 c4 10             	add    $0x10,%esp
@@ -2801,7 +2801,7 @@ Disassembly of section .text:
     244f:	75 55                	jne    24a6 <bigwrite+0xb6>
     2451:	83 ec 04             	sub    $0x4,%esp
     2454:	53                   	push   %ebx
-    2455:	68 a0 85 00 00       	push   $0x85a0
+    2455:	68 20 87 00 00       	push   $0x8720
     245a:	56                   	push   %esi
     245b:	e8 62 14 00 00       	call   38c2 <write>
     2460:	83 c4 10             	add    $0x10,%esp
@@ -2811,13 +2811,13 @@ Disassembly of section .text:
     246a:	81 c3 d7 01 00 00    	add    $0x1d7,%ebx
     2470:	56                   	push   %esi
     2471:	e8 54 14 00 00       	call   38ca <close>
-    2476:	c7 04 24 84 47 00 00 	movl   $0x4784,(%esp)
+    2476:	c7 04 24 6c 48 00 00 	movl   $0x486c,(%esp)
     247d:	e8 70 14 00 00       	call   38f2 <unlink>
     2482:	83 c4 10             	add    $0x10,%esp
     2485:	81 fb 07 18 00 00    	cmp    $0x1807,%ebx
     248b:	75 93                	jne    2420 <bigwrite+0x30>
     248d:	83 ec 08             	sub    $0x8,%esp
-    2490:	68 b7 47 00 00       	push   $0x47b7
+    2490:	68 9f 48 00 00       	push   $0x489f
     2495:	6a 01                	push   $0x1
     2497:	e8 54 15 00 00       	call   39f0 <printf>
     249c:	83 c4 10             	add    $0x10,%esp
@@ -2828,12 +2828,12 @@ Disassembly of section .text:
     24a5:	c3                   	ret    
     24a6:	50                   	push   %eax
     24a7:	53                   	push   %ebx
-    24a8:	68 a5 47 00 00       	push   $0x47a5
+    24a8:	68 8d 48 00 00       	push   $0x488d
     24ad:	6a 01                	push   $0x1
     24af:	e8 3c 15 00 00       	call   39f0 <printf>
     24b4:	e8 e9 13 00 00       	call   38a2 <exit>
     24b9:	83 ec 08             	sub    $0x8,%esp
-    24bc:	68 8d 47 00 00       	push   $0x478d
+    24bc:	68 75 48 00 00       	push   $0x4875
     24c1:	6a 01                	push   $0x1
     24c3:	e8 28 15 00 00       	call   39f0 <printf>
     24c8:	e8 d5 13 00 00       	call   38a2 <exit>
@@ -2846,15 +2846,15 @@ Disassembly of section .text:
     24d4:	56                   	push   %esi
     24d5:	53                   	push   %ebx
     24d6:	83 ec 14             	sub    $0x14,%esp
-    24d9:	68 c4 47 00 00       	push   $0x47c4
+    24d9:	68 ac 48 00 00       	push   $0x48ac
     24de:	6a 01                	push   $0x1
     24e0:	e8 0b 15 00 00       	call   39f0 <printf>
-    24e5:	c7 04 24 e0 47 00 00 	movl   $0x47e0,(%esp)
+    24e5:	c7 04 24 c8 48 00 00 	movl   $0x48c8,(%esp)
     24ec:	e8 01 14 00 00       	call   38f2 <unlink>
     24f1:	58                   	pop    %eax
     24f2:	5a                   	pop    %edx
     24f3:	68 02 02 00 00       	push   $0x202
-    24f8:	68 e0 47 00 00       	push   $0x47e0
+    24f8:	68 c8 48 00 00       	push   $0x48c8
     24fd:	e8 e0 13 00 00       	call   38e2 <open>
     2502:	83 c4 10             	add    $0x10,%esp
     2505:	85 c0                	test   %eax,%eax
@@ -2865,11 +2865,11 @@ Disassembly of section .text:
     2518:	83 ec 04             	sub    $0x4,%esp
     251b:	68 58 02 00 00       	push   $0x258
     2520:	53                   	push   %ebx
-    2521:	68 a0 85 00 00       	push   $0x85a0
+    2521:	68 20 87 00 00       	push   $0x8720
     2526:	e8 d5 11 00 00       	call   3700 <memset>
     252b:	83 c4 0c             	add    $0xc,%esp
     252e:	68 58 02 00 00       	push   $0x258
-    2533:	68 a0 85 00 00       	push   $0x85a0
+    2533:	68 20 87 00 00       	push   $0x8720
     2538:	56                   	push   %esi
     2539:	e8 84 13 00 00       	call   38c2 <write>
     253e:	83 c4 10             	add    $0x10,%esp
@@ -2884,7 +2884,7 @@ Disassembly of section .text:
     255d:	5e                   	pop    %esi
     255e:	5f                   	pop    %edi
     255f:	6a 00                	push   $0x0
-    2561:	68 e0 47 00 00       	push   $0x47e0
+    2561:	68 c8 48 00 00       	push   $0x48c8
     2566:	e8 77 13 00 00       	call   38e2 <open>
     256b:	83 c4 10             	add    $0x10,%esp
     256e:	85 c0                	test   %eax,%eax
@@ -2896,19 +2896,19 @@ Disassembly of section .text:
     257e:	66 90                	xchg   %ax,%ax
     2580:	3d 2c 01 00 00       	cmp    $0x12c,%eax
     2585:	0f 85 91 00 00 00    	jne    261c <bigfile+0x14c>
-    258b:	0f be 05 a0 85 00 00 	movsbl 0x85a0,%eax
+    258b:	0f be 05 20 87 00 00 	movsbl 0x8720,%eax
     2592:	89 fa                	mov    %edi,%edx
     2594:	d1 fa                	sar    %edx
     2596:	39 d0                	cmp    %edx,%eax
     2598:	75 6e                	jne    2608 <bigfile+0x138>
-    259a:	0f be 15 cb 86 00 00 	movsbl 0x86cb,%edx
+    259a:	0f be 15 4b 88 00 00 	movsbl 0x884b,%edx
     25a1:	39 d0                	cmp    %edx,%eax
     25a3:	75 63                	jne    2608 <bigfile+0x138>
     25a5:	81 c3 2c 01 00 00    	add    $0x12c,%ebx
     25ab:	83 c7 01             	add    $0x1,%edi
     25ae:	83 ec 04             	sub    $0x4,%esp
     25b1:	68 2c 01 00 00       	push   $0x12c
-    25b6:	68 a0 85 00 00       	push   $0x85a0
+    25b6:	68 20 87 00 00       	push   $0x8720
     25bb:	56                   	push   %esi
     25bc:	e8 f9 12 00 00       	call   38ba <read>
     25c1:	83 c4 10             	add    $0x10,%esp
@@ -2922,11 +2922,11 @@ Disassembly of section .text:
     25d6:	81 fb e0 2e 00 00    	cmp    $0x2ee0,%ebx
     25dc:	0f 85 9c 00 00 00    	jne    267e <bigfile+0x1ae>
     25e2:	83 ec 0c             	sub    $0xc,%esp
-    25e5:	68 e0 47 00 00       	push   $0x47e0
+    25e5:	68 c8 48 00 00       	push   $0x48c8
     25ea:	e8 03 13 00 00       	call   38f2 <unlink>
     25ef:	58                   	pop    %eax
     25f0:	5a                   	pop    %edx
-    25f1:	68 6f 48 00 00       	push   $0x486f
+    25f1:	68 57 49 00 00       	push   $0x4957
     25f6:	6a 01                	push   $0x1
     25f8:	e8 f3 13 00 00       	call   39f0 <printf>
     25fd:	83 c4 10             	add    $0x10,%esp
@@ -2937,40 +2937,40 @@ Disassembly of section .text:
     2606:	5d                   	pop    %ebp
     2607:	c3                   	ret    
     2608:	83 ec 08             	sub    $0x8,%esp
-    260b:	68 3c 48 00 00       	push   $0x483c
+    260b:	68 24 49 00 00       	push   $0x4924
     2610:	6a 01                	push   $0x1
     2612:	e8 d9 13 00 00       	call   39f0 <printf>
     2617:	e8 86 12 00 00       	call   38a2 <exit>
     261c:	83 ec 08             	sub    $0x8,%esp
-    261f:	68 28 48 00 00       	push   $0x4828
+    261f:	68 10 49 00 00       	push   $0x4910
     2624:	6a 01                	push   $0x1
     2626:	e8 c5 13 00 00       	call   39f0 <printf>
     262b:	e8 72 12 00 00       	call   38a2 <exit>
     2630:	83 ec 08             	sub    $0x8,%esp
-    2633:	68 13 48 00 00       	push   $0x4813
+    2633:	68 fb 48 00 00       	push   $0x48fb
     2638:	6a 01                	push   $0x1
     263a:	e8 b1 13 00 00       	call   39f0 <printf>
     263f:	e8 5e 12 00 00       	call   38a2 <exit>
     2644:	83 ec 08             	sub    $0x8,%esp
-    2647:	68 e8 47 00 00       	push   $0x47e8
+    2647:	68 d0 48 00 00       	push   $0x48d0
     264c:	6a 01                	push   $0x1
     264e:	e8 9d 13 00 00       	call   39f0 <printf>
     2653:	e8 4a 12 00 00       	call   38a2 <exit>
     2658:	53                   	push   %ebx
     2659:	53                   	push   %ebx
-    265a:	68 fe 47 00 00       	push   $0x47fe
+    265a:	68 e6 48 00 00       	push   $0x48e6
     265f:	6a 01                	push   $0x1
     2661:	e8 8a 13 00 00       	call   39f0 <printf>
     2666:	e8 37 12 00 00       	call   38a2 <exit>
     266b:	50                   	push   %eax
     266c:	50                   	push   %eax
-    266d:	68 d2 47 00 00       	push   $0x47d2
+    266d:	68 ba 48 00 00       	push   $0x48ba
     2672:	6a 01                	push   $0x1
     2674:	e8 77 13 00 00       	call   39f0 <printf>
     2679:	e8 24 12 00 00       	call   38a2 <exit>
     267e:	51                   	push   %ecx
     267f:	51                   	push   %ecx
-    2680:	68 55 48 00 00       	push   $0x4855
+    2680:	68 3d 49 00 00       	push   $0x493d
     2685:	6a 01                	push   $0x1
     2687:	e8 64 13 00 00       	call   39f0 <printf>
     268c:	e8 11 12 00 00       	call   38a2 <exit>
@@ -2993,23 +2993,23 @@ Disassembly of section .text:
     26a0:	55                   	push   %ebp
     26a1:	89 e5                	mov    %esp,%ebp
     26a3:	83 ec 10             	sub    $0x10,%esp
-    26a6:	68 80 48 00 00       	push   $0x4880
+    26a6:	68 68 49 00 00       	push   $0x4968
     26ab:	6a 01                	push   $0x1
     26ad:	e8 3e 13 00 00       	call   39f0 <printf>
-    26b2:	c7 04 24 bb 48 00 00 	movl   $0x48bb,(%esp)
+    26b2:	c7 04 24 a3 49 00 00 	movl   $0x49a3,(%esp)
     26b9:	e8 4c 12 00 00       	call   390a <mkdir>
     26be:	83 c4 10             	add    $0x10,%esp
     26c1:	85 c0                	test   %eax,%eax
     26c3:	0f 85 97 00 00 00    	jne    2760 <fourteen+0xc0>
     26c9:	83 ec 0c             	sub    $0xc,%esp
-    26cc:	68 78 50 00 00       	push   $0x5078
+    26cc:	68 60 51 00 00       	push   $0x5160
     26d1:	e8 34 12 00 00       	call   390a <mkdir>
     26d6:	83 c4 10             	add    $0x10,%esp
     26d9:	85 c0                	test   %eax,%eax
     26db:	0f 85 de 00 00 00    	jne    27bf <fourteen+0x11f>
     26e1:	83 ec 08             	sub    $0x8,%esp
     26e4:	68 00 02 00 00       	push   $0x200
-    26e9:	68 c8 50 00 00       	push   $0x50c8
+    26e9:	68 b0 51 00 00       	push   $0x51b0
     26ee:	e8 ef 11 00 00       	call   38e2 <open>
     26f3:	83 c4 10             	add    $0x10,%esp
     26f6:	85 c0                	test   %eax,%eax
@@ -3020,7 +3020,7 @@ Disassembly of section .text:
     2707:	58                   	pop    %eax
     2708:	5a                   	pop    %edx
     2709:	6a 00                	push   $0x0
-    270b:	68 38 51 00 00       	push   $0x5138
+    270b:	68 20 52 00 00       	push   $0x5220
     2710:	e8 cd 11 00 00       	call   38e2 <open>
     2715:	83 c4 10             	add    $0x10,%esp
     2718:	85 c0                	test   %eax,%eax
@@ -3028,19 +3028,19 @@ Disassembly of section .text:
     271c:	83 ec 0c             	sub    $0xc,%esp
     271f:	50                   	push   %eax
     2720:	e8 a5 11 00 00       	call   38ca <close>
-    2725:	c7 04 24 ac 48 00 00 	movl   $0x48ac,(%esp)
+    2725:	c7 04 24 94 49 00 00 	movl   $0x4994,(%esp)
     272c:	e8 d9 11 00 00       	call   390a <mkdir>
     2731:	83 c4 10             	add    $0x10,%esp
     2734:	85 c0                	test   %eax,%eax
     2736:	74 4e                	je     2786 <fourteen+0xe6>
     2738:	83 ec 0c             	sub    $0xc,%esp
-    273b:	68 d4 51 00 00       	push   $0x51d4
+    273b:	68 bc 52 00 00       	push   $0x52bc
     2740:	e8 c5 11 00 00       	call   390a <mkdir>
     2745:	83 c4 10             	add    $0x10,%esp
     2748:	85 c0                	test   %eax,%eax
     274a:	74 27                	je     2773 <fourteen+0xd3>
     274c:	83 ec 08             	sub    $0x8,%esp
-    274f:	68 ca 48 00 00       	push   $0x48ca
+    274f:	68 b2 49 00 00       	push   $0x49b2
     2754:	6a 01                	push   $0x1
     2756:	e8 95 12 00 00       	call   39f0 <printf>
     275b:	83 c4 10             	add    $0x10,%esp
@@ -3048,37 +3048,37 @@ Disassembly of section .text:
     275f:	c3                   	ret    
     2760:	50                   	push   %eax
     2761:	50                   	push   %eax
-    2762:	68 8f 48 00 00       	push   $0x488f
+    2762:	68 77 49 00 00       	push   $0x4977
     2767:	6a 01                	push   $0x1
     2769:	e8 82 12 00 00       	call   39f0 <printf>
     276e:	e8 2f 11 00 00       	call   38a2 <exit>
     2773:	50                   	push   %eax
     2774:	50                   	push   %eax
-    2775:	68 f4 51 00 00       	push   $0x51f4
+    2775:	68 dc 52 00 00       	push   $0x52dc
     277a:	6a 01                	push   $0x1
     277c:	e8 6f 12 00 00       	call   39f0 <printf>
     2781:	e8 1c 11 00 00       	call   38a2 <exit>
     2786:	52                   	push   %edx
     2787:	52                   	push   %edx
-    2788:	68 a4 51 00 00       	push   $0x51a4
+    2788:	68 8c 52 00 00       	push   $0x528c
     278d:	6a 01                	push   $0x1
     278f:	e8 5c 12 00 00       	call   39f0 <printf>
     2794:	e8 09 11 00 00       	call   38a2 <exit>
     2799:	51                   	push   %ecx
     279a:	51                   	push   %ecx
-    279b:	68 68 51 00 00       	push   $0x5168
+    279b:	68 50 52 00 00       	push   $0x5250
     27a0:	6a 01                	push   $0x1
     27a2:	e8 49 12 00 00       	call   39f0 <printf>
     27a7:	e8 f6 10 00 00       	call   38a2 <exit>
     27ac:	51                   	push   %ecx
     27ad:	51                   	push   %ecx
-    27ae:	68 f8 50 00 00       	push   $0x50f8
+    27ae:	68 e0 51 00 00       	push   $0x51e0
     27b3:	6a 01                	push   $0x1
     27b5:	e8 36 12 00 00       	call   39f0 <printf>
     27ba:	e8 e3 10 00 00       	call   38a2 <exit>
     27bf:	50                   	push   %eax
     27c0:	50                   	push   %eax
-    27c1:	68 98 50 00 00       	push   $0x5098
+    27c1:	68 80 51 00 00       	push   $0x5180
     27c6:	6a 01                	push   $0x1
     27c8:	e8 23 12 00 00       	call   39f0 <printf>
     27cd:	e8 d0 10 00 00       	call   38a2 <exit>
@@ -3089,58 +3089,58 @@ Disassembly of section .text:
     27e0:	55                   	push   %ebp
     27e1:	89 e5                	mov    %esp,%ebp
     27e3:	83 ec 10             	sub    $0x10,%esp
-    27e6:	68 d7 48 00 00       	push   $0x48d7
+    27e6:	68 bf 49 00 00       	push   $0x49bf
     27eb:	6a 01                	push   $0x1
     27ed:	e8 fe 11 00 00       	call   39f0 <printf>
-    27f2:	c7 04 24 e3 48 00 00 	movl   $0x48e3,(%esp)
+    27f2:	c7 04 24 cb 49 00 00 	movl   $0x49cb,(%esp)
     27f9:	e8 0c 11 00 00       	call   390a <mkdir>
     27fe:	83 c4 10             	add    $0x10,%esp
     2801:	85 c0                	test   %eax,%eax
     2803:	0f 85 b0 00 00 00    	jne    28b9 <rmdot+0xd9>
     2809:	83 ec 0c             	sub    $0xc,%esp
-    280c:	68 e3 48 00 00       	push   $0x48e3
+    280c:	68 cb 49 00 00       	push   $0x49cb
     2811:	e8 fc 10 00 00       	call   3912 <chdir>
     2816:	83 c4 10             	add    $0x10,%esp
     2819:	85 c0                	test   %eax,%eax
     281b:	0f 85 1d 01 00 00    	jne    293e <rmdot+0x15e>
     2821:	83 ec 0c             	sub    $0xc,%esp
-    2824:	68 8e 45 00 00       	push   $0x458e
+    2824:	68 76 46 00 00       	push   $0x4676
     2829:	e8 c4 10 00 00       	call   38f2 <unlink>
     282e:	83 c4 10             	add    $0x10,%esp
     2831:	85 c0                	test   %eax,%eax
     2833:	0f 84 f2 00 00 00    	je     292b <rmdot+0x14b>
     2839:	83 ec 0c             	sub    $0xc,%esp
-    283c:	68 8d 45 00 00       	push   $0x458d
+    283c:	68 75 46 00 00       	push   $0x4675
     2841:	e8 ac 10 00 00       	call   38f2 <unlink>
     2846:	83 c4 10             	add    $0x10,%esp
     2849:	85 c0                	test   %eax,%eax
     284b:	0f 84 c7 00 00 00    	je     2918 <rmdot+0x138>
     2851:	83 ec 0c             	sub    $0xc,%esp
-    2854:	68 61 3d 00 00       	push   $0x3d61
+    2854:	68 49 3e 00 00       	push   $0x3e49
     2859:	e8 b4 10 00 00       	call   3912 <chdir>
     285e:	83 c4 10             	add    $0x10,%esp
     2861:	85 c0                	test   %eax,%eax
     2863:	0f 85 9c 00 00 00    	jne    2905 <rmdot+0x125>
     2869:	83 ec 0c             	sub    $0xc,%esp
-    286c:	68 2b 49 00 00       	push   $0x492b
+    286c:	68 13 4a 00 00       	push   $0x4a13
     2871:	e8 7c 10 00 00       	call   38f2 <unlink>
     2876:	83 c4 10             	add    $0x10,%esp
     2879:	85 c0                	test   %eax,%eax
     287b:	74 75                	je     28f2 <rmdot+0x112>
     287d:	83 ec 0c             	sub    $0xc,%esp
-    2880:	68 49 49 00 00       	push   $0x4949
+    2880:	68 31 4a 00 00       	push   $0x4a31
     2885:	e8 68 10 00 00       	call   38f2 <unlink>
     288a:	83 c4 10             	add    $0x10,%esp
     288d:	85 c0                	test   %eax,%eax
     288f:	74 4e                	je     28df <rmdot+0xff>
     2891:	83 ec 0c             	sub    $0xc,%esp
-    2894:	68 e3 48 00 00       	push   $0x48e3
+    2894:	68 cb 49 00 00       	push   $0x49cb
     2899:	e8 54 10 00 00       	call   38f2 <unlink>
     289e:	83 c4 10             	add    $0x10,%esp
     28a1:	85 c0                	test   %eax,%eax
     28a3:	75 27                	jne    28cc <rmdot+0xec>
     28a5:	83 ec 08             	sub    $0x8,%esp
-    28a8:	68 7e 49 00 00       	push   $0x497e
+    28a8:	68 66 4a 00 00       	push   $0x4a66
     28ad:	6a 01                	push   $0x1
     28af:	e8 3c 11 00 00       	call   39f0 <printf>
     28b4:	83 c4 10             	add    $0x10,%esp
@@ -3148,49 +3148,49 @@ Disassembly of section .text:
     28b8:	c3                   	ret    
     28b9:	50                   	push   %eax
     28ba:	50                   	push   %eax
-    28bb:	68 e8 48 00 00       	push   $0x48e8
+    28bb:	68 d0 49 00 00       	push   $0x49d0
     28c0:	6a 01                	push   $0x1
     28c2:	e8 29 11 00 00       	call   39f0 <printf>
     28c7:	e8 d6 0f 00 00       	call   38a2 <exit>
     28cc:	50                   	push   %eax
     28cd:	50                   	push   %eax
-    28ce:	68 69 49 00 00       	push   $0x4969
+    28ce:	68 51 4a 00 00       	push   $0x4a51
     28d3:	6a 01                	push   $0x1
     28d5:	e8 16 11 00 00       	call   39f0 <printf>
     28da:	e8 c3 0f 00 00       	call   38a2 <exit>
     28df:	52                   	push   %edx
     28e0:	52                   	push   %edx
-    28e1:	68 51 49 00 00       	push   $0x4951
+    28e1:	68 39 4a 00 00       	push   $0x4a39
     28e6:	6a 01                	push   $0x1
     28e8:	e8 03 11 00 00       	call   39f0 <printf>
     28ed:	e8 b0 0f 00 00       	call   38a2 <exit>
     28f2:	51                   	push   %ecx
     28f3:	51                   	push   %ecx
-    28f4:	68 32 49 00 00       	push   $0x4932
+    28f4:	68 1a 4a 00 00       	push   $0x4a1a
     28f9:	6a 01                	push   $0x1
     28fb:	e8 f0 10 00 00       	call   39f0 <printf>
     2900:	e8 9d 0f 00 00       	call   38a2 <exit>
     2905:	50                   	push   %eax
     2906:	50                   	push   %eax
-    2907:	68 63 3d 00 00       	push   $0x3d63
+    2907:	68 4b 3e 00 00       	push   $0x3e4b
     290c:	6a 01                	push   $0x1
     290e:	e8 dd 10 00 00       	call   39f0 <printf>
     2913:	e8 8a 0f 00 00       	call   38a2 <exit>
     2918:	50                   	push   %eax
     2919:	50                   	push   %eax
-    291a:	68 1c 49 00 00       	push   $0x491c
+    291a:	68 04 4a 00 00       	push   $0x4a04
     291f:	6a 01                	push   $0x1
     2921:	e8 ca 10 00 00       	call   39f0 <printf>
     2926:	e8 77 0f 00 00       	call   38a2 <exit>
     292b:	50                   	push   %eax
     292c:	50                   	push   %eax
-    292d:	68 0e 49 00 00       	push   $0x490e
+    292d:	68 f6 49 00 00       	push   $0x49f6
     2932:	6a 01                	push   $0x1
     2934:	e8 b7 10 00 00       	call   39f0 <printf>
     2939:	e8 64 0f 00 00       	call   38a2 <exit>
     293e:	50                   	push   %eax
     293f:	50                   	push   %eax
-    2940:	68 fb 48 00 00       	push   $0x48fb
+    2940:	68 e3 49 00 00       	push   $0x49e3
     2945:	6a 01                	push   $0x1
     2947:	e8 a4 10 00 00       	call   39f0 <printf>
     294c:	e8 51 0f 00 00       	call   38a2 <exit>
@@ -3214,13 +3214,13 @@ Disassembly of section .text:
     2961:	89 e5                	mov    %esp,%ebp
     2963:	53                   	push   %ebx
     2964:	83 ec 0c             	sub    $0xc,%esp
-    2967:	68 88 49 00 00       	push   $0x4988
+    2967:	68 70 4a 00 00       	push   $0x4a70
     296c:	6a 01                	push   $0x1
     296e:	e8 7d 10 00 00       	call   39f0 <printf>
     2973:	59                   	pop    %ecx
     2974:	5b                   	pop    %ebx
     2975:	68 00 02 00 00       	push   $0x200
-    297a:	68 95 49 00 00       	push   $0x4995
+    297a:	68 7d 4a 00 00       	push   $0x4a7d
     297f:	e8 5e 0f 00 00       	call   38e2 <open>
     2984:	83 c4 10             	add    $0x10,%esp
     2987:	85 c0                	test   %eax,%eax
@@ -3228,65 +3228,65 @@ Disassembly of section .text:
     298f:	83 ec 0c             	sub    $0xc,%esp
     2992:	50                   	push   %eax
     2993:	e8 32 0f 00 00       	call   38ca <close>
-    2998:	c7 04 24 95 49 00 00 	movl   $0x4995,(%esp)
+    2998:	c7 04 24 7d 4a 00 00 	movl   $0x4a7d,(%esp)
     299f:	e8 6e 0f 00 00       	call   3912 <chdir>
     29a4:	83 c4 10             	add    $0x10,%esp
     29a7:	85 c0                	test   %eax,%eax
     29a9:	0f 84 10 01 00 00    	je     2abf <dirfile+0x15f>
     29af:	83 ec 08             	sub    $0x8,%esp
     29b2:	6a 00                	push   $0x0
-    29b4:	68 ce 49 00 00       	push   $0x49ce
+    29b4:	68 b6 4a 00 00       	push   $0x4ab6
     29b9:	e8 24 0f 00 00       	call   38e2 <open>
     29be:	83 c4 10             	add    $0x10,%esp
     29c1:	85 c0                	test   %eax,%eax
     29c3:	0f 89 e3 00 00 00    	jns    2aac <dirfile+0x14c>
     29c9:	83 ec 08             	sub    $0x8,%esp
     29cc:	68 00 02 00 00       	push   $0x200
-    29d1:	68 ce 49 00 00       	push   $0x49ce
+    29d1:	68 b6 4a 00 00       	push   $0x4ab6
     29d6:	e8 07 0f 00 00       	call   38e2 <open>
     29db:	83 c4 10             	add    $0x10,%esp
     29de:	85 c0                	test   %eax,%eax
     29e0:	0f 89 c6 00 00 00    	jns    2aac <dirfile+0x14c>
     29e6:	83 ec 0c             	sub    $0xc,%esp
-    29e9:	68 ce 49 00 00       	push   $0x49ce
+    29e9:	68 b6 4a 00 00       	push   $0x4ab6
     29ee:	e8 17 0f 00 00       	call   390a <mkdir>
     29f3:	83 c4 10             	add    $0x10,%esp
     29f6:	85 c0                	test   %eax,%eax
     29f8:	0f 84 46 01 00 00    	je     2b44 <dirfile+0x1e4>
     29fe:	83 ec 0c             	sub    $0xc,%esp
-    2a01:	68 ce 49 00 00       	push   $0x49ce
+    2a01:	68 b6 4a 00 00       	push   $0x4ab6
     2a06:	e8 e7 0e 00 00       	call   38f2 <unlink>
     2a0b:	83 c4 10             	add    $0x10,%esp
     2a0e:	85 c0                	test   %eax,%eax
     2a10:	0f 84 1b 01 00 00    	je     2b31 <dirfile+0x1d1>
     2a16:	83 ec 08             	sub    $0x8,%esp
-    2a19:	68 ce 49 00 00       	push   $0x49ce
-    2a1e:	68 32 4a 00 00       	push   $0x4a32
+    2a19:	68 b6 4a 00 00       	push   $0x4ab6
+    2a1e:	68 1a 4b 00 00       	push   $0x4b1a
     2a23:	e8 da 0e 00 00       	call   3902 <link>
     2a28:	83 c4 10             	add    $0x10,%esp
     2a2b:	85 c0                	test   %eax,%eax
     2a2d:	0f 84 eb 00 00 00    	je     2b1e <dirfile+0x1be>
     2a33:	83 ec 0c             	sub    $0xc,%esp
-    2a36:	68 95 49 00 00       	push   $0x4995
+    2a36:	68 7d 4a 00 00       	push   $0x4a7d
     2a3b:	e8 b2 0e 00 00       	call   38f2 <unlink>
     2a40:	83 c4 10             	add    $0x10,%esp
     2a43:	85 c0                	test   %eax,%eax
     2a45:	0f 85 c0 00 00 00    	jne    2b0b <dirfile+0x1ab>
     2a4b:	83 ec 08             	sub    $0x8,%esp
     2a4e:	6a 02                	push   $0x2
-    2a50:	68 8e 45 00 00       	push   $0x458e
+    2a50:	68 76 46 00 00       	push   $0x4676
     2a55:	e8 88 0e 00 00       	call   38e2 <open>
     2a5a:	83 c4 10             	add    $0x10,%esp
     2a5d:	85 c0                	test   %eax,%eax
     2a5f:	0f 89 93 00 00 00    	jns    2af8 <dirfile+0x198>
     2a65:	83 ec 08             	sub    $0x8,%esp
     2a68:	6a 00                	push   $0x0
-    2a6a:	68 8e 45 00 00       	push   $0x458e
+    2a6a:	68 76 46 00 00       	push   $0x4676
     2a6f:	e8 6e 0e 00 00       	call   38e2 <open>
     2a74:	83 c4 0c             	add    $0xc,%esp
     2a77:	89 c3                	mov    %eax,%ebx
     2a79:	6a 01                	push   $0x1
-    2a7b:	68 71 46 00 00       	push   $0x4671
+    2a7b:	68 59 47 00 00       	push   $0x4759
     2a80:	50                   	push   %eax
     2a81:	e8 3c 0e 00 00       	call   38c2 <write>
     2a86:	83 c4 10             	add    $0x10,%esp
@@ -3297,7 +3297,7 @@ Disassembly of section .text:
     2a91:	e8 34 0e 00 00       	call   38ca <close>
     2a96:	58                   	pop    %eax
     2a97:	5a                   	pop    %edx
-    2a98:	68 65 4a 00 00       	push   $0x4a65
+    2a98:	68 4d 4b 00 00       	push   $0x4b4d
     2a9d:	6a 01                	push   $0x1
     2a9f:	e8 4c 0f 00 00       	call   39f0 <printf>
     2aa4:	83 c4 10             	add    $0x10,%esp
@@ -3306,55 +3306,55 @@ Disassembly of section .text:
     2aab:	c3                   	ret    
     2aac:	50                   	push   %eax
     2aad:	50                   	push   %eax
-    2aae:	68 d9 49 00 00       	push   $0x49d9
+    2aae:	68 c1 4a 00 00       	push   $0x4ac1
     2ab3:	6a 01                	push   $0x1
     2ab5:	e8 36 0f 00 00       	call   39f0 <printf>
     2aba:	e8 e3 0d 00 00       	call   38a2 <exit>
     2abf:	50                   	push   %eax
     2ac0:	50                   	push   %eax
-    2ac1:	68 b4 49 00 00       	push   $0x49b4
+    2ac1:	68 9c 4a 00 00       	push   $0x4a9c
     2ac6:	6a 01                	push   $0x1
     2ac8:	e8 23 0f 00 00       	call   39f0 <printf>
     2acd:	e8 d0 0d 00 00       	call   38a2 <exit>
     2ad2:	52                   	push   %edx
     2ad3:	52                   	push   %edx
-    2ad4:	68 9d 49 00 00       	push   $0x499d
+    2ad4:	68 85 4a 00 00       	push   $0x4a85
     2ad9:	6a 01                	push   $0x1
     2adb:	e8 10 0f 00 00       	call   39f0 <printf>
     2ae0:	e8 bd 0d 00 00       	call   38a2 <exit>
     2ae5:	51                   	push   %ecx
     2ae6:	51                   	push   %ecx
-    2ae7:	68 51 4a 00 00       	push   $0x4a51
+    2ae7:	68 39 4b 00 00       	push   $0x4b39
     2aec:	6a 01                	push   $0x1
     2aee:	e8 fd 0e 00 00       	call   39f0 <printf>
     2af3:	e8 aa 0d 00 00       	call   38a2 <exit>
     2af8:	53                   	push   %ebx
     2af9:	53                   	push   %ebx
-    2afa:	68 48 52 00 00       	push   $0x5248
+    2afa:	68 30 53 00 00       	push   $0x5330
     2aff:	6a 01                	push   $0x1
     2b01:	e8 ea 0e 00 00       	call   39f0 <printf>
     2b06:	e8 97 0d 00 00       	call   38a2 <exit>
     2b0b:	50                   	push   %eax
     2b0c:	50                   	push   %eax
-    2b0d:	68 39 4a 00 00       	push   $0x4a39
+    2b0d:	68 21 4b 00 00       	push   $0x4b21
     2b12:	6a 01                	push   $0x1
     2b14:	e8 d7 0e 00 00       	call   39f0 <printf>
     2b19:	e8 84 0d 00 00       	call   38a2 <exit>
     2b1e:	50                   	push   %eax
     2b1f:	50                   	push   %eax
-    2b20:	68 28 52 00 00       	push   $0x5228
+    2b20:	68 10 53 00 00       	push   $0x5310
     2b25:	6a 01                	push   $0x1
     2b27:	e8 c4 0e 00 00       	call   39f0 <printf>
     2b2c:	e8 71 0d 00 00       	call   38a2 <exit>
     2b31:	50                   	push   %eax
     2b32:	50                   	push   %eax
-    2b33:	68 14 4a 00 00       	push   $0x4a14
+    2b33:	68 fc 4a 00 00       	push   $0x4afc
     2b38:	6a 01                	push   $0x1
     2b3a:	e8 b1 0e 00 00       	call   39f0 <printf>
     2b3f:	e8 5e 0d 00 00       	call   38a2 <exit>
     2b44:	50                   	push   %eax
     2b45:	50                   	push   %eax
-    2b46:	68 f7 49 00 00       	push   $0x49f7
+    2b46:	68 df 4a 00 00       	push   $0x4adf
     2b4b:	6a 01                	push   $0x1
     2b4d:	e8 9e 0e 00 00       	call   39f0 <printf>
     2b52:	e8 4b 0d 00 00       	call   38a2 <exit>
@@ -3367,36 +3367,36 @@ Disassembly of section .text:
     2b63:	53                   	push   %ebx
     2b64:	bb 33 00 00 00       	mov    $0x33,%ebx
     2b69:	83 ec 0c             	sub    $0xc,%esp
-    2b6c:	68 75 4a 00 00       	push   $0x4a75
+    2b6c:	68 5d 4b 00 00       	push   $0x4b5d
     2b71:	6a 01                	push   $0x1
     2b73:	e8 78 0e 00 00       	call   39f0 <printf>
     2b78:	83 c4 10             	add    $0x10,%esp
     2b7b:	90                   	nop
     2b7c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
     2b80:	83 ec 0c             	sub    $0xc,%esp
-    2b83:	68 86 4a 00 00       	push   $0x4a86
+    2b83:	68 6e 4b 00 00       	push   $0x4b6e
     2b88:	e8 7d 0d 00 00       	call   390a <mkdir>
     2b8d:	83 c4 10             	add    $0x10,%esp
     2b90:	85 c0                	test   %eax,%eax
     2b92:	0f 85 bb 00 00 00    	jne    2c53 <iref+0xf3>
     2b98:	83 ec 0c             	sub    $0xc,%esp
-    2b9b:	68 86 4a 00 00       	push   $0x4a86
+    2b9b:	68 6e 4b 00 00       	push   $0x4b6e
     2ba0:	e8 6d 0d 00 00       	call   3912 <chdir>
     2ba5:	83 c4 10             	add    $0x10,%esp
     2ba8:	85 c0                	test   %eax,%eax
     2baa:	0f 85 b7 00 00 00    	jne    2c67 <iref+0x107>
     2bb0:	83 ec 0c             	sub    $0xc,%esp
-    2bb3:	68 3b 41 00 00       	push   $0x413b
+    2bb3:	68 23 42 00 00       	push   $0x4223
     2bb8:	e8 4d 0d 00 00       	call   390a <mkdir>
     2bbd:	59                   	pop    %ecx
     2bbe:	58                   	pop    %eax
-    2bbf:	68 3b 41 00 00       	push   $0x413b
-    2bc4:	68 32 4a 00 00       	push   $0x4a32
+    2bbf:	68 23 42 00 00       	push   $0x4223
+    2bc4:	68 1a 4b 00 00       	push   $0x4b1a
     2bc9:	e8 34 0d 00 00       	call   3902 <link>
     2bce:	58                   	pop    %eax
     2bcf:	5a                   	pop    %edx
     2bd0:	68 00 02 00 00       	push   $0x200
-    2bd5:	68 3b 41 00 00       	push   $0x413b
+    2bd5:	68 23 42 00 00       	push   $0x4223
     2bda:	e8 03 0d 00 00       	call   38e2 <open>
     2bdf:	83 c4 10             	add    $0x10,%esp
     2be2:	85 c0                	test   %eax,%eax
@@ -3407,7 +3407,7 @@ Disassembly of section .text:
     2bef:	83 c4 10             	add    $0x10,%esp
     2bf2:	83 ec 08             	sub    $0x8,%esp
     2bf5:	68 00 02 00 00       	push   $0x200
-    2bfa:	68 70 46 00 00       	push   $0x4670
+    2bfa:	68 58 47 00 00       	push   $0x4758
     2bff:	e8 de 0c 00 00       	call   38e2 <open>
     2c04:	83 c4 10             	add    $0x10,%esp
     2c07:	85 c0                	test   %eax,%eax
@@ -3417,17 +3417,17 @@ Disassembly of section .text:
     2c0f:	e8 b6 0c 00 00       	call   38ca <close>
     2c14:	83 c4 10             	add    $0x10,%esp
     2c17:	83 ec 0c             	sub    $0xc,%esp
-    2c1a:	68 70 46 00 00       	push   $0x4670
+    2c1a:	68 58 47 00 00       	push   $0x4758
     2c1f:	e8 ce 0c 00 00       	call   38f2 <unlink>
     2c24:	83 c4 10             	add    $0x10,%esp
     2c27:	83 eb 01             	sub    $0x1,%ebx
     2c2a:	0f 85 50 ff ff ff    	jne    2b80 <iref+0x20>
     2c30:	83 ec 0c             	sub    $0xc,%esp
-    2c33:	68 61 3d 00 00       	push   $0x3d61
+    2c33:	68 49 3e 00 00       	push   $0x3e49
     2c38:	e8 d5 0c 00 00       	call   3912 <chdir>
     2c3d:	58                   	pop    %eax
     2c3e:	5a                   	pop    %edx
-    2c3f:	68 b4 4a 00 00       	push   $0x4ab4
+    2c3f:	68 9c 4b 00 00       	push   $0x4b9c
     2c44:	6a 01                	push   $0x1
     2c46:	e8 a5 0d 00 00       	call   39f0 <printf>
     2c4b:	83 c4 10             	add    $0x10,%esp
@@ -3435,12 +3435,12 @@ Disassembly of section .text:
     2c51:	c9                   	leave  
     2c52:	c3                   	ret    
     2c53:	83 ec 08             	sub    $0x8,%esp
-    2c56:	68 8c 4a 00 00       	push   $0x4a8c
+    2c56:	68 74 4b 00 00       	push   $0x4b74
     2c5b:	6a 01                	push   $0x1
     2c5d:	e8 8e 0d 00 00       	call   39f0 <printf>
     2c62:	e8 3b 0c 00 00       	call   38a2 <exit>
     2c67:	83 ec 08             	sub    $0x8,%esp
-    2c6a:	68 a0 4a 00 00       	push   $0x4aa0
+    2c6a:	68 88 4b 00 00       	push   $0x4b88
     2c6f:	6a 01                	push   $0x1
     2c71:	e8 7a 0d 00 00       	call   39f0 <printf>
     2c76:	e8 27 0c 00 00       	call   38a2 <exit>
@@ -3453,7 +3453,7 @@ Disassembly of section .text:
     2c83:	53                   	push   %ebx
     2c84:	31 db                	xor    %ebx,%ebx
     2c86:	83 ec 0c             	sub    $0xc,%esp
-    2c89:	68 c8 4a 00 00       	push   $0x4ac8
+    2c89:	68 b0 4b 00 00       	push   $0x4bb0
     2c8e:	6a 01                	push   $0x1
     2c90:	e8 5b 0d 00 00       	call   39f0 <printf>
     2c95:	83 c4 10             	add    $0x10,%esp
@@ -3478,7 +3478,7 @@ Disassembly of section .text:
     2cd3:	83 f8 ff             	cmp    $0xffffffff,%eax
     2cd6:	75 45                	jne    2d1d <forktest+0x9d>
     2cd8:	83 ec 08             	sub    $0x8,%esp
-    2cdb:	68 fa 4a 00 00       	push   $0x4afa
+    2cdb:	68 e2 4b 00 00       	push   $0x4be2
     2ce0:	6a 01                	push   $0x1
     2ce2:	e8 09 0d 00 00       	call   39f0 <printf>
     2ce7:	8b 5d fc             	mov    -0x4(%ebp),%ebx
@@ -3486,19 +3486,19 @@ Disassembly of section .text:
     2ceb:	c3                   	ret    
     2cec:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
     2cf0:	83 ec 08             	sub    $0x8,%esp
-    2cf3:	68 68 52 00 00       	push   $0x5268
+    2cf3:	68 50 53 00 00       	push   $0x5350
     2cf8:	6a 01                	push   $0x1
     2cfa:	e8 f1 0c 00 00       	call   39f0 <printf>
     2cff:	e8 9e 0b 00 00       	call   38a2 <exit>
     2d04:	e8 99 0b 00 00       	call   38a2 <exit>
     2d09:	83 ec 08             	sub    $0x8,%esp
-    2d0c:	68 d3 4a 00 00       	push   $0x4ad3
+    2d0c:	68 bb 4b 00 00       	push   $0x4bbb
     2d11:	6a 01                	push   $0x1
     2d13:	e8 d8 0c 00 00       	call   39f0 <printf>
     2d18:	e8 85 0b 00 00       	call   38a2 <exit>
     2d1d:	50                   	push   %eax
     2d1e:	50                   	push   %eax
-    2d1f:	68 e7 4a 00 00       	push   $0x4ae7
+    2d1f:	68 cf 4b 00 00       	push   $0x4bcf
     2d24:	6a 01                	push   $0x1
     2d26:	e8 c5 0c 00 00       	call   39f0 <printf>
     2d2b:	e8 72 0b 00 00       	call   38a2 <exit>
@@ -3511,8 +3511,8 @@ Disassembly of section .text:
     2d35:	53                   	push   %ebx
     2d36:	31 ff                	xor    %edi,%edi
     2d38:	83 ec 64             	sub    $0x64,%esp
-    2d3b:	68 08 4b 00 00       	push   $0x4b08
-    2d40:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    2d3b:	68 f0 4b 00 00       	push   $0x4bf0
+    2d40:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     2d46:	e8 a5 0c 00 00       	call   39f0 <printf>
     2d4b:	c7 04 24 00 00 00 00 	movl   $0x0,(%esp)
     2d52:	e8 d3 0b 00 00       	call   392a <sbrk>
@@ -3658,7 +3658,7 @@ Disassembly of section .text:
     2f52:	e8 d3 09 00 00       	call   392a <sbrk>
     2f57:	83 c4 0c             	add    $0xc,%esp
     2f5a:	6a 01                	push   $0x1
-    2f5c:	68 71 46 00 00       	push   $0x4671
+    2f5c:	68 59 47 00 00       	push   $0x4759
     2f61:	ff 75 bc             	pushl  -0x44(%ebp)
     2f64:	e8 59 09 00 00       	call   38c2 <write>
     2f69:	83 c4 10             	add    $0x10,%esp
@@ -3693,8 +3693,8 @@ Disassembly of section .text:
     2fc7:	39 d8                	cmp    %ebx,%eax
     2fc9:	77 3c                	ja     3007 <sbrktest+0x2d7>
     2fcb:	83 ec 08             	sub    $0x8,%esp
-    2fce:	68 b0 4b 00 00       	push   $0x4bb0
-    2fd3:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    2fce:	68 98 4c 00 00       	push   $0x4c98
+    2fd3:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     2fd9:	e8 12 0a 00 00       	call   39f0 <printf>
     2fde:	83 c4 10             	add    $0x10,%esp
     2fe1:	8d 65 f4             	lea    -0xc(%ebp),%esp
@@ -3707,8 +3707,8 @@ Disassembly of section .text:
     2fec:	50                   	push   %eax
     2fed:	56                   	push   %esi
     2fee:	57                   	push   %edi
-    2fef:	68 13 4b 00 00       	push   $0x4b13
-    2ff4:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    2fef:	68 fb 4b 00 00       	push   $0x4bfb
+    2ff4:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     2ffa:	e8 f1 09 00 00       	call   39f0 <printf>
     2fff:	83 c4 20             	add    $0x20,%esp
     3002:	e8 9b 08 00 00       	call   38a2 <exit>
@@ -3722,78 +3722,78 @@ Disassembly of section .text:
     301e:	eb ab                	jmp    2fcb <sbrktest+0x29b>
     3020:	50                   	push   %eax
     3021:	50                   	push   %eax
-    3022:	68 95 4b 00 00       	push   $0x4b95
-    3027:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    3022:	68 7d 4c 00 00       	push   $0x4c7d
+    3027:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     302d:	e8 be 09 00 00       	call   39f0 <printf>
     3032:	e8 6b 08 00 00       	call   38a2 <exit>
     3037:	52                   	push   %edx
     3038:	52                   	push   %edx
-    3039:	68 51 40 00 00       	push   $0x4051
+    3039:	68 39 41 00 00       	push   $0x4139
     303e:	6a 01                	push   $0x1
     3040:	e8 ab 09 00 00       	call   39f0 <printf>
     3045:	e8 58 08 00 00       	call   38a2 <exit>
     304a:	0f be 06             	movsbl (%esi),%eax
     304d:	50                   	push   %eax
     304e:	56                   	push   %esi
-    304f:	68 7c 4b 00 00       	push   $0x4b7c
-    3054:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    304f:	68 64 4c 00 00       	push   $0x4c64
+    3054:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     305a:	e8 91 09 00 00       	call   39f0 <printf>
     305f:	89 3c 24             	mov    %edi,(%esp)
     3062:	e8 6b 08 00 00       	call   38d2 <kill>
     3067:	e8 36 08 00 00       	call   38a2 <exit>
     306c:	51                   	push   %ecx
     306d:	51                   	push   %ecx
-    306e:	68 59 4c 00 00       	push   $0x4c59
-    3073:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    306e:	68 41 4d 00 00       	push   $0x4d41
+    3073:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3079:	e8 72 09 00 00       	call   39f0 <printf>
     307e:	e8 1f 08 00 00       	call   38a2 <exit>
     3083:	50                   	push   %eax
     3084:	56                   	push   %esi
-    3085:	68 5c 53 00 00       	push   $0x535c
-    308a:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    3085:	68 44 54 00 00       	push   $0x5444
+    308a:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3090:	e8 5b 09 00 00       	call   39f0 <printf>
     3095:	e8 08 08 00 00       	call   38a2 <exit>
     309a:	53                   	push   %ebx
     309b:	53                   	push   %ebx
-    309c:	68 2c 53 00 00       	push   $0x532c
-    30a1:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    309c:	68 14 54 00 00       	push   $0x5414
+    30a1:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     30a7:	e8 44 09 00 00       	call   39f0 <printf>
     30ac:	e8 f1 07 00 00       	call   38a2 <exit>
     30b1:	57                   	push   %edi
     30b2:	56                   	push   %esi
-    30b3:	68 04 53 00 00       	push   $0x5304
-    30b8:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    30b3:	68 ec 53 00 00       	push   $0x53ec
+    30b8:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     30be:	e8 2d 09 00 00       	call   39f0 <printf>
     30c3:	e8 da 07 00 00       	call   38a2 <exit>
     30c8:	50                   	push   %eax
     30c9:	56                   	push   %esi
-    30ca:	68 cc 52 00 00       	push   $0x52cc
-    30cf:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    30ca:	68 b4 53 00 00       	push   $0x53b4
+    30cf:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     30d5:	e8 16 09 00 00       	call   39f0 <printf>
     30da:	e8 c3 07 00 00       	call   38a2 <exit>
     30df:	56                   	push   %esi
     30e0:	56                   	push   %esi
-    30e1:	68 61 4b 00 00       	push   $0x4b61
-    30e6:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    30e1:	68 49 4c 00 00       	push   $0x4c49
+    30e6:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     30ec:	e8 ff 08 00 00       	call   39f0 <printf>
     30f1:	e8 ac 07 00 00       	call   38a2 <exit>
     30f6:	57                   	push   %edi
     30f7:	57                   	push   %edi
-    30f8:	68 8c 52 00 00       	push   $0x528c
-    30fd:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    30f8:	68 74 53 00 00       	push   $0x5374
+    30fd:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3103:	e8 e8 08 00 00       	call   39f0 <printf>
     3108:	e8 95 07 00 00       	call   38a2 <exit>
     310d:	e8 90 07 00 00       	call   38a2 <exit>
     3112:	50                   	push   %eax
     3113:	50                   	push   %eax
-    3114:	68 45 4b 00 00       	push   $0x4b45
-    3119:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    3114:	68 2d 4c 00 00       	push   $0x4c2d
+    3119:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     311f:	e8 cc 08 00 00       	call   39f0 <printf>
     3124:	e8 79 07 00 00       	call   38a2 <exit>
     3129:	50                   	push   %eax
     312a:	50                   	push   %eax
-    312b:	68 2e 4b 00 00       	push   $0x4b2e
-    3130:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    312b:	68 16 4c 00 00       	push   $0x4c16
+    3130:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3136:	e8 b5 08 00 00       	call   39f0 <printf>
     313b:	e8 62 07 00 00       	call   38a2 <exit>
 
@@ -3812,8 +3812,8 @@ Disassembly of section .text:
     3154:	53                   	push   %ebx
     3155:	31 db                	xor    %ebx,%ebx
     3157:	83 ec 08             	sub    $0x8,%esp
-    315a:	68 be 4b 00 00       	push   $0x4bbe
-    315f:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    315a:	68 a6 4c 00 00       	push   $0x4ca6
+    315f:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3165:	e8 86 08 00 00       	call   39f0 <printf>
     316a:	83 c4 10             	add    $0x10,%esp
     316d:	8d 76 00             	lea    0x0(%esi),%esi
@@ -3832,7 +3832,7 @@ Disassembly of section .text:
     319e:	58                   	pop    %eax
     319f:	5a                   	pop    %edx
     31a0:	53                   	push   %ebx
-    31a1:	68 cd 4b 00 00       	push   $0x4bcd
+    31a1:	68 b5 4c 00 00       	push   $0x4cb5
     31a6:	e8 57 07 00 00       	call   3902 <link>
     31ab:	83 c4 10             	add    $0x10,%esp
     31ae:	83 f8 ff             	cmp    $0xffffffff,%eax
@@ -3841,8 +3841,8 @@ Disassembly of section .text:
     31b9:	81 fb 00 40 11 00    	cmp    $0x114000,%ebx
     31bf:	75 af                	jne    3170 <validatetest+0x20>
     31c1:	83 ec 08             	sub    $0x8,%esp
-    31c4:	68 f1 4b 00 00       	push   $0x4bf1
-    31c9:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    31c4:	68 d9 4c 00 00       	push   $0x4cd9
+    31c9:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     31cf:	e8 1c 08 00 00       	call   39f0 <printf>
     31d4:	83 c4 10             	add    $0x10,%esp
     31d7:	8d 65 f8             	lea    -0x8(%ebp),%esp
@@ -3852,8 +3852,8 @@ Disassembly of section .text:
     31dd:	c3                   	ret    
     31de:	e8 bf 06 00 00       	call   38a2 <exit>
     31e3:	83 ec 08             	sub    $0x8,%esp
-    31e6:	68 d8 4b 00 00       	push   $0x4bd8
-    31eb:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    31e6:	68 c0 4c 00 00       	push   $0x4cc0
+    31eb:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     31f1:	e8 fa 07 00 00       	call   39f0 <printf>
     31f6:	e8 a7 06 00 00       	call   38a2 <exit>
     31fb:	90                   	nop
@@ -3863,30 +3863,30 @@ Disassembly of section .text:
     3200:	55                   	push   %ebp
     3201:	89 e5                	mov    %esp,%ebp
     3203:	83 ec 10             	sub    $0x10,%esp
-    3206:	68 fe 4b 00 00       	push   $0x4bfe
-    320b:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    3206:	68 e6 4c 00 00       	push   $0x4ce6
+    320b:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3211:	e8 da 07 00 00       	call   39f0 <printf>
     3216:	83 c4 10             	add    $0x10,%esp
-    3219:	80 3d 80 5e 00 00 00 	cmpb   $0x0,0x5e80
+    3219:	80 3d 00 60 00 00 00 	cmpb   $0x0,0x6000
     3220:	75 39                	jne    325b <bsstest+0x5b>
     3222:	b8 01 00 00 00       	mov    $0x1,%eax
     3227:	89 f6                	mov    %esi,%esi
     3229:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
-    3230:	80 b8 80 5e 00 00 00 	cmpb   $0x0,0x5e80(%eax)
+    3230:	80 b8 00 60 00 00 00 	cmpb   $0x0,0x6000(%eax)
     3237:	75 22                	jne    325b <bsstest+0x5b>
     3239:	83 c0 01             	add    $0x1,%eax
     323c:	3d 10 27 00 00       	cmp    $0x2710,%eax
     3241:	75 ed                	jne    3230 <bsstest+0x30>
     3243:	83 ec 08             	sub    $0x8,%esp
-    3246:	68 19 4c 00 00       	push   $0x4c19
-    324b:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    3246:	68 01 4d 00 00       	push   $0x4d01
+    324b:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3251:	e8 9a 07 00 00       	call   39f0 <printf>
     3256:	83 c4 10             	add    $0x10,%esp
     3259:	c9                   	leave  
     325a:	c3                   	ret    
     325b:	83 ec 08             	sub    $0x8,%esp
-    325e:	68 08 4c 00 00       	push   $0x4c08
-    3263:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    325e:	68 f0 4c 00 00       	push   $0x4cf0
+    3263:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3269:	e8 82 07 00 00       	call   39f0 <printf>
     326e:	e8 2f 06 00 00       	call   38a2 <exit>
     3273:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
@@ -3896,7 +3896,7 @@ Disassembly of section .text:
     3280:	55                   	push   %ebp
     3281:	89 e5                	mov    %esp,%ebp
     3283:	83 ec 14             	sub    $0x14,%esp
-    3286:	68 26 4c 00 00       	push   $0x4c26
+    3286:	68 0e 4d 00 00       	push   $0x4d0e
     328b:	e8 62 06 00 00       	call   38f2 <unlink>
     3290:	e8 05 06 00 00       	call   389a <fork>
     3295:	83 c4 10             	add    $0x10,%esp
@@ -3906,7 +3906,7 @@ Disassembly of section .text:
     32a2:	e8 03 06 00 00       	call   38aa <wait>
     32a7:	83 ec 08             	sub    $0x8,%esp
     32aa:	6a 00                	push   $0x0
-    32ac:	68 26 4c 00 00       	push   $0x4c26
+    32ac:	68 0e 4d 00 00       	push   $0x4d0e
     32b1:	e8 2c 06 00 00       	call   38e2 <open>
     32b6:	83 c4 10             	add    $0x10,%esp
     32b9:	85 c0                	test   %eax,%eax
@@ -3914,51 +3914,51 @@ Disassembly of section .text:
     32c1:	83 ec 0c             	sub    $0xc,%esp
     32c4:	50                   	push   %eax
     32c5:	e8 00 06 00 00       	call   38ca <close>
-    32ca:	c7 04 24 26 4c 00 00 	movl   $0x4c26,(%esp)
+    32ca:	c7 04 24 0e 4d 00 00 	movl   $0x4d0e,(%esp)
     32d1:	e8 1c 06 00 00       	call   38f2 <unlink>
     32d6:	83 c4 10             	add    $0x10,%esp
     32d9:	c9                   	leave  
     32da:	c3                   	ret    
-    32db:	b8 e0 5d 00 00       	mov    $0x5de0,%eax
-    32e0:	c7 00 80 53 00 00    	movl   $0x5380,(%eax)
+    32db:	b8 60 5f 00 00       	mov    $0x5f60,%eax
+    32e0:	c7 00 68 54 00 00    	movl   $0x5468,(%eax)
     32e6:	83 c0 04             	add    $0x4,%eax
-    32e9:	3d 5c 5e 00 00       	cmp    $0x5e5c,%eax
+    32e9:	3d dc 5f 00 00       	cmp    $0x5fdc,%eax
     32ee:	75 f0                	jne    32e0 <bigargtest+0x60>
     32f0:	51                   	push   %ecx
     32f1:	51                   	push   %ecx
-    32f2:	68 30 4c 00 00       	push   $0x4c30
-    32f7:	ff 35 c8 5d 00 00    	pushl  0x5dc8
-    32fd:	c7 05 5c 5e 00 00 00 	movl   $0x0,0x5e5c
+    32f2:	68 18 4d 00 00       	push   $0x4d18
+    32f7:	ff 35 3c 5f 00 00    	pushl  0x5f3c
+    32fd:	c7 05 dc 5f 00 00 00 	movl   $0x0,0x5fdc
     3304:	00 00 00 
     3307:	e8 e4 06 00 00       	call   39f0 <printf>
     330c:	58                   	pop    %eax
     330d:	5a                   	pop    %edx
-    330e:	68 e0 5d 00 00       	push   $0x5de0
-    3313:	68 fd 3d 00 00       	push   $0x3dfd
+    330e:	68 60 5f 00 00       	push   $0x5f60
+    3313:	68 e5 3e 00 00       	push   $0x3ee5
     3318:	e8 bd 05 00 00       	call   38da <exec>
     331d:	59                   	pop    %ecx
     331e:	58                   	pop    %eax
-    331f:	68 3d 4c 00 00       	push   $0x4c3d
-    3324:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    331f:	68 25 4d 00 00       	push   $0x4d25
+    3324:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     332a:	e8 c1 06 00 00       	call   39f0 <printf>
     332f:	58                   	pop    %eax
     3330:	5a                   	pop    %edx
     3331:	68 00 02 00 00       	push   $0x200
-    3336:	68 26 4c 00 00       	push   $0x4c26
+    3336:	68 0e 4d 00 00       	push   $0x4d0e
     333b:	e8 a2 05 00 00       	call   38e2 <open>
     3340:	89 04 24             	mov    %eax,(%esp)
     3343:	e8 82 05 00 00       	call   38ca <close>
     3348:	e8 55 05 00 00       	call   38a2 <exit>
     334d:	50                   	push   %eax
     334e:	50                   	push   %eax
-    334f:	68 66 4c 00 00       	push   $0x4c66
-    3354:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    334f:	68 4e 4d 00 00       	push   $0x4d4e
+    3354:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     335a:	e8 91 06 00 00       	call   39f0 <printf>
     335f:	e8 3e 05 00 00       	call   38a2 <exit>
     3364:	52                   	push   %edx
     3365:	52                   	push   %edx
-    3366:	68 4d 4c 00 00       	push   $0x4c4d
-    336b:	ff 35 c8 5d 00 00    	pushl  0x5dc8
+    3366:	68 35 4d 00 00       	push   $0x4d35
+    336b:	ff 35 3c 5f 00 00    	pushl  0x5f3c
     3371:	e8 7a 06 00 00       	call   39f0 <printf>
     3376:	e8 27 05 00 00       	call   38a2 <exit>
     337b:	90                   	nop
@@ -3972,7 +3972,7 @@ Disassembly of section .text:
     3385:	53                   	push   %ebx
     3386:	31 db                	xor    %ebx,%ebx
     3388:	83 ec 54             	sub    $0x54,%esp
-    338b:	68 7b 4c 00 00       	push   $0x4c7b
+    338b:	68 63 4d 00 00       	push   $0x4d63
     3390:	6a 01                	push   $0x1
     3392:	e8 59 06 00 00       	call   39f0 <printf>
     3397:	83 c4 10             	add    $0x10,%esp
@@ -4017,7 +4017,7 @@ Disassembly of section .text:
     340d:	88 45 ac             	mov    %al,-0x54(%ebp)
     3410:	8d 45 a8             	lea    -0x58(%ebp),%eax
     3413:	50                   	push   %eax
-    3414:	68 88 4c 00 00       	push   $0x4c88
+    3414:	68 70 4d 00 00       	push   $0x4d70
     3419:	6a 01                	push   $0x1
     341b:	e8 d0 05 00 00       	call   39f0 <printf>
     3420:	58                   	pop    %eax
@@ -4036,7 +4036,7 @@ Disassembly of section .text:
     3440:	01 c6                	add    %eax,%esi
     3442:	83 ec 04             	sub    $0x4,%esp
     3445:	68 00 02 00 00       	push   $0x200
-    344a:	68 a0 85 00 00       	push   $0x85a0
+    344a:	68 20 87 00 00       	push   $0x8720
     344f:	57                   	push   %edi
     3450:	e8 6d 04 00 00       	call   38c2 <write>
     3455:	83 c4 10             	add    $0x10,%esp
@@ -4044,7 +4044,7 @@ Disassembly of section .text:
     345d:	7f e1                	jg     3440 <fsfull+0xc0>
     345f:	83 ec 04             	sub    $0x4,%esp
     3462:	56                   	push   %esi
-    3463:	68 a4 4c 00 00       	push   $0x4ca4
+    3463:	68 8c 4d 00 00       	push   $0x4d8c
     3468:	6a 01                	push   $0x1
     346a:	e8 81 05 00 00       	call   39f0 <printf>
     346f:	89 3c 24             	mov    %edi,(%esp)
@@ -4059,7 +4059,7 @@ Disassembly of section .text:
     3490:	8d 45 a8             	lea    -0x58(%ebp),%eax
     3493:	83 ec 04             	sub    $0x4,%esp
     3496:	50                   	push   %eax
-    3497:	68 94 4c 00 00       	push   $0x4c94
+    3497:	68 7c 4d 00 00       	push   $0x4d7c
     349c:	6a 01                	push   $0x1
     349e:	e8 4d 05 00 00       	call   39f0 <printf>
     34a3:	83 c4 10             	add    $0x10,%esp
@@ -4109,7 +4109,7 @@ Disassembly of section .text:
     3522:	83 fb ff             	cmp    $0xffffffff,%ebx
     3525:	75 89                	jne    34b0 <fsfull+0x130>
     3527:	83 ec 08             	sub    $0x8,%esp
-    352a:	68 b4 4c 00 00       	push   $0x4cb4
+    352a:	68 9c 4d 00 00       	push   $0x4d9c
     352f:	6a 01                	push   $0x1
     3531:	e8 ba 04 00 00       	call   39f0 <printf>
     3536:	83 c4 10             	add    $0x10,%esp
@@ -4138,7 +4138,7 @@ Disassembly of section .text:
     3550:	55                   	push   %ebp
     3551:	89 e5                	mov    %esp,%ebp
     3553:	83 ec 10             	sub    $0x10,%esp
-    3556:	68 ca 4c 00 00       	push   $0x4cca
+    3556:	68 b2 4d 00 00       	push   $0x4db2
     355b:	6a 01                	push   $0x1
     355d:	e8 8e 04 00 00       	call   39f0 <printf>
     3562:	e8 33 03 00 00       	call   389a <fork>
@@ -4148,7 +4148,7 @@ Disassembly of section .text:
     356e:	78 3d                	js     35ad <uio+0x5d>
     3570:	e8 35 03 00 00       	call   38aa <wait>
     3575:	83 ec 08             	sub    $0x8,%esp
-    3578:	68 d4 4c 00 00       	push   $0x4cd4
+    3578:	68 bc 4d 00 00       	push   $0x4dbc
     357d:	6a 01                	push   $0x1
     357f:	e8 6c 04 00 00       	call   39f0 <printf>
     3584:	83 c4 10             	add    $0x10,%esp
@@ -4161,13 +4161,13 @@ Disassembly of section .text:
     3599:	ec                   	in     (%dx),%al
     359a:	52                   	push   %edx
     359b:	52                   	push   %edx
-    359c:	68 60 54 00 00       	push   $0x5460
+    359c:	68 48 55 00 00       	push   $0x5548
     35a1:	6a 01                	push   $0x1
     35a3:	e8 48 04 00 00       	call   39f0 <printf>
     35a8:	e8 f5 02 00 00       	call   38a2 <exit>
     35ad:	50                   	push   %eax
     35ae:	50                   	push   %eax
-    35af:	68 59 4c 00 00       	push   $0x4c59
+    35af:	68 41 4d 00 00       	push   $0x4d41
     35b4:	6a 01                	push   $0x1
     35b6:	e8 35 04 00 00       	call   39f0 <printf>
     35bb:	e8 e2 02 00 00       	call   38a2 <exit>
@@ -4178,7 +4178,7 @@ Disassembly of section .text:
     35c3:	53                   	push   %ebx
     35c4:	83 ec 0c             	sub    $0xc,%esp
     35c7:	6a 00                	push   $0x0
-    35c9:	68 e3 4c 00 00       	push   $0x4ce3
+    35c9:	68 cb 4d 00 00       	push   $0x4dcb
     35ce:	e8 0f 03 00 00       	call   38e2 <open>
     35d3:	83 c4 10             	add    $0x10,%esp
     35d6:	85 c0                	test   %eax,%eax
@@ -4197,7 +4197,7 @@ Disassembly of section .text:
     35f8:	e8 cd 02 00 00       	call   38ca <close>
     35fd:	58                   	pop    %eax
     35fe:	5a                   	pop    %edx
-    35ff:	68 f5 4c 00 00       	push   $0x4cf5
+    35ff:	68 dd 4d 00 00       	push   $0x4ddd
     3604:	6a 01                	push   $0x1
     3606:	e8 e5 03 00 00       	call   39f0 <printf>
     360b:	83 c4 10             	add    $0x10,%esp
@@ -4206,7 +4206,7 @@ Disassembly of section .text:
     3612:	c3                   	ret    
     3613:	51                   	push   %ecx
     3614:	51                   	push   %ecx
-    3615:	68 e8 4c 00 00       	push   $0x4ce8
+    3615:	68 d0 4d 00 00       	push   $0x4dd0
     361a:	6a 02                	push   $0x2
     361c:	e8 cf 03 00 00       	call   39f0 <printf>
     3621:	e8 7c 02 00 00       	call   38a2 <exit>
@@ -4214,13 +4214,13 @@ Disassembly of section .text:
     3629:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
 
 00003630 <rand>:
-    3630:	69 05 c4 5d 00 00 0d 	imul   $0x19660d,0x5dc4,%eax
+    3630:	69 05 38 5f 00 00 0d 	imul   $0x19660d,0x5f38,%eax
     3637:	66 19 00 
     363a:	55                   	push   %ebp
     363b:	89 e5                	mov    %esp,%ebp
     363d:	5d                   	pop    %ebp
     363e:	05 5f f3 6e 3c       	add    $0x3c6ef35f,%eax
-    3643:	a3 c4 5d 00 00       	mov    %eax,0x5dc4
+    3643:	a3 38 5f 00 00       	mov    %eax,0x5f38
     3648:	c3                   	ret    
     3649:	66 90                	xchg   %ax,%ax
     364b:	66 90                	xchg   %ax,%ax
@@ -4651,7 +4651,7 @@ printint(int fd, int xx, int base, int sgn)
     398a:	31 d2                	xor    %edx,%edx
     398c:	8d 4f 01             	lea    0x1(%edi),%ecx
     398f:	f7 f6                	div    %esi
-    3991:	0f b6 92 b8 54 00 00 	movzbl 0x54b8(%edx),%edx
+    3991:	0f b6 92 a0 55 00 00 	movzbl 0x55a0(%edx),%edx
   }while((x /= base) != 0);
     3998:	85 c0                	test   %eax,%eax
     x = xx;
@@ -4972,7 +4972,7 @@ putc(int fd, char c)
     3b08:	89 45 d0             	mov    %eax,-0x30(%ebp)
         if(s == 0)
           s = "(null)";
-    3b0b:	b8 b0 54 00 00       	mov    $0x54b0,%eax
+    3b0b:	b8 98 55 00 00       	mov    $0x5598,%eax
     3b10:	85 db                	test   %ebx,%ebx
     3b12:	0f 44 d8             	cmove  %eax,%ebx
         while(*s != 0){
@@ -5068,148 +5068,521 @@ putc(int fd, char c)
     3b8f:	90                   	nop
 
 00003b90 <free>:
+static Header base;
+static Header *freep;
+
+void
+free(void *ap)
+{
     3b90:	55                   	push   %ebp
-    3b91:	a1 60 5e 00 00       	mov    0x5e60,%eax
+  Header *bp, *p;
+
+  bp = (Header*)ap - 1;
+  for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+    3b91:	a1 e0 5f 00 00       	mov    0x5fe0,%eax
+static Header base;
+static Header *freep;
+
+void
+free(void *ap)
+{
     3b96:	89 e5                	mov    %esp,%ebp
     3b98:	57                   	push   %edi
     3b99:	56                   	push   %esi
     3b9a:	53                   	push   %ebx
     3b9b:	8b 5d 08             	mov    0x8(%ebp),%ebx
-    3b9e:	8d 4b f8             	lea    -0x8(%ebx),%ecx
-    3ba1:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
-    3ba8:	39 c8                	cmp    %ecx,%eax
-    3baa:	8b 10                	mov    (%eax),%edx
-    3bac:	73 32                	jae    3be0 <free+0x50>
-    3bae:	39 d1                	cmp    %edx,%ecx
-    3bb0:	72 04                	jb     3bb6 <free+0x26>
-    3bb2:	39 d0                	cmp    %edx,%eax
-    3bb4:	72 32                	jb     3be8 <free+0x58>
-    3bb6:	8b 73 fc             	mov    -0x4(%ebx),%esi
-    3bb9:	8d 3c f1             	lea    (%ecx,%esi,8),%edi
-    3bbc:	39 fa                	cmp    %edi,%edx
-    3bbe:	74 30                	je     3bf0 <free+0x60>
-    3bc0:	89 53 f8             	mov    %edx,-0x8(%ebx)
-    3bc3:	8b 50 04             	mov    0x4(%eax),%edx
-    3bc6:	8d 34 d0             	lea    (%eax,%edx,8),%esi
-    3bc9:	39 f1                	cmp    %esi,%ecx
-    3bcb:	74 3a                	je     3c07 <free+0x77>
-    3bcd:	89 08                	mov    %ecx,(%eax)
-    3bcf:	a3 60 5e 00 00       	mov    %eax,0x5e60
-    3bd4:	5b                   	pop    %ebx
-    3bd5:	5e                   	pop    %esi
-    3bd6:	5f                   	pop    %edi
-    3bd7:	5d                   	pop    %ebp
-    3bd8:	c3                   	ret    
-    3bd9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
-    3be0:	39 d0                	cmp    %edx,%eax
-    3be2:	72 04                	jb     3be8 <free+0x58>
-    3be4:	39 d1                	cmp    %edx,%ecx
-    3be6:	72 ce                	jb     3bb6 <free+0x26>
-    3be8:	89 d0                	mov    %edx,%eax
-    3bea:	eb bc                	jmp    3ba8 <free+0x18>
-    3bec:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
-    3bf0:	03 72 04             	add    0x4(%edx),%esi
-    3bf3:	89 73 fc             	mov    %esi,-0x4(%ebx)
-    3bf6:	8b 10                	mov    (%eax),%edx
-    3bf8:	8b 12                	mov    (%edx),%edx
-    3bfa:	89 53 f8             	mov    %edx,-0x8(%ebx)
-    3bfd:	8b 50 04             	mov    0x4(%eax),%edx
-    3c00:	8d 34 d0             	lea    (%eax,%edx,8),%esi
-    3c03:	39 f1                	cmp    %esi,%ecx
-    3c05:	75 c6                	jne    3bcd <free+0x3d>
-    3c07:	03 53 fc             	add    -0x4(%ebx),%edx
-    3c0a:	a3 60 5e 00 00       	mov    %eax,0x5e60
-    3c0f:	89 50 04             	mov    %edx,0x4(%eax)
-    3c12:	8b 53 f8             	mov    -0x8(%ebx),%edx
-    3c15:	89 10                	mov    %edx,(%eax)
-    3c17:	5b                   	pop    %ebx
-    3c18:	5e                   	pop    %esi
-    3c19:	5f                   	pop    %edi
-    3c1a:	5d                   	pop    %ebp
-    3c1b:	c3                   	ret    
-    3c1c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  Header *bp, *p;
 
-00003c20 <malloc>:
+  bp = (Header*)ap - 1;
+  for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+    if(p >= p->s.ptr && (bp > p || bp < p->s.ptr))
+    3b9e:	8b 10                	mov    (%eax),%edx
+void
+free(void *ap)
+{
+  Header *bp, *p;
+
+  bp = (Header*)ap - 1;
+    3ba0:	8d 4b f8             	lea    -0x8(%ebx),%ecx
+  for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+    3ba3:	39 c8                	cmp    %ecx,%eax
+    3ba5:	73 19                	jae    3bc0 <free+0x30>
+    3ba7:	89 f6                	mov    %esi,%esi
+    3ba9:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+    3bb0:	39 d1                	cmp    %edx,%ecx
+    3bb2:	72 1c                	jb     3bd0 <free+0x40>
+    if(p >= p->s.ptr && (bp > p || bp < p->s.ptr))
+    3bb4:	39 d0                	cmp    %edx,%eax
+    3bb6:	73 18                	jae    3bd0 <free+0x40>
+static Header base;
+static Header *freep;
+
+void
+free(void *ap)
+{
+    3bb8:	89 d0                	mov    %edx,%eax
+  Header *bp, *p;
+
+  bp = (Header*)ap - 1;
+  for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+    3bba:	39 c8                	cmp    %ecx,%eax
+    if(p >= p->s.ptr && (bp > p || bp < p->s.ptr))
+    3bbc:	8b 10                	mov    (%eax),%edx
+free(void *ap)
+{
+  Header *bp, *p;
+
+  bp = (Header*)ap - 1;
+  for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+    3bbe:	72 f0                	jb     3bb0 <free+0x20>
+    if(p >= p->s.ptr && (bp > p || bp < p->s.ptr))
+    3bc0:	39 d0                	cmp    %edx,%eax
+    3bc2:	72 f4                	jb     3bb8 <free+0x28>
+    3bc4:	39 d1                	cmp    %edx,%ecx
+    3bc6:	73 f0                	jae    3bb8 <free+0x28>
+    3bc8:	90                   	nop
+    3bc9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
+      break;
+  if(bp + bp->s.size == p->s.ptr){
+    3bd0:	8b 73 fc             	mov    -0x4(%ebx),%esi
+    3bd3:	8d 3c f1             	lea    (%ecx,%esi,8),%edi
+    3bd6:	39 d7                	cmp    %edx,%edi
+    3bd8:	74 19                	je     3bf3 <free+0x63>
+    bp->s.size += p->s.ptr->s.size;
+    bp->s.ptr = p->s.ptr->s.ptr;
+  } else
+    bp->s.ptr = p->s.ptr;
+    3bda:	89 53 f8             	mov    %edx,-0x8(%ebx)
+  if(p + p->s.size == bp){
+    3bdd:	8b 50 04             	mov    0x4(%eax),%edx
+    3be0:	8d 34 d0             	lea    (%eax,%edx,8),%esi
+    3be3:	39 f1                	cmp    %esi,%ecx
+    3be5:	74 23                	je     3c0a <free+0x7a>
+    p->s.size += bp->s.size;
+    p->s.ptr = bp->s.ptr;
+  } else
+    p->s.ptr = bp;
+    3be7:	89 08                	mov    %ecx,(%eax)
+  freep = p;
+    3be9:	a3 e0 5f 00 00       	mov    %eax,0x5fe0
+}
+    3bee:	5b                   	pop    %ebx
+    3bef:	5e                   	pop    %esi
+    3bf0:	5f                   	pop    %edi
+    3bf1:	5d                   	pop    %ebp
+    3bf2:	c3                   	ret    
+  bp = (Header*)ap - 1;
+  for(p = freep; !(bp > p && bp < p->s.ptr); p = p->s.ptr)
+    if(p >= p->s.ptr && (bp > p || bp < p->s.ptr))
+      break;
+  if(bp + bp->s.size == p->s.ptr){
+    bp->s.size += p->s.ptr->s.size;
+    3bf3:	03 72 04             	add    0x4(%edx),%esi
+    3bf6:	89 73 fc             	mov    %esi,-0x4(%ebx)
+    bp->s.ptr = p->s.ptr->s.ptr;
+    3bf9:	8b 10                	mov    (%eax),%edx
+    3bfb:	8b 12                	mov    (%edx),%edx
+    3bfd:	89 53 f8             	mov    %edx,-0x8(%ebx)
+  } else
+    bp->s.ptr = p->s.ptr;
+  if(p + p->s.size == bp){
+    3c00:	8b 50 04             	mov    0x4(%eax),%edx
+    3c03:	8d 34 d0             	lea    (%eax,%edx,8),%esi
+    3c06:	39 f1                	cmp    %esi,%ecx
+    3c08:	75 dd                	jne    3be7 <free+0x57>
+    p->s.size += bp->s.size;
+    3c0a:	03 53 fc             	add    -0x4(%ebx),%edx
+    p->s.ptr = bp->s.ptr;
+  } else
+    p->s.ptr = bp;
+  freep = p;
+    3c0d:	a3 e0 5f 00 00       	mov    %eax,0x5fe0
+    bp->s.size += p->s.ptr->s.size;
+    bp->s.ptr = p->s.ptr->s.ptr;
+  } else
+    bp->s.ptr = p->s.ptr;
+  if(p + p->s.size == bp){
+    p->s.size += bp->s.size;
+    3c12:	89 50 04             	mov    %edx,0x4(%eax)
+    p->s.ptr = bp->s.ptr;
+    3c15:	8b 53 f8             	mov    -0x8(%ebx),%edx
+    3c18:	89 10                	mov    %edx,(%eax)
+  } else
+    p->s.ptr = bp;
+  freep = p;
+}
+    3c1a:	5b                   	pop    %ebx
+    3c1b:	5e                   	pop    %esi
+    3c1c:	5f                   	pop    %edi
+    3c1d:	5d                   	pop    %ebp
+    3c1e:	c3                   	ret    
+    3c1f:	90                   	nop
+
+00003c20 <morecore>:
+
+static Header*
+morecore(uint nu)
+{
     3c20:	55                   	push   %ebp
     3c21:	89 e5                	mov    %esp,%ebp
-    3c23:	57                   	push   %edi
-    3c24:	56                   	push   %esi
-    3c25:	53                   	push   %ebx
-    3c26:	83 ec 0c             	sub    $0xc,%esp
-    3c29:	8b 45 08             	mov    0x8(%ebp),%eax
-    3c2c:	8b 15 60 5e 00 00    	mov    0x5e60,%edx
-    3c32:	8d 78 07             	lea    0x7(%eax),%edi
-    3c35:	c1 ef 03             	shr    $0x3,%edi
-    3c38:	83 c7 01             	add    $0x1,%edi
-    3c3b:	85 d2                	test   %edx,%edx
-    3c3d:	0f 84 9d 00 00 00    	je     3ce0 <malloc+0xc0>
-    3c43:	8b 02                	mov    (%edx),%eax
-    3c45:	8b 48 04             	mov    0x4(%eax),%ecx
-    3c48:	39 cf                	cmp    %ecx,%edi
-    3c4a:	76 6c                	jbe    3cb8 <malloc+0x98>
-    3c4c:	81 ff 00 10 00 00    	cmp    $0x1000,%edi
-    3c52:	bb 00 10 00 00       	mov    $0x1000,%ebx
-    3c57:	0f 43 df             	cmovae %edi,%ebx
-    3c5a:	8d 34 dd 00 00 00 00 	lea    0x0(,%ebx,8),%esi
-    3c61:	eb 0e                	jmp    3c71 <malloc+0x51>
-    3c63:	90                   	nop
+    3c23:	53                   	push   %ebx
+    3c24:	83 ec 04             	sub    $0x4,%esp
+  char *p;
+  Header *hp;
+
+  if(nu < 4096)
+    3c27:	3d ff 0f 00 00       	cmp    $0xfff,%eax
+    3c2c:	76 3a                	jbe    3c68 <morecore+0x48>
+    3c2e:	89 c3                	mov    %eax,%ebx
+    3c30:	8d 04 c5 00 00 00 00 	lea    0x0(,%eax,8),%eax
+    nu = 4096;
+  p = sbrk(nu * sizeof(Header));
+    3c37:	83 ec 0c             	sub    $0xc,%esp
+    3c3a:	50                   	push   %eax
+    3c3b:	e8 ea fc ff ff       	call   392a <sbrk>
+  if(p == (char*)-1)
+    3c40:	83 c4 10             	add    $0x10,%esp
+    3c43:	83 f8 ff             	cmp    $0xffffffff,%eax
+    3c46:	74 30                	je     3c78 <morecore+0x58>
+    return 0;
+  hp = (Header*)p;
+  hp->s.size = nu;
+    3c48:	89 58 04             	mov    %ebx,0x4(%eax)
+  free((void*)(hp + 1));
+    3c4b:	83 ec 0c             	sub    $0xc,%esp
+    3c4e:	83 c0 08             	add    $0x8,%eax
+    3c51:	50                   	push   %eax
+    3c52:	e8 39 ff ff ff       	call   3b90 <free>
+  return freep;
+    3c57:	a1 e0 5f 00 00       	mov    0x5fe0,%eax
+    3c5c:	83 c4 10             	add    $0x10,%esp
+}
+    3c5f:	8b 5d fc             	mov    -0x4(%ebp),%ebx
+    3c62:	c9                   	leave  
+    3c63:	c3                   	ret    
     3c64:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
-    3c68:	8b 02                	mov    (%edx),%eax
-    3c6a:	8b 48 04             	mov    0x4(%eax),%ecx
-    3c6d:	39 f9                	cmp    %edi,%ecx
-    3c6f:	73 47                	jae    3cb8 <malloc+0x98>
-    3c71:	39 05 60 5e 00 00    	cmp    %eax,0x5e60
-    3c77:	89 c2                	mov    %eax,%edx
-    3c79:	75 ed                	jne    3c68 <malloc+0x48>
-    3c7b:	83 ec 0c             	sub    $0xc,%esp
-    3c7e:	56                   	push   %esi
-    3c7f:	e8 a6 fc ff ff       	call   392a <sbrk>
-    3c84:	83 c4 10             	add    $0x10,%esp
-    3c87:	83 f8 ff             	cmp    $0xffffffff,%eax
-    3c8a:	74 1c                	je     3ca8 <malloc+0x88>
-    3c8c:	89 58 04             	mov    %ebx,0x4(%eax)
-    3c8f:	83 ec 0c             	sub    $0xc,%esp
-    3c92:	83 c0 08             	add    $0x8,%eax
-    3c95:	50                   	push   %eax
-    3c96:	e8 f5 fe ff ff       	call   3b90 <free>
-    3c9b:	8b 15 60 5e 00 00    	mov    0x5e60,%edx
-    3ca1:	83 c4 10             	add    $0x10,%esp
-    3ca4:	85 d2                	test   %edx,%edx
-    3ca6:	75 c0                	jne    3c68 <malloc+0x48>
-    3ca8:	8d 65 f4             	lea    -0xc(%ebp),%esp
-    3cab:	31 c0                	xor    %eax,%eax
-    3cad:	5b                   	pop    %ebx
-    3cae:	5e                   	pop    %esi
-    3caf:	5f                   	pop    %edi
-    3cb0:	5d                   	pop    %ebp
-    3cb1:	c3                   	ret    
-    3cb2:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
-    3cb8:	39 cf                	cmp    %ecx,%edi
-    3cba:	74 54                	je     3d10 <malloc+0xf0>
-    3cbc:	29 f9                	sub    %edi,%ecx
-    3cbe:	89 48 04             	mov    %ecx,0x4(%eax)
-    3cc1:	8d 04 c8             	lea    (%eax,%ecx,8),%eax
-    3cc4:	89 78 04             	mov    %edi,0x4(%eax)
-    3cc7:	89 15 60 5e 00 00    	mov    %edx,0x5e60
-    3ccd:	8d 65 f4             	lea    -0xc(%ebp),%esp
-    3cd0:	83 c0 08             	add    $0x8,%eax
-    3cd3:	5b                   	pop    %ebx
-    3cd4:	5e                   	pop    %esi
-    3cd5:	5f                   	pop    %edi
-    3cd6:	5d                   	pop    %ebp
-    3cd7:	c3                   	ret    
-    3cd8:	90                   	nop
-    3cd9:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
-    3ce0:	c7 05 60 5e 00 00 64 	movl   $0x5e64,0x5e60
-    3ce7:	5e 00 00 
-    3cea:	c7 05 64 5e 00 00 64 	movl   $0x5e64,0x5e64
-    3cf1:	5e 00 00 
-    3cf4:	b8 64 5e 00 00       	mov    $0x5e64,%eax
-    3cf9:	c7 05 68 5e 00 00 00 	movl   $0x0,0x5e68
-    3d00:	00 00 00 
-    3d03:	e9 44 ff ff ff       	jmp    3c4c <malloc+0x2c>
-    3d08:	90                   	nop
-    3d09:	8d b4 26 00 00 00 00 	lea    0x0(%esi,%eiz,1),%esi
-    3d10:	8b 08                	mov    (%eax),%ecx
-    3d12:	89 0a                	mov    %ecx,(%edx)
-    3d14:	eb b1                	jmp    3cc7 <malloc+0xa7>
+    3c68:	b8 00 80 00 00       	mov    $0x8000,%eax
+{
+  char *p;
+  Header *hp;
+
+  if(nu < 4096)
+    nu = 4096;
+    3c6d:	bb 00 10 00 00       	mov    $0x1000,%ebx
+    3c72:	eb c3                	jmp    3c37 <morecore+0x17>
+    3c74:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+  p = sbrk(nu * sizeof(Header));
+  if(p == (char*)-1)
+    return 0;
+    3c78:	31 c0                	xor    %eax,%eax
+    3c7a:	eb e3                	jmp    3c5f <morecore+0x3f>
+    3c7c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+00003c80 <malloc>:
+  return freep;
+}
+
+void*
+malloc(uint nbytes)
+{
+    3c80:	55                   	push   %ebp
+    3c81:	89 e5                	mov    %esp,%ebp
+    3c83:	53                   	push   %ebx
+    3c84:	83 ec 04             	sub    $0x4,%esp
+    Header *p, *prevp;
+    uint nunits;
+
+    nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
+    3c87:	8b 45 08             	mov    0x8(%ebp),%eax
+    3c8a:	8d 58 07             	lea    0x7(%eax),%ebx
+    if((prevp = freep) == 0){
+    3c8d:	a1 e0 5f 00 00       	mov    0x5fe0,%eax
+malloc(uint nbytes)
+{
+    Header *p, *prevp;
+    uint nunits;
+
+    nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
+    3c92:	c1 eb 03             	shr    $0x3,%ebx
+    3c95:	83 c3 01             	add    $0x1,%ebx
+    if((prevp = freep) == 0){
+    3c98:	85 c0                	test   %eax,%eax
+    3c9a:	74 52                	je     3cee <malloc+0x6e>
+    3c9c:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+    3ca0:	8b 10                	mov    (%eax),%edx
+        if(p->s.size >= nunits){
+    3ca2:	8b 4a 04             	mov    0x4(%edx),%ecx
+    3ca5:	39 cb                	cmp    %ecx,%ebx
+    3ca7:	76 1f                	jbe    3cc8 <malloc+0x48>
+                p->s.size = nunits;
+            }
+            freep = prevp;
+            return (void*)(p + 1);
+        }
+        if(p == freep)
+    3ca9:	39 15 e0 5f 00 00    	cmp    %edx,0x5fe0
+    3caf:	89 d0                	mov    %edx,%eax
+    3cb1:	75 ed                	jne    3ca0 <malloc+0x20>
+            if((p = morecore(nunits)) == 0)
+    3cb3:	89 d8                	mov    %ebx,%eax
+    3cb5:	e8 66 ff ff ff       	call   3c20 <morecore>
+    3cba:	85 c0                	test   %eax,%eax
+    3cbc:	75 e2                	jne    3ca0 <malloc+0x20>
+                return 0;
+    3cbe:	31 c0                	xor    %eax,%eax
+    3cc0:	eb 1d                	jmp    3cdf <malloc+0x5f>
+    3cc2:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+        if(p->s.size >= nunits){
+            if(p->s.size == nunits)
+    3cc8:	39 cb                	cmp    %ecx,%ebx
+    3cca:	74 1c                	je     3ce8 <malloc+0x68>
+                prevp->s.ptr = p->s.ptr;
+            else {
+                p->s.size -= nunits;
+    3ccc:	29 d9                	sub    %ebx,%ecx
+    3cce:	89 4a 04             	mov    %ecx,0x4(%edx)
+                p += p->s.size;
+    3cd1:	8d 14 ca             	lea    (%edx,%ecx,8),%edx
+                p->s.size = nunits;
+    3cd4:	89 5a 04             	mov    %ebx,0x4(%edx)
+            }
+            freep = prevp;
+    3cd7:	a3 e0 5f 00 00       	mov    %eax,0x5fe0
+            return (void*)(p + 1);
+    3cdc:	8d 42 08             	lea    0x8(%edx),%eax
+        }
+        if(p == freep)
+            if((p = morecore(nunits)) == 0)
+                return 0;
+    }
+}
+    3cdf:	83 c4 04             	add    $0x4,%esp
+    3ce2:	5b                   	pop    %ebx
+    3ce3:	5d                   	pop    %ebp
+    3ce4:	c3                   	ret    
+    3ce5:	8d 76 00             	lea    0x0(%esi),%esi
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+        if(p->s.size >= nunits){
+            if(p->s.size == nunits)
+                prevp->s.ptr = p->s.ptr;
+    3ce8:	8b 0a                	mov    (%edx),%ecx
+    3cea:	89 08                	mov    %ecx,(%eax)
+    3cec:	eb e9                	jmp    3cd7 <malloc+0x57>
+    Header *p, *prevp;
+    uint nunits;
+
+    nunits = (nbytes + sizeof(Header) - 1)/sizeof(Header) + 1;
+    if((prevp = freep) == 0){
+        base.s.ptr = freep = prevp = &base;
+    3cee:	c7 05 e0 5f 00 00 e4 	movl   $0x5fe4,0x5fe0
+    3cf5:	5f 00 00 
+    3cf8:	c7 05 e4 5f 00 00 e4 	movl   $0x5fe4,0x5fe4
+    3cff:	5f 00 00 
+        base.s.size = 0;
+    3d02:	ba e4 5f 00 00       	mov    $0x5fe4,%edx
+    3d07:	c7 05 e8 5f 00 00 00 	movl   $0x0,0x5fe8
+    3d0e:	00 00 00 
+    3d11:	eb 96                	jmp    3ca9 <malloc+0x29>
+    3d13:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+    3d19:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+
+00003d20 <pmalloc>:
+
+// TODO we are not sure where we should do the page protected and read only PTE_W...
+
+void*
+pmalloc()
+{
+    3d20:	55                   	push   %ebp
+    3d21:	89 e5                	mov    %esp,%ebp
+    3d23:	83 ec 08             	sub    $0x8,%esp
+    Header *p, *prevp;
+    uint nunits;
+
+    nunits = ( 4096 + sizeof(Header) - 1)/sizeof(Header) + 1;
+    if((prevp = freep) == 0){
+    3d26:	a1 e0 5f 00 00       	mov    0x5fe0,%eax
+    3d2b:	85 c0                	test   %eax,%eax
+    3d2d:	74 46                	je     3d75 <pmalloc+0x55>
+    3d2f:	90                   	nop
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+    3d30:	8b 10                	mov    (%eax),%edx
+        if(p->s.size == nunits){
+    3d32:	81 7a 04 01 02 00 00 	cmpl   $0x201,0x4(%edx)
+    3d39:	74 25                	je     3d60 <pmalloc+0x40>
+            freep = prevp;
+            (p+1)->x = 1;
+            return (void*)(p + 1);
+        }
+
+        if(p == freep)
+    3d3b:	39 15 e0 5f 00 00    	cmp    %edx,0x5fe0
+    3d41:	89 d0                	mov    %edx,%eax
+    3d43:	75 eb                	jne    3d30 <pmalloc+0x10>
+            if((p = morecore(nunits)) == 0)
+    3d45:	b8 01 02 00 00       	mov    $0x201,%eax
+    3d4a:	e8 d1 fe ff ff       	call   3c20 <morecore>
+    3d4f:	85 c0                	test   %eax,%eax
+    3d51:	75 dd                	jne    3d30 <pmalloc+0x10>
+                return 0;
+    3d53:	31 c0                	xor    %eax,%eax
+    }
+}
+    3d55:	c9                   	leave  
+    3d56:	c3                   	ret    
+    3d57:	89 f6                	mov    %esi,%esi
+    3d59:	8d bc 27 00 00 00 00 	lea    0x0(%edi,%eiz,1),%edi
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+        if(p->s.size == nunits){
+            prevp->s.ptr = p->s.ptr;
+    3d60:	8b 0a                	mov    (%edx),%ecx
+            freep = prevp;
+    3d62:	a3 e0 5f 00 00       	mov    %eax,0x5fe0
+        base.s.ptr = freep = prevp = &base;
+        base.s.size = 0;
+    }
+    for(p = prevp->s.ptr; ; prevp = p, p = p->s.ptr){
+        if(p->s.size == nunits){
+            prevp->s.ptr = p->s.ptr;
+    3d67:	89 08                	mov    %ecx,(%eax)
+            freep = prevp;
+            (p+1)->x = 1;
+    3d69:	c7 42 08 01 00 00 00 	movl   $0x1,0x8(%edx)
+            return (void*)(p + 1);
+    3d70:	8d 42 08             	lea    0x8(%edx),%eax
+
+        if(p == freep)
+            if((p = morecore(nunits)) == 0)
+                return 0;
+    }
+}
+    3d73:	c9                   	leave  
+    3d74:	c3                   	ret    
+    Header *p, *prevp;
+    uint nunits;
+
+    nunits = ( 4096 + sizeof(Header) - 1)/sizeof(Header) + 1;
+    if((prevp = freep) == 0){
+        base.s.ptr = freep = prevp = &base;
+    3d75:	c7 05 e0 5f 00 00 e4 	movl   $0x5fe4,0x5fe0
+    3d7c:	5f 00 00 
+    3d7f:	c7 05 e4 5f 00 00 e4 	movl   $0x5fe4,0x5fe4
+    3d86:	5f 00 00 
+        base.s.size = 0;
+    3d89:	ba e4 5f 00 00       	mov    $0x5fe4,%edx
+    3d8e:	c7 05 e8 5f 00 00 00 	movl   $0x0,0x5fe8
+    3d95:	00 00 00 
+    3d98:	eb a1                	jmp    3d3b <pmalloc+0x1b>
+    3d9a:	8d b6 00 00 00 00    	lea    0x0(%esi),%esi
+
+00003da0 <protect_page>:
+    }
+}
+
+
+int protect_page(void* ap)
+{
+    3da0:	55                   	push   %ebp
+    3da1:	89 e5                	mov    %esp,%ebp
+    3da3:	8b 45 08             	mov    0x8(%ebp),%eax
+    Header *p;
+    if( ap )
+    3da6:	85 c0                	test   %eax,%eax
+    3da8:	74 1e                	je     3dc8 <protect_page+0x28>
+    {
+        if( (uint)ap % 4096 != 0 )
+    3daa:	a9 ff 0f 00 00       	test   $0xfff,%eax
+    3daf:	75 17                	jne    3dc8 <protect_page+0x28>
+            return -1;
+
+        p = ap;
+        if( !p->pmalloced )
+    3db1:	8b 10                	mov    (%eax),%edx
+    3db3:	85 d2                	test   %edx,%edx
+    3db5:	74 11                	je     3dc8 <protect_page+0x28>
+            return -1;
+
+        p->protected = 1;
+    3db7:	c7 00 01 00 00 00    	movl   $0x1,(%eax)
+        return 1;
+    3dbd:	b8 01 00 00 00       	mov    $0x1,%eax
+    }
+    else
+        return -1;
+}
+    3dc2:	5d                   	pop    %ebp
+    3dc3:	c3                   	ret    
+    3dc4:	8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+
+        p->protected = 1;
+        return 1;
+    }
+    else
+        return -1;
+    3dc8:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+}
+    3dcd:	5d                   	pop    %ebp
+    3dce:	c3                   	ret    
+    3dcf:	90                   	nop
+
+00003dd0 <pfree>:
+
+
+
+int pfree(void* ap) {
+    3dd0:	55                   	push   %ebp
+    3dd1:	89 e5                	mov    %esp,%ebp
+    3dd3:	8b 45 08             	mov    0x8(%ebp),%eax
+    Header *p;
+    if (ap) {
+    3dd6:	85 c0                	test   %eax,%eax
+    3dd8:	74 1e                	je     3df8 <pfree+0x28>
+        if ((uint) ap % 4096 != 0)
+    3dda:	a9 ff 0f 00 00       	test   $0xfff,%eax
+    3ddf:	75 17                	jne    3df8 <pfree+0x28>
+            return -1;
+
+        p = ap;
+        if (p->protected) {
+    3de1:	8b 10                	mov    (%eax),%edx
+    3de3:	85 d2                	test   %edx,%edx
+    3de5:	74 11                	je     3df8 <pfree+0x28>
+            free(ap);
+    3de7:	50                   	push   %eax
+    3de8:	e8 a3 fd ff ff       	call   3b90 <free>
+            return 1;
+    3ded:	58                   	pop    %eax
+    3dee:	b8 01 00 00 00       	mov    $0x1,%eax
+        }
+    }
+    return -1;
+}
+    3df3:	c9                   	leave  
+    3df4:	c3                   	ret    
+    3df5:	8d 76 00             	lea    0x0(%esi),%esi
+        if (p->protected) {
+            free(ap);
+            return 1;
+        }
+    }
+    return -1;
+    3df8:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+}
+    3dfd:	c9                   	leave  
+    3dfe:	c3                   	ret    

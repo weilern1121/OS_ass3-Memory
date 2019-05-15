@@ -33,25 +33,31 @@ seginit(void)
 // that corresponds to virtual address va.  If alloc!=0,
 // create any required page table pages.
 static pte_t *
-walkpgdir(pde_t *pgdir, const void *va, int alloc)
-{
-  pde_t *pde;
-  pte_t *pgtab;
+walkpgdir(pde_t *pgdir, const void *va, int alloc) {
+    pde_t *pde;
+    pte_t *pgtab;
 
-  pde = &pgdir[PDX(va)];
-  if(*pde & PTE_P){
-    pgtab = (pte_t*)P2V(PTE_ADDR(*pde));
-  } else {
-    if(!alloc || (pgtab = (pte_t*)kalloc()) == 0)
-      return 0;
-    // Make sure all those PTE_P bits are zero.
-    memset(pgtab, 0, PGSIZE);
-    // The permissions here are overly generous, but they can
-    // be further restricted by the permissions in the page table
-    // entries, if necessary.
-    *pde = V2P(pgtab) | PTE_P | PTE_W | PTE_U;
-  }
-  return &pgtab[PTX(va)];
+    pde = &pgdir[PDX(va)];
+    if (*pde & PTE_P) {
+        pgtab = (pte_t *) P2V(PTE_ADDR(*pde));
+    } else {
+        if (!alloc)
+            return 0;
+
+        // TODO HERE WE CREATE PYSYC MEMORY;
+        // TODO HERE WE SHOULD CHECK NUM OF PAGES AND IF NOT MAX PAGES.
+        // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
+
+        if ((pgtab = (pte_t *) kalloc()) == 0)
+            return 0;
+        // Make sure all those PTE_P bits are zero.
+        memset(pgtab, 0, PGSIZE);
+        // The permissions here are overly generous, but they can
+        // be further restricted by the permissions in the page table
+        // entries, if necessary.
+        *pde = V2P(pgtab) | PTE_P | PTE_W | PTE_U;
+    }
+    return &pgtab[PTX(va)];
 }
 
 // Create PTEs for virtual addresses starting at va that refer to
@@ -231,6 +237,9 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz)
 
   a = PGROUNDUP(oldsz);
   for(; a < newsz; a += PGSIZE){
+      // TODO HERE WE CREATE PYSYC MEMORY;
+      // TODO HERE WE SHOULD CHECK NUM OF PAGES AND IF NOT MAX PAGES.
+      // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
     mem = kalloc();
     if(mem == 0){
       cprintf("allocuvm out of memory\n");
