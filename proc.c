@@ -189,14 +189,12 @@ fork(void) {
         return -1;
     }
 
-    memset(buffer, 0, PGSIZE);
 
-    if (firstRun) {
+    if (firstRun)
         createSwapFile(curproc);
-        writeToSwapFile(curproc, buffer, 0, sizeof(buffer));
-    }
+
+
     createSwapFile(np);
-    writeToSwapFile(np, buffer, 0, sizeof(buffer));
 
     // Copy process state from proc.
     if ((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0) {
@@ -209,25 +207,32 @@ fork(void) {
     np->parent = curproc;
     *np->tf = *curproc->tf;
 
+    int k = 1;
     //TODO
     if(!firstRun) {
-        if (readFromSwapFile(curproc, buffer, 0, PGSIZE) == -1) {
-            kfree(np->kstack);
-            np->kstack = 0;
-            np->state = UNUSED;
-            removeSwapFile(np); //clear swapFile
-            return -1;
-            //panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
-        }
+        while( sizeof(curproc->swapFile) >= k*PGSIZE ) {
+            memset(buffer, 0, PGSIZE);
 
-        //TODO
-        if (writeToSwapFile(np, buffer, 0, PGSIZE) == -1) {
-            kfree(np->kstack);
-            np->kstack = 0;
-            np->state = UNUSED;
-            removeSwapFile(np); //clear swapFile
-            return -1;
-            //panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
+            if (readFromSwapFile(curproc, buffer, (k-1) * PGSIZE , PGSIZE ) == -1) {
+                kfree(np->kstack);
+                np->kstack = 0;
+                np->state = UNUSED;
+                removeSwapFile(np); //clear swapFile
+                return -1;
+                //panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
+            }
+
+            //TODO
+            if (writeToSwapFile(np, buffer, (k-1) * PGSIZE , PGSIZE ) == -1) {
+                kfree(np->kstack);
+                np->kstack = 0;
+                np->state = UNUSED;
+                removeSwapFile(np); //clear swapFile
+                return -1;
+                //panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
+            }
+
+            k++;
         }
     }
 
