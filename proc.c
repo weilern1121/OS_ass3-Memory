@@ -13,7 +13,9 @@ struct {
 } ptable;
 
 static struct proc *initproc;
+char buffer[PGSIZE];
 
+int firstRun = 1;
 int nextpid = 1;
 extern void forkret(void);
 extern void trapret(void);
@@ -38,10 +40,10 @@ struct cpu*
 mycpu(void)
 {
   int apicid, i;
-  
+
   if(readeflags()&FL_IF)
     panic("mycpu called with interrupts enabled\n");
-  
+
   apicid = lapicid();
   // APIC IDs are not guaranteed to be contiguous. Maybe we should have
   // a reverse map, or reserve a register to store &cpus[i].
@@ -112,7 +114,6 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
-  p->swapFile = (struct file *)createSwapFile(p);
   return p;
 }
 
@@ -125,7 +126,7 @@ userinit(void)
   extern char _binary_initcode_start[], _binary_initcode_size[];
 
   p = allocproc();
-  
+
   initproc = p;
   if((p->pgdir = setupkvm()) == 0)
     panic("userinit: out of memory?");
@@ -183,11 +184,19 @@ fork(void) {
     int i, pid;
     struct proc *np;
     struct proc *curproc = myproc();
-    char buffer[PGSIZE];
     // Allocate process.
     if ((np = allocproc()) == 0) {
         return -1;
     }
+
+    memset(buffer, 0, PGSIZE);
+
+    if (firstRun) {
+        createSwapFile(curproc);
+        writeToSwapFile(curproc, buffer, 0, sizeof(buffer));
+    }
+    createSwapFile(np);
+    writeToSwapFile(np, buffer, 0, sizeof(buffer));
 
     // Copy process state from proc.
     if ((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0) {
@@ -201,23 +210,25 @@ fork(void) {
     *np->tf = *curproc->tf;
 
     //TODO
-    if(readFromSwapFile(curproc,buffer,0,PGSIZE)==-1) {
-        //panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
-        kfree(np->kstack);
-        np->kstack = 0;
-        np->state = UNUSED;
-        removeSwapFile(np); //clear swapFile
-        return -1;
-    }
+    if(!firstRun) {
+        if (readFromSwapFile(curproc, buffer, 0, PGSIZE) == -1) {
+            kfree(np->kstack);
+            np->kstack = 0;
+            np->state = UNUSED;
+            removeSwapFile(np); //clear swapFile
+            return -1;
+            //panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
+        }
 
-    //TODO
-    if(writeToSwapFile(np,buffer,0,PGSIZE)==-1) {
-        //panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
-        kfree(np->kstack);
-        np->kstack = 0;
-        np->state = UNUSED;
-        removeSwapFile(np); //clear swapFile
-        return -1;
+        //TODO
+        if (writeToSwapFile(np, buffer, 0, PGSIZE) == -1) {
+            kfree(np->kstack);
+            np->kstack = 0;
+            np->state = UNUSED;
+            removeSwapFile(np); //clear swapFile
+            return -1;
+            //panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
+        }
     }
 
 
@@ -239,6 +250,7 @@ fork(void) {
 
     release(&ptable.lock);
 
+    firstRun = 0;
     return pid;
 }
 
@@ -341,39 +353,39 @@ wait(void) {
 //  - eventually that process transfers control
 //      via swtch back to the scheduler.
 void
-scheduler(void)
-{
-  struct proc *p;
-  struct cpu *c = mycpu();
-  c->proc = 0;
-  
-  for(;;){
-    // Enable interrupts on this processor.
-    sti();
+scheduler(void) {
+    struct proc *p;
+    struct cpu *c = mycpu();
+    c->proc = 0;
 
-    // Loop over process table looking for process to run.
-    acquire(&ptable.lock);
-    for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
-        continue;
 
-      // Switch to chosen process.  It is the process's job
-      // to release ptable.lock and then reacquire it
-      // before jumping back to us.
-      c->proc = p;
-      switchuvm(p);
-      p->state = RUNNING;
+     for (;;) {
+        // Enable interrupts on this processor.
+        sti();
 
-      swtch(&(c->scheduler), p->context);
-      switchkvm();
+        // Loop over process table looking for process to run.
+        acquire(&ptable.lock);
+        for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+            if (p->state != RUNNABLE)
+                continue;
 
-      // Process is done running for now.
-      // It should have changed its p->state before coming back.
-      c->proc = 0;
+            // Switch to chosen process.  It is the process's job
+            // to release ptable.lock and then reacquire it
+            // before jumping back to us.
+            c->proc = p;
+            switchuvm(p);
+            p->state = RUNNING;
+
+            swtch(&(c->scheduler), p->context);
+            switchkvm();
+
+            // Process is done running for now.
+            // It should have changed its p->state before coming back.
+            c->proc = 0;
+        }
+        release(&ptable.lock);
+
     }
-    release(&ptable.lock);
-
-  }
 }
 
 // Enter scheduler.  Must hold only ptable.lock
@@ -439,7 +451,7 @@ void
 sleep(void *chan, struct spinlock *lk)
 {
   struct proc *p = myproc();
-  
+
   if(p == 0)
     panic("sleep");
 

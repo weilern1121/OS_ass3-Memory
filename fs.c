@@ -765,26 +765,25 @@ removeSwapFile(struct proc* p)
 
 //return 0 on success
 int
-createSwapFile(struct proc* p)
-{
+createSwapFile(struct proc* p) {
 
-  char path[DIGITS];
-  memmove(path,"/.swap", 6);
-  itoa(p->pid, path+ 6);
+    char path[DIGITS];
+    memmove(path, "/.swap", 6);
+    itoa(p->pid, path + 6);
 
     begin_op();
-    struct inode * in = create(path, T_FILE, 0, 0);
-  iunlock(in);
+    struct inode *in = create(path, T_FILE, 0, 0);
+    iunlock(in);
 
-  p->swapFile = filealloc();
-  if (p->swapFile == 0)
-    panic("no slot for files on /store");
+    p->swapFile = filealloc();
+    if (p->swapFile == 0)
+        panic("no slot for files on /store");
 
-  p->swapFile->ip = in;
-  p->swapFile->type = FD_INODE;
-  p->swapFile->off = 0;
-  p->swapFile->readable = O_WRONLY;
-  p->swapFile->writable = O_RDWR;
+    p->swapFile->ip = in;
+    p->swapFile->type = FD_INODE;
+    p->swapFile->off = 0;
+    p->swapFile->readable = O_WRONLY;
+    p->swapFile->writable = O_RDWR;
     end_op();
 
     return 0;
