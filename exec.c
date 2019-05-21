@@ -10,6 +10,8 @@
 int
 exec(char *path, char **argv)
 {
+    if (DEBUGMODE==1)
+        cprintf("EXEC-");
   char *s, *last;
   int i, off;
   uint argc, sz, sp, ustack[3+MAXARG+1];
@@ -106,6 +108,8 @@ exec(char *path, char **argv)
   curproc->tf->esp = sp;
   switchuvm(curproc);
   freevm(oldpgdir);
+    if (DEBUGMODE==1)
+        cprintf(">EXEC-DONE!\t");
   return 0;
 
  bad:
@@ -115,5 +119,7 @@ exec(char *path, char **argv)
     iunlockput(ip);
     end_op();
   }
+    if (DEBUGMODE==1)
+        cprintf(">EXEC-FAILED-GOTO_BAD!\t");
   return -1;
 }
