@@ -96,6 +96,11 @@ exec(char *path, char **argv)
   // Commit to the user image.
   oldpgdir = curproc->pgdir;
   curproc->pgdir = pgdir;
+  //TODO WE NEED CLOSE AND OPEN SWAP
+  if(curproc->swapFile){
+        removeSwapFile(curproc);
+        createSwapFile(curproc);
+  }
   curproc->sz = sz;
   curproc->tf->eip = elf.entry;  // main
   curproc->tf->esp = sp;
