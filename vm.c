@@ -9,6 +9,7 @@
 
 extern char data[];  // defined by kernel.ld
 pde_t *kpgdir;  // for use in scheduler()
+char buffer[PGSIZE];
 
 // Set up CPU's kernel segment descriptors.
 // Run once on entry on each CPU.
@@ -222,37 +223,96 @@ loaduvm(pde_t *pgdir, char *addr, struct inode *ip, uint offset, uint sz)
   return 0;
 }
 
+int
+findFreeEntryInSwapFile(struct proc *p){
+  for(int i=0; i<MAX_PSYC_PAGES; i++){
+    if(!p->swapFileEntries[i])
+      return i;
+  }
+  return -1;
+}
+
 // Allocate page tables and physical memory to grow process from oldsz to
 // newsz, which need not be page aligned.  Returns new size or 0 on error.
 int
-allocuvm(pde_t *pgdir, uint oldsz, uint newsz)
-{
+allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
   char *mem;
   uint a;
+  int maxSeq = 0, swapWriteOffset,tmpOffset;
+  struct proc *p = myproc();
+  struct page *pg=0, *cg=0;
 
-  if(newsz >= KERNBASE)
+  if (newsz >= KERNBASE)
     return 0;
-  if(newsz < oldsz)
+  if (newsz < oldsz)
     return oldsz;
 
   a = PGROUNDUP(oldsz);
-  for(; a < newsz; a += PGSIZE){
+  for (; a < newsz; a += PGSIZE) {
       // TODO HERE WE CREATE PYSYC MEMORY;
       // TODO HERE WE SHOULD CHECK NUM OF PAGES AND IF NOT MAX PAGES.
       // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
+
+    if(p->pagesCounter == MAX_TOTAL_PAGES)
+      panic("got 32 pages and requested for another page!");
+
+    // if number of pages overall minus pages in swap is more than 16 we have prob
+    if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES) {
+      //find the page to swap out - by LIFO
+      for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++)
+        if (cg->active && cg->present && cg->sequel > maxSeq) {
+          pg = cg;
+          maxSeq = cg->sequel;
+        }
+        //got here - the page to swat out is pg
+      tmpOffset=findFreeEntryInSwapFile(p);
+        if(tmpOffset  == -1) //validy check
+          cprintf("ERROR - there is no free entry in p->swapFileEntries!\n");
+      swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
+      //write the page to swapFile
+      writeToSwapFile(p ,pg->physAdress, (uint) swapWriteOffset, PGSIZE);
+      //update page
+      pg->present = 0;
+      pg->offset = (uint) swapWriteOffset;
+      pg->physAdress = 0;
+      pg->sequel = 0;
+
+      //update proc
+      p->swapFileEntries[tmpOffset] = 1; //update that this entry is taken
+//      p->swapOffset += PGSIZE;
+      p->pagesinSwap++;
+    }
+
     mem = kalloc();
-    if(mem == 0){
+    if (mem == 0) {
       cprintf("allocuvm out of memory\n");
       deallocuvm(pgdir, newsz, oldsz);
       return 0;
     }
     memset(mem, 0, PGSIZE);
-    if(mappages(pgdir, (char*)a, PGSIZE, V2P(mem), PTE_W|PTE_U) < 0){
+    if (mappages(pgdir, (char *) a, PGSIZE, V2P(mem), PTE_W | PTE_U) < 0) {
       cprintf("allocuvm out of memory (2)\n");
       deallocuvm(pgdir, newsz, oldsz);
       kfree(mem);
       return 0;
     }
+
+    //TODO INIT PAGE STRUCT
+    for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++)
+      if (!pg->active)
+        goto foundpage;
+
+    panic("no page in proc");
+
+    foundpage:
+    p->pagesCounter++;
+    pg->active = 1;
+    pg->pageid = p->nextpageid++;
+    pg->present = 1;
+    pg->offset = 0;
+    pg->sequel = p->pagesequel++;
+    pg->physAdress = mem;
+
   }
   return newsz;
 }

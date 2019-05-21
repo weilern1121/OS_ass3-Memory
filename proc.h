@@ -33,10 +33,12 @@ struct context {
 };
 
 struct page {
+    int active;     //page activated
     uint pageid;    // page id
     int sequel;     // sequel number entering physyc memory
     int present;    // 1 = in physycal memory
     uint offset;    // page offset in swap file
+    char *physAdress;    // page offset in swap file
 };
 
 
@@ -60,11 +62,14 @@ struct proc {
 
   //Swap file. must initiate with create swap file
   struct file *swapFile;      //page file
-  uint swapOffset;    // next page offset in swap file
+  //uint swapOffset;    // next page offset in swap file
 
   struct page pages[MAX_TOTAL_PAGES];  // Open pages
+  int swapFileEntries[MAX_PSYC_PAGES]; //size=16 ; 0=free , 1=taken
   uint nextpageid;    // next page id
-  int pagesCounter;    // next page id
+  int pagesCounter;    // how many pages proc have
+  int pagesinSwap;    // how many pages proc have in swap
+  uint pagesequel;      //sequel number that page entered physycal memory
 
 
 };

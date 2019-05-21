@@ -116,14 +116,22 @@ allocproc(void) {
     //TODO INIT PROC PAGES FIELDS
     p->pagesCounter = 0;
     p->nextpageid = 1;
-    p->swapOffset = 0;
+//    p->swapOffset = 0;
+    p->pagesequel = 0;
+    p->pagesinSwap = 0;
 
+    //init swap table
+    for(int k=0; k<MAX_PSYC_PAGES ; k++)
+        p->swapFileEntries[k]=0;
+
+    //init proc's pages
     for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
     {
         pg->offset = 0;
         pg->pageid = 0;
         pg->present = 0;
         pg->sequel = 0;
+        pg->physAdress = 0;
     }
 
 
@@ -222,9 +230,15 @@ fork(void) {
 
     np->nextpageid = curproc->nextpageid;
     np->pagesCounter = curproc->pagesCounter;
-    np->swapOffset = curproc->swapOffset;
+//    np->swapOffset = curproc->swapOffset;
+    np->pagesequel = curproc->pagesequel;
+    np->pagesinSwap = curproc->pagesinSwap;
 
+    //copy swap table
+    for(int k=0; k<MAX_PSYC_PAGES ; k++)
+        np->swapFileEntries[k]=curproc->swapFileEntries[k];
 
+    //copy pages
     for( pg = np->pages , cg = curproc->pages;
             pg < &np->pages[MAX_TOTAL_PAGES]; pg++ , cg++)
     {
@@ -232,6 +246,7 @@ fork(void) {
         pg->pageid = cg->pageid;
         pg->present = cg->present;
         pg->sequel = cg->sequel;
+        pg->physAdress = cg->physAdress;
     }
 
     //TODO FIRST RUN IN BEFORE SHEL LOADED
@@ -361,15 +376,26 @@ wait(void) {
                 p->state = UNUSED;
                 p->pagesCounter = -1;
                 p->nextpageid = 0;
-                p->swapOffset = 0;
+//                p->swapOffset = 0;
+                p->pagesequel = 0;
+                p->pagesinSwap = 0;
+                //init swap table
+                for(int k=0; k<MAX_PSYC_PAGES ; k++)
+                    p->swapFileEntries[k]=0;
 
+                //init proc's pages
                 for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
                 {
+                    pg->active = 0;
                     pg->offset = 0;
                     pg->pageid = 0;
                     pg->present = -1;
                     pg->sequel = -1;
+                    pg->physAdress = 0;
                 }
+                //init swap table
+                for(int k=0; k<MAX_PSYC_PAGES ; k++)
+                    p->swapFileEntries[k]=0;
 
                 release(&ptable.lock);
                 return pid;
