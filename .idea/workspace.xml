@@ -12,57 +12,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a2fa55-d3b8-4427-9332-c56f2645a88b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bootblockother.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/console.o" beforeDir="false" afterPath="$PROJECT_DIR$/console.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/entry.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entryother" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entryother.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entryother.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/entryother.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/exec.c" beforeDir="false" afterPath="$PROJECT_DIR$/exec.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/exec.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fs.img" beforeDir="false" afterPath="$PROJECT_DIR$/fs.img" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs.o" beforeDir="false" afterPath="$PROJECT_DIR$/fs.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ide.o" beforeDir="false" afterPath="$PROJECT_DIR$/ide.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/initcode" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/initcode.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/initcode.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/initcode.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/initcode.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.asm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.sym" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mp.o" beforeDir="false" afterPath="$PROJECT_DIR$/mp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/param.h" beforeDir="false" afterPath="$PROJECT_DIR$/param.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pipe.o" beforeDir="false" afterPath="$PROJECT_DIR$/pipe.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel" beforeDir="false" afterPath="$PROJECT_DIR$/kernel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.sym" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.sym" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc.h" beforeDir="false" afterPath="$PROJECT_DIR$/proc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sleeplock.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sleeplock.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spinlock.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/spinlock.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/string.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/string.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/swtch.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/syscall.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/syscall.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sysfile.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sysfile.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sysproc.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sysproc.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trap.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trap.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/trapasm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uart.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uart.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vectors.S" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vectors.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm.d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/xv6.img" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.o" beforeDir="false" afterPath="$PROJECT_DIR$/proc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xv6.img" beforeDir="false" afterPath="$PROJECT_DIR$/xv6.img" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,8 +51,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proc.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="120" column="13" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="13" />
+            <state relative-caret-position="236">
+              <caret line="311" column="26" selection-start-line="311" selection-start-column="26" selection-end-line="311" selection-end-column="26" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -187,8 +143,8 @@
         <option value="$PROJECT_DIR$/vm.c" />
         <option value="$PROJECT_DIR$/exec.c" />
         <option value="$PROJECT_DIR$/param.h" />
-        <option value="$PROJECT_DIR$/proc.c" />
         <option value="$PROJECT_DIR$/proc.h" />
+        <option value="$PROJECT_DIR$/proc.c" />
       </list>
     </option>
   </component>
@@ -258,12 +214,12 @@
       <workItem from="1557757174624" duration="6768000" />
       <workItem from="1557922526259" duration="10825000" />
       <workItem from="1558362082917" duration="7878000" />
-      <workItem from="1558430887960" duration="6428000" />
+      <workItem from="1558430887960" duration="6958000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32774000" />
+    <option name="totallyTimeSpent" value="33304000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -470,8 +426,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proc.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="120" column="13" selection-start-line="120" selection-start-column="13" selection-end-line="120" selection-end-column="13" />
+        <state relative-caret-position="236">
+          <caret line="311" column="26" selection-start-line="311" selection-start-column="26" selection-end-line="311" selection-end-column="26" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

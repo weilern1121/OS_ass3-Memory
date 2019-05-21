@@ -307,8 +307,10 @@ exit(void) {
     iput(curproc->cwd);
     end_op();
     curproc->cwd = 0;
+
     if (curproc->swapFile)
         removeSwapFile(curproc);
+
     acquire(&ptable.lock);
 
     // Parent might be sleeping in wait().
@@ -334,6 +336,7 @@ exit(void) {
 int
 wait(void) {
     struct proc *p;
+    struct page *pg;
     int havekids, pid;
     struct proc *curproc = myproc();
 
@@ -356,6 +359,18 @@ wait(void) {
                 p->name[0] = 0;
                 p->killed = 0;
                 p->state = UNUSED;
+                p->pagesCounter = -1;
+                p->nextpageid = 0;
+                p->swapOffset = 0;
+
+                for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
+                {
+                    pg->offset = 0;
+                    pg->pageid = 0;
+                    pg->present = -1;
+                    pg->sequel = -1;
+                }
+
                 release(&ptable.lock);
                 return pid;
             }
