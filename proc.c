@@ -74,6 +74,7 @@ myproc(void) {
 static struct proc*
 allocproc(void) {
     struct proc *p;
+    struct page *pg;
     char *sp;
 
     acquire(&ptable.lock);
@@ -111,6 +112,20 @@ allocproc(void) {
     p->context = (struct context *) sp;
     memset(p->context, 0, sizeof *p->context);
     p->context->eip = (uint) forkret;
+
+    //TODO INIT PROC PAGES FIELDS
+    p->pagesCounter = 0;
+    p->nextpageid = 1;
+    p->swapOffset = 0;
+
+    for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
+    {
+        pg->offset = 0;
+        pg->pageid = 0;
+        pg->present = 0;
+        pg->sequel = 0;
+    }
+
 
     return p;
 }
@@ -180,14 +195,16 @@ fork(void) {
     int i, pid;
     struct proc *np;
     struct proc *curproc = myproc();
+    struct page *pg , *cg;
     // Allocate process.
     if ((np = allocproc()) == 0) {
         return -1;
     }
 
 
-    if (firstRun)
+    if (firstRun) {
         createSwapFile(curproc);
+    }
 
 
     createSwapFile(np);
@@ -203,32 +220,43 @@ fork(void) {
     np->parent = curproc;
     *np->tf = *curproc->tf;
 
-    int k = 1;
-    //TODO
+    np->nextpageid = curproc->nextpageid;
+    np->pagesCounter = curproc->pagesCounter;
+    np->swapOffset = curproc->swapOffset;
+
+
+    for( pg = np->pages , cg = curproc->pages;
+            pg < &np->pages[MAX_TOTAL_PAGES]; pg++ , cg++)
+    {
+        pg->offset = cg->offset;
+        pg->pageid = cg->pageid;
+        pg->present = cg->present;
+        pg->sequel = cg->sequel;
+    }
+
+    //TODO FIRST RUN IN BEFORE SHEL LOADED
     if (!firstRun) {
-        while (sizeof(curproc->swapFile) >= k * PGSIZE) {
+        //TODO PAGECOUNTER-16= PAGES IN SWAP FILE
+        for( int k = 0 ; k < curproc->pagesCounter - MAX_PSYC_PAGES ; k++ ){
+        //while (sizeof(curproc->swapFile) >= k * PGSIZE) {
             memset(buffer, 0, PGSIZE);
 
-            if (readFromSwapFile(curproc, buffer, (k - 1) * PGSIZE, PGSIZE) == -1) {
+            if (readFromSwapFile(curproc, buffer, k * PGSIZE, PGSIZE) == -1) {
                 kfree(np->kstack);
                 np->kstack = 0;
                 np->state = UNUSED;
                 removeSwapFile(np); //clear swapFile
                 return -1;
-                //panic("readFromSwapFile(curproc,buffer,0,PGSIZE)==-1");
             }
 
-            //TODO
-            if (writeToSwapFile(np, buffer, (k - 1) * PGSIZE, PGSIZE) == -1) {
+            if (writeToSwapFile(np, buffer, k * PGSIZE, PGSIZE) == -1) {
                 kfree(np->kstack);
                 np->kstack = 0;
                 np->state = UNUSED;
                 removeSwapFile(np); //clear swapFile
                 return -1;
-                //panic("writeToSwapFile(np,buffer,0,PGSIZE)==-1");
             }
 
-            k++;
         }
     }
 

@@ -32,6 +32,14 @@ struct context {
   uint eip;
 };
 
+struct page {
+    uint pageid;    // page id
+    int sequel;     // sequel number entering physyc memory
+    int present;    // 1 = in physycal memory
+    uint offset;    // page offset in swap file
+};
+
+
 enum procstate { UNUSED, EMBRYO, SLEEPING, RUNNABLE, RUNNING, ZOMBIE };
 
 // Per-process state
@@ -52,6 +60,13 @@ struct proc {
 
   //Swap file. must initiate with create swap file
   struct file *swapFile;      //page file
+  uint swapOffset;    // next page offset in swap file
+
+  struct page pages[MAX_TOTAL_PAGES];  // Open pages
+  uint nextpageid;    // next page id
+  int pagesCounter;    // next page id
+
+
 };
 
 // Process memory is laid out contiguously, low addresses first:
