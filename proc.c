@@ -17,10 +17,15 @@ char buffer[PGSIZE];
 
 int firstRun = 1;
 int nextpid = 1;
+
 extern void forkret(void);
 extern void trapret(void);
 
 static void wakeup1(void *chan);
+
+int notShell(void){
+    return nextpid>3;
+}
 
 void
 pinit(void)

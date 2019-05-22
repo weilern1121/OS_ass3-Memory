@@ -35,6 +35,8 @@ seginit(void)
 // create any required page table pages.
 static pte_t *
 walkpgdir(pde_t *pgdir, const void *va, int alloc) {
+//    if (DEBUGMODE == 2&& notShell())
+//        cprintf("WALKPGDIR-");
     pde_t *pde;
     pte_t *pgtab;
 
@@ -58,6 +60,8 @@ walkpgdir(pde_t *pgdir, const void *va, int alloc) {
         // entries, if necessary.
         *pde = V2P(pgtab) | PTE_P | PTE_W | PTE_U;
     }
+//    if (DEBUGMODE == 2&& notShell())
+//        cprintf(">WALKPGDIR-DONE!\t");
     return &pgtab[PTX(va)];
 }
 
@@ -236,6 +240,8 @@ findFreeEntryInSwapFile(struct proc *p){
 // newsz, which need not be page aligned.  Returns new size or 0 on error.
 int
 allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
+  if (DEBUGMODE == 2&& notShell())
+    cprintf("ALLOCUVM-");
   char *mem;
   uint a;
   int maxSeq = 0, swapWriteOffset,tmpOffset;
@@ -243,10 +249,17 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
   struct page *pg=0, *cg=0;
   pde_t *pgtble;
 
-  if (newsz >= KERNBASE)
+  if (newsz >= KERNBASE){
+    if (DEBUGMODE == 2&& notShell())
+      cprintf(">ALLOCUVM-FAILED");
     return 0;
-  if (newsz < oldsz)
+  }
+  if (newsz < oldsz){
+    if (DEBUGMODE == 2&& notShell())
+      cprintf(">ALLOCUVM-FAILED");
     return oldsz;
+  }
+
 
   a = PGROUNDUP(oldsz);
   for (; a < newsz; a += PGSIZE) {
@@ -300,6 +313,8 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     if (mem == 0) {
       cprintf("allocuvm out of memory\n");
       deallocuvm(pgdir, newsz, oldsz);
+      if (DEBUGMODE == 2&& notShell())
+        cprintf(">ALLOCUVM-FAILED-mem == 0\t");
       return 0;
     }
     memset(mem, 0, PGSIZE);
@@ -307,6 +322,8 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
       cprintf("allocuvm out of memory (2)\n");
       deallocuvm(pgdir, newsz, oldsz);
       kfree(mem);
+      if (DEBUGMODE == 2&& notShell())
+        cprintf(">ALLOCUVM-FAILED-mappages<0\t");
       return 0;
     }
     if(p->pid > 2) {
@@ -334,10 +351,12 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         cprintf( "FUCK YOU 2!\n");
       *pgtble = PTE_P_1(pgtble);  // Present
       *pgtble = PTE_PG_0(pgtble); // Not Paged out to secondary storage
-        cprintf( "FUCK YOU !\n");
+        cprintf( "FUCK YOU 3!\n");
     }
 
   }
+  if (DEBUGMODE == 2&& notShell())
+    cprintf(">ALLOCUVM-DONE!\t");
   return newsz;
 }
 
@@ -348,11 +367,16 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 int
 deallocuvm(pde_t *pgdir, uint oldsz, uint newsz)
 {
+  if (DEBUGMODE == 2&& notShell())
+    cprintf("DEALLOCUVM-");
   pte_t *pte;
   uint a, pa;
 
-  if(newsz >= oldsz)
+  if(newsz >= oldsz){
+    if (DEBUGMODE == 2&&notShell())
+      cprintf(">DEALLOCUVM-FAILED!-newsz >= oldsz\t");
     return oldsz;
+  }
 
   a = PGROUNDUP(newsz);
   for(; a  < oldsz; a += PGSIZE){
@@ -368,6 +392,8 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz)
       *pte = 0;
     }
   }
+  if (DEBUGMODE == 2&& notShell())
+    cprintf(">DEALLOCUVM-DONE!\t");
   return newsz;
 }
 
@@ -376,6 +402,8 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz)
 void
 freevm(pde_t *pgdir)
 {
+  if (DEBUGMODE == 2&& notShell())
+    cprintf("FREEVM");
   uint i;
 
   if(pgdir == 0)
@@ -388,6 +416,8 @@ freevm(pde_t *pgdir)
     }
   }
   kfree((char*)pgdir);
+  if (DEBUGMODE == 2&& notShell())
+    cprintf(">FREEVM-DONE!\t");
 }
 
 // Clear PTE_U on a page. Used to create an inaccessible
@@ -395,12 +425,16 @@ freevm(pde_t *pgdir)
 void
 clearpteu(pde_t *pgdir, char *uva)
 {
+  if (DEBUGMODE == 2&& notShell())
+    cprintf("CLEARPTEU-");
   pte_t *pte;
 
   pte = walkpgdir(pgdir, uva, 0);
   if(pte == 0)
     panic("clearpteu");
   *pte &= ~PTE_U;
+  if (DEBUGMODE == 2&& notShell())
+    cprintf(">CLEARPTEU-DONE!\t");
 }
 
 // Given a parent process's page table, create a copy
@@ -408,6 +442,8 @@ clearpteu(pde_t *pgdir, char *uva)
 pde_t*
 copyuvm(pde_t *pgdir, uint sz)
 {
+  if (DEBUGMODE == 2&& notShell())
+    cprintf("COPYUVM-");
   pde_t *d;
   pte_t *pte;
   uint pa, i, flags;
@@ -428,10 +464,14 @@ copyuvm(pde_t *pgdir, uint sz)
     if(mappages(d, (void*)i, PGSIZE, V2P(mem), flags) < 0)
       goto bad;
   }
+  if (DEBUGMODE == 2&& notShell())
+    cprintf(">COPYUVM-DONE!\t");
   return d;
 
 bad:
   freevm(d);
+  if (DEBUGMODE == 2&& notShell())
+    cprintf(">COPYUVM-FAILED!\t");
   return 0;
 }
 
