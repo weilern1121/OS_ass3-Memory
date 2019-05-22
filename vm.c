@@ -309,7 +309,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     mem = kalloc();
     if (mem == 0) {
       cprintf("allocuvm out of memory\n");
-      deallocuvm(pgdir, newsz, oldsz);
+      deallocuvm(pgdir, newsz, oldsz , 0);
       if (DEBUGMODE == 2&& notShell())
         cprintf(">ALLOCUVM-FAILED-mem == 0\t");
       return 0;
@@ -317,12 +317,14 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     memset(mem, 0, PGSIZE);
     if (mappages(pgdir, (char *) a, PGSIZE, V2P(mem), PTE_W | PTE_U) < 0) {
       cprintf("allocuvm out of memory (2)\n");
-      deallocuvm(pgdir, newsz, oldsz);
+      deallocuvm(pgdir, newsz, oldsz , 0);
       kfree(mem);
       if (DEBUGMODE == 2&& notShell())
         cprintf(">ALLOCUVM-FAILED-mappages<0\t");
       return 0;
     }
+
+
     if(p->pid > 2) {
       //TODO INIT PAGE STRUCT
       for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
@@ -344,9 +346,9 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 
 
       pgtble = walkpgdir(pgdir, (char *)a, 0);
-      *pgtble = PTE_P_1(pgtble);  // Present
-      *pgtble = PTE_PG_0(pgtble); // Not Paged out to secondary storage
-
+      *pgtble = PTE_P_1(*pgtble);  // Present
+      *pgtble = PTE_PG_0(*pgtble); // Not Paged out to secondary storage
+      lcr3(V2P(p->pgdir));
     }
 
   }
@@ -360,36 +362,68 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 // need to be less than oldsz.  oldsz can be larger than the actual
 // process size.  Returns the new process size.
 int
-deallocuvm(pde_t *pgdir, uint oldsz, uint newsz)
-{
-  if (DEBUGMODE == 2&& notShell())
-    cprintf("DEALLOCUVM-");
-  pte_t *pte;
-  uint a, pa;
+deallocuvm(pde_t *pgdir, uint oldsz, uint newsz , int growproc) {
+    if (DEBUGMODE == 2 && notShell())
+        cprintf("DEALLOCUVM-");
+    pte_t *pte;
+    uint a, pa;
+    struct page *pg;
+    struct proc *p = myproc();
 
-  if(newsz >= oldsz){
-    if (DEBUGMODE == 2&&notShell())
-      cprintf(">DEALLOCUVM-FAILED!-newsz >= oldsz\t");
-    return oldsz;
-  }
-
-  a = PGROUNDUP(newsz);
-  for(; a  < oldsz; a += PGSIZE){
-    pte = walkpgdir(pgdir, (char*)a, 0);
-    if(!pte)
-      a = PGADDR(PDX(a) + 1, 0, 0) - PGSIZE;
-    else if((*pte & PTE_P) != 0){
-      pa = PTE_ADDR(*pte);
-      if(pa == 0)
-        panic("kfree");
-      char *v = P2V(pa);
-      kfree(v);
-      *pte = 0;
+    if (newsz >= oldsz) {
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">DEALLOCUVM-FAILED!-newsz >= oldsz\t");
+        return oldsz;
     }
-  }
-  if (DEBUGMODE == 2&& notShell())
-    cprintf(">DEALLOCUVM-DONE!\t");
-  return newsz;
+
+    a = PGROUNDUP(newsz);
+    for (; a < oldsz; a += PGSIZE) {
+        pte = walkpgdir(pgdir, (char *) a, 0);
+        if (!pte)
+            a = PGADDR(PDX(a) + 1, 0, 0) - PGSIZE;
+        else if ((*pte & PTE_P) != 0) {
+            pa = PTE_ADDR(*pte);
+            if (pa == 0)
+                panic("kfree");
+            if (p->pid > 2 && growproc){
+                for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
+                    if ( pg->active && pg->virtAdress == (char *)a )
+                    {
+                        pg->active = 0;
+                        break;
+                    }
+                }
+                        //must cleare page
+
+
+                }
+            char *v = P2V(pa);
+            kfree(v);
+            *pte = 0;
+        } else if ((*pte & PTE_PG) != 0) {
+            pa = PTE_ADDR(*pte);
+            if (pa == 0)
+                panic("kfree");
+            if (p->pid > 2 && growproc){
+                for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
+                    if ( pg->active && pg->virtAdress == (char *)a )
+                    {
+                        pg->active = 0;
+                        break;
+                    }
+                }
+                //must cleare page
+
+
+
+            }
+
+
+        }
+    }
+    if (DEBUGMODE == 2 && notShell())
+        cprintf(">DEALLOCUVM-DONE!\t");
+    return newsz;
 }
 
 // Free a page table and all the physical memory pages
@@ -403,7 +437,7 @@ freevm(pde_t *pgdir)
 
   if(pgdir == 0)
     panic("freevm: no pgdir");
-  deallocuvm(pgdir, KERNBASE, 0);
+  deallocuvm(pgdir, KERNBASE, 0 , 0);
   for(i = 0; i < NPDENTRIES; i++){
     if(pgdir[i] & PTE_P){
       char * v = P2V(PTE_ADDR(pgdir[i]));

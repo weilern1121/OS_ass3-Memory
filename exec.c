@@ -98,7 +98,7 @@ exec(char *path, char **argv) {
     oldpgdir = curproc->pgdir;
     curproc->pgdir = pgdir;
     //TODO WE NEED CLOSE AND OPEN SWAP
-    if (curproc->swapFile) {
+    if (curproc->pid > 2) {
         removeSwapFile(curproc);
         createSwapFile(curproc);
     }

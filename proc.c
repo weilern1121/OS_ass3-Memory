@@ -193,7 +193,8 @@ growproc(int n) {
         if ((sz = allocuvm(curproc->pgdir, sz, sz + n)) == 0)
             return -1;
     } else if (n < 0) {
-        if ((sz = deallocuvm(curproc->pgdir, sz, sz + n)) == 0)
+        curproc->pagesCounter +=(PGROUNDUP(n)/PGSIZE);
+        if ((sz = deallocuvm(curproc->pgdir, sz, sz + n , 1)) == 0)
             return -1;
     }
     curproc->sz = sz;
@@ -330,7 +331,7 @@ exit(void) {
     end_op();
     curproc->cwd = 0;
 
-    if (curproc->swapFile)
+    if (curproc->pid > 2)
         removeSwapFile(curproc);
 
     acquire(&ptable.lock);

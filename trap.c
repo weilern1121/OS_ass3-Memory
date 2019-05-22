@@ -79,7 +79,8 @@ trap(struct trapframe *tf)
     break;
 
     //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
-
+  case T_PGFLT:
+          cprintf( " FUCK %d pages %d swap %d overall " , myproc()->pagesCounter , myproc()->pagesinSwap , myproc()->nextpageid);
   //PAGEBREAK: 13
   default:
     if(myproc() == 0 || (tf->cs&3) == 0){
