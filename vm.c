@@ -241,6 +241,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
   int maxSeq = 0, swapWriteOffset,tmpOffset;
   struct proc *p = myproc();
   struct page *pg=0, *cg=0;
+  pde_t *pgtble;
 
   if (newsz >= KERNBASE)
     return 0;
@@ -257,21 +258,25 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
       panic("got 32 pages and requested for another page!");
 
     // if number of pages overall minus pages in swap is more than 16 we have prob
-    if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES) {
+    if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES && p->pid > 2 ) {
       //find the page to swap out - by LIFO
-      for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++)
-        if (cg->active && cg->present && cg->sequel > maxSeq) {
-          pg = cg;
-          maxSeq = cg->sequel;
-        }
+      for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
+          if (cg->active && cg->present && cg->sequel > maxSeq) {
+              pg = cg;
+              maxSeq = cg->sequel;
+          }
+      }
         //got here - the page to swat out is pg
       tmpOffset=findFreeEntryInSwapFile(p);
-        if(tmpOffset  == -1) //validy check
-          cprintf("ERROR - there is no free entry in p->swapFileEntries!\n");
+      if(tmpOffset  == -1) //validy check
+          panic("ERROR - there is no free entry in p->swapFileEntries!\n");
+
       swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
-      //write the page to swapFile
-      writeToSwapFile(p ,pg->physAdress, (uint) swapWriteOffset, PGSIZE);
+        //write the page to swapFile
+        cprintf( "FUCK YOU !\n");
+        writeToSwapFile(p ,pg->physAdress, (uint) swapWriteOffset, PGSIZE);
       //update page
+        cprintf( "FUCK YOU 2!\n");
       pg->present = 0;
       pg->offset = (uint) swapWriteOffset;
       pg->physAdress = 0;
@@ -279,8 +284,16 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 
       //update proc
       p->swapFileEntries[tmpOffset] = 1; //update that this entry is taken
-//      p->swapOffset += PGSIZE;
       p->pagesinSwap++;
+
+      //pgtble = walkpgdir( pgdir ,(void *)pg->physAdress , 0 );
+      //*pgtble = PTE_P_0(*pgtble);
+      //*pgtble = ((uint)(*pgtble) | PTE_PG);
+      //char *tofree = P2V( PTE_ADDR( *pgtble ) );
+
+      //kfree( P2V( PTE_ADDR( *pgtble ) ) );
+     // lcr3(V2P(p->pgdir));
+
     }
 
     mem = kalloc();
@@ -296,22 +309,33 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
       kfree(mem);
       return 0;
     }
+    if(p->pid > 2) {
+      //TODO INIT PAGE STRUCT
+      for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
+        if (!pg->active)
+          goto foundpage;
+      }
 
-    //TODO INIT PAGE STRUCT
-    for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++)
-      if (!pg->active)
-        goto foundpage;
+      panic("no page in proc");
 
-    panic("no page in proc");
+        foundpage:
+      p->pagesCounter++;
+      pg->active = 1;
+      pg->pageid = p->nextpageid++;
+      pg->present = 1;
+      pg->offset = 0;
+      pg->sequel = p->pagesequel++;
+      pg->physAdress = mem;
+      pg->virtAdress = (char *)a;
 
-    foundpage:
-    p->pagesCounter++;
-    pg->active = 1;
-    pg->pageid = p->nextpageid++;
-    pg->present = 1;
-    pg->offset = 0;
-    pg->sequel = p->pagesequel++;
-    pg->physAdress = mem;
+
+        cprintf( "FUCK YOU !\n");
+      pgtble = walkpgdir(pgdir, (char *)a, 0);
+        cprintf( "FUCK YOU 2!\n");
+      *pgtble = PTE_P_1(pgtble);  // Present
+      *pgtble = PTE_PG_0(pgtble); // Not Paged out to secondary storage
+        cprintf( "FUCK YOU !\n");
+    }
 
   }
   return newsz;

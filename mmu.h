@@ -144,8 +144,12 @@ struct segdesc {
 #define PTE_PG          0x200   // Paged out to secondary storage
 
 // Address in page table or page directory entry
-#define PTE_ADDR(pte)   ((uint)(pte) & ~0xFFF)
-#define PTE_FLAGS(pte)  ((uint)(pte) &  0xFFF)
+#define PTE_ADDR(pte)    ((uint)(pte) & ~0xFFF)
+#define PTE_FLAGS(pte)   ((uint)(pte) &  0xFFF)
+#define PTE_P_0(pte)     ((uint)(pte) & ~PTE_P)
+#define PTE_PG_0(pte)    ((uint)(pte) & ~PTE_PG)
+#define PTE_P_1(pte)     ((uint)(pte) |  PTE_P)
+#define PTE_PG_1(pte)    ((uint)(pte) |  PTE_PG)
 
 #ifndef __ASSEMBLER__
 typedef uint pte_t;

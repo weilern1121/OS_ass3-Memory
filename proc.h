@@ -39,6 +39,7 @@ struct page {
     int present;    // 1 = in physycal memory
     uint offset;    // page offset in swap file
     char *physAdress;    // page offset in swap file
+    char *virtAdress;    // page offset in swap file
 };
 
 

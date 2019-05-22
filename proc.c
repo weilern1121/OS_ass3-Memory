@@ -132,6 +132,7 @@ allocproc(void) {
         pg->present = 0;
         pg->sequel = 0;
         pg->physAdress = 0;
+        pg->virtAdress = 0;
     }
 
 
@@ -247,6 +248,7 @@ fork(void) {
         pg->present = cg->present;
         pg->sequel = cg->sequel;
         pg->physAdress = cg->physAdress;
+        pg->virtAdress = cg->virtAdress;
     }
 
     //TODO FIRST RUN IN BEFORE SHEL LOADED
@@ -392,6 +394,7 @@ wait(void) {
                     pg->present = -1;
                     pg->sequel = -1;
                     pg->physAdress = 0;
+                    pg->virtAdress = 0;
                 }
                 //init swap table
                 for(int k=0; k<MAX_PSYC_PAGES ; k++)
