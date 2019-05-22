@@ -286,10 +286,8 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 
       swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
         //write the page to swapFile
-        cprintf( "FUCK YOU !\n");
-        writeToSwapFile(p ,pg->physAdress, (uint) swapWriteOffset, PGSIZE);
+      writeToSwapFile(p ,pg->physAdress, (uint) swapWriteOffset, PGSIZE);
       //update page
-        cprintf( "FUCK YOU 2!\n");
       pg->present = 0;
       pg->offset = (uint) swapWriteOffset;
       pg->physAdress = 0;
@@ -299,13 +297,12 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
       p->swapFileEntries[tmpOffset] = 1; //update that this entry is taken
       p->pagesinSwap++;
 
-      //pgtble = walkpgdir( pgdir ,(void *)pg->physAdress , 0 );
-      //*pgtble = PTE_P_0(*pgtble);
-      //*pgtble = ((uint)(*pgtble) | PTE_PG);
-      //char *tofree = P2V( PTE_ADDR( *pgtble ) );
+      pgtble = walkpgdir( pgdir ,(void *)pg->physAdress , 0 );
+      *pgtble = PTE_P_0(*pgtble);
+      *pgtble = PTE_PG_1(*pgtble);
 
-      //kfree( P2V( PTE_ADDR( *pgtble ) ) );
-     // lcr3(V2P(p->pgdir));
+      kfree( P2V( PTE_ADDR( *pgtble ) ) );
+      lcr3(V2P(p->pgdir));
 
     }
 
@@ -346,12 +343,10 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
       pg->virtAdress = (char *)a;
 
 
-        cprintf( "FUCK YOU !\n");
       pgtble = walkpgdir(pgdir, (char *)a, 0);
-        cprintf( "FUCK YOU 2!\n");
       *pgtble = PTE_P_1(pgtble);  // Present
       *pgtble = PTE_PG_0(pgtble); // Not Paged out to secondary storage
-        cprintf( "FUCK YOU 3!\n");
+
     }
 
   }
