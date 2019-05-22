@@ -12,104 +12,168 @@
 struct gatedesc idt[256];
 extern uint vectors[];  // in vectors.S: array of 256 entry pointers
 struct spinlock tickslock;
-uint ticks;
+uint ticks, virtualAddr, problematicPage;
+struct proc *p;
 
 void
-tvinit(void)
-{
-  int i;
+tvinit(void) {
+    int i;
 
-  for(i = 0; i < 256; i++)
-    SETGATE(idt[i], 0, SEG_KCODE<<3, vectors[i], 0);
-  SETGATE(idt[T_SYSCALL], 1, SEG_KCODE<<3, vectors[T_SYSCALL], DPL_USER);
+    for (i = 0; i < 256; i++) SETGATE(idt[i], 0, SEG_KCODE << 3, vectors[i], 0);
+    SETGATE(idt[T_SYSCALL], 1, SEG_KCODE << 3, vectors[T_SYSCALL], DPL_USER);
 
-  initlock(&tickslock, "time");
+    initlock(&tickslock, "time");
 }
 
 void
-idtinit(void)
-{
-  lidt(idt, sizeof(idt));
+idtinit(void) {
+    lidt(idt, sizeof(idt));
 }
 
 //PAGEBREAK: 41
 void
-trap(struct trapframe *tf)
-{
-  if(tf->trapno == T_SYSCALL){
-    if(myproc()->killed)
-      exit();
-    myproc()->tf = tf;
-    syscall();
-    if(myproc()->killed)
-      exit();
-    return;
-  }
-
-  switch(tf->trapno){
-  case T_IRQ0 + IRQ_TIMER:
-    if(cpuid() == 0){
-      acquire(&tickslock);
-      ticks++;
-      wakeup(&ticks);
-      release(&tickslock);
+trap(struct trapframe *tf) {
+    if (tf->trapno == T_SYSCALL) {
+        if (myproc()->killed)
+            exit();
+        myproc()->tf = tf;
+        syscall();
+        if (myproc()->killed)
+            exit();
+        return;
     }
-    lapiceoi();
-    break;
-  case T_IRQ0 + IRQ_IDE:
-    ideintr();
-    lapiceoi();
-    break;
-  case T_IRQ0 + IRQ_IDE+1:
-    // Bochs generates spurious IDE1 interrupts.
-    break;
-  case T_IRQ0 + IRQ_KBD:
-    kbdintr();
-    lapiceoi();
-    break;
-  case T_IRQ0 + IRQ_COM1:
-    uartintr();
-    lapiceoi();
-    break;
-  case T_IRQ0 + 7:
-  case T_IRQ0 + IRQ_SPURIOUS:
-    cprintf("cpu%d: spurious interrupt at %x:%x\n",
-            cpuid(), tf->cs, tf->eip);
-    lapiceoi();
-    break;
 
-    //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
-  case T_PGFLT:
-          cprintf( " FUCK %d pages %d swap %d overall " , myproc()->pagesCounter , myproc()->pagesinSwap , myproc()->nextpageid);
-  //PAGEBREAK: 13
-  default:
-    if(myproc() == 0 || (tf->cs&3) == 0){
-      // In kernel, it must be our mistake.
-      cprintf("unexpected trap %d from cpu %d eip %x (cr2=0x%x)\n",
-              tf->trapno, cpuid(), tf->eip, rcr2());
-      panic("trap");
+    switch (tf->trapno) {
+        case T_IRQ0 + IRQ_TIMER:
+            if (cpuid() == 0) {
+                acquire(&tickslock);
+                ticks++;
+                wakeup(&ticks);
+                release(&tickslock);
+            }
+            lapiceoi();
+            break;
+        case T_IRQ0 + IRQ_IDE:
+            ideintr();
+            lapiceoi();
+            break;
+        case T_IRQ0 + IRQ_IDE + 1:
+            // Bochs generates spurious IDE1 interrupts.
+            break;
+        case T_IRQ0 + IRQ_KBD:
+            kbdintr();
+            lapiceoi();
+            break;
+        case T_IRQ0 + IRQ_COM1:
+            uartintr();
+            lapiceoi();
+            break;
+        case T_IRQ0 + 7:
+        case T_IRQ0 + IRQ_SPURIOUS:
+            cprintf("cpu%d: spurious interrupt at %x:%x\n",
+                    cpuid(), tf->cs, tf->eip);
+            lapiceoi();
+            break;
+
+            //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
+        case T_PGFLT:
+            p = myproc();
+            struct page *cg = 0, *pg = 0;
+            int maxSeq = 0, i;
+            char *newAddr;
+            pte_t *currPTE;
+
+            virtualAddr = rcr2();
+            problematicPage = PGROUNDDOWN(virtualAddr);
+            //first- check if all 16 pages are in RAM
+            for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
+                if (cg->present == 0 || cg->active == 0)
+                    break;
+            }
+            if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true - there is a room for another page- need to swap out
+
+                //TODO - in next part need to call a swap out func and code below in switch case
+                //find the page to swap out - by LIFO
+                for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
+                    if (cg->active && cg->present && cg->sequel > maxSeq) {
+                        pg = cg;
+                        maxSeq = cg->sequel;
+                    }
+                }
+            }
+            swapOutPage(p, pg, p->pgdir); //func in vm.c - same use in allocuvm
+            //got here - there is a room for a new page
+            newAddr = kalloc();
+            if (!newAddr) {
+                cprintf("Error- kalloc in T_PGFLT\n");
+                break;
+            }
+            memset(newAddr, 0, PGSIZE); //clean the page
+            //find the problem-page
+            for (cg = p->pages, i=0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++);
+            if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
+                cprintf("Error- didn't find the trap's page in T_PGFLT\n");
+                break;
+            }
+            //got here - cg is the page that is in swapFile
+            if (readFromSwapFile(p, newAddr, cg->offset * PGSIZE, PGSIZE) == -1)
+                panic("error - read from swapfile in T_PGFLT");
+
+            currPTE=walkpgdir2(p->pgdir, (void *) virtualAddr, 0);
+            //update flags - in page, not yet in RAM
+            *currPTE=PTE_P_0(*currPTE);
+            *currPTE=PTE_PG_1(*currPTE);
+            mappages2(p->pgdir,(void *) problematicPage,PGSIZE,V2P(newAddr),PTE_U | PTE_W);
+            //update flags - if got here the page is in RAM!
+            *currPTE=PTE_P_1(*currPTE);
+            *currPTE=PTE_PG_0(*currPTE);
+
+            //update page
+            cg->offset=0;
+            cg->virtAdress=newAddr;
+            cg->active=1;
+            cg->present=1;
+            cg->sequel=p->pagesequel++;
+
+            //update proc
+            p->swapFileEntries[i]=0;
+            p->pagesCounter++;
+            p->pagesinSwap--;
+
+            lapiceoi();
+            break;
+
+
+
+            //PAGEBREAK: 13
+        default:
+            if (myproc() == 0 || (tf->cs & 3) == 0) {
+                // In kernel, it must be our mistake.
+                cprintf("unexpected trap %d from cpu %d eip %x (cr2=0x%x)\n",
+                        tf->trapno, cpuid(), tf->eip, rcr2());
+                panic("trap");
+            }
+            // In user space, assume process misbehaved.
+            cprintf("pid %d %s: trap %d err %d on cpu %d "
+                    "eip 0x%x addr 0x%x--kill proc\n",
+                    myproc()->pid, myproc()->name, tf->trapno,
+                    tf->err, cpuid(), tf->eip, rcr2());
+            myproc()->killed = 1;
     }
-    // In user space, assume process misbehaved.
-    cprintf("pid %d %s: trap %d err %d on cpu %d "
-            "eip 0x%x addr 0x%x--kill proc\n",
-            myproc()->pid, myproc()->name, tf->trapno,
-            tf->err, cpuid(), tf->eip, rcr2());
-    myproc()->killed = 1;
-  }
 
-  // Force process exit if it has been killed and is in user space.
-  // (If it is still executing in the kernel, let it keep running
-  // until it gets to the regular system call return.)
-  if(myproc() && myproc()->killed && (tf->cs&3) == DPL_USER)
-    exit();
+    // Force process exit if it has been killed and is in user space.
+    // (If it is still executing in the kernel, let it keep running
+    // until it gets to the regular system call return.)
+    if (myproc() && myproc()->killed && (tf->cs & 3) == DPL_USER)
+        exit();
 
-  // Force process to give up CPU on clock tick.
-  // If interrupts were on while locks held, would need to check nlock.
-  if(myproc() && myproc()->state == RUNNING &&
-     tf->trapno == T_IRQ0+IRQ_TIMER)
-    yield();
+    // Force process to give up CPU on clock tick.
+    // If interrupts were on while locks held, would need to check nlock.
+    if (myproc() && myproc()->state == RUNNING &&
+        tf->trapno == T_IRQ0 + IRQ_TIMER)
+        yield();
 
-  // Check if the process has been killed since we yielded
-  if(myproc() && myproc()->killed && (tf->cs&3) == DPL_USER)
-    exit();
+    // Check if the process has been killed since we yielded
+    if (myproc() && myproc()->killed && (tf->cs & 3) == DPL_USER)
+        exit();
 }
