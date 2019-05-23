@@ -72,6 +72,10 @@ struct proc {
   int pagesinSwap;    // how many pages proc have in swap
   uint pagesequel;      //sequel number that page entered physycal memory
 
+  //Counters for ^P
+  int protectedPages;  // WHERE TO COUNT PROTECTED PAGES??
+  int pageFaults;
+  int totalPagesInSwap;
 
 };
 

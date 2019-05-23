@@ -43,6 +43,27 @@ kinit2(void *vstart, void *vend)
   kmem.use_lock = 1;
 }
 
+
+
+
+int
+kallocCount(void)
+{
+  struct run *r;
+  int count = 0;
+  if(kmem.use_lock)
+    acquire(&kmem.lock);
+  r = kmem.freelist;
+  while(r){
+    count++;
+    kmem.freelist = r->next;
+  }
+  if(kmem.use_lock)
+    release(&kmem.lock);
+  return count;
+}
+
+
 void
 freerange(void *vstart, void *vend)
 {
@@ -93,4 +114,3 @@ kalloc(void)
     release(&kmem.lock);
   return (char*)r;
 }
-

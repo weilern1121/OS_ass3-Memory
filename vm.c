@@ -246,7 +246,7 @@ findFreeEntryInSwapFile(struct proc *p) {
 void
 swapOutPage(struct proc *p, pde_t *pgdir) {
     pde_t *pgtble , *tmppgtble;
-    struct page *pg;
+    struct page *pg = 0;
     int tmpOffset = findFreeEntryInSwapFile(p);
     if (tmpOffset == -1) {//validy check
         cprintf("p->entries:\t");
@@ -275,7 +275,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 
 //#if( defined(SCFIFO))
     int minSeq = p->pagesequel , found = 0;
-    uint tmpAdress;
+    char *tmpAdress;
     struct page *sg;
     while( !found ) {
         for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
@@ -304,8 +304,10 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     pg->physAdress = 0;
     pg->sequel = 0;
 
-    //update proc
+    //must update page swaping for proc.
+
     p->swapFileEntries[tmpOffset] = 1; //update that this entry is swapped out
+    p->totalPagesInSwap++;
     p->pagesinSwap++;
 
     //update pte

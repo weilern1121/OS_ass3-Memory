@@ -92,6 +92,9 @@ trap(struct trapframe *tf) {
                 panic("Error- didn't find the trap's page in T_PGFLT\n");
             }
 
+            //must update page faults for proc.
+            
+            p->pageFaults++;
             //Got here - cg is the page that is in swapFile; i is its location in array
             //Now- check if all 16 pages are in RAM
 

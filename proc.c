@@ -16,6 +16,7 @@ static struct proc *initproc;
 char buffer[PGSIZE];
 
 int firstRun = 1;
+int totalAvailablePages = 0;
 int nextpid = 1;
 
 extern void forkret(void);
@@ -124,7 +125,9 @@ allocproc(void) {
 //    p->swapOffset = 0;
     p->pagesequel = 0;
     p->pagesinSwap = 0;
-
+    p->protectedPages = 0;
+    p->pageFaults = 0;
+    p->totalPagesInSwap = 0;
     //init swap table
     for(int k=0; k<MAX_PSYC_PAGES ; k++)
         p->swapFileEntries[k]=0;
@@ -150,6 +153,8 @@ void
 userinit(void) {
     struct proc *p;
     extern char _binary_initcode_start[], _binary_initcode_size[];
+    //before first alloc, check total space for ^P
+    totalAvailablePages = kallocCount();
 
     p = allocproc();
 
@@ -240,7 +245,9 @@ fork(void) {
 //    np->swapOffset = curproc->swapOffset;
     np->pagesequel = curproc->pagesequel;
     np->pagesinSwap = curproc->pagesinSwap;
-
+    np->protectedPages = curproc->protectedPages;
+    np->pageFaults = 0;
+    np->totalPagesInSwap = 0;
     //copy swap table
     for(int k=0; k<MAX_PSYC_PAGES ; k++)
         np->swapFileEntries[k]=curproc->swapFileEntries[k];
@@ -615,6 +622,7 @@ procdump(void) {
             [ZOMBIE]    "zombie"
     };
     int i;
+    int currentFreePages = 0;
     struct proc *p;
     char *state;
     uint pc[10];
@@ -626,7 +634,9 @@ procdump(void) {
             state = states[p->state];
         else
             state = "???";
-        cprintf("%d %s %s", p->pid, state, p->name);
+        cprintf("%d %s %d %d %d %d %d %s", p->pid, state, p->name,
+                (p->pagesCounter - p->pagesinSwap), p->pagesinSwap , p->protectedPages,
+                 p->pageFaults , p->totalPagesInSwap );
         if (p->state == SLEEPING) {
             getcallerpcs((uint *) p->context->ebp + 2, pc);
             for (i = 0; i < 10 && pc[i] != 0; i++)
@@ -634,4 +644,7 @@ procdump(void) {
         }
         cprintf("\n");
     }
+    currentFreePages = kallocCount();
+    currentFreePages = 100 * currentFreePages;
+    cprintf(" %d / %d free pages in the system" , currentFreePages , totalAvailablePages );
 }
