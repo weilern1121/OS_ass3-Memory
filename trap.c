@@ -78,52 +78,54 @@ trap(struct trapframe *tf) {
             //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
         case T_PGFLT:
             p = myproc();
-            struct page *cg = 0, *pg = 0;
+            struct page *cg = 0, *pg = 0 , *gg = 0;
             int maxSeq = 0, i;
             char *newAddr;
             pte_t *currPTE;
 
             virtualAddr = rcr2();
             problematicPage = PGROUNDDOWN(virtualAddr);
-            //first- check if all 16 pages are in RAM
-            for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
-                if (cg->present == 0 || cg->active == 0)
-                    break;
-            }
-            if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true - there is a room for another page- need to swap out
-
-                //TODO - in next part need to call a swap out func and code below in switch case
-                //find the page to swap out - by LIFO
-                for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
-                    if (cg->active && cg->present && cg->sequel > maxSeq) {
-                        pg = cg;
-                        maxSeq = cg->sequel;
-                    }
-                }
-            }
-            swapOutPage(p, pg, p->pgdir); //func in vm.c - same use in allocuvm
-            //got here - there is a room for a new page
-            newAddr = kalloc();
-            if (!newAddr) {
-                cprintf("Error- kalloc in T_PGFLT\n");
-                break;
-            }
-            memset(newAddr, 0, PGSIZE); //clean the page
-            //find the problem-page
+            //first we need to check if page is in swap
             for (cg = p->pages, i=0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++)
                 ;
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
-                cprintf("Error- didn't find the trap's page in T_PGFLT\n");
+                panic("Error- didn't find the trap's page in T_PGFLT\n");
+            }
+
+            //Got here - cg is the page that is in swapFile; i is its location in array
+            //Now- check if all 16 pages are in RAM
+
+            if ( (p->pagesCounter - p->pagesinSwap ) >= 16 ) {
+                //if true - there is no room for another page- need to swap out
+
+                //find the page to swap out - by LIFO
+                for (gg = p->pages; gg < &p->pages[MAX_TOTAL_PAGES]; gg++) {
+                    if (gg->active && gg->present && gg->sequel > maxSeq) {
+                        pg = gg;
+                        maxSeq = pg->sequel;
+                    }
+                }
+
+                swapOutPage(p, pg, p->pgdir); //func in vm.c - same use in allocuvm
+            }
+
+            //got here - there is a room for a new page
+
+            if ((newAddr = kalloc()) == 0) {
+                cprintf("Error- kalloc in T_PGFLT\n");
                 break;
             }
-            //got here - cg is the page that is in swapFile
-            if (readFromSwapFile(p, newAddr, cg->offset * PGSIZE, PGSIZE) == -1)
+
+            memset(newAddr, 0, PGSIZE); //clean the page
+
+            if (readFromSwapFile(p, newAddr, cg->offset, PGSIZE) == -1)
                 panic("error - read from swapfile in T_PGFLT");
 
             currPTE=walkpgdir2(p->pgdir, (void *) virtualAddr, 0);
             //update flags - in page, not yet in RAM
             *currPTE=PTE_P_0(*currPTE);
             *currPTE=PTE_PG_1(*currPTE);
+
             mappages2(p->pgdir,(void *) problematicPage,PGSIZE,V2P(newAddr),PTE_U | PTE_W);
             //update flags - if got here the page is in RAM!
             *currPTE=PTE_P_1(*currPTE);
