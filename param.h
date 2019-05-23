@@ -12,5 +12,5 @@
 #define NBUF         (MAXOPBLOCKS*3)  // size of disk block cache
 #define FSSIZE       1000  // size of file system in blocks
 #define DEBUGMODE     0 //  0=none ; 1=all proc.c+exec ; 2= vm.c
-#define MAX_PSYC_PAGES    16  //
-#define MAX_TOTAL_PAGES    32  //
+#define MAX_PSYC_PAGES    16  // max pages per procces in the physical memory
+#define MAX_TOTAL_PAGES    32  // process will not be larger than 32 pages

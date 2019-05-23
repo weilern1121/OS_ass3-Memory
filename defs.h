@@ -197,8 +197,8 @@ void            switchkvm(void);
 int             copyout(pde_t*, uint, void*, uint);
 void            clearpteu(pde_t *pgdir, char *uva);
 
-typedef uint pte_t;
-pte_t*          walkpgdir2(pde_t *, void *, int );
+//typedef uint pte_t;
+pde_t *         walkpgdir2(pde_t *pgdir, const void *va, int alloc);
 int             mappages2(pde_t *, void *, uint , uint , int );
 void            swapOutPage(struct proc*, struct page*,pde_t*);
 

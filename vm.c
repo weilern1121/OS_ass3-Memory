@@ -10,6 +10,7 @@
 extern char data[];  // defined by kernel.ld
 pde_t *kpgdir;  // for use in scheduler()
 char buffer[PGSIZE];
+
 // Set up CPU's kernel segment descriptors.
 // Run once on entry on each CPU.
 void
@@ -63,10 +64,10 @@ walkpgdir(pde_t *pgdir, const void *va, int alloc) {
     return &pgtab[PTX(va)];
 }
 
-//global use
+//global use for walkpgdir
 pte_t *
-walkpgdir2(pde_t *pgdir, const void *va, int alloc){
-    return walkpgdir(pgdir,va,alloc);
+walkpgdir2(pde_t *pgdir, const void *va, int alloc) {
+    return walkpgdir(pgdir, va, alloc);
 }
 
 
@@ -94,10 +95,10 @@ mappages(pde_t *pgdir, void *va, uint size, uint pa, int perm) {
     return 0;
 }
 
-
+// global use for mappages
 int
-mappages2(pde_t *pgdir, void *va, uint size, uint pa, int perm){
-    return mappages(pgdir,va,size,pa,perm);
+mappages2(pde_t *pgdir, void *va, uint size, uint pa, int perm) {
+    return mappages(pgdir, va, size, pa, perm);
 }
 
 // There is one page table per process, plus one that's used when
@@ -243,12 +244,18 @@ findFreeEntryInSwapFile(struct proc *p) {
 
 
 void
-swapOutPage(struct proc *p, struct page *pg,pde_t *pgdir) {
+swapOutPage(struct proc *p, struct page *pg, pde_t *pgdir) {
     pde_t *pgtble;
-
     int tmpOffset = findFreeEntryInSwapFile(p);
-    if (tmpOffset == -1) //validy check
+    if (tmpOffset == -1) {//validy check
+        cprintf("p->entries:\t");
+        for (int i = 0; i < MAX_PSYC_PAGES; i++){
+
+            cprintf("%d  ",p->swapFileEntries[i]);
+        }
         panic("ERROR - there is no free entry in p->swapFileEntries!\n");
+
+    }
 
     int swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
     //write the page to swapFile
@@ -316,7 +323,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
                 }
             }
             //got here - the page to swat out is pg
-            swapOutPage(p, pg,pgdir); //this func includes remove page, update proc and update PTE
+            swapOutPage(p, pg, pgdir); //this func includes remove page, update proc and update PTE
         }
 
         mem = kalloc();
