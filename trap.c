@@ -110,7 +110,8 @@ trap(struct trapframe *tf) {
             }
             memset(newAddr, 0, PGSIZE); //clean the page
             //find the problem-page
-            for (cg = p->pages, i=0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++);
+            for (cg = p->pages, i=0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++)
+                ;
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
                 cprintf("Error- didn't find the trap's page in T_PGFLT\n");
                 break;
@@ -136,8 +137,8 @@ trap(struct trapframe *tf) {
             cg->sequel=p->pagesequel++;
 
             //update proc
-            p->swapFileEntries[i]=0;
-            p->pagesCounter++;
+            p->swapFileEntries[i]=0; //clean entry- page is in RAM
+//            p->pagesCounter++;
             p->pagesinSwap--;
 
             lapiceoi();
