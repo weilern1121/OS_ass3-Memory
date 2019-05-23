@@ -200,7 +200,7 @@ void            clearpteu(pde_t *pgdir, char *uva);
 //typedef uint pte_t;
 pde_t *         walkpgdir2(pde_t *pgdir, const void *va, int alloc);
 int             mappages2(pde_t *, void *, uint , uint , int );
-void            swapOutPage(struct proc*, struct page*,pde_t*);
+void            swapOutPage(struct proc*,pde_t*);
 
 
 // number of elements in fixed-size array

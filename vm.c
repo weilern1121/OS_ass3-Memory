@@ -244,8 +244,9 @@ findFreeEntryInSwapFile(struct proc *p) {
 
 
 void
-swapOutPage(struct proc *p, struct page *pg, pde_t *pgdir) {
-    pde_t *pgtble;
+swapOutPage(struct proc *p, pde_t *pgdir) {
+    pde_t *pgtble , *tmppgtble;
+    struct page *pg;
     int tmpOffset = findFreeEntryInSwapFile(p);
     if (tmpOffset == -1) {//validy check
         cprintf("p->entries:\t");
@@ -258,6 +259,43 @@ swapOutPage(struct proc *p, struct page *pg, pde_t *pgdir) {
     }
 
     int swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
+
+//#if( defined(LIFO))
+    int maxSeq = 0;
+    struct page *cg;
+    for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
+        if (cg->active && cg->present && cg->sequel > maxSeq) {
+            pg = cg;
+            maxSeq = cg->sequel;
+        }
+    }
+
+//#endif
+
+
+//#if( defined(SCFIFO))
+    int minSeq = p->pagesequel , found = 0;
+    uint tmpAdress;
+    struct page *sg;
+    while( !found ) {
+        for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
+            if (sg->active && sg->present && sg->sequel < minSeq) {
+                pg = sg;
+                minSeq = sg->sequel;
+            }
+        }
+
+        tmpAdress = pg->virtAdress;
+        tmppgtble = walkpgdir(pgdir, (char *) tmpAdress, 0);
+        if (*tmppgtble & PTE_A) {
+            *tmppgtble = PTE_A_0(*tmppgtble);
+            pg->sequel = p->pagesequel++;
+            found = 1;
+        }
+    }
+
+//#endif
+
     //write the page to swapFile
     writeToSwapFile(p, pg->physAdress, (uint) swapWriteOffset, PGSIZE);
     //update page
@@ -284,11 +322,14 @@ int
 allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     if (DEBUGMODE == 2 && notShell())
         cprintf("ALLOCUVM-");
+#if( defined(LIFO)|| defined(SCFIFO))
+    cprintf("FUCKYOU1");
+#endif
+
     char *mem;
     uint a;
-    int maxSeq = 0;
     struct proc *p = myproc();
-    struct page *pg = 0, *cg = 0;
+    struct page *pg = 0;
     pde_t *pgtble;
 
     if (newsz >= KERNBASE) {
@@ -316,14 +357,8 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         // if number of pages overall minus pages in swap is more than 16 we have prob
         if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES && p->pid > 2) {
             //find the page to swap out - by LIFO
-            for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
-                if (cg->active && cg->present && cg->sequel > maxSeq) {
-                    pg = cg;
-                    maxSeq = cg->sequel;
-                }
-            }
             //got here - the page to swat out is pg
-            swapOutPage(p, pg, pgdir); //this func includes remove page, update proc and update PTE
+            swapOutPage(p, pgdir); //this func includes remove page, update proc and update PTE
         }
 
         mem = kalloc();

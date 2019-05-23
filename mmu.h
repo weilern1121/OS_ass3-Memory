@@ -148,6 +148,7 @@ struct segdesc {
 #define PTE_FLAGS(pte)   ((uint)(pte) &  0xFFF)
 #define PTE_P_0(pte)     ((uint)(pte) & ~PTE_P)
 #define PTE_PG_0(pte)    ((uint)(pte) & ~PTE_PG)
+#define PTE_A_0(pte)     ((uint)(pte) & ~PTE_A)
 #define PTE_P_1(pte)     ((uint)(pte) |  PTE_P)
 #define PTE_PG_1(pte)    ((uint)(pte) |  PTE_PG)
 

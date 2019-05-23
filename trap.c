@@ -78,8 +78,8 @@ trap(struct trapframe *tf) {
             //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
         case T_PGFLT:
             p = myproc();
-            struct page *cg = 0, *pg = 0 , *gg = 0;
-            int maxSeq = 0, i;
+            struct page *cg = 0;
+            int i;
             char *newAddr;
             pte_t *currPTE;
 
@@ -97,16 +97,7 @@ trap(struct trapframe *tf) {
 
             if ( (p->pagesCounter - p->pagesinSwap ) >= 16 ) {
                 //if true - there is no room for another page- need to swap out
-
-                //find the page to swap out - by LIFO
-                for (gg = p->pages; gg < &p->pages[MAX_TOTAL_PAGES]; gg++) {
-                    if (gg->active && gg->present && gg->sequel > maxSeq) {
-                        pg = gg;
-                        maxSeq = pg->sequel;
-                    }
-                }
-
-                swapOutPage(p, pg, p->pgdir); //func in vm.c - same use in allocuvm
+                swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
             }
 
             //got here - there is a room for a new page
