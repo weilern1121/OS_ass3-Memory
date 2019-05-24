@@ -74,7 +74,7 @@ struct proc {
 
   //Counters for ^P
   int protectedPages;  // WHERE TO COUNT PROTECTED PAGES??
-  int pageFaults;
+  int pageFaults;       //pageFaults counter
   int totalPagesInSwap;
 
 };

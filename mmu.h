@@ -152,6 +152,7 @@ struct segdesc {
 #define PTE_P_1(pte)     ((uint)(pte) |  PTE_P)
 #define PTE_PG_1(pte)    ((uint)(pte) |  PTE_PG)
 
+
 #ifndef __ASSEMBLER__
 typedef uint pte_t;
 

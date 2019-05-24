@@ -266,9 +266,8 @@ fork(void) {
 
     //TODO FIRST RUN IN BEFORE SHEL LOADED
     if (!firstRun) {
-        //TODO PAGECOUNTER-16= PAGES IN SWAP FILE
+        //PAGECOUNTER-16= PAGES IN SWAP FILE
         for( int k = 0 ; k < curproc->pagesCounter - MAX_PSYC_PAGES ; k++ ){
-        //while (sizeof(curproc->swapFile) >= k * PGSIZE) {
             memset(buffer, 0, PGSIZE);
 
             if (readFromSwapFile(curproc, buffer, k * PGSIZE, PGSIZE) == -1) {

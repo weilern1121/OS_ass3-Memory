@@ -75,7 +75,7 @@ trap(struct trapframe *tf) {
             lapiceoi();
             break;
 
-            //TODO CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
+            //CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
         case T_PGFLT:
             p = myproc();
             struct page *cg = 0;
@@ -86,19 +86,26 @@ trap(struct trapframe *tf) {
             virtualAddr = rcr2();
             problematicPage = PGROUNDDOWN(virtualAddr);
             //first we need to check if page is in swap
-            for (cg = p->pages, i=0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++)
+            for (cg = p->pages, i = 0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++)
                 ;
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
                 panic("Error- didn't find the trap's page in T_PGFLT\n");
             }
 
             //must update page faults for proc.
-            
             p->pageFaults++;
+
             //Got here - cg is the page that is in swapFile; i is its location in array
             //Now- check if all 16 pages are in RAM
 
-            if ( (p->pagesCounter - p->pagesinSwap ) >= 16 ) {
+            //TODO = check if page is in secondary memory
+            if (!cg->active || cg->present) {
+                if(cg->present)
+                    panic("Error - problematic page is present!\n");
+                panic("Error - problematic page is not active!\n");
+            }
+
+            if ((p->pagesCounter - p->pagesinSwap) >= 16) {
                 //if true - there is no room for another page- need to swap out
                 swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
             }
@@ -112,28 +119,31 @@ trap(struct trapframe *tf) {
 
             memset(newAddr, 0, PGSIZE); //clean the page
 
+            //bring page from swapFile
             if (readFromSwapFile(p, newAddr, cg->offset, PGSIZE) == -1)
                 panic("error - read from swapfile in T_PGFLT");
 
-            currPTE=walkpgdir2(p->pgdir, (void *) virtualAddr, 0);
+            currPTE = walkpgdir2(p->pgdir, (void *) virtualAddr, 0);
             //update flags - in page, not yet in RAM
-            *currPTE=PTE_P_0(*currPTE);
-            *currPTE=PTE_PG_1(*currPTE);
+            *currPTE = PTE_P_0(*currPTE);
+            *currPTE = PTE_PG_1(*currPTE);
 
-            mappages2(p->pgdir,(void *) problematicPage,PGSIZE,V2P(newAddr),PTE_U | PTE_W);
+            mappages2(p->pgdir, (void *) problematicPage, PGSIZE, V2P(newAddr), PTE_U | PTE_W);
             //update flags - if got here the page is in RAM!
-            *currPTE=PTE_P_1(*currPTE);
-            *currPTE=PTE_PG_0(*currPTE);
+            *currPTE = PTE_P_1(*currPTE);
+            *currPTE = PTE_PG_0(*currPTE);
 
             //update page
-            cg->offset=0;
-            cg->virtAdress=newAddr;
-            cg->active=1;
-            cg->present=1;
-            cg->sequel=p->pagesequel++;
+            cg->offset = 0;
+            cg->virtAdress = newAddr;
+            cg->active = 1;
+            cg->present = 1;
+            cg->sequel = p->pagesequel++;
+            //TODO
+            cg->physAdress = (char *) V2P(newAddr);
 
             //update proc
-            p->swapFileEntries[i]=0; //clean entry- page is in RAM
+            p->swapFileEntries[i] = 0; //clean entry- page is in RAM
 //            p->pagesCounter++;
             p->pagesinSwap--;
 
