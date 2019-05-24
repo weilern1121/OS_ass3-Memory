@@ -98,10 +98,12 @@ exec(char *path, char **argv) {
     oldpgdir = curproc->pgdir;
     curproc->pgdir = pgdir;
     //TODO WE NEED CLOSE AND OPEN SWAP
-    if (curproc->pid > 2) {
+#if(defined(LIFO) || defined(SCFIFO))
+    if (notShell()) {
         removeSwapFile(curproc);
         createSwapFile(curproc);
     }
+#endif
     curproc->sz = sz;
     curproc->tf->eip = elf.entry;  // main
     curproc->tf->esp = sp;

@@ -20,29 +20,29 @@ int totalAvailablePages = 0;
 int nextpid = 1;
 
 extern void forkret(void);
+
 extern void trapret(void);
 
 static void wakeup1(void *chan);
 
-int notShell(void){
-    return nextpid>3;
+int notShell(void) {
+    return nextpid > 2;
 }
 
 void
-pinit(void)
-{
-  initlock(&ptable.lock, "ptable");
+pinit(void) {
+    initlock(&ptable.lock, "ptable");
 }
 
 // Must be called with interrupts disabled
 int
 cpuid() {
-  return mycpu()-cpus;
+    return mycpu() - cpus;
 }
 
 // Must be called with interrupts disabled to avoid the caller being
 // rescheduled between reading lapicid and running through the loop.
-struct cpu*
+struct cpu *
 mycpu(void) {
     int apicid, i;
 
@@ -61,7 +61,7 @@ mycpu(void) {
 
 // Disable interrupts so that we are not rescheduled
 // while reading proc from the cpu structure
-struct proc*
+struct proc *
 myproc(void) {
     struct cpu *c;
     struct proc *p;
@@ -77,7 +77,7 @@ myproc(void) {
 // If found, change state to EMBRYO and initialize
 // state required to run in the kernel.
 // Otherwise return 0.
-static struct proc*
+static struct proc *
 allocproc(void) {
     struct proc *p;
     char *sp;
@@ -202,8 +202,8 @@ growproc(int n) {
         if ((sz = allocuvm(curproc->pgdir, sz, sz + n)) == 0)
             return -1;
     } else if (n < 0) {
-        curproc->pagesCounter +=(PGROUNDUP(n)/PGSIZE);
-        if ((sz = deallocuvm(curproc->pgdir, sz, sz + n , 1)) == 0)
+        curproc->pagesCounter += (PGROUNDUP(n) / PGSIZE);
+        if ((sz = deallocuvm(curproc->pgdir, sz, sz + n, 1)) == 0)
             return -1;
     }
     curproc->sz = sz;
@@ -247,59 +247,59 @@ fork(void) {
     np->sz = curproc->sz;
     np->parent = curproc;
     *np->tf = *curproc->tf;
-
+    if (notShell()) {
 #if(defined(LIFO) || defined(SCFIFO))
-    //copy pagging
-    np->nextpageid = curproc->nextpageid;
-    np->pagesCounter = curproc->pagesCounter;
-//    np->swapOffset = curproc->swapOffset;
-    np->pagesequel = curproc->pagesequel;
-    np->pagesinSwap = curproc->pagesinSwap;
-    np->protectedPages = curproc->protectedPages;
-    np->pageFaults = 0;
-    np->totalPagesInSwap = 0;
-    //copy swap table
-    for(int k=0; k<MAX_PSYC_PAGES ; k++)
-        np->swapFileEntries[k]=curproc->swapFileEntries[k];
+        //copy pagging
+        np->nextpageid = curproc->nextpageid;
+        np->pagesCounter = curproc->pagesCounter;
+    //    np->swapOffset = curproc->swapOffset;
+        np->pagesequel = curproc->pagesequel;
+        np->pagesinSwap = curproc->pagesinSwap;
+        np->protectedPages = curproc->protectedPages;
+        np->pageFaults = 0;
+        np->totalPagesInSwap = 0;
+        //copy swap table
+        for(int k=0; k<MAX_PSYC_PAGES ; k++)
+            np->swapFileEntries[k]=curproc->swapFileEntries[k];
 
-    //copy pages
-    for( pg = np->pages , cg = curproc->pages;
-            pg < &np->pages[MAX_TOTAL_PAGES]; pg++ , cg++)
-    {
-        pg->offset = cg->offset;
-        pg->pageid = cg->pageid;
-        pg->present = cg->present;
-        pg->sequel = cg->sequel;
-        pg->physAdress = cg->physAdress;
-        pg->virtAdress = cg->virtAdress;
-    }
-
-    //TODO FIRST RUN IN BEFORE SHEL LOADED
-    if (!firstRun) {
-        //PAGECOUNTER-16= PAGES IN SWAP FILE
-        for( int k = 0 ; k < curproc->pagesCounter - MAX_PSYC_PAGES ; k++ ){
-            memset(buffer, 0, PGSIZE);
-
-            if (readFromSwapFile(curproc, buffer, k * PGSIZE, PGSIZE) == -1) {
-                kfree(np->kstack);
-                np->kstack = 0;
-                np->state = UNUSED;
-                removeSwapFile(np); //clear swapFile
-                return -1;
-            }
-
-            if (writeToSwapFile(np, buffer, k * PGSIZE, PGSIZE) == -1) {
-                kfree(np->kstack);
-                np->kstack = 0;
-                np->state = UNUSED;
-                removeSwapFile(np); //clear swapFile
-                return -1;
-            }
-
+        //copy pages
+        for( pg = np->pages , cg = curproc->pages;
+                pg < &np->pages[MAX_TOTAL_PAGES]; pg++ , cg++)
+        {
+            pg->offset = cg->offset;
+            pg->pageid = cg->pageid;
+            pg->present = cg->present;
+            pg->sequel = cg->sequel;
+            pg->physAdress = cg->physAdress;
+            pg->virtAdress = cg->virtAdress;
         }
-    }
-#endif
 
+        //TODO FIRST RUN IN BEFORE SHEL LOADED
+        if (!firstRun) {
+            //PAGECOUNTER-16= PAGES IN SWAP FILE
+            for( int k = 0 ; k < curproc->pagesCounter - MAX_PSYC_PAGES ; k++ ){
+                memset(buffer, 0, PGSIZE);
+
+                if (readFromSwapFile(curproc, buffer, k * PGSIZE, PGSIZE) == -1) {
+                    kfree(np->kstack);
+                    np->kstack = 0;
+                    np->state = UNUSED;
+                    removeSwapFile(np); //clear swapFile
+                    return -1;
+                }
+
+                if (writeToSwapFile(np, buffer, k * PGSIZE, PGSIZE) == -1) {
+                    kfree(np->kstack);
+                    np->kstack = 0;
+                    np->state = UNUSED;
+                    removeSwapFile(np); //clear swapFile
+                    return -1;
+                }
+
+            }
+        }
+#endif
+    }
     // Clear %eax so that fork returns 0 in the child.
     np->tf->eax = 0;
 
@@ -348,8 +348,8 @@ exit(void) {
     curproc->cwd = 0;
 
 #if(defined(LIFO) || defined(SCFIFO))
-if (curproc->pid > 2)
-        removeSwapFile(curproc);
+    if (curproc->pid > 2)
+            removeSwapFile(curproc);
 #endif
 
     acquire(&ptable.lock);
@@ -401,11 +401,10 @@ wait(void) {
                 p->name[0] = 0;
                 p->killed = 0;
                 p->state = UNUSED;
-
 #if(defined(LIFO) || defined(SCFIFO))
                 p->pagesCounter = -1;
                 p->nextpageid = 0;
-//                p->swapOffset = 0;
+            //                p->swapOffset = 0;
                 p->pagesequel = 0;
                 p->pagesinSwap = 0;
                 //init swap table
@@ -428,6 +427,7 @@ wait(void) {
                     p->swapFileEntries[k]=0;
 
 #endif
+
                 release(&ptable.lock);
                 return pid;
             }
@@ -650,8 +650,8 @@ procdump(void) {
         else
             state = "???";
         cprintf("%d %s %d %d %d %d %d %s", p->pid, state, p->name,
-                (p->pagesCounter - p->pagesinSwap), p->pagesinSwap , p->protectedPages,
-                 p->pageFaults , p->totalPagesInSwap );
+                (p->pagesCounter - p->pagesinSwap), p->pagesinSwap, p->protectedPages,
+                p->pageFaults, p->totalPagesInSwap);
         if (p->state == SLEEPING) {
             getcallerpcs((uint *) p->context->ebp + 2, pc);
             for (i = 0; i < 10 && pc[i] != 0; i++)
@@ -661,5 +661,5 @@ procdump(void) {
     }
     currentFreePages = kallocCount();
     currentFreePages = 100 * currentFreePages;
-    cprintf(" %d / %d free pages in the system" , currentFreePages , totalAvailablePages );
+    cprintf(" %d / %d free pages in the system", currentFreePages, totalAvailablePages);
 }

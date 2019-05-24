@@ -335,7 +335,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 // newsz, which need not be page aligned.  Returns new size or 0 on error.
 int
 allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
-    if (DEBUGMODE == 2 && notShell())
+    if (DEBUGMODE == 2)
         cprintf("ALLOCUVM-");
 #if(defined(LIFO) || defined(SCFIFO))
     cprintf("FUCKYOU1");
@@ -364,19 +364,20 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         // TODO HERE WE CREATE PYSYC MEMORY;
         // TODO HERE WE SHOULD CHECK NUM OF PAGES AND IF NOT MAX PAGES.
         // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
+        if(notShell()) {
 #if(defined(LIFO) || defined(SCFIFO))
-        if (p->pagesCounter == MAX_TOTAL_PAGES)
-            panic("got 32 pages and requested for another page!");
+            if (p->pagesCounter == MAX_TOTAL_PAGES)
+                panic("got 32 pages and requested for another page!");
 
-//    cprintf("p->pagesCounter=%d\tp->pagesinSwap=%d\tMAX_PSYC_PAGES=%d\n",p->pagesCounter , p->pagesinSwap , MAX_PSYC_PAGES);
-        // if number of pages overall minus pages in swap is more than 16 we have prob
-        if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES && p->pid > 2) {
-            //find the page to swap out - by LIFO
-            //got here - the page to swat out is pg
-            swapOutPage(p, pgdir); //this func includes remove page, update proc and update PTE
-        }
+    //    cprintf("p->pagesCounter=%d\tp->pagesinSwap=%d\tMAX_PSYC_PAGES=%d\n",p->pagesCounter , p->pagesinSwap , MAX_PSYC_PAGES);
+            // if number of pages overall minus pages in swap is more than 16 we have prob
+            if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES && p->pid > 2) {
+                //find the page to swap out
+                //got here - the page to swat out is pg
+                swapOutPage(p, pgdir); //this func includes remove page, update proc and update PTE
+            }
 #endif
-
+        }
         mem = kalloc();
         if (mem == 0) {
             cprintf("allocuvm out of memory\n");
@@ -396,7 +397,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         }
 
 #if(defined(LIFO) || defined(SCFIFO))
-        if (p->pid > 2) {
+        if (notShell()) {
             //TODO INIT PAGE STRUCT
             for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
                 if (!pg->active)
@@ -427,7 +428,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         if (DEBUGMODE == 2 && notShell())
             cprintf(">ALLOCUVM-DONE!\t");
         return newsz;
-    }
+}
 
 // Deallocate user pages to bring the process size from oldsz to
 // newsz.  oldsz and newsz need not be page-aligned, nor does newsz
@@ -435,7 +436,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 // process size.  Returns the new process size.
 int
 deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
-        if (DEBUGMODE == 2 && notShell())
+        if (DEBUGMODE == 2)
             cprintf("DEALLOCUVM-");
         pte_t *pte;
         uint a, pa;
@@ -518,8 +519,8 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
 
 // Free a page table and all the physical memory pages
 // in the user part.
-    void
-    freevm(pde_t *pgdir) {
+void
+freevm(pde_t *pgdir) {
         if (DEBUGMODE == 2 && notShell())
             cprintf("FREEVM");
         uint i;
