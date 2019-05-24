@@ -80,8 +80,11 @@ myproc(void) {
 static struct proc*
 allocproc(void) {
     struct proc *p;
-    struct page *pg;
     char *sp;
+#if(defined(LIFO) || defined(SCFIFO))
+    struct page *pg;
+#endif
+
 
     acquire(&ptable.lock);
 
@@ -120,6 +123,7 @@ allocproc(void) {
     p->context->eip = (uint) forkret;
 
     //TODO INIT PROC PAGES FIELDS
+#if(defined(LIFO) || defined(SCFIFO))
     p->pagesCounter = 0;
     p->nextpageid = 1;
 //    p->swapOffset = 0;
@@ -142,7 +146,7 @@ allocproc(void) {
         pg->physAdress = 0;
         pg->virtAdress = 0;
     }
-
+#endif
 
     return p;
 }
@@ -215,12 +219,15 @@ fork(void) {
     int i, pid;
     struct proc *np;
     struct proc *curproc = myproc();
+#if(defined(LIFO) || defined(SCFIFO))
     struct page *pg , *cg;
+#endif
     // Allocate process.
     if ((np = allocproc()) == 0) {
         return -1;
     }
 
+#if(defined(LIFO) || defined(SCFIFO))
 
     if (firstRun) {
         createSwapFile(curproc);
@@ -228,6 +235,7 @@ fork(void) {
 
 
     createSwapFile(np);
+#endif
 
     // Copy process state from proc.
     if ((np->pgdir = copyuvm(curproc->pgdir, curproc->sz)) == 0) {
@@ -240,6 +248,8 @@ fork(void) {
     np->parent = curproc;
     *np->tf = *curproc->tf;
 
+#if(defined(LIFO) || defined(SCFIFO))
+    //copy pagging
     np->nextpageid = curproc->nextpageid;
     np->pagesCounter = curproc->pagesCounter;
 //    np->swapOffset = curproc->swapOffset;
@@ -288,7 +298,7 @@ fork(void) {
 
         }
     }
-
+#endif
 
     // Clear %eax so that fork returns 0 in the child.
     np->tf->eax = 0;
@@ -337,8 +347,10 @@ exit(void) {
     end_op();
     curproc->cwd = 0;
 
-    if (curproc->pid > 2)
+#if(defined(LIFO) || defined(SCFIFO))
+if (curproc->pid > 2)
         removeSwapFile(curproc);
+#endif
 
     acquire(&ptable.lock);
 
@@ -365,10 +377,11 @@ exit(void) {
 int
 wait(void) {
     struct proc *p;
-    struct page *pg;
     int havekids, pid;
     struct proc *curproc = myproc();
-
+#if(defined(LIFO) || defined(SCFIFO))
+    struct page *pg;
+#endif
     acquire(&ptable.lock);
     for (;;) {
         // Scan through table looking for exited children.
@@ -388,6 +401,8 @@ wait(void) {
                 p->name[0] = 0;
                 p->killed = 0;
                 p->state = UNUSED;
+
+#if(defined(LIFO) || defined(SCFIFO))
                 p->pagesCounter = -1;
                 p->nextpageid = 0;
 //                p->swapOffset = 0;
@@ -412,6 +427,7 @@ wait(void) {
                 for(int k=0; k<MAX_PSYC_PAGES ; k++)
                     p->swapFileEntries[k]=0;
 
+#endif
                 release(&ptable.lock);
                 return pid;
             }

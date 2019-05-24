@@ -242,17 +242,18 @@ findFreeEntryInSwapFile(struct proc *p) {
     return -1;
 }
 
-
+//TODO - make sure that before calling to this func to check:
+//TODO - #if( defined(LIFO) || defined(SCFIFO))
 void
 swapOutPage(struct proc *p, pde_t *pgdir) {
-    pde_t *pgtble , *tmppgtble;
+    pde_t *pgtble;
     struct page *pg = 0;
     int tmpOffset = findFreeEntryInSwapFile(p);
     if (tmpOffset == -1) {//validy check
         cprintf("p->entries:\t");
-        for (int i = 0; i < MAX_PSYC_PAGES; i++){
+        for (int i = 0; i < MAX_PSYC_PAGES; i++) {
 
-            cprintf("%d  ",p->swapFileEntries[i]);
+            cprintf("%d  ", p->swapFileEntries[i]);
         }
         panic("ERROR - there is no free entry in p->swapFileEntries!\n");
 
@@ -260,7 +261,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 
     int swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
 
-//#if( defined(LIFO))
+#if(defined(LIFO))
     int maxSeq = 0;
     struct page *cg;
     for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
@@ -273,28 +274,40 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 //#endif
 
 
-//#if( defined(SCFIFO))
-    int minSeq = p->pagesequel , found = 0;
+#elif(defined(SCFIFO))
+    int minSeq = p->pagesequel, found = 0;
     char *tmpAdress;
+    pde_t *tmppgtble;
     struct page *sg;
-    while( !found ) {
+    while (!found) {
+        //find page with min pagesequel
         for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
             if (sg->active && sg->present && sg->sequel < minSeq) {
                 pg = sg;
                 minSeq = sg->sequel;
             }
         }
-
+        //got here- pg have the min pagesequel
         tmpAdress = pg->virtAdress;
-        tmppgtble = walkpgdir(pgdir, (char *) tmpAdress, 0);
-        if (*tmppgtble & PTE_A) {
+        tmppgtble = walkpgdir(pgdir, tmpAdress, 0);
+        if (*tmppgtble & PTE_A) { //if legal addr and acces bit is on - move to end of page queue
             *tmppgtble = PTE_A_0(*tmppgtble);
             pg->sequel = p->pagesequel++;
-            found = 1;
+            found = 1; //TODO - found = 1 is in wrong location - it will exit when find page to skip
         }
+        //TODO - from here possible change
+        else {
+            if (*tmppgtble & !PTE_A) //if legal addr and bit is off - this is the page to swap out
+                found = 1;
+            else
+                panic("Error - tmppgtble = walkpgdir(pgdir, tmpAdress, 0);\n");
+        }
+        //TODO - until here
     }
 
-//#endif
+#endif
+
+    //got here - pg is the page to swap out (in both cases)
 
     //write the page to swapFile
     writeToSwapFile(p, pg->physAdress, (uint) swapWriteOffset, PGSIZE);
@@ -304,7 +317,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     pg->physAdress = 0;
     pg->sequel = 0;
 
-    //must update page swaping for proc.
+    //must update page swapping for proc.
 
     p->swapFileEntries[tmpOffset] = 1; //update that this entry is swapped out
     p->totalPagesInSwap++;
@@ -324,7 +337,7 @@ int
 allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     if (DEBUGMODE == 2 && notShell())
         cprintf("ALLOCUVM-");
-#if( defined(LIFO)|| defined(SCFIFO))
+#if(defined(LIFO) || defined(SCFIFO))
     cprintf("FUCKYOU1");
 #endif
 
@@ -351,7 +364,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         // TODO HERE WE CREATE PYSYC MEMORY;
         // TODO HERE WE SHOULD CHECK NUM OF PAGES AND IF NOT MAX PAGES.
         // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
-
+#if(defined(LIFO) || defined(SCFIFO))
         if (p->pagesCounter == MAX_TOTAL_PAGES)
             panic("got 32 pages and requested for another page!");
 
@@ -362,6 +375,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
             //got here - the page to swat out is pg
             swapOutPage(p, pgdir); //this func includes remove page, update proc and update PTE
         }
+#endif
 
         mem = kalloc();
         if (mem == 0) {
@@ -381,7 +395,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
             return 0;
         }
 
-
+#if(defined(LIFO) || defined(SCFIFO))
         if (p->pid > 2) {
             //TODO INIT PAGE STRUCT
             for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
@@ -409,10 +423,11 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         }
 
     }
-    if (DEBUGMODE == 2 && notShell())
-        cprintf(">ALLOCUVM-DONE!\t");
-    return newsz;
-}
+#endif
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">ALLOCUVM-DONE!\t");
+        return newsz;
+    }
 
 // Deallocate user pages to bring the process size from oldsz to
 // newsz.  oldsz and newsz need not be page-aligned, nor does newsz
@@ -420,192 +435,200 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 // process size.  Returns the new process size.
 int
 deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
-    if (DEBUGMODE == 2 && notShell())
-        cprintf("DEALLOCUVM-");
-    pte_t *pte;
-    uint a, pa;
-    struct page *pg;
-    struct proc *p = myproc();
-
-    if (newsz >= oldsz) {
         if (DEBUGMODE == 2 && notShell())
-            cprintf(">DEALLOCUVM-FAILED!-newsz >= oldsz\t");
-        return oldsz;
-    }
+            cprintf("DEALLOCUVM-");
+        pte_t *pte;
+        uint a, pa;
+#if(defined(LIFO) || defined(SCFIFO))
+        struct page *pg;
+        struct proc *p = myproc();
+#endif
+        if (newsz >= oldsz) {
+            if (DEBUGMODE == 2 && notShell())
+                cprintf(">DEALLOCUVM-FAILED!-newsz >= oldsz\t");
+            return oldsz;
+        }
 
-    a = PGROUNDUP(newsz);
-    for (; a < oldsz; a += PGSIZE) {
-        pte = walkpgdir(pgdir, (char *) a, 0);
-        if (!pte)
-            a = PGADDR(PDX(a) + 1, 0, 0) - PGSIZE;
-        else if ((*pte & PTE_P) != 0) {
-            pa = PTE_ADDR(*pte);
-            if (pa == 0)
-                panic("kfree");
-            if (p->pid > 2 && growproc) {
-                //scan pages table and remove page that page.virtAdress == a
-                for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
-                    if (pg->active && pg->virtAdress == (char *) a) //if true -> free page
-                    {
-                        //remove page
-                        pg->virtAdress = 0;
-                        pg->active = 0;
-                        pg->offset = 0;      //TODO - check if there is a need to save offset
-                        pg->present = 0;
+        a = PGROUNDUP(newsz);
+        for (; a < oldsz; a += PGSIZE) {
+            pte = walkpgdir(pgdir, (char *) a, 0);
+            if (!pte)
+                a = PGADDR(PDX(a) + 1, 0, 0) - PGSIZE;
+            else if ((*pte & PTE_P) != 0) {
+                pa = PTE_ADDR(*pte);
+                if (pa == 0)
+                    panic("kfree");
 
-                        //update proc
-                        p->pagesCounter--;
-                        break;
+#if(defined(LIFO) || defined(SCFIFO))
+                if (p->pid > 2 && growproc) {
+                    //scan pages table and remove page that page.virtAdress == a
+                    for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
+                        if (pg->active && pg->virtAdress == (char *) a) //if true -> free page
+                        {
+                            //remove page
+                            pg->virtAdress = 0;
+                            pg->active = 0;
+                            pg->offset = 0;      //TODO - check if there is a need to save offset
+                            pg->present = 0;
+
+                            //update proc
+                            p->pagesCounter--;
+                            break;
+                        }
+                    }
+                    if (pg == &p->pages[MAX_TOTAL_PAGES])//if true ->didn't find the virtAdress
+                        panic("deallocuvm Error - didn't find the virtAdress!");
+                    //if got here -here is a free page
+                }
+#endif
+                char *v = P2V(pa);
+                kfree(v);
+                *pte = 0;
+            } else {
+#if(defined(LIFO) || defined(SCFIFO))
+                if ((*pte & PTE_PG) != 0) {
+                    pa = PTE_ADDR(*pte);
+                    if (pa == 0)
+                        panic("kfree");
+                    if (p->pid > 2 && growproc) {
+                        //scan pages table and remove page that page.virtAdress == a
+                        for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
+                            if (pg->active && pg->virtAdress == (char *) a) //if true -> free page
+                            {
+                                //remove page
+                                pg->virtAdress = 0;
+                                pg->active = 0;
+                                pg->offset = 0;      //TODO - check if there is a need to save offset
+                                pg->present = 0;
+
+                                //update proc
+                                p->pagesCounter--;
+                                break;
+                            }
+                        }
                     }
                 }
-                if (pg == &p->pages[MAX_TOTAL_PAGES])//if true ->didn't find the virtAdress
-                    panic("deallocuvm Error - didn't find the virtAdress!");
-                //if got here -here is a free page
-            }
-            char *v = P2V(pa);
-            kfree(v);
-            *pte = 0;
-        } else if ((*pte & PTE_PG) != 0) {
-            pa = PTE_ADDR(*pte);
-            if (pa == 0)
-                panic("kfree");
-            if (p->pid > 2 && growproc) {
-                //scan pages table and remove page that page.virtAdress == a
-                for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
-                    if (pg->active && pg->virtAdress == (char *) a) //if true -> free page
-                    {
-                        //remove page
-                        pg->virtAdress = 0;
-                        pg->active = 0;
-                        pg->offset = 0;      //TODO - check if there is a need to save offset
-                        pg->present = 0;
-
-                        //update proc
-                        p->pagesCounter--;
-                        break;
-                    }
-                }
+#endif
             }
         }
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">DEALLOCUVM-DONE!\t");
+        return newsz;
     }
-    if (DEBUGMODE == 2 && notShell())
-        cprintf(">DEALLOCUVM-DONE!\t");
-    return newsz;
-}
 
 // Free a page table and all the physical memory pages
 // in the user part.
-void
-freevm(pde_t *pgdir) {
-    if (DEBUGMODE == 2 && notShell())
-        cprintf("FREEVM");
-    uint i;
+    void
+    freevm(pde_t *pgdir) {
+        if (DEBUGMODE == 2 && notShell())
+            cprintf("FREEVM");
+        uint i;
 
-    if (pgdir == 0)
-        panic("freevm: no pgdir");
-    deallocuvm(pgdir, KERNBASE, 0, 0);
-    for (i = 0; i < NPDENTRIES; i++) {
-        if (pgdir[i] & PTE_P) {
-            char *v = P2V(PTE_ADDR(pgdir[i]));
-            kfree(v);
+        if (pgdir == 0)
+            panic("freevm: no pgdir");
+        deallocuvm(pgdir, KERNBASE, 0, 0);
+        for (i = 0; i < NPDENTRIES; i++) {
+            if (pgdir[i] & PTE_P) {
+                char *v = P2V(PTE_ADDR(pgdir[i]));
+                kfree(v);
+            }
         }
+        kfree((char *) pgdir);
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">FREEVM-DONE!\t");
     }
-    kfree((char *) pgdir);
-    if (DEBUGMODE == 2 && notShell())
-        cprintf(">FREEVM-DONE!\t");
-}
 
 // Clear PTE_U on a page. Used to create an inaccessible
 // page beneath the user stack.
-void
-clearpteu(pde_t *pgdir, char *uva) {
-    if (DEBUGMODE == 2 && notShell())
-        cprintf("CLEARPTEU-");
-    pte_t *pte;
+    void
+    clearpteu(pde_t *pgdir, char *uva) {
+        if (DEBUGMODE == 2 && notShell())
+            cprintf("CLEARPTEU-");
+        pte_t *pte;
 
-    pte = walkpgdir(pgdir, uva, 0);
-    if (pte == 0)
-        panic("clearpteu");
-    *pte &= ~PTE_U;
-    if (DEBUGMODE == 2 && notShell())
-        cprintf(">CLEARPTEU-DONE!\t");
-}
+        pte = walkpgdir(pgdir, uva, 0);
+        if (pte == 0)
+            panic("clearpteu");
+        *pte &= ~PTE_U;
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">CLEARPTEU-DONE!\t");
+    }
 
 // Given a parent process's page table, create a copy
 // of it for a child.
-pde_t *
-copyuvm(pde_t *pgdir, uint sz) {
-    if (DEBUGMODE == 2 && notShell())
-        cprintf("COPYUVM-");
-    pde_t *d;
-    pte_t *pte;
-    uint pa, i, flags;
-    char *mem;
+    pde_t *
+    copyuvm(pde_t *pgdir, uint sz) {
+        if (DEBUGMODE == 2 && notShell())
+            cprintf("COPYUVM-");
+        pde_t *d;
+        pte_t *pte;
+        uint pa, i, flags;
+        char *mem;
 
-    if ((d = setupkvm()) == 0)
+        if ((d = setupkvm()) == 0)
+            return 0;
+        for (i = 0; i < sz; i += PGSIZE) {
+            if ((pte = walkpgdir(pgdir, (void *) i, 0)) == 0)
+                panic("copyuvm: pte should exist");
+            if (!(*pte & PTE_P))
+                panic("copyuvm: page not present");
+            pa = PTE_ADDR(*pte);
+            flags = PTE_FLAGS(*pte);
+            if ((mem = kalloc()) == 0)
+                goto bad;
+            memmove(mem, (char *) P2V(pa), PGSIZE);
+            if (mappages(d, (void *) i, PGSIZE, V2P(mem), flags) < 0)
+                goto bad;
+        }
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">COPYUVM-DONE!\t");
+        return d;
+
+        bad:
+        freevm(d);
+        if (DEBUGMODE == 2 && notShell())
+            cprintf(">COPYUVM-FAILED!\t");
         return 0;
-    for (i = 0; i < sz; i += PGSIZE) {
-        if ((pte = walkpgdir(pgdir, (void *) i, 0)) == 0)
-            panic("copyuvm: pte should exist");
-        if (!(*pte & PTE_P))
-            panic("copyuvm: page not present");
-        pa = PTE_ADDR(*pte);
-        flags = PTE_FLAGS(*pte);
-        if ((mem = kalloc()) == 0)
-            goto bad;
-        memmove(mem, (char *) P2V(pa), PGSIZE);
-        if (mappages(d, (void *) i, PGSIZE, V2P(mem), flags) < 0)
-            goto bad;
     }
-    if (DEBUGMODE == 2 && notShell())
-        cprintf(">COPYUVM-DONE!\t");
-    return d;
-
-    bad:
-    freevm(d);
-    if (DEBUGMODE == 2 && notShell())
-        cprintf(">COPYUVM-FAILED!\t");
-    return 0;
-}
 
 //PAGEBREAK!
 // Map user virtual address to kernel address.
-char *
-uva2ka(pde_t *pgdir, char *uva) {
-    pte_t *pte;
+    char *
+    uva2ka(pde_t *pgdir, char *uva) {
+        pte_t *pte;
 
-    pte = walkpgdir(pgdir, uva, 0);
-    if ((*pte & PTE_P) == 0)
-        return 0;
-    if ((*pte & PTE_U) == 0)
-        return 0;
-    return (char *) P2V(PTE_ADDR(*pte));
-}
+        pte = walkpgdir(pgdir, uva, 0);
+        if ((*pte & PTE_P) == 0)
+            return 0;
+        if ((*pte & PTE_U) == 0)
+            return 0;
+        return (char *) P2V(PTE_ADDR(*pte));
+    }
 
 // Copy len bytes from p to user address va in page table pgdir.
 // Most useful when pgdir is not the current page table.
 // uva2ka ensures this only works for PTE_U pages.
-int
-copyout(pde_t *pgdir, uint va, void *p, uint len) {
-    char *buf, *pa0;
-    uint n, va0;
+    int
+    copyout(pde_t *pgdir, uint va, void *p, uint len) {
+        char *buf, *pa0;
+        uint n, va0;
 
-    buf = (char *) p;
-    while (len > 0) {
-        va0 = (uint) PGROUNDDOWN(va);
-        pa0 = uva2ka(pgdir, (char *) va0);
-        if (pa0 == 0)
-            return -1;
-        n = PGSIZE - (va - va0);
-        if (n > len)
-            n = len;
-        memmove(pa0 + (va - va0), buf, n);
-        len -= n;
-        buf += n;
-        va = va0 + PGSIZE;
+        buf = (char *) p;
+        while (len > 0) {
+            va0 = (uint) PGROUNDDOWN(va);
+            pa0 = uva2ka(pgdir, (char *) va0);
+            if (pa0 == 0)
+                return -1;
+            n = PGSIZE - (va - va0);
+            if (n > len)
+                n = len;
+            memmove(pa0 + (va - va0), buf, n);
+            len -= n;
+            buf += n;
+            va = va0 + PGSIZE;
+        }
+        return 0;
     }
-    return 0;
-}
 
 //PAGEBREAK!
 // Blank page.

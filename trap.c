@@ -76,6 +76,7 @@ trap(struct trapframe *tf) {
             break;
 
             //CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
+#if (defined(SCFIFO) || defined(LIFO))
         case T_PGFLT:
             p = myproc();
             struct page *cg = 0;
@@ -149,7 +150,7 @@ trap(struct trapframe *tf) {
 
             lapiceoi();
             break;
-
+#endif
 
 
             //PAGEBREAK: 13
