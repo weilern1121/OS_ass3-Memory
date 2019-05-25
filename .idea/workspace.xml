@@ -12,19 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a2fa55-d3b8-4427-9332-c56f2645a88b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exec.o" beforeDir="false" afterPath="$PROJECT_DIR$/exec.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fs.img" beforeDir="false" afterPath="$PROJECT_DIR$/fs.img" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel" beforeDir="false" afterPath="$PROJECT_DIR$/kernel" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.asm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kernel.sym" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.sym" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/param.h" beforeDir="false" afterPath="$PROJECT_DIR$/param.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proc.o" beforeDir="false" afterPath="$PROJECT_DIR$/proc.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trap.o" beforeDir="false" afterPath="$PROJECT_DIR$/trap.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vm.c" beforeDir="false" afterPath="$PROJECT_DIR$/vm.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vm.o" beforeDir="false" afterPath="$PROJECT_DIR$/vm.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xv6.img" beforeDir="false" afterPath="$PROJECT_DIR$/xv6.img" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +24,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proc.c">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
@@ -101,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vm.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="345" selection-start-line="345" selection-end-line="345" />
+            <state relative-caret-position="357">
+              <caret line="591" column="38" selection-start-line="591" selection-start-column="38" selection-end-line="591" selection-end-column="38" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#7150#7395#0" expanded="true" />
@@ -209,8 +197,8 @@
         <option value="$PROJECT_DIR$/exec.c" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/param.h" />
-        <option value="$PROJECT_DIR$/vm.c" />
         <option value="$PROJECT_DIR$/proc.c" />
+        <option value="$PROJECT_DIR$/vm.c" />
       </list>
     </option>
   </component>
@@ -284,18 +272,18 @@
       <workItem from="1558522088937" duration="1528000" />
       <workItem from="1558601836222" duration="2285000" />
       <workItem from="1558712647843" duration="3013000" />
-      <workItem from="1558774752524" duration="3513000" />
+      <workItem from="1558774752524" duration="4053000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88916000" />
+    <option name="totallyTimeSpent" value="89456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="925" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8119349" visible="true" weight="0.16270061" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8119349" visible="true" weight="0.16270061" />
       <window_info id="Structure" order="1" sideWeight="0.1880651" side_tool="true" weight="0.15938018" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -307,7 +295,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.37562814" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.37562814" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -506,20 +494,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vm.c">
+    <entry file="file://$PROJECT_DIR$/proc.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="345" selection-start-line="345" selection-end-line="345" />
+        <state relative-caret-position="138">
+          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#7150#7395#0" expanded="true" />
-            <element signature="e#7425#8568#0" expanded="true" />
-            <element signature="e#9976#10046#0" expanded="true" />
-            <element signature="e#10468#11099#0" expanded="true" />
-            <element signature="e#11807#12615#0" expanded="true" />
-            <element signature="e#13178#13229#0" expanded="true" />
-            <element signature="e#13749#14761#0" expanded="true" />
-            <element signature="e#14920#15940#0" expanded="true" />
+            <element signature="e#1745#1761#0" expanded="true" />
+            <element signature="e#5199#5221#0" expanded="true" />
+            <element signature="e#5358#5438#0" expanded="true" />
+            <element signature="e#5803#7577#0" expanded="true" />
+            <element signature="e#8644#8702#0" expanded="true" />
+            <element signature="e#9430#9446#0" expanded="true" />
+            <element signature="e#10137#10990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -534,19 +521,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc.c">
+    <entry file="file://$PROJECT_DIR$/vm.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+        <state relative-caret-position="357">
+          <caret line="591" column="38" selection-start-line="591" selection-start-column="38" selection-end-line="591" selection-end-column="38" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1745#1761#0" expanded="true" />
-            <element signature="e#5199#5221#0" expanded="true" />
-            <element signature="e#5358#5438#0" expanded="true" />
-            <element signature="e#5803#7577#0" expanded="true" />
-            <element signature="e#8644#8702#0" expanded="true" />
-            <element signature="e#9430#9446#0" expanded="true" />
-            <element signature="e#10137#10990#0" expanded="true" />
+            <element signature="e#7150#7395#0" expanded="true" />
+            <element signature="e#7425#8568#0" expanded="true" />
+            <element signature="e#9976#10046#0" expanded="true" />
+            <element signature="e#10468#11099#0" expanded="true" />
+            <element signature="e#11807#12615#0" expanded="true" />
+            <element signature="e#13178#13229#0" expanded="true" />
+            <element signature="e#13749#14761#0" expanded="true" />
+            <element signature="e#14920#15940#0" expanded="true" />
           </folding>
         </state>
       </provider>
