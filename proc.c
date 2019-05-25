@@ -661,6 +661,5 @@ procdump(void) {
         cprintf("\n");
     }
     currentFreePages = kallocCount();
-    currentFreePages = 100 * currentFreePages;
     cprintf(" %d / %d free pages in the system", currentFreePages, totalAvailablePages);
 }
