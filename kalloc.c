@@ -45,20 +45,21 @@ kinit2(void *vstart, void *vend)
 
 
 
-
+//called once via userinit to count number of pages
 int
 kallocCount(void)
 {
   struct run *r;
   int count = 0;
-  if(kmem.use_lock)
+  if(kmem.use_lock) //lock check
     acquire(&kmem.lock);
   r = kmem.freelist;
+  //count all the pages by iterating the freelist
   while(r){
     count++;
-    kmem.freelist = r->next;
+    r = r->next;
   }
-  if(kmem.use_lock)
+  if(kmem.use_lock)//lock check
     release(&kmem.lock);
   return count;
 }

@@ -159,7 +159,7 @@ userinit(void) {
     extern char _binary_initcode_start[], _binary_initcode_size[];
 
     // before first alloc, check total space for ^P
-    totalAvailablePages = kallocCount();     //TODO - problem here
+    totalAvailablePages = kallocCount();
 
     p = allocproc();
 

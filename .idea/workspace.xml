@@ -12,7 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a2fa55-d3b8-4427-9332-c56f2645a88b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/vm.c" beforeDir="false" afterPath="$PROJECT_DIR$/vm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kalloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/kalloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kalloc.o" beforeDir="false" afterPath="$PROJECT_DIR$/kalloc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel" beforeDir="false" afterPath="$PROJECT_DIR$/kernel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.asm" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.asm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kernel.sym" beforeDir="false" afterPath="$PROJECT_DIR$/kernel.sym" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.o" beforeDir="false" afterPath="$PROJECT_DIR$/proc.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm.o" beforeDir="false" afterPath="$PROJECT_DIR$/vm.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xv6.img" beforeDir="false" afterPath="$PROJECT_DIR$/xv6.img" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +33,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proc.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
+            <state relative-caret-position="22">
+              <caret line="161" column="40" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#1745#1761#0" expanded="true" />
@@ -67,8 +76,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kalloc.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+            <state relative-caret-position="32">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
                 <element signature="e#163#181#0" expanded="true" />
               </folding>
@@ -89,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vm.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="591" column="38" selection-start-line="591" selection-start-column="38" selection-end-line="591" selection-end-column="38" />
+            <state relative-caret-position="241">
+              <caret line="571" selection-start-line="571" selection-end-line="571" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#7150#7395#0" expanded="true" />
@@ -190,15 +199,15 @@
         <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/umalloc.c" />
         <option value="$PROJECT_DIR$/defs.h" />
-        <option value="$PROJECT_DIR$/kalloc.c" />
         <option value="$PROJECT_DIR$/mmu.h" />
         <option value="$PROJECT_DIR$/proc.h" />
         <option value="$PROJECT_DIR$/trap.c" />
         <option value="$PROJECT_DIR$/exec.c" />
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/param.h" />
-        <option value="$PROJECT_DIR$/proc.c" />
         <option value="$PROJECT_DIR$/vm.c" />
+        <option value="$PROJECT_DIR$/kalloc.c" />
+        <option value="$PROJECT_DIR$/proc.c" />
       </list>
     </option>
   </component>
@@ -272,12 +281,12 @@
       <workItem from="1558522088937" duration="1528000" />
       <workItem from="1558601836222" duration="2285000" />
       <workItem from="1558712647843" duration="3013000" />
-      <workItem from="1558774752524" duration="4053000" />
+      <workItem from="1558774752524" duration="5021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89456000" />
+    <option name="totallyTimeSpent" value="90424000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="925" extended-state="6" />
@@ -494,37 +503,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="162" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#1745#1761#0" expanded="true" />
-            <element signature="e#5199#5221#0" expanded="true" />
-            <element signature="e#5358#5438#0" expanded="true" />
-            <element signature="e#5803#7577#0" expanded="true" />
-            <element signature="e#8644#8702#0" expanded="true" />
-            <element signature="e#9430#9446#0" expanded="true" />
-            <element signature="e#10137#10990#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kalloc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
-          <folding>
-            <element signature="e#163#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vm.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="591" column="38" selection-start-line="591" selection-start-column="38" selection-end-line="591" selection-end-column="38" />
+        <state relative-caret-position="241">
+          <caret line="571" selection-start-line="571" selection-end-line="571" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#7150#7395#0" expanded="true" />
@@ -535,6 +517,33 @@
             <element signature="e#13178#13229#0" expanded="true" />
             <element signature="e#13749#14761#0" expanded="true" />
             <element signature="e#14920#15940#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kalloc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+          <folding>
+            <element signature="e#163#181#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="161" column="40" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#1745#1761#0" expanded="true" />
+            <element signature="e#5199#5221#0" expanded="true" />
+            <element signature="e#5358#5438#0" expanded="true" />
+            <element signature="e#5803#7577#0" expanded="true" />
+            <element signature="e#8644#8702#0" expanded="true" />
+            <element signature="e#9430#9446#0" expanded="true" />
+            <element signature="e#10137#10990#0" expanded="true" />
           </folding>
         </state>
       </provider>
