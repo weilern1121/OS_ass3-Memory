@@ -15,7 +15,7 @@ struct {
 static struct proc *initproc;
 char buffer[PGSIZE];
 
-int firstRun = 1;
+int firstRun = 1;//for sh and init proc swapFile.
 int totalAvailablePages = 0;
 int nextpid = 1;
 
@@ -230,7 +230,7 @@ fork(void) {
 
 #if(defined(LIFO) || defined(SCFIFO))
 
-    if (firstRun) {
+    if (firstRun) {//for sh and init proc swapFile.
         createSwapFile(curproc);
     }
 
@@ -319,7 +319,7 @@ fork(void) {
 
     release(&ptable.lock);
 
-    firstRun = 0;
+    firstRun = 0; //for sh and init proc swapFile.
     return pid;
 }
 
@@ -662,4 +662,43 @@ procdump(void) {
     }
     currentFreePages = kallocCount();
     cprintf(" %d / %d free pages in the system", currentFreePages, totalAvailablePages);
+}
+
+
+
+//turn on PM( pmalloced ) flag
+void
+turnOnPM( void *p ){
+    pte_t *pte;
+    //TODO maybe we should P2V(p)
+    pte = walkpgdir2(myproc()->pgdir, p, 0);
+    *pte = PTE_PM_1(*pte);
+}
+
+
+
+//return -1 if not pmalloced, else return 1 and turn W flag off
+int
+turnOffW( void *p ){
+    pte_t *pte;
+    //TODO maybe we should P2V(p)
+    pte = walkpgdir2(myproc()->pgdir, p, 0);
+    if( ( *pte & PTE_PM ) != 0){
+        *pte = PTE_W_0(*pte);
+        return 1;
+    }
+    return -1;
+}
+
+
+int
+checkOnPM( void *p ){
+    pte_t *pte;
+    //TODO maybe we should P2V(p)
+    pte = walkpgdir2(myproc()->pgdir, p, 0);
+    if( ( ( *pte & PTE_PM ) != 0) && ( ( *pte & PTE_W ) == 0) ) {
+        return 1;
+    }
+    return -1;
+
 }

@@ -126,6 +126,9 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
+void            turnOnPM( void *p );
+int             turnOffW( void *p );
+int             checkOnPM( void *p );
 
 int             notShell(void);
 

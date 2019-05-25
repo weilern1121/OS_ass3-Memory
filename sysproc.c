@@ -96,3 +96,38 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+
+
+// TODO MAYBE WE NEED HERE TO PASS PTR
+
+int sys_turnOnPM(void)
+{
+  int p;
+
+  if(argint(0, &p) < 0)
+    return -1;
+
+  turnOnPM( (void *)p );
+  return 0;
+}
+
+int sys_checkOnPM(void)
+{
+  int p;
+
+  if(argint(0, &p) < 0)
+    return -1;
+
+  return checkOnPM( (void *)p );
+}
+
+int sys_turnOffW(void)
+{
+  int p;
+
+  if(argint(0, &p) < 0)
+    return -1;
+
+  return turnOffW( (void *)p );
+}

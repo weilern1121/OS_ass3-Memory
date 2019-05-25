@@ -104,6 +104,9 @@ extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_yield(void);
+extern int sys_turnOnPM(void);
+extern int sys_checkOnPM(void);
+extern int sys_turnOffW(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -128,6 +131,9 @@ static int (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_yield]   sys_yield,
+[SYS_turnOnPM]   sys_turnOnPM,
+[SYS_checkOnPM]   sys_checkOnPM,
+[SYS_turnOffW]   sys_turnOffW,
 };
 
 void

@@ -9,14 +9,11 @@
 typedef long Align;
 
 union header {
-    int pmalloced;
-    int protected;
-  struct {
-    union header *ptr;
-    uint size;
-
-  } s;
-  Align x;
+    struct {
+        union header *ptr;
+        uint size;
+    } s;
+    Align x;
 };
 
 typedef union header Header;
@@ -111,6 +108,7 @@ pmalloc()
             prevp->s.ptr = p->s.ptr;
             freep = prevp;
             (p+1)->x = 1;
+            turnOnPM( (void *)( p + 1 ) );
             return (void*)(p + 1);
         }
 
@@ -121,7 +119,8 @@ pmalloc()
 }
 
 
-int protect_page(void* ap)
+int
+protect_page(void* ap)
 {
     Header *p;
     if( ap )
@@ -129,12 +128,9 @@ int protect_page(void* ap)
         if( (uint)ap % 4096 != 0 )
             return -1;
 
-        p = ap;
-        if( !p->pmalloced )
-            return -1;
 
-        p->protected = 1;
-        return 1;
+        p = ap;
+        return turnOffW( p );
     }
     else
         return -1;
@@ -142,14 +138,15 @@ int protect_page(void* ap)
 
 
 
-int pfree(void* ap) {
+int
+pfree(void* ap) {
     Header *p;
     if (ap) {
         if ((uint) ap % 4096 != 0)
             return -1;
 
         p = ap;
-        if (p->protected) {
+        if ( checkOnPM( p ) ) {
             free(ap);
             return 1;
         }
