@@ -157,8 +157,9 @@ void
 userinit(void) {
     struct proc *p;
     extern char _binary_initcode_start[], _binary_initcode_size[];
-    //before first alloc, check total space for ^P
-    totalAvailablePages = kallocCount();
+
+    // before first alloc, check total space for ^P
+    totalAvailablePages = kallocCount();     //TODO - problem here
 
     p = allocproc();
 
