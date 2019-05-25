@@ -672,6 +672,7 @@ turnOnPM( void *p ){
     pte_t *pte;
     //TODO maybe we should P2V(p)
     pte = walkpgdir2(myproc()->pgdir, p, 0);
+    //TODO - what is PM bit? why not to turn on PTE_W?
     *pte = PTE_PM_1(*pte);
 }
 

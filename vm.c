@@ -248,7 +248,6 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
         panic("ERROR - there is no free entry in p->swapFileEntries!\n");
 
     }
-
     int swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
 
 #if(defined(LIFO))
@@ -296,7 +295,6 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     }
 
 #endif
-
     //got here - pg is the page to swap out (in both cases)
 
     //write the page to swapFile
@@ -307,8 +305,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     pg->physAdress = 0;
     pg->sequel = 0;
 
-    //must update page swapping for proc.
-
+    //update page swapping for proc.
     p->swapFileEntries[tmpOffset] = 1; //update that this entry is swapped out
     p->totalPagesInSwap++;
     p->pagesinSwap++;
@@ -363,7 +360,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 
         mem = kalloc();
         if (mem == 0) {
-            cprintf("allocuvm out of memory\n");
+            //cprintf("allocuvm out of memory\n");
             deallocuvm(pgdir, newsz, oldsz, 0);
             if (DEBUGMODE == 2 && notShell())
                 cprintf(">ALLOCUVM-FAILED-mem == 0\t");
@@ -371,7 +368,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         }
         memset(mem, 0, PGSIZE);
         if (mappages(pgdir, (char *) a, PGSIZE, V2P(mem), PTE_W | PTE_U) < 0) {
-            cprintf("allocuvm out of memory (2)\n");
+            //cprintf("allocuvm out of memory (2)\n");
             deallocuvm(pgdir, newsz, oldsz, 0);
             kfree(mem);
             if (DEBUGMODE == 2 && notShell())
@@ -405,10 +402,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
             *pgtble = PTE_PG_0(*pgtble); // Not Paged out to secondary storage
             lcr3(V2P(p->pgdir));
         }
-
-
 #endif
-
     }
 
     if (DEBUGMODE == 2 && notShell())
@@ -428,7 +422,7 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
     uint a, pa;
 #if(defined(LIFO) || defined(SCFIFO))
     struct page *pg;
-        struct proc *p = myproc();
+    struct proc *p = myproc();
 #endif
     if (newsz >= oldsz) {
         if (DEBUGMODE == 2 && notShell())
@@ -469,7 +463,6 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
                     //if got here -here is a free page
                 }
 #endif
-
 
             char *v = P2V(pa);
             kfree(v);

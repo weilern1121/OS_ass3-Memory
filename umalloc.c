@@ -2,6 +2,7 @@
 #include "stat.h"
 #include "user.h"
 #include "param.h"
+#include "mmu.h"
 
 // Memory allocator by Kernighan and Ritchie,
 // The C programming Language, 2nd ed.  Section 8.7.
@@ -44,12 +45,12 @@ free(void *ap)
 }
 
 static Header*
-morecore(uint nu)
+morecore(uint nu, int notFromPmalloc)
 {
   char *p;
   Header *hp;
-
-  if(nu < 4096)
+//notFromPmalloc- because in this specific func there is a need for smaller sbrk
+  if(nu < 4096 && notFromPmalloc)
     nu = 4096;
   p = sbrk(nu * sizeof(Header));
   if(p == (char*)-1)
@@ -84,7 +85,7 @@ malloc(uint nbytes)
             return (void*)(p + 1);
         }
         if(p == freep)
-            if((p = morecore(nunits)) == 0)
+            if((p = morecore(nunits,1)) == 0)
                 return 0;
     }
 }
@@ -97,8 +98,10 @@ pmalloc()
 {
     Header *p, *prevp;
     uint nunits;
+    //const uint mask= 4096;
 
     nunits = ( 4096 + sizeof(Header) - 1)/sizeof(Header) + 1;
+    nunits--;
     if((prevp = freep) == 0){
         base.s.ptr = freep = prevp = &base;
         base.s.size = 0;
@@ -107,13 +110,13 @@ pmalloc()
         if(p->s.size == nunits){
             prevp->s.ptr = p->s.ptr;
             freep = prevp;
-            (p+1)->x = 1;
+            p->x = 1; //TODO?
             turnOnPM( (void *)( p + 1 ) );
-            return (void*)(p + 1);
+            p->s.ptr= (union header *) PGROUNDUP((uint)(p->s.ptr));
+            return (void*)p;
         }
-
         if(p == freep)
-            if((p = morecore(nunits)) == 0)
+            if((p = morecore(nunits,0)) == 0)
                 return 0;
     }
 }
@@ -127,8 +130,6 @@ protect_page(void* ap)
     {
         if( (uint)ap % 4096 != 0 )
             return -1;
-
-
         p = ap;
         return turnOffW( p );
     }
