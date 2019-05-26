@@ -30,6 +30,17 @@ idtinit(void) {
     lidt(idt, sizeof(idt));
 }
 
+//used to locate page index ofp age in  p->swapFileEntries
+int findIndexByPageId(uint num) {
+    struct proc *p = myproc();
+    for (int i=0; i<16 ;i++) {
+        //if this is the pid of file ->return index
+        if (p->swapFileEntries[i] == num)
+            return i;
+    }
+    return -1;
+}
+
 //PAGEBREAK: 41
 void
 trap(struct trapframe *tf) {
@@ -90,10 +101,10 @@ trap(struct trapframe *tf) {
             /*for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES] ; cg++ )
                 cprintf(" FUCK IT IS : %d %d    he is inside swap: %d \n" , cg->pageid, cg->virtAdress, cg->present);
 
-            */for (cg = p->pages, i = 0; cg < &p->pages[MAX_TOTAL_PAGES] ; cg++, i++){
-                if( cg->virtAdress == (char *) problematicPage && !cg->present )
-                    goto noProbPage;
-            }
+            */for (cg = p->pages, i = 0; cg < &p->pages[MAX_TOTAL_PAGES]; cg++, i++) {
+        if (cg->virtAdress == (char *) problematicPage && !cg->present)
+            goto noProbPage;
+    }
 
         noProbPage:
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
@@ -107,7 +118,7 @@ trap(struct trapframe *tf) {
 
             //TODO = check if page is in secondary memory
             if ((!cg->active) || cg->present) {
-                if(cg->present)
+                if (cg->present)
                     panic("Error - problematic page is present!\n");
                 panic("Error - problematic page is not active!\n");
             }
@@ -141,9 +152,11 @@ trap(struct trapframe *tf) {
             *currPTE = PTE_PG_0(*currPTE);
 
             //update page
-            i = cg->offset % PGSIZE;
+            i = findIndexByPageId(cg->pageid);
+            if (i == -1)
+                panic("didn't find the page offset!\n");
             cg->offset = 0;
-            cg->virtAdress = (char *)problematicPage;
+            cg->virtAdress = (char *) problematicPage;
             cg->active = 1;
             cg->present = 1;
             cg->sequel = p->pagesequel++;
@@ -151,6 +164,7 @@ trap(struct trapframe *tf) {
             cg->physAdress = (char *) V2P(newAddr);
 
             //update proc
+
             p->swapFileEntries[i] = 0; //clean entry- page is in RAM
 //            p->pagesCounter++;
             p->pagesinSwap--;

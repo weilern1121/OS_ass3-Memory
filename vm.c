@@ -226,7 +226,7 @@ loaduvm(pde_t *pgdir, char *addr, struct inode *ip, uint offset, uint sz) {
 int
 findFreeEntryInSwapFile(struct proc *p) {
     for (int i = 0; i < MAX_PSYC_PAGES; i++) {
-        if (!p->swapFileEntries[i])
+        if (p->swapFileEntries[i]==0)
             return i;
     }
     return -1;
@@ -239,15 +239,14 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     pde_t *pgtble;
     struct page *pg = 0;
     int tmpOffset = findFreeEntryInSwapFile(p);
-    if (tmpOffset == -1) {//validy check
+    if (tmpOffset == -1) {//validation check
         cprintf("p->entries:\t");
         for (int i = 0; i < MAX_PSYC_PAGES; i++) {
-
             cprintf("%d  ", p->swapFileEntries[i]);
         }
         panic("ERROR - there is no free entry in p->swapFileEntries!\n");
-
     }
+
     int swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
 
 #if(defined(LIFO))
@@ -259,9 +258,6 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
             maxSeq = cg->sequel;
         }
     }
-
-//#endif
-
 
 #elif(defined(SCFIFO))
     int minSeq = p->pagesequel, found = 0;
@@ -282,7 +278,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
         if (*tmppgtble & PTE_A) { //if legal addr and acces bit is on - move to end of page queue
             *tmppgtble = PTE_A_0(*tmppgtble);
             pg->sequel = p->pagesequel++;
-            found = 1; //TODO - found = 1 is in wrong location - it will exit when find page to skip
+            //found = 1; //TODO - found = 1 is in wrong location - it will exit when find page to skip
         }
         //TODO - from here possible change
         else {
@@ -308,7 +304,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     pg->sequel = 0;
 
     //update page swapping for proc.
-    p->swapFileEntries[tmpOffset] = 1; //update that this entry is swapped out
+    p->swapFileEntries[tmpOffset] = pg->pageid; //update that this entry is swapped out for pageID
     p->totalPagesInSwap++;
     p->pagesinSwap++;
 
@@ -350,12 +346,11 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
             if (p->pagesCounter == MAX_TOTAL_PAGES)
                 panic("got 32 pages and requested for another page!");
 
-    //    cprintf("p->pagesCounter=%d\tp->pagesinSwap=%d\tMAX_PSYC_PAGES=%d\n",p->pagesCounter , p->pagesinSwap , MAX_PSYC_PAGES);
             // if number of pages overall minus pages in swap is more than 16 we have prob
-            if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES && p->pid > 2) {
-                //find the page to swap out
-                //got here - the page to swat out is pg
-                swapOutPage(p, pgdir); //this func includes remove page, update proc and update PTE
+            if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES) {
+                //this func includes find new page entry,
+                // remove this page, update proc and update PTE
+                swapOutPage(p, pgdir);
             }
 #endif
         }
