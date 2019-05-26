@@ -167,7 +167,7 @@ mkfs: mkfs.c fs.h
 
 UPROGS=\
 	_quitXV6\
-	_task1_3\
+	_task2_1\
 	_sh\
 	_init\
 	_ls\
@@ -282,11 +282,11 @@ _quitXV6: $(ULIB)
 	objdump -S _quitXV6 > quitXV6.asm
 	$(OBJDUMP) -t _quitXV6 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > quitXV6.sym
 
-_task1_3: $(ULIB)
-	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o task1_3.o ./Project_Test/XV6_Tests/task1_3.c
-	ld -m elf_i386 -N -e main -Ttext 0 -o _task1_3 task1_3.o $(ULIB)
-	objdump -S _task1_3 > task1_3.asm
-	$(OBJDUMP) -t _task1_3 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > task1_3.sym
+_task2_1: $(ULIB)
+	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o task2_1.o ./Project_Test/XV6_Tests/task2_1.c
+	ld -m elf_i386 -N -e main -Ttext 0 -o _task2_1 task2_1.o $(ULIB)
+	objdump -S _task2_1 > task2_1.asm
+	$(OBJDUMP) -t _task2_1 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > task2_1.sym
 
 _sh: $(ULIB)
 	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o sh.o sh.c

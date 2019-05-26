@@ -298,7 +298,9 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     //got here - pg is the page to swap out (in both cases)
 
     //write the page to swapFile
-    writeToSwapFile(p, pg->physAdress, (uint) swapWriteOffset, PGSIZE);
+    //cprintf(" SWAPPING THE FUCK IT IS : %d %d %d\n" ,pg->pageid , pg->virtAdress , pg->physAdress );
+
+    writeToSwapFile(p, pg->virtAdress, (uint) swapWriteOffset, PGSIZE);
     //update page
     pg->present = 0;
     pg->offset = (uint) swapWriteOffset;

@@ -87,12 +87,18 @@ trap(struct trapframe *tf) {
             virtualAddr = rcr2();
             problematicPage = PGROUNDDOWN(virtualAddr);
             //first we need to check if page is in swap
-            for (cg = p->pages, i = 0; cg < &p->pages[MAX_TOTAL_PAGES] && cg->virtAdress != (char *) problematicPage; cg++, i++)
-                ;
+            /*for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES] ; cg++ )
+                cprintf(" FUCK IT IS : %d %d    he is inside swap: %d \n" , cg->pageid, cg->virtAdress, cg->present);
+
+            */for (cg = p->pages, i = 0; cg < &p->pages[MAX_TOTAL_PAGES] ; cg++, i++){
+                if( cg->virtAdress == (char *) problematicPage && !cg->present )
+                    goto noProbPage;
+            }
+
+        noProbPage:
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
                 panic("Error- didn't find the trap's page in T_PGFLT\n");
             }
-
             //must update page faults for proc.
             p->pageFaults++;
 
@@ -100,7 +106,7 @@ trap(struct trapframe *tf) {
             //Now- check if all 16 pages are in RAM
 
             //TODO = check if page is in secondary memory
-            if (!cg->active || cg->present) {
+            if ((!cg->active) || cg->present) {
                 if(cg->present)
                     panic("Error - problematic page is present!\n");
                 panic("Error - problematic page is not active!\n");
@@ -135,8 +141,9 @@ trap(struct trapframe *tf) {
             *currPTE = PTE_PG_0(*currPTE);
 
             //update page
+            i = cg->offset % PGSIZE;
             cg->offset = 0;
-            cg->virtAdress = newAddr;
+            cg->virtAdress = (char *)problematicPage;
             cg->active = 1;
             cg->present = 1;
             cg->sequel = p->pagesequel++;

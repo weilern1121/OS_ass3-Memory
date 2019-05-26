@@ -1,0 +1,6 @@
+init: starting sh
+$ Test starting...
+Allocating all memory...
+lapicid 1: panic: Error - tmppgtble = walkpgdir(pgdir, tmpAdress, 0);
+
+ 80107869 80107bbc 80103df3 80105ecb 801051d7 8010648d 801060dc 0 0 0
