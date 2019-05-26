@@ -98,10 +98,8 @@ pmalloc()
 {
     Header *p, *prevp;
     uint nunits;
-    //const uint mask= 4096;
 
-    nunits = ( 4096 + sizeof(Header) - 1)/sizeof(Header) + 1;
-    nunits--;
+    nunits = ( 4096 + sizeof(Header) - 1)/sizeof(Header);
     if((prevp = freep) == 0){
         base.s.ptr = freep = prevp = &base;
         base.s.size = 0;
@@ -110,7 +108,6 @@ pmalloc()
         if(p->s.size == nunits){
             prevp->s.ptr = p->s.ptr;
             freep = prevp;
-            p->x = 1; //TODO?
             turnOnPM( (void *)( p + 1 ) );
             p->s.ptr= (union header *) PGROUNDUP((uint)(p->s.ptr));
             return (void*)p;
