@@ -143,12 +143,13 @@ int
 pfree(void* ap) {
     Header *p;
     if (ap) {
-        if ((uint) ap % 4096 != 0)
+        if ((uint) ap % 4096 != 0) //check that ap is align
             return -1;
-
         p = ap;
+        //check that the pm is on and W is off
         if ( checkOnPM( p ) ) {
-            free(ap);
+            turnOnW(p); //turn on PTE_W
+            free(ap); //normal free
             return 1;
         }
     }

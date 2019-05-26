@@ -24,3 +24,4 @@
 #define SYS_turnOnPM  23
 #define SYS_checkOnPM  24
 #define SYS_turnOffW  25
+#define SYS_turnOnW  26

@@ -691,6 +691,19 @@ turnOffW( void *p ){
     return -1;
 }
 
+//return -1 if not pmalloced, else return 1 and turn W flag off
+int
+turnOnW( void *p ){
+    pte_t *pte;
+    //TODO maybe we should P2V(p)
+    pte = walkpgdir2(myproc()->pgdir, p, 0);
+    if( ( *pte & PTE_PM ) != 0){
+        *pte = PTE_W_1(*pte);
+        return 1;
+    }
+    return -1;
+}
+
 
 int
 checkOnPM( void *p ){
@@ -700,6 +713,6 @@ checkOnPM( void *p ){
     if( ( ( *pte & PTE_PM ) != 0) && ( ( *pte & PTE_W ) == 0) ) {
         return 1;
     }
-    return -1;
+    return 0;
 
 }

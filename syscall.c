@@ -107,6 +107,7 @@ extern int sys_yield(void);
 extern int sys_turnOnPM(void);
 extern int sys_checkOnPM(void);
 extern int sys_turnOffW(void);
+extern int sys_turnOnW(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -134,6 +135,7 @@ static int (*syscalls[])(void) = {
 [SYS_turnOnPM]   sys_turnOnPM,
 [SYS_checkOnPM]   sys_checkOnPM,
 [SYS_turnOffW]   sys_turnOffW,
+[SYS_turnOnW]   sys_turnOnW,
 };
 
 void

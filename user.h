@@ -26,6 +26,7 @@ int uptime(void);
 int yield(void);
 void turnOnPM( void *p  );
 int turnOffW( void *p  );
+int turnOnW( void *p  );
 int checkOnPM( void *p  );
 
 // ulib.c

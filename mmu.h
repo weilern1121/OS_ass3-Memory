@@ -152,9 +152,11 @@ struct segdesc {
 #define PTE_PG_0(pte)    ((uint)(pte) & ~PTE_PG)
 #define PTE_PM_0(pte)    ((uint)(pte) & ~PTE_PM)
 #define PTE_A_0(pte)     ((uint)(pte) & ~PTE_A)
+
 #define PTE_P_1(pte)     ((uint)(pte) |  PTE_P)
 #define PTE_PG_1(pte)    ((uint)(pte) |  PTE_PG)
 #define PTE_PM_1(pte)    ((uint)(pte) |  PTE_PM)
+#define PTE_W_1(pte)     ((uint)(pte) |  PTE_W)
 
 
 #ifndef __ASSEMBLER__

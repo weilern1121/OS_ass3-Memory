@@ -128,6 +128,7 @@ void            wakeup(void*);
 void            yield(void);
 void            turnOnPM( void *p );
 int             turnOffW( void *p );
+int             turnOnW( void *p );
 int             checkOnPM( void *p );
 
 int             notShell(void);

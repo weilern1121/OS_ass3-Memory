@@ -131,3 +131,13 @@ int sys_turnOffW(void)
 
   return turnOffW( (void *)p );
 }
+
+int sys_turnOnW(void)
+{
+  int p;
+
+  if(argint(0, &p) < 0)
+    return -1;
+
+  return turnOnW( (void *)p );
+}
