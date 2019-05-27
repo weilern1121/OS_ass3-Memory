@@ -223,97 +223,14 @@ loaduvm(pde_t *pgdir, char *addr, struct inode *ip, uint offset, uint sz) {
     return 0;
 }
 
-int
-findFreeEntryInSwapFile(struct proc *p) {
-    for (int i = 0; i < MAX_PSYC_PAGES; i++) {
-        if (p->swapFileEntries[i]==0)
-            return i;
+int haveMoreRoom(void){
+    struct proc *p=myproc();
+    struct page *pg;
+    for(pg=p->pages; pg< &p->pages[MAX_TOTAL_PAGES]; pg++){
+        if(!pg->active)
+            return 0;
     }
-    return -1;
-}
-
-//TODO - make sure that before calling to this func to check:
-//TODO - #if( defined(LIFO) || defined(SCFIFO))
-void
-swapOutPage(struct proc *p, pde_t *pgdir) {
-    pde_t *pgtble;
-    struct page *pg = 0;
-    int tmpOffset = findFreeEntryInSwapFile(p);
-    if (tmpOffset == -1) {//validation check
-        cprintf("p->entries:\t");
-        for (int i = 0; i < MAX_PSYC_PAGES; i++) {
-            cprintf("%d  ", p->swapFileEntries[i]);
-        }
-        panic("ERROR - there is no free entry in p->swapFileEntries!\n");
-    }
-
-    int swapWriteOffset = tmpOffset * PGSIZE; //calculate offset
-
-#if(defined(LIFO))
-    int maxSeq = 0;
-    struct page *cg;
-    for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
-        if (cg->active && cg->present && cg->sequel > maxSeq) {
-            pg = cg;
-            maxSeq = cg->sequel;
-        }
-    }
-
-#elif(defined(SCFIFO))
-    int minSeq = p->pagesequel, found = 0;
-    char *tmpAdress;
-    pde_t *tmppgtble;
-    struct page *sg;
-    while (!found) {
-        //find page with min pagesequel
-        for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
-            if (sg->active && sg->present && sg->sequel < minSeq) {
-                pg = sg;
-                minSeq = sg->sequel;
-            }
-        }
-        //got here- pg have the min pagesequel
-        tmpAdress = pg->virtAdress;
-        tmppgtble = walkpgdir(pgdir, tmpAdress, 0);
-        if (*tmppgtble & PTE_A) { //if legal addr and acces bit is on - move to end of page queue
-            *tmppgtble = PTE_A_0(*tmppgtble);
-            pg->sequel = p->pagesequel++;
-            //found = 1; //TODO - found = 1 is in wrong location - it will exit when find page to skip
-        }
-        //TODO - from here possible change
-        else {
-            if (*tmppgtble & !PTE_A) //if legal addr and bit is off - this is the page to swap out
-                found = 1;
-            else
-                panic2("Error - tmppgtble = walkpgdir(pgdir, tmpAdress, 0);\n");
-        }
-        //TODO - until here
-    }
-
-#endif
-    //got here - pg is the page to swap out (in both cases)
-
-    //write the page to swapFile
-    //cprintf(" SWAPPING THE FUCK IT IS : %d %d %d\n" ,pg->pageid , pg->virtAdress , pg->physAdress );
-
-    writeToSwapFile(p, pg->virtAdress, (uint) swapWriteOffset, PGSIZE);
-    //update page
-    pg->present = 0;
-    pg->offset = (uint) swapWriteOffset;
-    pg->physAdress = 0;
-    pg->sequel = 0;
-
-    //update page swapping for proc.
-    p->swapFileEntries[tmpOffset] = pg->pageid; //update that this entry is swapped out for pageID
-    p->totalPagesInSwap++;
-    p->pagesinSwap++;
-
-    //update pte
-    pgtble = walkpgdir(pgdir, (void *) pg->virtAdress, 0);
-    *pgtble = PTE_P_0(*pgtble);
-    *pgtble = PTE_PG_1(*pgtble);
-    kfree(P2V(PTE_ADDR(*pgtble)));
-    lcr3(V2P(p->pgdir));
+    return 1;
 }
 
 
@@ -324,7 +241,8 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     if (DEBUGMODE == 2 && notShell())
         cprintf("ALLOCUVM-");
     char *mem;
-    uint a;
+    uint
+            a;
 #if(defined(LIFO) || defined(SCFIFO))
     pde_t *pgtble;
     struct proc *p = myproc();
@@ -343,11 +261,11 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
         if (notShell()) {
 #if(defined(LIFO) || defined(SCFIFO))
-            if (p->pagesCounter == MAX_TOTAL_PAGES)
+            if (haveMoreRoom())
                 panic("got 32 pages and requested for another page!");
 
             // if number of pages overall minus pages in swap is more than 16 we have prob
-            if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES) {
+            if (p->pagesCounter - p->pagesinSwap > MAX_PSYC_PAGES) {
                 //this func includes find new page entry,
                 // remove this page, update proc and update PTE
                 swapOutPage(p, pgdir);
@@ -416,7 +334,8 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
     if (DEBUGMODE == 2)
         cprintf("DEALLOCUVM-");
     pte_t *pte;
-    uint a, pa;
+    uint
+            a, pa;
 #if(defined(LIFO) || defined(SCFIFO))
     struct page *pg;
     struct proc *p = myproc();
@@ -502,7 +421,8 @@ void
 freevm(pde_t *pgdir) {
     if (DEBUGMODE == 2 && notShell())
         cprintf("FREEVM");
-    uint i;
+    uint
+            i;
 
     if (pgdir == 0)
         panic("freevm: no pgdir");
@@ -538,7 +458,8 @@ copyuvm(pde_t *pgdir, uint sz) {
         cprintf("COPYUVM-");
     pde_t *d;
     pte_t *pte;
-    uint pa, i, flags;
+    uint
+            pa, i, flags;
     char *mem;
 
     if ((d = setupkvm()) == 0)
@@ -587,7 +508,8 @@ uva2ka(pde_t *pgdir, char *uva) {
 int
 copyout(pde_t *pgdir, uint va, void *p, uint len) {
     char *buf, *pa0;
-    uint n, va0;
+    uint
+            n, va0;
 
     buf = (char *) p;
     while (len > 0) {
