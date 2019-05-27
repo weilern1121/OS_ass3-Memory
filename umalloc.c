@@ -146,8 +146,10 @@ pfree(void* ap) {
         //check that the pm is on and W is off
         if ( checkOnPM( p ) ) {
             turnOnW(p); //turn on PTE_W
-            free(ap); //normal free
+            free(p); //normal free
+            freep->s.ptr= freep;
             return 1;
+
         }
     }
     return -1;
