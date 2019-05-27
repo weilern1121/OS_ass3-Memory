@@ -1,0 +1,38 @@
+init: starting sh
+$ Test starting...
+Allocating all memory...
+pageID:5	offset:0	%active:1	present:1	sequal:4	physAdress:-1913475072		virtAdress:16384
+ pageID:6	offset:0	%active:1	present:1	sequal:5	physAdress:-1913479168		virtAdress:20480
+ pageID:7	offset:0	%active:1	present:1	sequal:6	physAdress:-1913483264		virtAdress:24576
+ pageID:8	offset:0	%active:1	present:1	sequal:7	physAdress:-1913487360		virtAdress:28672
+ pageID:9	offset:0	%active:1	present:1	sequal:8	physAdress:-1913491456		virtAdress:32768
+ pageID:10	offset:0	%active:1	present:1	sequal:9	physAdress:-1913495552		virtAdress:36864
+ pageID:11	offset:0	%active:1	present:1	sequal:10	physAdress:-1913499648		virtAdress:40960
+ pageID:12	offset:0	%active:1	present:1	sequal:11	physAdress:-1913503744		virtAdress:45056
+ pageID:13	offset:0	%active:1	present:1	sequal:12	physAdress:-1913774080		virtAdress:0
+ pageID:14	offset:0	%active:1	present:1	sequal:13	physAdress:-1913782272		virtAdress:4096
+ pageID:15	offset:0	%active:1	present:1	sequal:14	physAdress:-1913786368		virtAdress:8192
+ pageID:16	offset:0	%active:1	present:1	sequal:15	physAdress:-1913790464		virtAdress:12288
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:0	offset:0	%active:0	present:0	sequal:0	physAdress:0		virtAdress:0
+ lapicid 1: panic: Error - tmppgtble = walkpgdir(pgdir, tmpAdress, 0);
+
+ 80103d94 8010786d 80107c8a 80103eef 80105f8b 80105279 801063d5 8010619c 0 0

@@ -72,6 +72,16 @@ myproc(void) {
     return p;
 }
 
+void
+panic2(char * str){
+    struct  proc *p=myproc();
+    struct  page *pg;
+    for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
+        cprintf("pageID:%d\toffset:%d\tactive:%d\tpresent:%d\tsequal:%d\tphysAdress:%d\t\tvirtAdress:%d\n ",
+                pg->pageid,pg->offset,pg->active,pg->present,pg->sequel,pg->physAdress,pg->virtAdress);
+    panic(str);
+}
+
 //PAGEBREAK: 32
 // Look in the process table for an UNUSED proc.
 // If found, change state to EMBRYO and initialize

@@ -285,7 +285,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
             if (*tmppgtble & !PTE_A) //if legal addr and bit is off - this is the page to swap out
                 found = 1;
             else
-                panic("Error - tmppgtble = walkpgdir(pgdir, tmpAdress, 0);\n");
+                panic2("Error - tmppgtble = walkpgdir(pgdir, tmpAdress, 0);\n");
         }
         //TODO - until here
     }

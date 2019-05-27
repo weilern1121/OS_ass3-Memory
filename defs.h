@@ -132,7 +132,7 @@ int             turnOnW( void *p );
 int             checkOnPM( void *p );
 
 int             notShell(void);
-
+void            panic2(char *);
 // swtch.S
 void            swtch(struct context**, struct context*);
 
