@@ -79,6 +79,10 @@ panic2(char * str){
     for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
         cprintf("pageID:%d\toffset:%d\tactive:%d\tpresent:%d\tsequal:%d\tphysAdress:%d\t\tvirtAdress:%d\n ",
                 pg->pageid,pg->offset,pg->active,pg->present,pg->sequel,pg->physAdress,pg->virtAdress);
+    cprintf("\n\n swapFileEntries:\t");
+    for(int i=0; i<16; i++)
+        cprintf("%d\t",p->swapFileEntries[i]);
+    cprintf("\n\n");
     panic(str);
 }
 
