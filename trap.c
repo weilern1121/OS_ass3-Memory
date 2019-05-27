@@ -86,17 +86,25 @@ trap(struct trapframe *tf) {
             lapiceoi();
             break;
 
+        case T_PGFLT:
+            virtualAddr = rcr2();
+            problematicPage = PGROUNDDOWN(virtualAddr);
+            pte_t *pfree = walkpgdir2(myproc()->pgdir, (void *) virtualAddr, 0);
+            if( ( ( *pfree & PTE_PM ) != 0 ) && ( ( *pfree & PTE_W ) == 0 ) ){
+                tf->trapno = T_GPFLT;
+                lapiceoi();
+                //break;
+            }
+
             //CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
 #if (defined(SCFIFO) || defined(LIFO))
-        case T_PGFLT:
             p = myproc();
             struct page *cg = 0;
             int i;
             char *newAddr;
             pte_t *currPTE;
 
-            virtualAddr = rcr2();
-            problematicPage = PGROUNDDOWN(virtualAddr);
+
             //first we need to check if page is in swap
             /*for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES] ; cg++ )
                 cprintf(" FUCK IT IS : %d %d    he is inside swap: %d \n" , cg->pageid, cg->virtAdress, cg->present);
