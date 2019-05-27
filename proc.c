@@ -713,6 +713,7 @@ turnOnW( void *p ){
     pte = walkpgdir2(myproc()->pgdir, p, 0);
     if( ( *pte & PTE_PM ) != 0){
         *pte = PTE_W_1(*pte);
+        *pte = PTE_PM_0(*pte);
         return 1;
     }
     return -1;
