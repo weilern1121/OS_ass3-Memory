@@ -106,13 +106,12 @@ trap(struct trapframe *tf) {
 
 
             //first we need to check if page is in swap
-            /*for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES] ; cg++ )
-                cprintf(" FUCK IT IS : %d %d    he is inside swap: %d \n" , cg->pageid, cg->virtAdress, cg->present);
 
-            */for (cg = p->pages, i = 0; cg < &p->pages[MAX_TOTAL_PAGES]; cg++, i++) {
-        if (cg->virtAdress == (char *) problematicPage && !cg->present)
-            goto noProbPage;
-    }
+            for (cg = p->pages ; cg < &p->pages[MAX_TOTAL_PAGES]; cg++ ) {
+                if (cg->virtAdress == (char *) problematicPage && !cg->present)
+                    goto noProbPage;
+            }
+
 
         noProbPage:
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
@@ -133,6 +132,7 @@ trap(struct trapframe *tf) {
 
             if ((p->pagesCounter - p->pagesinSwap) >= 16) {
                 //if true - there is no room for another page- need to swap out
+                //cprintf("\n\n WE DIDNT PASS PROPERLY %d %d \n\n" , p->pagesCounter , p->pagesinSwap);
                 swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
             }
 

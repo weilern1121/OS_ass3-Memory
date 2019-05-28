@@ -15,7 +15,6 @@ struct {
 static struct proc *initproc;
 char buffer[PGSIZE];
 
-int firstRun = 1;//for sh and init proc swapFile.
 int totalAvailablePages = 0;
 int nextpid = 1;
 
@@ -148,12 +147,13 @@ allocproc(void) {
 #if(defined(LIFO) || defined(SCFIFO))
     p->pagesCounter = 0;
     p->nextpageid = 1;
-//    p->swapOffset = 0;
     p->pagesequel = 0;
     p->pagesinSwap = 0;
+
     p->protectedPages = 0;
     p->pageFaults = 0;
     p->totalPagesInSwap = 0;
+
     //init swap table
     for(int k=0; k<MAX_PSYC_PAGES ; k++)
         p->swapFileEntries[k]=0;
@@ -161,10 +161,11 @@ allocproc(void) {
     //init proc's pages
     for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
     {
-        pg->offset = 0;
+        pg->active = 0;
         pg->pageid = 0;
-        pg->present = 0;
         pg->sequel = 0;
+        pg->present = 0;
+        pg->offset = 0;
         pg->physAdress = 0;
         pg->virtAdress = 0;
     }
@@ -252,9 +253,9 @@ fork(void) {
 
 #if(defined(LIFO) || defined(SCFIFO))
 
-    if (firstRun) {//for sh and init proc swapFile.
-        createSwapFile(curproc);
-    }
+    //if (firstRun) {//for sh and init proc swapFile.
+    //    createSwapFile(curproc);
+    //}
 
 
     createSwapFile(np);
@@ -270,17 +271,21 @@ fork(void) {
     np->sz = curproc->sz;
     np->parent = curproc;
     *np->tf = *curproc->tf;
+
+
     if (notShell()) {
 #if(defined(LIFO) || defined(SCFIFO))
         //copy pagging
+
         np->nextpageid = curproc->nextpageid;
         np->pagesCounter = curproc->pagesCounter;
-    //    np->swapOffset = curproc->swapOffset;
-        np->pagesequel = curproc->pagesequel;
         np->pagesinSwap = curproc->pagesinSwap;
+        np->pagesequel = curproc->pagesequel;
+
         np->protectedPages = curproc->protectedPages;
         np->pageFaults = 0;
         np->totalPagesInSwap = 0;
+
         //copy swap table
         for(int k=0; k<MAX_PSYC_PAGES ; k++)
             np->swapFileEntries[k]=curproc->swapFileEntries[k];
@@ -289,18 +294,20 @@ fork(void) {
         for( pg = np->pages , cg = curproc->pages;
                 pg < &np->pages[MAX_TOTAL_PAGES]; pg++ , cg++)
         {
-            pg->offset = cg->offset;
+            pg->active = cg->active;
             pg->pageid = cg->pageid;
-            pg->present = cg->present;
             pg->sequel = cg->sequel;
+            pg->present = cg->present;
+            pg->offset = cg->offset;
             pg->physAdress = cg->physAdress;
             pg->virtAdress = cg->virtAdress;
         }
 
         //TODO FIRST RUN IN BEFORE SHEL LOADED
-        if (!firstRun) {
-            //PAGECOUNTER-16= PAGES IN SWAP FILE
-            for( int k = 0 ; k < curproc->pagesCounter - MAX_PSYC_PAGES ; k++ ){
+             //PAGECOUNTER-16= PAGES IN SWAP FILE
+        for( int k = 0 ; k < MAX_PSYC_PAGES ; k++ ){
+            if( curproc->swapFileEntries[k] > 0 ) {
+
                 memset(buffer, 0, PGSIZE);
 
                 if (readFromSwapFile(curproc, buffer, k * PGSIZE, PGSIZE) == -1) {
@@ -308,7 +315,7 @@ fork(void) {
                     np->kstack = 0;
                     np->state = UNUSED;
                     removeSwapFile(np); //clear swapFile
-                    return -1;
+                    panic2( "FORK READ ");
                 }
 
                 if (writeToSwapFile(np, buffer, k * PGSIZE, PGSIZE) == -1) {
@@ -316,13 +323,16 @@ fork(void) {
                     np->kstack = 0;
                     np->state = UNUSED;
                     removeSwapFile(np); //clear swapFile
-                    return -1;
+                    panic2( "FORK WRITE ");
                 }
-
             }
+
         }
+
 #endif
     }
+
+
     // Clear %eax so that fork returns 0 in the child.
     np->tf->eax = 0;
 
@@ -341,7 +351,6 @@ fork(void) {
 
     release(&ptable.lock);
 
-    firstRun = 0; //for sh and init proc swapFile.
     return pid;
 }
 
@@ -371,7 +380,7 @@ exit(void) {
     curproc->cwd = 0;
 
 #if(defined(LIFO) || defined(SCFIFO))
-    if (curproc->pid > 2)
+    if (notShell())
             removeSwapFile(curproc);
 #endif
 
@@ -425,23 +434,25 @@ wait(void) {
                 p->killed = 0;
                 p->state = UNUSED;
 #if(defined(LIFO) || defined(SCFIFO))
-                p->pagesCounter = -1;
+
                 p->nextpageid = 0;
-            //                p->swapOffset = 0;
-                p->pagesequel = 0;
+                p->pagesCounter = 0;
                 p->pagesinSwap = 0;
-                //init swap table
-                for(int k=0; k<MAX_PSYC_PAGES ; k++)
-                    p->swapFileEntries[k]=0;
+                p->pagesequel = 0;
+
+                p->protectedPages = 0;
+                p->pageFaults = 0;
+                p->totalPagesInSwap = 0;
+
 
                 //init proc's pages
                 for( pg = p->pages ; pg < &p->pages[MAX_TOTAL_PAGES]; pg++ )
                 {
                     pg->active = 0;
-                    pg->offset = 0;
                     pg->pageid = 0;
-                    pg->present = -1;
-                    pg->sequel = -1;
+                    pg->sequel = 0;
+                    pg->present = 0;
+                    pg->offset = 0;
                     pg->physAdress = 0;
                     pg->virtAdress = 0;
                 }
@@ -808,33 +819,33 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     for(int i=0; i<MAX_PSYC_PAGES; i++)
         tmpArr[i]=0;
 
-    cprintf("\n\n");
+    //cprintf("\n\n");
     //find page with min pagesequel
     for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
         if (sg->active && sg->present && sg->sequel < minSeq) {
-            cprintf("found sg->sequel < minSeq: %d<%d\t",sg->sequel,minSeq);
+            //cprintf("found sg->sequel < minSeq: %d<%d\t",sg->sequel,minSeq);
             tmpAdress = sg->virtAdress;
             tmppgtble = walkpgdir2(pgdir, tmpAdress, 0);
             if (*tmppgtble & PTE_A) { //if legal addr and access bit is on - move to end of page queue
                 *tmppgtble = PTE_A_0(*tmppgtble);
 //                pg->sequel = p->pagesequel++;
                 tmpArr[tmpIndex]= sg->pageid;
-                cprintf("->added to tmpArr in index:%d\n",tmpIndex);
+                //cprintf("->added to tmpArr in index:%d\n",tmpIndex);
                 tmpIndex++;
             } else {
-                cprintf("-> NOT added to tmpArr!\n");
+                //cprintf("-> NOT added to tmpArr!\n");
                 pg = sg;
                 minSeq = sg->sequel;
-                cprintf("minSeq:%d\t", minSeq);
+                //cprintf("minSeq:%d\t", minSeq);
                 found = 1; //if got here - found at least 1 page that PTE_A is off
             }
         }
     }
 
-    cprintf("tmpArr:\t");
-    for(int i=0;i<16;i++)
-        cprintf("%d\t",tmpArr[i]);
-    cprintf("\n");
+    //cprintf("tmpArr:\t");
+    //for(int i=0;i<16;i++)
+    //    cprintf("%d\t",tmpArr[i]);
+    //cprintf("\n");
 
     if (!found) { //not found -all of pages were PTE_A on -no find min_sequal
         minSeq = 999999;
@@ -845,7 +856,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
             if (sg->active && sg->present && sg->sequel < minSeq) {
                 pg = sg;
                 minSeq = sg->sequel;
-                cprintf("minSeq:%d\t", minSeq);
+                //cprintf("minSeq:%d\t", minSeq);
                 found=1;
             }
         }
@@ -861,17 +872,17 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 //got here - pg is the page to swap out (in both cases)
 
 
-    if(pg==0)
-        panic("ASDASD\n");
+    //if(pg==0)
+    //    panic("ASDASD\n");
 //write the page to swapFile
-    cprintf("swapWriteOffset:%d\tpg->virtAdress,:%d\ttmpOffset:%d\tpg->pageid:%d\n", swapWriteOffset, pg->virtAdress,
-            tmpOffset, pg->pageid);
+   // cprintf("swapWriteOffset:%d\tpg->virtAdress,:%d\ttmpOffset:%d\tpg->pageid:%d\n", swapWriteOffset, pg->virtAdress,
+    //        tmpOffset, pg->pageid);
 
-    printCurrFrame();
+    //printCurrFrame();
 
     if (writeToSwapFile(p, pg->virtAdress, (uint) swapWriteOffset, PGSIZE) == -1)
         panic2("writeToSwapFile Error!\n");
-    cprintf("after write!!!!\n");
+    //cprintf("after write!!!!\n");
 //update page
     pg->present = 0;
     pg->offset = (uint) swapWriteOffset;

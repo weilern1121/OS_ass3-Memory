@@ -63,10 +63,9 @@ struct proc {
 
   //Swap file. must initiate with create swap file
   struct file *swapFile;      //page file
-  //uint swapOffset;    // next page offset in swap file
-
   struct page pages[MAX_TOTAL_PAGES];  // Open pages
   int swapFileEntries[MAX_PSYC_PAGES]; //size=16 ; 0=free , other-pageId
+
   uint nextpageid;    // next page id
   int pagesCounter;    // how many pages proc have
   int pagesinSwap;    // how many pages proc have in swap
