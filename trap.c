@@ -132,7 +132,7 @@ trap(struct trapframe *tf) {
 
             if ((p->pagesCounter - p->pagesinSwap) >= 16) {
                 //if true - there is no room for another page- need to swap out
-                //cprintf("\n\n WE DIDNT PASS PROPERLY %d %d \n\n" , p->pagesCounter , p->pagesinSwap);
+                //cprintf("\n WE DIDNT PASS PROPERLY TRAP  \n\n" );
                 swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
             }
 
@@ -149,7 +149,7 @@ trap(struct trapframe *tf) {
             if (readFromSwapFile(p, newAddr, cg->offset, PGSIZE) == -1)
                 panic("error - read from swapfile in T_PGFLT");
 
-            currPTE = walkpgdir2(p->pgdir, (void *) virtualAddr, 0);
+            currPTE = walkpgdir2(p->pgdir, (void *) problematicPage, 0);
             //update flags - in page, not yet in RAM
             *currPTE = PTE_P_0(*currPTE);
             *currPTE = PTE_PG_1(*currPTE);

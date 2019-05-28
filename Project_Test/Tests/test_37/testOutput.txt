@@ -1,0 +1,43 @@
+init: starting sh
+task2_21
+$ Test starting...
+Allocating all memory...
+p->entries:	11  9  10  21  12  13  14  15  16  17  18  19  20  22  23  24  pageID:9	offset:4096		active:1	present:0	sequal:0	physAdress:0		virtAdress:0
+ pageID:10	offset:8192		active:1	present:0	sequal:0	physAdress:0		virtAdress:4096
+ pageID:11	offset:0		active:1	present:0	sequal:0	physAdress:0		virtAdress:8192
+ pageID:12	offset:16384		active:1	present:0	sequal:0	physAdress:0		virtAdress:12288
+ pageID:13	offset:20480		active:1	present:0	sequal:0	physAdress:0		virtAdress:16384
+ pageID:14	offset:24576		active:1	present:0	sequal:0	physAdress:0		virtAdress:20480
+ pageID:15	offset:28672		active:1	present:0	sequal:0	physAdress:0		virtAdress:24576
+ pageID:16	offset:32768		active:1	present:0	sequal:0	physAdress:0		virtAdress:28672
+ pageID:17	offset:36864		active:1	present:0	sequal:0	physAdress:0		virtAdress:32768
+ pageID:18	offset:40960		active:1	present:0	sequal:0	physAdress:0		virtAdress:36864
+ pageID:19	offset:45056		active:1	present:0	sequal:0	physAdress:0		virtAdress:40960
+ pageID:20	offset:49152		active:1	present:0	sequal:0	physAdress:0		virtAdress:45056
+ pageID:21	offset:12288		active:1	present:0	sequal:0	physAdress:0		virtAdress:49152
+ pageID:22	offset:53248		active:1	present:0	sequal:0	physAdress:0		virtAdress:53248
+ pageID:23	offset:57344		active:1	present:0	sequal:0	physAdress:0		virtAdress:57344
+ pageID:24	offset:61440		active:1	present:0	sequal:0	physAdress:0		virtAdress:61440
+ pageID:25	offset:0		active:1	present:1	sequal:24	physAdress:-1913786368		virtAdress:65536
+ pageID:26	offset:0		active:1	present:1	sequal:25	physAdress:-1913774080		virtAdress:69632
+ pageID:27	offset:0		active:1	present:1	sequal:26	physAdress:-1913782272		virtAdress:73728
+ pageID:28	offset:0		active:1	present:1	sequal:27	physAdress:-1912844288		virtAdress:77824
+ pageID:29	offset:0		active:1	present:1	sequal:28	physAdress:-1913790464		virtAdress:81920
+ pageID:30	offset:0		active:1	present:1	sequal:29	physAdress:-1912881152		virtAdress:86016
+ pageID:31	offset:0		active:1	present:1	sequal:30	physAdress:-1913167872		virtAdress:90112
+ pageID:32	offset:0		active:1	present:1	sequal:31	physAdress:-1912868864		virtAdress:94208
+ pageID:33	offset:0		active:1	present:1	sequal:32	physAdress:-1912864768		virtAdress:98304
+ pageID:34	offset:0		active:1	present:1	sequal:33	physAdress:-1912860672		virtAdress:102400
+ pageID:35	offset:0		active:1	present:1	sequal:34	physAdress:-1912856576		virtAdress:106496
+ pageID:36	offset:0		active:1	present:1	sequal:35	physAdress:-1912852480		virtAdress:110592
+ pageID:37	offset:0		active:1	present:1	sequal:36	physAdress:-1912848384		virtAdress:114688
+ pageID:38	offset:0		active:1	present:1	sequal:37	physAdress:-1912840192		virtAdress:118784
+ pageID:39	offset:0		active:1	present:1	sequal:38	physAdress:-1912836096		virtAdress:122880
+ pageID:40	offset:0		active:1	present:1	sequal:39	physAdress:-1912832000		virtAdress:126976
+ 
+
+ swapFileEntries:	11	9	10	21	12	13	14	15	16	17	18	19	20	22	23	24	
+
+lapicid 1: panic: ERROR - there is no free entry in p->swapFileEntries!
+
+ 80103e06 80104c25 80106a46 801064dc 0 0 0 0 0 0make[1]: Leaving directory '/home/yoav/Desktop/Git3/OS_ass3-Memory'

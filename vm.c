@@ -241,8 +241,8 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
     if (DEBUGMODE == 2 && notShell())
         cprintf("ALLOCUVM-");
     char *mem;
-    uint
-            a;
+    uint a;
+
 #if(defined(LIFO) || defined(SCFIFO))
     pde_t *pgtble;
     struct proc *p = myproc();
@@ -256,16 +256,14 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 
     a = PGROUNDUP(oldsz);
     for (; a < newsz; a += PGSIZE) {
-        // TODO HERE WE CREATE PYSYC MEMORY;
-        // TODO HERE WE SHOULD CHECK NUM OF PAGES AND IF NOT MAX PAGES.
-        // TODO DEAL WITH MOVING PAGES TO SWAP FILE USING FS FUNCTIONS.
+
         if (notShell()) {
 #if(defined(LIFO) || defined(SCFIFO))
             if (haveMoreRoom())
                 panic("got 32 pages and requested for another page!");
 
             // if number of pages overall minus pages in swap is more than 16 we have prob
-            if (p->pagesCounter - p->pagesinSwap > MAX_PSYC_PAGES) {
+            if (p->pagesCounter - p->pagesinSwap >= MAX_PSYC_PAGES) {
                 //this func includes find new page entry,
                 // remove this page, update proc and update PTE
                 swapOutPage(p, pgdir);
@@ -281,7 +279,9 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
                 cprintf(">ALLOCUVM-FAILED-mem == 0\t");
             return 0;
         }
+
         memset(mem, 0, PGSIZE);
+
         if (mappages(pgdir, (char *) a, PGSIZE, V2P(mem), PTE_W | PTE_U) < 0) {
             //cprintf("allocuvm out of memory (2)\n");
             deallocuvm(pgdir, newsz, oldsz, 0);
@@ -311,6 +311,7 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
             pg->physAdress = mem;
             pg->virtAdress = (char *) a;
 
+            //cprintf( " \n virt Adres is : %d for proc %d and page %d \n" , a , p->pid , pg->pageid);
             //update pte of the page
             pgtble = walkpgdir(pgdir, (char *) a, 0);
             *pgtble = PTE_P_1(*pgtble);  // Present

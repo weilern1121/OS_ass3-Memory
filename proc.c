@@ -25,7 +25,7 @@ extern void trapret(void);
 static void wakeup1(void *chan);
 
 int notShell(void) {
-    return nextpid > 2;
+    return myproc()->pid > 2;
 }
 
 void
@@ -226,7 +226,7 @@ growproc(int n) {
         if ((sz = allocuvm(curproc->pgdir, sz, sz + n)) == 0)
             return -1;
     } else if (n < 0) {
-        curproc->pagesCounter += (PGROUNDUP(n) / PGSIZE);
+        //curproc->pagesCounter += (PGROUNDUP(n) / PGSIZE);
         if ((sz = deallocuvm(curproc->pgdir, sz, sz + n, 1)) == 0)
             return -1;
     }
@@ -683,9 +683,9 @@ procdump(void) {
             state = states[p->state];
         else
             state = "???";
-        cprintf("%d %s %d %d %d %d %d %s", p->pid, state, p->name,
-                (p->pagesCounter - p->pagesinSwap), p->pagesinSwap, p->protectedPages,
-                p->pageFaults, p->totalPagesInSwap);
+        cprintf("%d %s %d %d %d %d %d %s", p->pid, state,
+                p->pagesCounter, p->pagesinSwap, p->protectedPages,
+                p->pageFaults, p->totalPagesInSwap, p->name);
         if (p->state == SLEEPING) {
             getcallerpcs((uint *) p->context->ebp + 2, pc);
             for (i = 0; i < 10 && pc[i] != 0; i++)
@@ -842,10 +842,6 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
         }
     }
 
-    //cprintf("tmpArr:\t");
-    //for(int i=0;i<16;i++)
-    //    cprintf("%d\t",tmpArr[i]);
-    //cprintf("\n");
 
     if (!found) { //not found -all of pages were PTE_A on -no find min_sequal
         minSeq = 999999;
@@ -879,6 +875,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     //        tmpOffset, pg->pageid);
 
     //printCurrFrame();
+    //cprintf( " \n SWAPOUT virt Adres is : %d for page %d \n" , pg->virtAdress , pg->pageid);
 
     if (writeToSwapFile(p, pg->virtAdress, (uint) swapWriteOffset, PGSIZE) == -1)
         panic2("writeToSwapFile Error!\n");

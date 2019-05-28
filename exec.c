@@ -30,6 +30,30 @@ exec(char *path, char **argv) {
     ilock(ip);
     pgdir = 0;
 
+    //TODO WE NEED CLOSE AND OPEN SWAP
+#if(defined(LIFO) || defined(SCFIFO))
+    if (notShell()) {
+        removeSwapFile(curproc);
+        createSwapFile(curproc);
+
+        struct page *pg;
+        for( pg = curproc->pages ; pg < &curproc->pages[MAX_TOTAL_PAGES] ; pg++ ) {
+            if (pg->active)
+            {
+                pg->active = 0;     //page activated
+                pg->pageid = 0;    // page id
+                pg->sequel = 0;     // sequel number entering physyc memory
+                pg->present = 0;    // 1 = in physycal memory
+                pg->offset = 0;    // page offset in swap file
+                pg->physAdress = 0;    // page offset in swap file
+                pg->virtAdress = 0;
+            }
+                //cprintf("\n PAGE ID %d IS ACTIVE AND PRESENT IS %d \n", pg->pageid, pg->present);
+        }
+        curproc->pagesCounter = 0;
+    }
+#endif
+
     // Check ELF header
     if (readi(ip, (char *) &elf, 0, sizeof(elf)) != sizeof(elf))
         goto bad;
@@ -97,13 +121,8 @@ exec(char *path, char **argv) {
     // Commit to the user image.
     oldpgdir = curproc->pgdir;
     curproc->pgdir = pgdir;
-    //TODO WE NEED CLOSE AND OPEN SWAP
-#if(defined(LIFO) || defined(SCFIFO))
-    if (notShell()) {
-        removeSwapFile(curproc);
-        createSwapFile(curproc);
-    }
-#endif
+
+
     curproc->sz = sz;
     curproc->tf->eip = elf.entry;  // main
     curproc->tf->esp = sp;

@@ -92,8 +92,12 @@ void validate_all_memory_on_scheme(){
     malloc_memory_allocations_access_index = 0;
 
     for(int j = 0;j < NELEM(validate_memory_scheme);j++){
+        //printf(1,"Validating all memory on scheme ITER %d...\n" , j);
+
         int mem_index = validate_memory_scheme[j];
         validate_memory_on_scheme(getMemoryAt(mem_index),mem_index, PGSIZE);
+        //printf(1,"FINISHED Validating all memory on scheme ITER %d...\n" , j);
+
     }
 }
 
