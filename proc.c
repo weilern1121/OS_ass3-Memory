@@ -400,6 +400,11 @@ exit(void) {
 
     // Jump into the scheduler, never to return.
     curproc->state = ZOMBIE;
+
+    //check VERBOSE for task 4
+#if(defined(VERBOSE_PRINT_TRUE))
+    procdump();
+#endif
     sched();
     panic("zombie exit");
 }
@@ -868,8 +873,6 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 //got here - pg is the page to swap out (in both cases)
 
 
-    //if(pg==0)
-    //    panic("ASDASD\n");
 //write the page to swapFile
    // cprintf("swapWriteOffset:%d\tpg->virtAdress,:%d\ttmpOffset:%d\tpg->pageid:%d\n", swapWriteOffset, pg->virtAdress,
     //        tmpOffset, pg->pageid);

@@ -76,6 +76,13 @@ ifndef SELECTION
 SELECTION:=SCFIFO
 endif
 
+
+
+ifndef VERBOSE_PRINT
+VERBOSE_PRINT := FALSE
+endif
+
+
 CC = $(TOOLPREFIX)gcc
 AS = $(TOOLPREFIX)gas
 LD = $(TOOLPREFIX)ld
@@ -89,6 +96,12 @@ ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
 # FreeBSD ld wants ``elf_i386_fbsd''
 LDFLAGS += -m $(shell $(LD) -V | grep elf_i386 2>/dev/null | head -n 1)
 
+
+ifeq ( $ ( VERBOSE_PRINT ) , TRUE )
+CFLAG += -D VERBOSE_PRINT_TRUE
+else ifeq ( $ ( VERBOSE_PRINT ) , FALSE )
+CFLAG += -D VERBOSE_PRINT_FALSE
+endif
 
 xv6.img: bootblock kernel fs.img
 	dd if=/dev/zero of=xv6.img count=10000

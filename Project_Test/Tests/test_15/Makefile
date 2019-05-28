@@ -76,6 +76,13 @@ ifndef SELECTION
 SELECTION:=SCFIFO
 endif
 
+
+
+ifndef VERBOSE_PRINT
+VERBOSE_PRINT := FALSE
+endif
+
+
 CC = $(TOOLPREFIX)gcc
 AS = $(TOOLPREFIX)gas
 LD = $(TOOLPREFIX)ld
@@ -89,6 +96,12 @@ ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
 # FreeBSD ld wants ``elf_i386_fbsd''
 LDFLAGS += -m $(shell $(LD) -V | grep elf_i386 2>/dev/null | head -n 1)
 
+
+ifeq ( $ ( VERBOSE_PRINT ) , TRUE )
+CFLAG += -D VERBOSE_PRINT_TRUE
+else ifeq ( $ ( VERBOSE_PRINT ) , FALSE )
+CFLAG += -D VERBOSE_PRINT_FALSE
+endif
 
 xv6.img: bootblock kernel fs.img
 	dd if=/dev/zero of=xv6.img count=10000
@@ -166,7 +179,8 @@ mkfs: mkfs.c fs.h
 .PRECIOUS: %.o
 
 UPROGS=\
-	_task2_21\
+	_quitXV6\
+	_task2_2\
 	_sh\
 	_init\
 	_ls\
@@ -275,11 +289,17 @@ tar:
 	(cd /tmp; tar cf - xv6) | gzip >xv6-rev10.tar.gz  # the next one will be 10 (9/17)
 
 .PHONY: dist-test dist
-_task2_21: $(ULIB)
-	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o task2_21.o ./Project_Test/XV6_Tests/task2_21.c
-	ld -m elf_i386 -N -e main -Ttext 0 -o _task2_21 task2_21.o $(ULIB)
-	objdump -S _task2_21 > task2_21.asm
-	$(OBJDUMP) -t _task2_21 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > task2_21.sym
+_quitXV6: $(ULIB)
+	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o quitXV6.o ./Project_Test/XV6_Tests/quitXV6.c
+	ld -m elf_i386 -N -e main -Ttext 0 -o _quitXV6 quitXV6.o $(ULIB)
+	objdump -S _quitXV6 > quitXV6.asm
+	$(OBJDUMP) -t _quitXV6 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > quitXV6.sym
+
+_task2_2: $(ULIB)
+	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o task2_2.o ./Project_Test/XV6_Tests/task2_2.c
+	ld -m elf_i386 -N -e main -Ttext 0 -o _task2_2 task2_2.o $(ULIB)
+	objdump -S _task2_2 > task2_2.asm
+	$(OBJDUMP) -t _task2_2 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > task2_2.sym
 
 _sh: $(ULIB)
 	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o sh.o sh.c
