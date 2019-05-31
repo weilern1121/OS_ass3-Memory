@@ -1,0 +1,28 @@
+init: starting sh
+task2_14
+$ Test starting...
+Allocating all memory...
+Validating all memory on scheme...
+accessing 12288
+accessing 17203
+accessing 22118
+accessing 27033
+accessing 40140
+accessing 45015
+accessing 45056
+accessing 49971
+accessing 54886
+accessing 59801
+accessing 64716
+accessing 69591
+accessing 69632
+accessing 29491
+accessing 75366
+Execute CTR + P
+
+1 sleep  0 0 0 0 0 init 80104607 801046b9 80105577 801068d9 8010647c
+2 sleep  0 0 0 0 0 sh 80104607 801046b9 80105577 801068d9 8010647c
+3 sleep  19 3 0 5 8 task2_14 801045cc 801062e2 80105577 801068d9 8010647c
+ 56759 / 56983 free pages in the system
+
+Finished Yehonatan Peleg Test, quiting...
