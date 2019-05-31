@@ -255,7 +255,7 @@ void pfree_helper(char* mem, int allocatedWithPmalloc){
     int result = pfree(mem);
     if(allocatedWithPmalloc){
         if(result == -1){
-            printf(1,"error in pfree !!!\n");
+            printf(1,"error indfsdfsd pfree !!!\n");
             exit();
         }
         else if(result != 1){

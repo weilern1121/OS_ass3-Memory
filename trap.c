@@ -87,6 +87,8 @@ trap(struct trapframe *tf) {
             break;
 
         case T_PGFLT:
+            p = myproc();
+
             virtualAddr = rcr2();
             problematicPage = PGROUNDDOWN(virtualAddr);
             pte_t *pfree = walkpgdir2(myproc()->pgdir, (void *) virtualAddr, 0);
@@ -98,11 +100,13 @@ trap(struct trapframe *tf) {
 
             //CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
 #if (defined(SCFIFO) || defined(LIFO))
-            p = myproc();
             struct page *cg = 0;
             int i;
             char *newAddr;
             pte_t *currPTE;
+
+            //must update page faults for proc.
+            p->pageFaults++;
 
 
             //first we need to check if page is in swap
@@ -117,8 +121,6 @@ trap(struct trapframe *tf) {
             if (cg == &p->pages[MAX_TOTAL_PAGES]) { //if true -didn't find the addr -error
                 panic("Error- didn't find the trap's page in T_PGFLT\n");
             }
-            //must update page faults for proc.
-            p->pageFaults++;
 
             //Got here - cg is the page that is in swapFile; i is its location in array
             //Now- check if all 16 pages are in RAM
@@ -129,11 +131,12 @@ trap(struct trapframe *tf) {
                     panic("Error - problematic page is present!\n");
                 panic("Error - problematic page is not active!\n");
             }
-
+            int flag = 0;
             if ((p->pagesCounter - p->pagesinSwap) >= 16) {
                 //if true - there is no room for another page- need to swap out
-                //cprintf("\n WE DIDNT PASS PROPERLY TRAP  \n\n" );
-                swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
+                //cprintf("\n WE DIDNT PASS PROPERLY TRAP  \n" );
+                flag = 1;
+                //swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
             }
 
             //got here - there is a room for a new page
@@ -163,19 +166,22 @@ trap(struct trapframe *tf) {
             i = findIndexByPageId(cg->pageid);
             if (i == -1)
                 panic("didn't find the page offset!\n");
+            cg->sequel = p->pagesequel++;
+            cg->present = 1;
             cg->offset = 0;
             cg->virtAdress = (char *) problematicPage;
-            cg->active = 1;
-            cg->present = 1;
-            cg->sequel = p->pagesequel++;
             //TODO
             cg->physAdress = (char *) V2P(newAddr);
 
             //update proc
 
             p->swapFileEntries[i] = 0; //clean entry- page is in RAM
-//            p->pagesCounter++;
             p->pagesinSwap--;
+
+            if(flag)
+                swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
+
+            lcr3(V2P(p->pgdir));
 
             lapiceoi();
             break;

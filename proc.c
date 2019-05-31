@@ -680,6 +680,9 @@ procdump(void) {
     struct proc *p;
     char *state;
     uint pc[10];
+    pte_t *currPTE;
+    struct page *cg = 0;
+    int protected = 0;
 
     for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
         if (p->state == UNUSED)
@@ -688,6 +691,17 @@ procdump(void) {
             state = states[p->state];
         else
             state = "???";
+
+       for (cg = p->pages ; cg < &p->pages[MAX_TOTAL_PAGES]; cg++ ) {
+           if(cg->active){
+               currPTE = walkpgdir2(p->pgdir, cg->virtAdress, 0);
+               if( ( *currPTE & PTE_W ) == 0 )
+                   protected++;
+           }
+
+        }
+       p->protectedPages = protected;
+
         cprintf("%d %s %d %d %d %d %d %s", p->pid, state,
                 p->pagesCounter, p->pagesinSwap, p->protectedPages,
                 p->pageFaults, p->totalPagesInSwap, p->name);
@@ -790,6 +804,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     pde_t *pgtble;
     struct page *pg = 0;
     int tmpOffset = findFreeEntryInSwapFile(p);
+
     if (tmpOffset == -1) {//validation check
         cprintf("p->entries:\t");
         for (int i = 0; i < MAX_PSYC_PAGES; i++) {
@@ -812,86 +827,55 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     }
 
 #elif(defined(SCFIFO))
-    int minSeq, found = 0;
+
+    int minSeq, found = 0, valid = 0;
     char *tmpAdress;
-    pde_t *tmppgtble;
     struct page *sg;
-    int tmpArr[MAX_PSYC_PAGES]; //arr for the pages that PTE_A is on - holds pageID
-    int tmpIndex=0;
-    minSeq = 999999;
+    pde_t *tmppgtble;
 
-    //init tmpArr
-    for(int i=0; i<MAX_PSYC_PAGES; i++)
-        tmpArr[i]=0;
+    while( !found && valid < MAX_TOTAL_PAGES ) {
+        minSeq = p->pagesequel;
 
-    //cprintf("\n\n");
-    //find page with min pagesequel
-    for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
-        if (sg->active && sg->present && sg->sequel < minSeq) {
-            //cprintf("found sg->sequel < minSeq: %d<%d\t",sg->sequel,minSeq);
-            tmpAdress = sg->virtAdress;
-            tmppgtble = walkpgdir2(pgdir, tmpAdress, 0);
-            if (*tmppgtble & PTE_A) { //if legal addr and access bit is on - move to end of page queue
-                *tmppgtble = PTE_A_0(*tmppgtble);
-//                pg->sequel = p->pagesequel++;
-                tmpArr[tmpIndex]= sg->pageid;
-                //cprintf("->added to tmpArr in index:%d\n",tmpIndex);
-                tmpIndex++;
-            } else {
-                //cprintf("-> NOT added to tmpArr!\n");
-                pg = sg;
-                minSeq = sg->sequel;
-                //cprintf("minSeq:%d\t", minSeq);
-                found = 1; //if got here - found at least 1 page that PTE_A is off
-            }
-        }
-    }
-
-
-    if (!found) { //not found -all of pages were PTE_A on -no find min_sequal
-        minSeq = 999999;
-        pg=0;
-        int j=0;
-        for (; j<16 && tmpArr[j]; j++) {
-            movePageByPageIdInPages(sg,tmpArr[j]); //move cg to specific page by pageID
+        for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
             if (sg->active && sg->present && sg->sequel < minSeq) {
                 pg = sg;
                 minSeq = sg->sequel;
-                //cprintf("minSeq:%d\t", minSeq);
-                found=1;
             }
         }
+        tmpAdress = pg->virtAdress;
+        tmppgtble = walkpgdir2(pgdir, tmpAdress, 0);
+        if (*tmppgtble & PTE_A) {
+            *tmppgtble = PTE_A_0(*tmppgtble);
+            pg->sequel = p->pagesequel++;
+            valid++;
+        } else
+            found = 1;
     }
-    if(!found)
-        panic2("didn't find any page to swapout!\n");
 
-//got here- pg have the min pagesequel
+    if(!found)
+        panic2("didnt find page to swap out is SCFIFO");
+    //got here- pg have the min pagesequel
+
 
 
 
 #endif
+
+
 //got here - pg is the page to swap out (in both cases)
 
 
-//write the page to swapFile
-   // cprintf("swapWriteOffset:%d\tpg->virtAdress,:%d\ttmpOffset:%d\tpg->pageid:%d\n", swapWriteOffset, pg->virtAdress,
-    //        tmpOffset, pg->pageid);
-
-    //printCurrFrame();
-    //cprintf( " \n SWAPOUT virt Adres is : %d for page %d \n" , pg->virtAdress , pg->pageid);
-
     if (writeToSwapFile(p, pg->virtAdress, (uint) swapWriteOffset, PGSIZE) == -1)
         panic2("writeToSwapFile Error!\n");
-    //cprintf("after write!!!!\n");
-//update page
+
+    //update page
+    pg->sequel = 0;
     pg->present = 0;
     pg->offset = (uint) swapWriteOffset;
     pg->physAdress = 0;
-    pg->sequel = 0;
 
 //update page swapping for proc.
-    p->swapFileEntries[tmpOffset] = pg->
-            pageid; //update that this entry is swapped out for pageID
+    p->swapFileEntries[tmpOffset] = pg->pageid; //update that this entry is swapped out for pageID
     p->totalPagesInSwap++;
     p->pagesinSwap++;
 
@@ -902,6 +886,8 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
     kfree(P2V(PTE_ADDR(*pgtble)));
 
     lcr3(V2P(p->pgdir));
+
+
     if (DEBUGMODE == 2 && notShell() )
         cprintf(">SWAPOUTPAGE-DONE!\n");
 }
