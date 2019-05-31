@@ -361,14 +361,19 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
 #if(defined(LIFO) || defined(SCFIFO))
             if (notShell() && growproc) {
                     //scan pages table and remove page that page.virtAdress == a
+
                     for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
                         if (pg->active && pg->virtAdress == (char *) a) //if true -> free page
                         {
                             //remove page
-                            pg->virtAdress = 0;
                             pg->active = 0;
-                            pg->offset = 0;      //TODO - check if there is a need to save offset
+                            pg->pageid = 0;
+                            pg->sequel = 0;
                             pg->present = 0;
+                            pg->offset = 0;      //TODO - check if there is a need to save offset
+                            pg->physAdress = 0;
+                            pg->virtAdress = 0;
+
 
                             //update proc
                             p->pagesCounter--;
@@ -390,16 +395,28 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
                     pa = PTE_ADDR(*pte);
                     if (pa == 0)
                         panic("kfree");
-                    if (p->pid > 2 && growproc) {
+                    if (notShell() && growproc) {
                         //scan pages table and remove page that page.virtAdress == a
                         for (pg = p->pages; pg < &p->pages[MAX_TOTAL_PAGES]; pg++) {
                             if (pg->active && pg->virtAdress == (char *) a) //if true -> free page
                             {
+                                int k;
+                                for( k = 0 ; k < MAX_PSYC_PAGES ; k++){
+                                    if( p->swapFileEntries[k] == pg->pageid ) {
+                                        p->swapFileEntries[k] = 0;
+                                        break;
+                                    }
+                                }
+
+
                                 //remove page
-                                pg->virtAdress = 0;
                                 pg->active = 0;
-                                pg->offset = 0;      //TODO - check if there is a need to save offset
+                                pg->pageid = 0;
+                                pg->sequel = 0;
                                 pg->present = 0;
+                                pg->offset = 0;      //TODO - check if there is a need to save offset
+                                pg->physAdress = 0;
+                                pg->virtAdress = 0;
 
                                 //update proc
                                 p->pagesCounter--;
