@@ -1,0 +1,1 @@
+make --makefile=./Project_Test/Tests/test_39/Makefile clean qemu SELECTION=SCFIFO VERBOSE_PRINT=TRUE-gdb

@@ -43,10 +43,10 @@ RM = /opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yoav/Desktop/Git3/OS_ass3-Memory
+CMAKE_SOURCE_DIR = /home/weilern/os192/ass3/OS_ass3-Memory
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug
+CMAKE_BINARY_DIR = /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/OS_ass3_Memory.dir/depend.make
@@ -59,601 +59,614 @@ include CMakeFiles/OS_ass3_Memory.dir/flags.make
 
 CMakeFiles/OS_ass3_Memory.dir/bio.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/bio.c.o: ../bio.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OS_ass3_Memory.dir/bio.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/bio.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/bio.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/OS_ass3_Memory.dir/bio.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/bio.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/bio.c
 
 CMakeFiles/OS_ass3_Memory.dir/bio.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/bio.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/bio.c > CMakeFiles/OS_ass3_Memory.dir/bio.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/bio.c > CMakeFiles/OS_ass3_Memory.dir/bio.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/bio.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/bio.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/bio.c -o CMakeFiles/OS_ass3_Memory.dir/bio.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/bio.c -o CMakeFiles/OS_ass3_Memory.dir/bio.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/bootmain.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/bootmain.c.o: ../bootmain.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OS_ass3_Memory.dir/bootmain.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/bootmain.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/bootmain.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OS_ass3_Memory.dir/bootmain.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/bootmain.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/bootmain.c
 
 CMakeFiles/OS_ass3_Memory.dir/bootmain.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/bootmain.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/bootmain.c > CMakeFiles/OS_ass3_Memory.dir/bootmain.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/bootmain.c > CMakeFiles/OS_ass3_Memory.dir/bootmain.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/bootmain.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/bootmain.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/bootmain.c -o CMakeFiles/OS_ass3_Memory.dir/bootmain.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/bootmain.c -o CMakeFiles/OS_ass3_Memory.dir/bootmain.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/cat.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/cat.c.o: ../cat.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OS_ass3_Memory.dir/cat.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/cat.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/cat.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OS_ass3_Memory.dir/cat.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/cat.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/cat.c
 
 CMakeFiles/OS_ass3_Memory.dir/cat.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/cat.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/cat.c > CMakeFiles/OS_ass3_Memory.dir/cat.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/cat.c > CMakeFiles/OS_ass3_Memory.dir/cat.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/cat.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/cat.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/cat.c -o CMakeFiles/OS_ass3_Memory.dir/cat.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/cat.c -o CMakeFiles/OS_ass3_Memory.dir/cat.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/console.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/console.c.o: ../console.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OS_ass3_Memory.dir/console.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/console.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/console.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OS_ass3_Memory.dir/console.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/console.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/console.c
 
 CMakeFiles/OS_ass3_Memory.dir/console.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/console.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/console.c > CMakeFiles/OS_ass3_Memory.dir/console.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/console.c > CMakeFiles/OS_ass3_Memory.dir/console.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/console.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/console.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/console.c -o CMakeFiles/OS_ass3_Memory.dir/console.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/console.c -o CMakeFiles/OS_ass3_Memory.dir/console.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/echo.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/echo.c.o: ../echo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OS_ass3_Memory.dir/echo.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/echo.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/echo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OS_ass3_Memory.dir/echo.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/echo.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/echo.c
 
 CMakeFiles/OS_ass3_Memory.dir/echo.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/echo.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/echo.c > CMakeFiles/OS_ass3_Memory.dir/echo.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/echo.c > CMakeFiles/OS_ass3_Memory.dir/echo.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/echo.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/echo.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/echo.c -o CMakeFiles/OS_ass3_Memory.dir/echo.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/echo.c -o CMakeFiles/OS_ass3_Memory.dir/echo.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/exec.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/exec.c.o: ../exec.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OS_ass3_Memory.dir/exec.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/exec.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/exec.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/OS_ass3_Memory.dir/exec.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/exec.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/exec.c
 
 CMakeFiles/OS_ass3_Memory.dir/exec.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/exec.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/exec.c > CMakeFiles/OS_ass3_Memory.dir/exec.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/exec.c > CMakeFiles/OS_ass3_Memory.dir/exec.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/exec.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/exec.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/exec.c -o CMakeFiles/OS_ass3_Memory.dir/exec.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/exec.c -o CMakeFiles/OS_ass3_Memory.dir/exec.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/file.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/file.c.o: ../file.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/OS_ass3_Memory.dir/file.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/file.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/file.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/OS_ass3_Memory.dir/file.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/file.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/file.c
 
 CMakeFiles/OS_ass3_Memory.dir/file.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/file.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/file.c > CMakeFiles/OS_ass3_Memory.dir/file.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/file.c > CMakeFiles/OS_ass3_Memory.dir/file.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/file.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/file.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/file.c -o CMakeFiles/OS_ass3_Memory.dir/file.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/file.c -o CMakeFiles/OS_ass3_Memory.dir/file.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/forktest.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/forktest.c.o: ../forktest.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/OS_ass3_Memory.dir/forktest.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/forktest.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/forktest.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/OS_ass3_Memory.dir/forktest.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/forktest.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/forktest.c
 
 CMakeFiles/OS_ass3_Memory.dir/forktest.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/forktest.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/forktest.c > CMakeFiles/OS_ass3_Memory.dir/forktest.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/forktest.c > CMakeFiles/OS_ass3_Memory.dir/forktest.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/forktest.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/forktest.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/forktest.c -o CMakeFiles/OS_ass3_Memory.dir/forktest.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/forktest.c -o CMakeFiles/OS_ass3_Memory.dir/forktest.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/fs.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/fs.c.o: ../fs.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/OS_ass3_Memory.dir/fs.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/fs.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/fs.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/OS_ass3_Memory.dir/fs.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/fs.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/fs.c
 
 CMakeFiles/OS_ass3_Memory.dir/fs.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/fs.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/fs.c > CMakeFiles/OS_ass3_Memory.dir/fs.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/fs.c > CMakeFiles/OS_ass3_Memory.dir/fs.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/fs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/fs.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/fs.c -o CMakeFiles/OS_ass3_Memory.dir/fs.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/fs.c -o CMakeFiles/OS_ass3_Memory.dir/fs.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/grep.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/grep.c.o: ../grep.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/OS_ass3_Memory.dir/grep.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/grep.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/grep.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/OS_ass3_Memory.dir/grep.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/grep.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/grep.c
 
 CMakeFiles/OS_ass3_Memory.dir/grep.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/grep.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/grep.c > CMakeFiles/OS_ass3_Memory.dir/grep.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/grep.c > CMakeFiles/OS_ass3_Memory.dir/grep.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/grep.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/grep.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/grep.c -o CMakeFiles/OS_ass3_Memory.dir/grep.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/grep.c -o CMakeFiles/OS_ass3_Memory.dir/grep.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/ide.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/ide.c.o: ../ide.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/OS_ass3_Memory.dir/ide.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ide.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/ide.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/OS_ass3_Memory.dir/ide.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ide.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/ide.c
 
 CMakeFiles/OS_ass3_Memory.dir/ide.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/ide.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/ide.c > CMakeFiles/OS_ass3_Memory.dir/ide.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/ide.c > CMakeFiles/OS_ass3_Memory.dir/ide.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/ide.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/ide.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/ide.c -o CMakeFiles/OS_ass3_Memory.dir/ide.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/ide.c -o CMakeFiles/OS_ass3_Memory.dir/ide.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/init.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/init.c.o: ../init.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/OS_ass3_Memory.dir/init.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/init.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/init.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/OS_ass3_Memory.dir/init.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/init.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/init.c
 
 CMakeFiles/OS_ass3_Memory.dir/init.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/init.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/init.c > CMakeFiles/OS_ass3_Memory.dir/init.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/init.c > CMakeFiles/OS_ass3_Memory.dir/init.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/init.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/init.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/init.c -o CMakeFiles/OS_ass3_Memory.dir/init.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/init.c -o CMakeFiles/OS_ass3_Memory.dir/init.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/ioapic.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/ioapic.c.o: ../ioapic.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/OS_ass3_Memory.dir/ioapic.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ioapic.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/ioapic.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/OS_ass3_Memory.dir/ioapic.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ioapic.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/ioapic.c
 
 CMakeFiles/OS_ass3_Memory.dir/ioapic.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/ioapic.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/ioapic.c > CMakeFiles/OS_ass3_Memory.dir/ioapic.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/ioapic.c > CMakeFiles/OS_ass3_Memory.dir/ioapic.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/ioapic.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/ioapic.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/ioapic.c -o CMakeFiles/OS_ass3_Memory.dir/ioapic.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/ioapic.c -o CMakeFiles/OS_ass3_Memory.dir/ioapic.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/kalloc.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/kalloc.c.o: ../kalloc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/OS_ass3_Memory.dir/kalloc.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/kalloc.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/kalloc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/OS_ass3_Memory.dir/kalloc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/kalloc.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/kalloc.c
 
 CMakeFiles/OS_ass3_Memory.dir/kalloc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/kalloc.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/kalloc.c > CMakeFiles/OS_ass3_Memory.dir/kalloc.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/kalloc.c > CMakeFiles/OS_ass3_Memory.dir/kalloc.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/kalloc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/kalloc.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/kalloc.c -o CMakeFiles/OS_ass3_Memory.dir/kalloc.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/kalloc.c -o CMakeFiles/OS_ass3_Memory.dir/kalloc.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/kbd.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/kbd.c.o: ../kbd.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/OS_ass3_Memory.dir/kbd.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/kbd.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/kbd.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/OS_ass3_Memory.dir/kbd.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/kbd.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/kbd.c
 
 CMakeFiles/OS_ass3_Memory.dir/kbd.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/kbd.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/kbd.c > CMakeFiles/OS_ass3_Memory.dir/kbd.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/kbd.c > CMakeFiles/OS_ass3_Memory.dir/kbd.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/kbd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/kbd.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/kbd.c -o CMakeFiles/OS_ass3_Memory.dir/kbd.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/kbd.c -o CMakeFiles/OS_ass3_Memory.dir/kbd.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/kill.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/kill.c.o: ../kill.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/OS_ass3_Memory.dir/kill.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/kill.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/kill.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/OS_ass3_Memory.dir/kill.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/kill.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/kill.c
 
 CMakeFiles/OS_ass3_Memory.dir/kill.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/kill.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/kill.c > CMakeFiles/OS_ass3_Memory.dir/kill.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/kill.c > CMakeFiles/OS_ass3_Memory.dir/kill.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/kill.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/kill.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/kill.c -o CMakeFiles/OS_ass3_Memory.dir/kill.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/kill.c -o CMakeFiles/OS_ass3_Memory.dir/kill.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/lapic.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/lapic.c.o: ../lapic.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/OS_ass3_Memory.dir/lapic.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/lapic.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/lapic.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/OS_ass3_Memory.dir/lapic.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/lapic.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/lapic.c
 
 CMakeFiles/OS_ass3_Memory.dir/lapic.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/lapic.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/lapic.c > CMakeFiles/OS_ass3_Memory.dir/lapic.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/lapic.c > CMakeFiles/OS_ass3_Memory.dir/lapic.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/lapic.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/lapic.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/lapic.c -o CMakeFiles/OS_ass3_Memory.dir/lapic.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/lapic.c -o CMakeFiles/OS_ass3_Memory.dir/lapic.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/ln.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/ln.c.o: ../ln.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/OS_ass3_Memory.dir/ln.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ln.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/ln.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/OS_ass3_Memory.dir/ln.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ln.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/ln.c
 
 CMakeFiles/OS_ass3_Memory.dir/ln.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/ln.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/ln.c > CMakeFiles/OS_ass3_Memory.dir/ln.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/ln.c > CMakeFiles/OS_ass3_Memory.dir/ln.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/ln.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/ln.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/ln.c -o CMakeFiles/OS_ass3_Memory.dir/ln.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/ln.c -o CMakeFiles/OS_ass3_Memory.dir/ln.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/log.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/log.c.o: ../log.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/OS_ass3_Memory.dir/log.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/log.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/log.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/OS_ass3_Memory.dir/log.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/log.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/log.c
 
 CMakeFiles/OS_ass3_Memory.dir/log.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/log.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/log.c > CMakeFiles/OS_ass3_Memory.dir/log.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/log.c > CMakeFiles/OS_ass3_Memory.dir/log.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/log.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/log.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/log.c -o CMakeFiles/OS_ass3_Memory.dir/log.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/log.c -o CMakeFiles/OS_ass3_Memory.dir/log.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/ls.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/ls.c.o: ../ls.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/OS_ass3_Memory.dir/ls.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ls.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/ls.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/OS_ass3_Memory.dir/ls.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ls.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/ls.c
 
 CMakeFiles/OS_ass3_Memory.dir/ls.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/ls.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/ls.c > CMakeFiles/OS_ass3_Memory.dir/ls.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/ls.c > CMakeFiles/OS_ass3_Memory.dir/ls.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/ls.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/ls.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/ls.c -o CMakeFiles/OS_ass3_Memory.dir/ls.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/ls.c -o CMakeFiles/OS_ass3_Memory.dir/ls.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/main.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/OS_ass3_Memory.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/main.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/OS_ass3_Memory.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/main.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/main.c
 
 CMakeFiles/OS_ass3_Memory.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/main.c > CMakeFiles/OS_ass3_Memory.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/main.c > CMakeFiles/OS_ass3_Memory.dir/main.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/main.c -o CMakeFiles/OS_ass3_Memory.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/main.c -o CMakeFiles/OS_ass3_Memory.dir/main.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/memide.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/memide.c.o: ../memide.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/OS_ass3_Memory.dir/memide.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/memide.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/memide.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/OS_ass3_Memory.dir/memide.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/memide.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/memide.c
 
 CMakeFiles/OS_ass3_Memory.dir/memide.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/memide.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/memide.c > CMakeFiles/OS_ass3_Memory.dir/memide.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/memide.c > CMakeFiles/OS_ass3_Memory.dir/memide.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/memide.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/memide.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/memide.c -o CMakeFiles/OS_ass3_Memory.dir/memide.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/memide.c -o CMakeFiles/OS_ass3_Memory.dir/memide.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/mkdir.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/mkdir.c.o: ../mkdir.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/OS_ass3_Memory.dir/mkdir.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/mkdir.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/mkdir.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/OS_ass3_Memory.dir/mkdir.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/mkdir.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/mkdir.c
 
 CMakeFiles/OS_ass3_Memory.dir/mkdir.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/mkdir.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/mkdir.c > CMakeFiles/OS_ass3_Memory.dir/mkdir.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/mkdir.c > CMakeFiles/OS_ass3_Memory.dir/mkdir.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/mkdir.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/mkdir.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/mkdir.c -o CMakeFiles/OS_ass3_Memory.dir/mkdir.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/mkdir.c -o CMakeFiles/OS_ass3_Memory.dir/mkdir.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/mkfs.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/mkfs.c.o: ../mkfs.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/OS_ass3_Memory.dir/mkfs.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/mkfs.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/mkfs.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/OS_ass3_Memory.dir/mkfs.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/mkfs.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/mkfs.c
 
 CMakeFiles/OS_ass3_Memory.dir/mkfs.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/mkfs.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/mkfs.c > CMakeFiles/OS_ass3_Memory.dir/mkfs.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/mkfs.c > CMakeFiles/OS_ass3_Memory.dir/mkfs.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/mkfs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/mkfs.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/mkfs.c -o CMakeFiles/OS_ass3_Memory.dir/mkfs.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/mkfs.c -o CMakeFiles/OS_ass3_Memory.dir/mkfs.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/mp.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/mp.c.o: ../mp.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/OS_ass3_Memory.dir/mp.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/mp.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/mp.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/OS_ass3_Memory.dir/mp.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/mp.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/mp.c
 
 CMakeFiles/OS_ass3_Memory.dir/mp.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/mp.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/mp.c > CMakeFiles/OS_ass3_Memory.dir/mp.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/mp.c > CMakeFiles/OS_ass3_Memory.dir/mp.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/mp.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/mp.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/mp.c -o CMakeFiles/OS_ass3_Memory.dir/mp.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/mp.c -o CMakeFiles/OS_ass3_Memory.dir/mp.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/picirq.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/picirq.c.o: ../picirq.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/OS_ass3_Memory.dir/picirq.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/picirq.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/picirq.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/OS_ass3_Memory.dir/picirq.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/picirq.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/picirq.c
 
 CMakeFiles/OS_ass3_Memory.dir/picirq.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/picirq.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/picirq.c > CMakeFiles/OS_ass3_Memory.dir/picirq.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/picirq.c > CMakeFiles/OS_ass3_Memory.dir/picirq.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/picirq.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/picirq.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/picirq.c -o CMakeFiles/OS_ass3_Memory.dir/picirq.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/picirq.c -o CMakeFiles/OS_ass3_Memory.dir/picirq.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/pipe.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/pipe.c.o: ../pipe.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/OS_ass3_Memory.dir/pipe.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/pipe.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/pipe.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/OS_ass3_Memory.dir/pipe.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/pipe.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/pipe.c
 
 CMakeFiles/OS_ass3_Memory.dir/pipe.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/pipe.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/pipe.c > CMakeFiles/OS_ass3_Memory.dir/pipe.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/pipe.c > CMakeFiles/OS_ass3_Memory.dir/pipe.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/pipe.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/pipe.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/pipe.c -o CMakeFiles/OS_ass3_Memory.dir/pipe.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/pipe.c -o CMakeFiles/OS_ass3_Memory.dir/pipe.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/printf.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/printf.c.o: ../printf.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/OS_ass3_Memory.dir/printf.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/printf.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/printf.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/OS_ass3_Memory.dir/printf.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/printf.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/printf.c
 
 CMakeFiles/OS_ass3_Memory.dir/printf.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/printf.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/printf.c > CMakeFiles/OS_ass3_Memory.dir/printf.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/printf.c > CMakeFiles/OS_ass3_Memory.dir/printf.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/printf.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/printf.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/printf.c -o CMakeFiles/OS_ass3_Memory.dir/printf.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/printf.c -o CMakeFiles/OS_ass3_Memory.dir/printf.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/proc.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/proc.c.o: ../proc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/OS_ass3_Memory.dir/proc.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/proc.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/proc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/OS_ass3_Memory.dir/proc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/proc.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/proc.c
 
 CMakeFiles/OS_ass3_Memory.dir/proc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/proc.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/proc.c > CMakeFiles/OS_ass3_Memory.dir/proc.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/proc.c > CMakeFiles/OS_ass3_Memory.dir/proc.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/proc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/proc.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/proc.c -o CMakeFiles/OS_ass3_Memory.dir/proc.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/proc.c -o CMakeFiles/OS_ass3_Memory.dir/proc.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/rm.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/rm.c.o: ../rm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/OS_ass3_Memory.dir/rm.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/rm.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/rm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/OS_ass3_Memory.dir/rm.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/rm.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/rm.c
 
 CMakeFiles/OS_ass3_Memory.dir/rm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/rm.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/rm.c > CMakeFiles/OS_ass3_Memory.dir/rm.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/rm.c > CMakeFiles/OS_ass3_Memory.dir/rm.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/rm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/rm.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/rm.c -o CMakeFiles/OS_ass3_Memory.dir/rm.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/rm.c -o CMakeFiles/OS_ass3_Memory.dir/rm.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/sh.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/sh.c.o: ../sh.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/OS_ass3_Memory.dir/sh.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sh.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/sh.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/OS_ass3_Memory.dir/sh.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sh.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/sh.c
 
 CMakeFiles/OS_ass3_Memory.dir/sh.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/sh.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/sh.c > CMakeFiles/OS_ass3_Memory.dir/sh.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/sh.c > CMakeFiles/OS_ass3_Memory.dir/sh.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/sh.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/sh.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/sh.c -o CMakeFiles/OS_ass3_Memory.dir/sh.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/sh.c -o CMakeFiles/OS_ass3_Memory.dir/sh.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.o: ../sleeplock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/sleeplock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/sleeplock.c
 
 CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/sleeplock.c > CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/sleeplock.c > CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/sleeplock.c -o CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/sleeplock.c -o CMakeFiles/OS_ass3_Memory.dir/sleeplock.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/spinlock.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/spinlock.c.o: ../spinlock.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/OS_ass3_Memory.dir/spinlock.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/spinlock.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/spinlock.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/OS_ass3_Memory.dir/spinlock.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/spinlock.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/spinlock.c
 
 CMakeFiles/OS_ass3_Memory.dir/spinlock.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/spinlock.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/spinlock.c > CMakeFiles/OS_ass3_Memory.dir/spinlock.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/spinlock.c > CMakeFiles/OS_ass3_Memory.dir/spinlock.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/spinlock.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/spinlock.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/spinlock.c -o CMakeFiles/OS_ass3_Memory.dir/spinlock.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/spinlock.c -o CMakeFiles/OS_ass3_Memory.dir/spinlock.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/stressfs.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/stressfs.c.o: ../stressfs.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/OS_ass3_Memory.dir/stressfs.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/stressfs.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/stressfs.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/OS_ass3_Memory.dir/stressfs.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/stressfs.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/stressfs.c
 
 CMakeFiles/OS_ass3_Memory.dir/stressfs.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/stressfs.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/stressfs.c > CMakeFiles/OS_ass3_Memory.dir/stressfs.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/stressfs.c > CMakeFiles/OS_ass3_Memory.dir/stressfs.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/stressfs.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/stressfs.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/stressfs.c -o CMakeFiles/OS_ass3_Memory.dir/stressfs.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/stressfs.c -o CMakeFiles/OS_ass3_Memory.dir/stressfs.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/string.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/string.c.o: ../string.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/OS_ass3_Memory.dir/string.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/string.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/string.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/OS_ass3_Memory.dir/string.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/string.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/string.c
 
 CMakeFiles/OS_ass3_Memory.dir/string.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/string.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/string.c > CMakeFiles/OS_ass3_Memory.dir/string.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/string.c > CMakeFiles/OS_ass3_Memory.dir/string.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/string.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/string.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/string.c -o CMakeFiles/OS_ass3_Memory.dir/string.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/string.c -o CMakeFiles/OS_ass3_Memory.dir/string.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/syscall.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/syscall.c.o: ../syscall.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/OS_ass3_Memory.dir/syscall.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/syscall.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/syscall.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/OS_ass3_Memory.dir/syscall.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/syscall.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/syscall.c
 
 CMakeFiles/OS_ass3_Memory.dir/syscall.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/syscall.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/syscall.c > CMakeFiles/OS_ass3_Memory.dir/syscall.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/syscall.c > CMakeFiles/OS_ass3_Memory.dir/syscall.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/syscall.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/syscall.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/syscall.c -o CMakeFiles/OS_ass3_Memory.dir/syscall.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/syscall.c -o CMakeFiles/OS_ass3_Memory.dir/syscall.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/sysfile.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/sysfile.c.o: ../sysfile.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/OS_ass3_Memory.dir/sysfile.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sysfile.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/sysfile.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/OS_ass3_Memory.dir/sysfile.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sysfile.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/sysfile.c
 
 CMakeFiles/OS_ass3_Memory.dir/sysfile.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/sysfile.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/sysfile.c > CMakeFiles/OS_ass3_Memory.dir/sysfile.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/sysfile.c > CMakeFiles/OS_ass3_Memory.dir/sysfile.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/sysfile.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/sysfile.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/sysfile.c -o CMakeFiles/OS_ass3_Memory.dir/sysfile.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/sysfile.c -o CMakeFiles/OS_ass3_Memory.dir/sysfile.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/sysproc.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/sysproc.c.o: ../sysproc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/OS_ass3_Memory.dir/sysproc.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sysproc.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/sysproc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/OS_ass3_Memory.dir/sysproc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sysproc.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/sysproc.c
 
 CMakeFiles/OS_ass3_Memory.dir/sysproc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/sysproc.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/sysproc.c > CMakeFiles/OS_ass3_Memory.dir/sysproc.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/sysproc.c > CMakeFiles/OS_ass3_Memory.dir/sysproc.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/sysproc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/sysproc.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/sysproc.c -o CMakeFiles/OS_ass3_Memory.dir/sysproc.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/sysproc.c -o CMakeFiles/OS_ass3_Memory.dir/sysproc.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/trap.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/trap.c.o: ../trap.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/OS_ass3_Memory.dir/trap.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/trap.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/trap.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/OS_ass3_Memory.dir/trap.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/trap.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/trap.c
 
 CMakeFiles/OS_ass3_Memory.dir/trap.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/trap.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/trap.c > CMakeFiles/OS_ass3_Memory.dir/trap.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/trap.c > CMakeFiles/OS_ass3_Memory.dir/trap.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/trap.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/trap.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/trap.c -o CMakeFiles/OS_ass3_Memory.dir/trap.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/trap.c -o CMakeFiles/OS_ass3_Memory.dir/trap.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/uart.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/uart.c.o: ../uart.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/OS_ass3_Memory.dir/uart.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/uart.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/uart.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/OS_ass3_Memory.dir/uart.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/uart.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/uart.c
 
 CMakeFiles/OS_ass3_Memory.dir/uart.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/uart.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/uart.c > CMakeFiles/OS_ass3_Memory.dir/uart.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/uart.c > CMakeFiles/OS_ass3_Memory.dir/uart.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/uart.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/uart.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/uart.c -o CMakeFiles/OS_ass3_Memory.dir/uart.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/uart.c -o CMakeFiles/OS_ass3_Memory.dir/uart.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/ulib.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/ulib.c.o: ../ulib.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/OS_ass3_Memory.dir/ulib.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ulib.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/ulib.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building C object CMakeFiles/OS_ass3_Memory.dir/ulib.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/ulib.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/ulib.c
 
 CMakeFiles/OS_ass3_Memory.dir/ulib.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/ulib.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/ulib.c > CMakeFiles/OS_ass3_Memory.dir/ulib.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/ulib.c > CMakeFiles/OS_ass3_Memory.dir/ulib.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/ulib.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/ulib.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/ulib.c -o CMakeFiles/OS_ass3_Memory.dir/ulib.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/ulib.c -o CMakeFiles/OS_ass3_Memory.dir/ulib.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/umalloc.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/umalloc.c.o: ../umalloc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/OS_ass3_Memory.dir/umalloc.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/umalloc.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/umalloc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building C object CMakeFiles/OS_ass3_Memory.dir/umalloc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/umalloc.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/umalloc.c
 
 CMakeFiles/OS_ass3_Memory.dir/umalloc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/umalloc.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/umalloc.c > CMakeFiles/OS_ass3_Memory.dir/umalloc.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/umalloc.c > CMakeFiles/OS_ass3_Memory.dir/umalloc.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/umalloc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/umalloc.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/umalloc.c -o CMakeFiles/OS_ass3_Memory.dir/umalloc.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/umalloc.c -o CMakeFiles/OS_ass3_Memory.dir/umalloc.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/usertests.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/usertests.c.o: ../usertests.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/OS_ass3_Memory.dir/usertests.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/usertests.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/usertests.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building C object CMakeFiles/OS_ass3_Memory.dir/usertests.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/usertests.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/usertests.c
 
 CMakeFiles/OS_ass3_Memory.dir/usertests.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/usertests.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/usertests.c > CMakeFiles/OS_ass3_Memory.dir/usertests.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/usertests.c > CMakeFiles/OS_ass3_Memory.dir/usertests.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/usertests.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/usertests.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/usertests.c -o CMakeFiles/OS_ass3_Memory.dir/usertests.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/usertests.c -o CMakeFiles/OS_ass3_Memory.dir/usertests.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/vm.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/vm.c.o: ../vm.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/OS_ass3_Memory.dir/vm.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/vm.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/vm.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building C object CMakeFiles/OS_ass3_Memory.dir/vm.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/vm.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/vm.c
 
 CMakeFiles/OS_ass3_Memory.dir/vm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/vm.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/vm.c > CMakeFiles/OS_ass3_Memory.dir/vm.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/vm.c > CMakeFiles/OS_ass3_Memory.dir/vm.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/vm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/vm.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/vm.c -o CMakeFiles/OS_ass3_Memory.dir/vm.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/vm.c -o CMakeFiles/OS_ass3_Memory.dir/vm.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/wc.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/wc.c.o: ../wc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/OS_ass3_Memory.dir/wc.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/wc.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/wc.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building C object CMakeFiles/OS_ass3_Memory.dir/wc.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/wc.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/wc.c
 
 CMakeFiles/OS_ass3_Memory.dir/wc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/wc.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/wc.c > CMakeFiles/OS_ass3_Memory.dir/wc.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/wc.c > CMakeFiles/OS_ass3_Memory.dir/wc.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/wc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/wc.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/wc.c -o CMakeFiles/OS_ass3_Memory.dir/wc.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/wc.c -o CMakeFiles/OS_ass3_Memory.dir/wc.c.s
 
 CMakeFiles/OS_ass3_Memory.dir/zombie.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
 CMakeFiles/OS_ass3_Memory.dir/zombie.c.o: ../zombie.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/OS_ass3_Memory.dir/zombie.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/zombie.c.o   -c /home/yoav/Desktop/Git3/OS_ass3-Memory/zombie.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building C object CMakeFiles/OS_ass3_Memory.dir/zombie.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/zombie.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/zombie.c
 
 CMakeFiles/OS_ass3_Memory.dir/zombie.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/zombie.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/yoav/Desktop/Git3/OS_ass3-Memory/zombie.c > CMakeFiles/OS_ass3_Memory.dir/zombie.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/zombie.c > CMakeFiles/OS_ass3_Memory.dir/zombie.c.i
 
 CMakeFiles/OS_ass3_Memory.dir/zombie.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/zombie.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/yoav/Desktop/Git3/OS_ass3-Memory/zombie.c -o CMakeFiles/OS_ass3_Memory.dir/zombie.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/zombie.c -o CMakeFiles/OS_ass3_Memory.dir/zombie.c.s
+
+CMakeFiles/OS_ass3_Memory.dir/sanity.c.o: CMakeFiles/OS_ass3_Memory.dir/flags.make
+CMakeFiles/OS_ass3_Memory.dir/sanity.c.o: ../sanity.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building C object CMakeFiles/OS_ass3_Memory.dir/sanity.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OS_ass3_Memory.dir/sanity.c.o   -c /home/weilern/os192/ass3/OS_ass3-Memory/sanity.c
+
+CMakeFiles/OS_ass3_Memory.dir/sanity.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OS_ass3_Memory.dir/sanity.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/weilern/os192/ass3/OS_ass3-Memory/sanity.c > CMakeFiles/OS_ass3_Memory.dir/sanity.c.i
+
+CMakeFiles/OS_ass3_Memory.dir/sanity.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OS_ass3_Memory.dir/sanity.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/weilern/os192/ass3/OS_ass3-Memory/sanity.c -o CMakeFiles/OS_ass3_Memory.dir/sanity.c.s
 
 # Object files for target OS_ass3_Memory
 OS_ass3_Memory_OBJECTS = \
@@ -702,7 +715,8 @@ OS_ass3_Memory_OBJECTS = \
 "CMakeFiles/OS_ass3_Memory.dir/usertests.c.o" \
 "CMakeFiles/OS_ass3_Memory.dir/vm.c.o" \
 "CMakeFiles/OS_ass3_Memory.dir/wc.c.o" \
-"CMakeFiles/OS_ass3_Memory.dir/zombie.c.o"
+"CMakeFiles/OS_ass3_Memory.dir/zombie.c.o" \
+"CMakeFiles/OS_ass3_Memory.dir/sanity.c.o"
 
 # External object files for target OS_ass3_Memory
 OS_ass3_Memory_EXTERNAL_OBJECTS =
@@ -753,9 +767,10 @@ OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/usertests.c.o
 OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/vm.c.o
 OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/wc.c.o
 OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/zombie.c.o
+OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/sanity.c.o
 OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/build.make
 OS_ass3_Memory: CMakeFiles/OS_ass3_Memory.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Linking C executable OS_ass3_Memory"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Linking C executable OS_ass3_Memory"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OS_ass3_Memory.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -768,6 +783,6 @@ CMakeFiles/OS_ass3_Memory.dir/clean:
 .PHONY : CMakeFiles/OS_ass3_Memory.dir/clean
 
 CMakeFiles/OS_ass3_Memory.dir/depend:
-	cd /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/yoav/Desktop/Git3/OS_ass3-Memory /home/yoav/Desktop/Git3/OS_ass3-Memory /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles/OS_ass3_Memory.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/weilern/os192/ass3/OS_ass3-Memory /home/weilern/os192/ass3/OS_ass3-Memory /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles/OS_ass3_Memory.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/OS_ass3_Memory.dir/depend
 

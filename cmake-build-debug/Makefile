@@ -48,10 +48,10 @@ RM = /opt/clion-2018.3.4/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/yoav/Desktop/Git3/OS_ass3-Memory
+CMAKE_SOURCE_DIR = /home/weilern/os192/ass3/OS_ass3-Memory
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug
+CMAKE_BINARY_DIR = /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/yoav/Desktop/Git3/OS_ass3-Memory/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/weilern/os192/ass3/OS_ass3-Memory/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -933,6 +933,33 @@ rm.c.s:
 	$(MAKE) -f CMakeFiles/OS_ass3_Memory.dir/build.make CMakeFiles/OS_ass3_Memory.dir/rm.c.s
 .PHONY : rm.c.s
 
+sanity.o: sanity.c.o
+
+.PHONY : sanity.o
+
+# target to build an object file
+sanity.c.o:
+	$(MAKE) -f CMakeFiles/OS_ass3_Memory.dir/build.make CMakeFiles/OS_ass3_Memory.dir/sanity.c.o
+.PHONY : sanity.c.o
+
+sanity.i: sanity.c.i
+
+.PHONY : sanity.i
+
+# target to preprocess a source file
+sanity.c.i:
+	$(MAKE) -f CMakeFiles/OS_ass3_Memory.dir/build.make CMakeFiles/OS_ass3_Memory.dir/sanity.c.i
+.PHONY : sanity.c.i
+
+sanity.s: sanity.c.s
+
+.PHONY : sanity.s
+
+# target to generate assembly for a file
+sanity.c.s:
+	$(MAKE) -f CMakeFiles/OS_ass3_Memory.dir/build.make CMakeFiles/OS_ass3_Memory.dir/sanity.c.s
+.PHONY : sanity.c.s
+
 sh.o: sh.c.o
 
 .PHONY : sh.o
@@ -1464,6 +1491,9 @@ help:
 	@echo "... rm.o"
 	@echo "... rm.i"
 	@echo "... rm.s"
+	@echo "... sanity.o"
+	@echo "... sanity.i"
+	@echo "... sanity.s"
 	@echo "... sh.o"
 	@echo "... sh.i"
 	@echo "... sh.s"

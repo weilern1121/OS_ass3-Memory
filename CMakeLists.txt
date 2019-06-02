@@ -73,4 +73,5 @@ add_executable(OS_ass3_Memory
         vm.c
         wc.c
         x86.h
-        zombie.c)
+        zombie.c
+        sanity.c)

@@ -45,6 +45,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/OS_ass3_Memory.dir/vm.c.o"
   "CMakeFiles/OS_ass3_Memory.dir/wc.c.o"
   "CMakeFiles/OS_ass3_Memory.dir/zombie.c.o"
+  "CMakeFiles/OS_ass3_Memory.dir/sanity.c.o"
   "OS_ass3_Memory.pdb"
   "OS_ass3_Memory"
 )
