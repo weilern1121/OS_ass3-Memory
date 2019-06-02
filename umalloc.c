@@ -211,6 +211,17 @@ printPMList(void){
 }
 
 int
+checkIfPM( void *p ) {
+
+    struct PMHeader *tmp = PMinit;
+    for (int i = 0; i < PMcounter; i++) {
+        if (tmp->PMadress == p)
+            return 1;
+    }
+    return 0;
+}
+
+int
 pfree(void* ap) {
     if (DEBUGMODE == 3)
         printf(1,"PFREE-");
@@ -233,7 +244,7 @@ pfree(void* ap) {
             return -1;
         }
         //check that the pm is on and W is off
-        if ( checkOnPM( ap ) ) {
+        if ( checkIfPM( ap ) ) {
             //clean W & PM PTE flags
             turnOffW(PMap);
             turnOffPM(PMap);
@@ -295,7 +306,6 @@ pfree(void* ap) {
         printf(1,">PFREE-ERROR!\t");
     return -1;
 }
-
 
 
 
