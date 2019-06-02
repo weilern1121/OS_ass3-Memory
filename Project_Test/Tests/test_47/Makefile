@@ -92,13 +92,7 @@ CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb 
 #CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -fvar-tracking -fvar-tracking-assignments -O0 -g -Wall -MD -gdwarf-2 -m32 -Werror -fno-omit-frame-pointer
 CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
 CFLAGS += -D $(SELECTION)
-
-ifeq ($(VERBOSE_PRINT),TRUE)
-CFLAG += -D VERBOSE_PRINT_TRUE
-else ifeq ($(VERBOSE_PRINT),FALSE)
-CFLAG += -D VERBOSE_PRINT_FALSE
-endif
-
+CFLAGS += -D $(VERBOSE_PRINT)
 ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
 # FreeBSD ld wants ``elf_i386_fbsd''
 LDFLAGS += -m $(shell $(LD) -V | grep elf_i386 2>/dev/null | head -n 1)
@@ -181,7 +175,7 @@ mkfs: mkfs.c fs.h
 
 UPROGS=\
 	_quitXV6\
-	_task2_23\
+	_OforktestO\
 	_sh\
 	_init\
 	_ls\
@@ -296,11 +290,11 @@ _quitXV6: $(ULIB)
 	objdump -S _quitXV6 > quitXV6.asm
 	$(OBJDUMP) -t _quitXV6 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > quitXV6.sym
 
-_task2_23: $(ULIB)
-	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o task2_23.o ./Project_Test/XV6_Tests/task2_23.c
-	ld -m elf_i386 -N -e main -Ttext 0 -o _task2_23 task2_23.o $(ULIB)
-	objdump -S _task2_23 > task2_23.asm
-	$(OBJDUMP) -t _task2_23 | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > task2_23.sym
+_OforktestO: $(ULIB)
+	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o OforktestO.o ./Project_Test/XV6_Tests/OforktestO.c
+	ld -m elf_i386 -N -e main -Ttext 0 -o _OforktestO OforktestO.o $(ULIB)
+	objdump -S _OforktestO > OforktestO.asm
+	$(OBJDUMP) -t _OforktestO | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > OforktestO.sym
 
 _sh: $(ULIB)
 	gcc -Werror -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -fno-omit-frame-pointer -fno-stack-protector -fno-pie -no-pie -c -o sh.o sh.c
