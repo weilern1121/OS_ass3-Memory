@@ -1,15 +1,6 @@
-TEST:   29 I dont know why but we are ahving 1 more PG fault and 1 more swap....
-TEST:   33  34  35  36  37 problem with pmalloc and pfree
-        We might not pmallocing pages properly and changing bit correct
-        We defintly dont Pfree correct.
-TEST:   39  40  Does'nt print values or shut down correct
-TEST:   41  46  wrong output
-TEST:   42  43  44  45 timeout, didnt finished allocating memory
-
-TEST:   52  53  54  pid 3 task1_16: trap 13 err 4 on cpu 1 eip 0xcd2 addr 0x4244c91--kill proc
-TEST:   55  56  57  58  59  Allocating all memory... Not page alligned !!!
-hint: checking if sbrk can work with malloc and pmalloc allocation
-
+TEST:   41PAGING DEALLOC  wrong output
+TEST:   42  43  44  45 timeout, didnt finished allocating memory LIFO
+VERBOSE IN EXIT DOESNT WORK YET
 
 
 xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix

@@ -181,8 +181,8 @@ userinit(void) {
     struct proc *p;
     extern char _binary_initcode_start[], _binary_initcode_size[];
 
-    // before first alloc, check total space for ^P
-    totalAvailablePages = kallocCount();
+    // before first alloc, check total space for ^P minus 60 init pages.
+    totalAvailablePages = kallocCount() - 60;
 
     p = allocproc();
 
@@ -402,7 +402,7 @@ exit(void) {
     curproc->state = ZOMBIE;
 
     //check VERBOSE for task 4
-#if(defined(VERBOSE_PRINT_TRUE))
+#if(VERBOSE_PRINT)
     procdump();
 #endif
     sched();
@@ -907,10 +907,10 @@ updateProc(int num){
             myproc()->protectedPages--;
             break;
         case 2:
-            myproc()->pagesCounter--;
+            //myproc()->pagesCounter--;
             break;
         case 3:
-            myproc()->pagesCounter++;
+            //myproc()->pagesCounter++;
             break;
 
     }

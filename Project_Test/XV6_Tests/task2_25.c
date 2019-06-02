@@ -28,7 +28,9 @@ void ask_for_procdump();
 int main(int argc, char *argv[]){
     printf(1,"Test starting...\n");
     getInitialSize();
+    printf(1,"Test starting...2\n");
     allocate_memory(32);
+    printf(1,"Test starting...3\n");
     validate_memory();
     ask_for_procdump();
     deallocate_memory(10);
@@ -77,6 +79,7 @@ void allocate_memory(int sizeAfterAllocation){
     nowSize = currentSize;
 
     for(char * page = initialSize;page < nowSize;page += PGSIZE){
+        printf(1,"Test starting...MEMSET\n");
         memset(page, (int)page / PGSIZE,PGSIZE);
     }
    

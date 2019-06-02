@@ -91,8 +91,11 @@ void allocate_all_memory(){
     }
 
     for(int i = 0;i < NUM_MEMORY_ALLOCATIONS;i++){
+        //printf(1,"error in LOOP NUMBER %d...\n" , i);
+
         memset(getMemoryAt(i), i, PGSIZE);
     }
+    //printf(1,"error in LOOP NUMBER FINISHED...\n" );
 }
 
 void validate_all_memory_on_scheme(){

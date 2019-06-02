@@ -234,7 +234,7 @@ pfree(void* ap) {
             return -1;
         }
         //check that the pm is on and W is off
-        if ( checkOnPM( ap ) ) {
+        //if ( checkOnPM( ap ) ) {
             //clean W & PM PTE flags
             turnOffW(PMap);
             turnOffPM(PMap);
@@ -283,14 +283,14 @@ pfree(void* ap) {
             if (DEBUGMODE == 3)
                 printf(1,">PFREE-DONE!\t");
             return 1;
-        }
+        /*}
         else{
             if (DEBUGMODE == 3){
                 printf(2,"PFREE-ERROR!->checkOnPM_PMap->PMadress:%d\n\n",ap);
                 printPMList();
             }
             return -1;
-        }
+        }*/
     }
 
     if (DEBUGMODE == 3)

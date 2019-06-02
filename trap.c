@@ -136,8 +136,10 @@ trap(struct trapframe *tf) {
             if ((p->pagesCounter - p->pagesinSwap) >= 16) {
                 //if true - there is no room for another page- need to swap out
                 //cprintf("\n WE DIDNT PASS PROPERLY TRAP  \n" );
-                flag = 1;
-                //swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
+                if( p->pagesinSwap == 16 )
+                    flag = 1;
+                else
+                    swapOutPage(p, p->pgdir); //func in vm.c - same use in allocuvm
             }
 
             //got here - there is a room for a new page
