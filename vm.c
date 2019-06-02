@@ -273,7 +273,6 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
 
         mem = kalloc();
         if (mem == 0) {
-            //cprintf("allocuvm out of memory\n");
             deallocuvm(pgdir, newsz, oldsz, 0);
             if (DEBUGMODE == 2 && notShell())
                 cprintf(">ALLOCUVM-FAILED-mem == 0\t");
@@ -283,7 +282,6 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
         memset(mem, 0, PGSIZE);
 
         if (mappages(pgdir, (char *) a, PGSIZE, V2P(mem), PTE_W | PTE_U) < 0) {
-            //cprintf("allocuvm out of memory (2)\n");
             deallocuvm(pgdir, newsz, oldsz, 0);
             kfree(mem);
             if (DEBUGMODE == 2 && notShell())
@@ -311,7 +309,6 @@ allocuvm(pde_t *pgdir, uint oldsz, uint newsz) {
             pg->physAdress = mem;
             pg->virtAdress = (char *) a;
 
-            //cprintf( " \n virt Adres is : %d for proc %d and page %d \n" , a , p->pid , pg->pageid);
             //update pte of the page
             pgtble = walkpgdir(pgdir, (char *) a, 0);
             *pgtble = PTE_P_1(*pgtble);  // Present
@@ -419,6 +416,9 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
 
                                 //update proc
                                 p->pagesCounter--;
+                                p->pagesinSwap--;
+
+
                                 break;
                             }
                         }

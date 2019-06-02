@@ -1,4 +1,3 @@
-TEST:   41PAGING DEALLOC  wrong output
 TEST:   42  43  44  45 timeout, didnt finished allocating memory LIFO
 VERBOSE IN EXIT DOESNT WORK YET
 

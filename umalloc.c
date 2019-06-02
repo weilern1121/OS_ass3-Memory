@@ -152,7 +152,6 @@ pmalloc(void)
 
     //fresh PTE
     updatePTE();
-    updateProc(3);// update proc's pagesCounter
     PMcounter++;
     if (DEBUGMODE == 3)
         printf(1,">PMALLOC-DONE!\n");
@@ -234,7 +233,7 @@ pfree(void* ap) {
             return -1;
         }
         //check that the pm is on and W is off
-        //if ( checkOnPM( ap ) ) {
+        if ( checkOnPM( ap ) ) {
             //clean W & PM PTE flags
             turnOffW(PMap);
             turnOffPM(PMap);
@@ -279,18 +278,17 @@ pfree(void* ap) {
                     tmp->PMnext = PMap->PMnext;
                 }
             }
-            updateProc(2);// update proc's pagesCounter
             if (DEBUGMODE == 3)
                 printf(1,">PFREE-DONE!\t");
             return 1;
-        /*}
+        }
         else{
             if (DEBUGMODE == 3){
                 printf(2,"PFREE-ERROR!->checkOnPM_PMap->PMadress:%d\n\n",ap);
                 printPMList();
             }
             return -1;
-        }*/
+        }
     }
 
     if (DEBUGMODE == 3)

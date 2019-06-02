@@ -96,7 +96,6 @@ trap(struct trapframe *tf) {
             if( ( ( *pfree & PTE_PM ) != 0 ) && ( ( *pfree & PTE_W ) == 0 ) ){
                 tf->trapno = T_GPFLT;
                 lapiceoi();
-                //break;
             }
 
             //CASE TRAP 14 PGFLT IF IN SWITCH FILE: BRING FROM THERE, ELSE GO DEFAULT
@@ -135,7 +134,6 @@ trap(struct trapframe *tf) {
             int flag = 0;
             if ((p->pagesCounter - p->pagesinSwap) >= 16) {
                 //if true - there is no room for another page- need to swap out
-                //cprintf("\n WE DIDNT PASS PROPERLY TRAP  \n" );
                 if( p->pagesinSwap == 16 )
                     flag = 1;
                 else

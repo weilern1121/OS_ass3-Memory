@@ -226,7 +226,6 @@ growproc(int n) {
         if ((sz = allocuvm(curproc->pgdir, sz, sz + n)) == 0)
             return -1;
     } else if (n < 0) {
-        //curproc->pagesCounter += (PGROUNDUP(n) / PGSIZE);
         if ((sz = deallocuvm(curproc->pgdir, sz, sz + n, 1)) == 0)
             return -1;
     }
@@ -252,11 +251,6 @@ fork(void) {
     }
 
 #if(defined(LIFO) || defined(SCFIFO))
-
-    //if (firstRun) {//for sh and init proc swapFile.
-    //    createSwapFile(curproc);
-    //}
-
 
     createSwapFile(np);
 #endif
@@ -303,7 +297,6 @@ fork(void) {
             pg->virtAdress = cg->virtAdress;
         }
 
-        //TODO FIRST RUN IN BEFORE SHEL LOADED
              //PAGECOUNTER-16= PAGES IN SWAP FILE
         for( int k = 0 ; k < MAX_PSYC_PAGES ; k++ ){
             if( curproc->swapFileEntries[k] > 0 ) {
@@ -756,12 +749,6 @@ int
 turnOnW( void *p ){
     pte_t *pte;
     pte = walkpgdir2(myproc()->pgdir, p, 0);//find the address
-    /*if( ( *pte & PTE_PM ) != 0){
-        *pte = PTE_W_1(*pte);
-        *pte = PTE_PM_0(*pte);
-        updatePTE();
-        return 1;
-    }*/
     *pte = PTE_W_1(*pte);
     updatePTE();
     return 1;
@@ -905,12 +892,6 @@ updateProc(int num){
             break;
         case 0:
             myproc()->protectedPages--;
-            break;
-        case 2:
-            //myproc()->pagesCounter--;
-            break;
-        case 3:
-            //myproc()->pagesCounter++;
             break;
 
     }
