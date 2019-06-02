@@ -1,0 +1,1 @@
+make --makefile=./Project_Test/Tests/test_42/Makefile clean qemu SELECTION=LIFO-gdb

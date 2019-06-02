@@ -161,6 +161,7 @@ void free_all_memory_with_pfree(){
     malloc_memory_allocations_access_index = 0;
 
     for(int i = 0;i < NUM_MEMORY_ALLOCATIONS;i++){
+//        printf(2,"CHECKPOINT%d\n",i);
         free_memory(memory_allocations[i]);
     }
 }

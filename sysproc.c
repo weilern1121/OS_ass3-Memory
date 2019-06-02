@@ -112,6 +112,17 @@ int sys_turnOnPM(void)
   return 0;
 }
 
+int sys_turnOffPM(void)
+{
+  int p;
+
+  if(argint(0, &p) < 0)
+    return -1;
+
+  turnOffPM( (void *)p );
+  return 0;
+}
+
 int sys_checkOnPM(void)
 {
   int p;
@@ -140,4 +151,21 @@ int sys_turnOnW(void)
     return -1;
 
   return turnOnW( (void *)p );
+}
+
+int sys_updatePTE(void)
+{
+  updatePTE();
+  return 1;
+}
+
+int sys_updateProc(void)
+{
+    int p;
+
+    if(argint(0, &p) < 0)
+        return -1;
+
+    updateProc(p);
+    return 0;
 }

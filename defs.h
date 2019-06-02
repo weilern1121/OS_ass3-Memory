@@ -127,9 +127,12 @@ int             wait(void);
 void            wakeup(void*);
 void            yield(void);
 void            turnOnPM( void *p );
+void            turnOffPM( void *p );
 int             turnOffW( void *p );
 int             turnOnW( void *p );
 int             checkOnPM( void *p );
+void            updatePTE(void);
+void            updateProc(int);
 
 int             notShell(void);
 void            panic2(char *);

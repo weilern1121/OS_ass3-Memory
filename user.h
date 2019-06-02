@@ -25,9 +25,12 @@ int sleep(int);
 int uptime(void);
 int yield(void);
 void turnOnPM( void *p  );
+void turnOffPM( void *p  );
 int turnOffW( void *p  );
 int turnOnW( void *p  );
 int checkOnPM( void *p  );
+void updatePTE(void);
+void updateProc(int);
 
 // ulib.c
 int stat(char*, struct stat*);

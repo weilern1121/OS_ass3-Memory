@@ -25,3 +25,6 @@
 #define SYS_checkOnPM  24
 #define SYS_turnOffW  25
 #define SYS_turnOnW  26
+#define SYS_turnOffPM   27
+#define SYS_updatePTE   28
+#define SYS_updateProc   29

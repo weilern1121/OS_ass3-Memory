@@ -73,7 +73,7 @@ endif
 
 
 ifndef SELECTION
-SELECTION:=SCFIFO
+SELECTION := SCFIFO
 endif
 
 

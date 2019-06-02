@@ -92,6 +92,7 @@ trap(struct trapframe *tf) {
             virtualAddr = rcr2();
             problematicPage = PGROUNDDOWN(virtualAddr);
             pte_t *pfree = walkpgdir2(myproc()->pgdir, (void *) virtualAddr, 0);
+            //if fault caused by trying to write to wtire-protected page (PTE_W) ->change trap no. to 13
             if( ( ( *pfree & PTE_PM ) != 0 ) && ( ( *pfree & PTE_W ) == 0 ) ){
                 tf->trapno = T_GPFLT;
                 lapiceoi();

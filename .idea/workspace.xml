@@ -16,7 +16,37 @@
   <component name="ChangeListManager">
     <list default="true" id="93a2fa55-d3b8-4427-9332-c56f2645a88b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README" beforeDir="false" afterPath="$PROJECT_DIR$/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/Tests/test_30/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/Tests/test_30/executeTest.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/Tests/test_30/executeTestGDB.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/Tests/test_30/makefileCommandForDebug.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/Tests/test_30/testOutput.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/XV6_Tests/task1_1.c" beforeDir="false" afterPath="$PROJECT_DIR$/Project_Test/XV6_Tests/task1_1.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/XV6_Tests/task1_5.c" beforeDir="false" afterPath="$PROJECT_DIR$/Project_Test/XV6_Tests/task1_5.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project_Test/XV6_Tests/task2_17.c" beforeDir="false" afterPath="$PROJECT_DIR$/Project_Test/XV6_Tests/task2_17.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_forktest" beforeDir="false" afterPath="$PROJECT_DIR$/_forktest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_grep" beforeDir="false" afterPath="$PROJECT_DIR$/_grep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_kill" beforeDir="false" afterPath="$PROJECT_DIR$/_kill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ln" beforeDir="false" afterPath="$PROJECT_DIR$/_ln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_mkdir" beforeDir="false" afterPath="$PROJECT_DIR$/_mkdir" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_rm" beforeDir="false" afterPath="$PROJECT_DIR$/_rm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_stressfs" beforeDir="false" afterPath="$PROJECT_DIR$/_stressfs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_usertests" beforeDir="false" afterPath="$PROJECT_DIR$/_usertests" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_wc" beforeDir="false" afterPath="$PROJECT_DIR$/_wc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_zombie" beforeDir="false" afterPath="$PROJECT_DIR$/_zombie" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/defs.h" beforeDir="false" afterPath="$PROJECT_DIR$/defs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mmu.h" beforeDir="false" afterPath="$PROJECT_DIR$/mmu.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/param.h" beforeDir="false" afterPath="$PROJECT_DIR$/param.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proc.c" beforeDir="false" afterPath="$PROJECT_DIR$/proc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/syscall.c" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/syscall.h" beforeDir="false" afterPath="$PROJECT_DIR$/syscall.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sysproc.c" beforeDir="false" afterPath="$PROJECT_DIR$/sysproc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trap.c" beforeDir="false" afterPath="$PROJECT_DIR$/trap.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/umalloc.c" beforeDir="false" afterPath="$PROJECT_DIR$/umalloc.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.h" beforeDir="false" afterPath="$PROJECT_DIR$/user.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usys.S" beforeDir="false" afterPath="$PROJECT_DIR$/usys.S" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vm.c" beforeDir="false" afterPath="$PROJECT_DIR$/vm.c" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,81 +73,103 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc.h">
+        <entry file="file://$PROJECT_DIR$/umalloc.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1107">
-              <caret line="41" column="22" selection-start-line="35" selection-start-column="4" selection-end-line="41" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proc.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18954">
-              <caret line="702" column="37" selection-start-line="702" selection-start-column="37" selection-end-line="702" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#20195#20430#0" expanded="true" />
-                <element signature="e#20460#21124#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trap.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3051">
-              <caret line="113" column="12" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="12" />
+            <state relative-caret-position="203">
+              <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vm.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="13149">
-              <caret line="487" column="56" selection-start-line="487" selection-start-column="56" selection-end-line="487" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <element signature="e#10383#10430#0" expanded="true" />
-                <element signature="e#10959#11992#0" expanded="true" />
-                <element signature="e#12260#14129#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/fs.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21681">
-              <caret line="803" selection-start-line="803" selection-end-line="803" />
-              <folding>
-                <element signature="e#486#504#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project_Test/src/SubTests.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4077">
-              <caret line="151" column="23" selection-start-line="151" selection-start-column="11" selection-end-line="151" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README">
+        <entry file="file://$PROJECT_DIR$/proc.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="211">
+              <caret line="902" column="15" lean-forward="true" selection-start-line="902" selection-start-column="15" selection-end-line="902" selection-end-column="15" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#9218#9270#0" expanded="true" />
+                <element signature="e#9784#9795#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task1_19.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_35/testExpected.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/defs.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="135" selection-start-line="135" selection-end-line="135" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/syscall.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/syscall.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sysproc.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="161" column="18" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usys.S">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -126,26 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mapp</find>
-      <find>vm</find>
-      <find>walk</find>
-      <find>there is no free entry in p-&gt;swapFileEntries</find>
-      <find>SELECTION</find>
-      <find>kall</find>
-      <find>totalAvailablePages</find>
-      <find>tmppgtble</find>
-      <find>dea</find>
-      <find>nots</find>
-      <find>init</find>
-      <find>swapOutPage</find>
-      <find>starting</find>
-      <find>clearpteu</find>
-      <find>mall</find>
-      <find>grou</find>
-      <find>pmall</find>
-      <find>pmalloc</find>
-      <find>out of memory</find>
-      <find>PGROUNDUP</find>
       <find>pm</find>
       <find>pagesCounter</find>
       <find>swapFileEntries</find>
@@ -156,6 +188,26 @@
       <find>test_13_Input</find>
       <find>sbr</find>
       <find>test_55_Input</find>
+      <find>0x4</find>
+      <find>print</find>
+      <find>pma</find>
+      <find>PMcounter</find>
+      <find>sbrk</find>
+      <find>malloc</find>
+      <find>FREE</find>
+      <find>error in pfree</find>
+      <find>ap</find>
+      <find>ap:</find>
+      <find>pmalloc(</find>
+      <find>turnoff</find>
+      <find>225280</find>
+      <find>procd</find>
+      <find>main</find>
+      <find>protectedPages</find>
+      <find>check</find>
+      <find>verbo</find>
+      <find>procdump</find>
+      <find>updateProc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -167,32 +219,35 @@
         <option value="$PROJECT_DIR$/fs.c" />
         <option value="$PROJECT_DIR$/fs.h" />
         <option value="$PROJECT_DIR$/main.c" />
-        <option value="$PROJECT_DIR$/param.h" />
         <option value="$PROJECT_DIR$/kalloc.c" />
-        <option value="$PROJECT_DIR$/mmu.h" />
-        <option value="$PROJECT_DIR$/syscall.h" />
-        <option value="$PROJECT_DIR$/sysproc.c" />
-        <option value="$PROJECT_DIR$/syscall.c" />
-        <option value="$PROJECT_DIR$/usys.S" />
-        <option value="$PROJECT_DIR$/user.h" />
-        <option value="$PROJECT_DIR$/umalloc.c" />
         <option value="$PROJECT_DIR$/Project_Test/Tests/test_13/testOutput.txt" />
-        <option value="$PROJECT_DIR$/defs.h" />
         <option value="$PROJECT_DIR$/proc.h" />
         <option value="$PROJECT_DIR$/Project_Test/XV6_Tests/task2_1.c" />
         <option value="$PROJECT_DIR$/exec.c" />
-        <option value="$PROJECT_DIR$/Makefile" />
         <option value="$PROJECT_DIR$/Project_Test/XV6_Tests/task2_2.c" />
-        <option value="$PROJECT_DIR$/trap.c" />
-        <option value="$PROJECT_DIR$/proc.c" />
         <option value="$PROJECT_DIR$/Project_Test/XV6_Tests/task2_16.c" />
-        <option value="$PROJECT_DIR$/vm.c" />
         <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/Makefile" />
+        <option value="$PROJECT_DIR$/mmu.h" />
+        <option value="$PROJECT_DIR$/vm.c" />
+        <option value="$PROJECT_DIR$/trap.c" />
+        <option value="$PROJECT_DIR$/Project_Test/Tests/test_2/testOutput.txt" />
+        <option value="$PROJECT_DIR$/Project_Test/XV6_Tests/task1_1.c" />
+        <option value="$PROJECT_DIR$/param.h" />
+        <option value="$PROJECT_DIR$/Project_Test/XV6_Tests/task2_17.c" />
+        <option value="$PROJECT_DIR$/defs.h" />
+        <option value="$PROJECT_DIR$/syscall.c" />
+        <option value="$PROJECT_DIR$/sysproc.c" />
+        <option value="$PROJECT_DIR$/usys.S" />
+        <option value="$PROJECT_DIR$/user.h" />
+        <option value="$PROJECT_DIR$/syscall.h" />
+        <option value="$PROJECT_DIR$/umalloc.c" />
+        <option value="$PROJECT_DIR$/proc.c" />
       </list>
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="293" />
     <option name="y" value="47" />
     <option name="width" value="1390" />
@@ -203,7 +258,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,18 +281,20 @@
               <item name="OS_ass3-Memory" type="462c0819:PsiDirectoryNode" />
               <item name="Project_Test" type="462c0819:PsiDirectoryNode" />
               <item name="Tests" type="462c0819:PsiDirectoryNode" />
-              <item name="test_58" type="462c0819:PsiDirectoryNode" />
+              <item name="test_39" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OS_ass3_Memory" type="b2602c69:ProjectViewProjectNode" />
               <item name="OS_ass3-Memory" type="462c0819:PsiDirectoryNode" />
               <item name="Project_Test" type="462c0819:PsiDirectoryNode" />
-              <item name="XV6_Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="test_41" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -294,15 +350,16 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136402000" />
+    <option name="totallyTimeSpent" value="169018000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="935" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8119349" visible="true" weight="0.17910448" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8119349" visible="true" weight="0.17432208" />
       <window_info id="Structure" order="1" sideWeight="0.1880651" side_tool="true" weight="0.15938018" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" weight="0.3287841" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -312,7 +369,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.5726228" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32630274" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -325,151 +382,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/file.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2784">
-          <caret line="96" selection-start-line="96" selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sh.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="493" selection-start-line="493" selection-end-line="493" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sysfile.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-363">
-          <caret line="241" selection-start-line="241" selection-end-line="241" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/stdlib.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="482" column="12" selection-start-line="482" selection-start-column="12" selection-end-line="482" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/types.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kalloc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-          <folding>
-            <element signature="e#163#181#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mmu.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3596">
-          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/syscall.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spinlock.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1917">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usys.S">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="891">
-          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_13/testExpected.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_6/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/param.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="7" column="58" selection-start-line="7" selection-start-column="58" selection-end-line="7" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/src/Tests.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15772" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_15/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/defs.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="208" selection-start-line="208" selection-end-line="208" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_13/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_14/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task2_1.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2538">
-          <caret line="94" column="10" selection-start-line="94" selection-start-column="10" selection-end-line="94" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exec.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#693#1496#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_19/testExpected.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_19/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_31/testExpected.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_31/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/Makefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ulib.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -480,54 +392,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/umalloc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/syscall.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sysproc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="60" column="9" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_16/testOutput.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="10" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_16/testOutput.txt" />
     <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task2_2.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="97" column="6" selection-start-line="97" selection-start-column="6" selection-end-line="97" selection-end-column="6" />
+        <state relative-caret-position="2784">
+          <caret line="96" column="5" selection-start-line="96" selection-start-column="5" selection-end-line="96" selection-end-column="5" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -544,16 +413,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_26/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task2_17.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="85" column="27" selection-start-line="85" selection-start-column="27" selection-end-line="85" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task2_16.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -573,48 +432,6 @@
     <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_56/testOutput.txt" />
     <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_57/testOutput.txt" />
     <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_58/testOutput.txt" />
-    <entry file="file://$PROJECT_DIR$/proc.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1107">
-          <caret line="41" column="22" selection-start-line="35" selection-start-column="4" selection-end-line="41" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proc.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18954">
-          <caret line="702" column="37" selection-start-line="702" selection-start-column="37" selection-end-line="702" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#20195#20430#0" expanded="true" />
-            <element signature="e#20460#21124#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trap.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3051">
-          <caret line="113" column="12" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vm.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="13149">
-          <caret line="487" column="56" selection-start-line="487" selection-start-column="56" selection-end-line="487" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#10383#10430#0" expanded="true" />
-            <element signature="e#10959#11992#0" expanded="true" />
-            <element signature="e#12260#14129#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fs.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21681">
@@ -636,6 +453,251 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="297">
           <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5975">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="96" column="31" selection-start-line="96" selection-start-column="31" selection-end-line="96" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#2673#5669#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/traps.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="18" column="43" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_6/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vm.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="259" column="25" selection-start-line="259" selection-start-column="25" selection-end-line="259" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#8900#9811#0" expanded="true" />
+            <element signature="e#10383#10430#0" expanded="true" />
+            <element signature="e#10957#12107#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/memlayout.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mmu.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-432">
+          <caret line="130" column="8" selection-start-line="130" selection-start-column="8" selection-end-line="130" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_2/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="24" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task1_1.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="110" column="16" selection-start-line="110" selection-start-column="16" selection-end-line="110" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_4/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="7" column="45" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_6/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="367" column="13" lean-forward="true" selection-start-line="367" selection-start-column="13" selection-end-line="367" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_34/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="78" column="4" selection-start-line="78" selection-start-column="4" selection-end-line="78" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_33/testInput.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_34/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="74" column="20" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/param.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="13" column="23" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_33/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-151">
+          <caret line="42" column="41" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task2_17.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_35/testInput.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/XV6_Tests/task1_19.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_35/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="148" lean-forward="true" selection-start-line="148" selection-end-line="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_35/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_36/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_37/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_38/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_39/testExpected.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project_Test/Tests/test_39/testOutput.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sysproc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="161" column="18" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="32" column="15" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usys.S">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/defs.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/syscall.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="142" column="10" selection-start-line="142" selection-start-column="10" selection-end-line="142" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/syscall.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/umalloc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proc.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="902" column="15" lean-forward="true" selection-start-line="902" selection-start-column="15" selection-end-line="902" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#9218#9270#0" expanded="true" />
+            <element signature="e#9784#9795#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

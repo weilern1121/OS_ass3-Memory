@@ -335,8 +335,7 @@ deallocuvm(pde_t *pgdir, uint oldsz, uint newsz, int growproc) {
     if (DEBUGMODE == 2)
         cprintf("DEALLOCUVM-");
     pte_t *pte;
-    uint
-            a, pa;
+    uint a, pa;
 #if(defined(LIFO) || defined(SCFIFO))
     struct page *pg;
     struct proc *p = myproc();
@@ -476,8 +475,7 @@ copyuvm(pde_t *pgdir, uint sz) {
         cprintf("COPYUVM-");
     pde_t *d;
     pte_t *pte;
-    uint
-            pa, i, flags;
+    uint pa, i, flags;
     char *mem;
 
     if ((d = setupkvm()) == 0)
@@ -526,8 +524,7 @@ uva2ka(pde_t *pgdir, char *uva) {
 int
 copyout(pde_t *pgdir, uint va, void *p, uint len) {
     char *buf, *pa0;
-    uint
-            n, va0;
+    uint n, va0;
 
     buf = (char *) p;
     while (len > 0) {

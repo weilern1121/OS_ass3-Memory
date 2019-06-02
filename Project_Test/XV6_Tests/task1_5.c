@@ -67,6 +67,7 @@ int main(int argc, char *argv[]){
     printf(1,"Test starting...\n");
     
     for(int i = 0;i < 1000;i++){
+	//printf(2,"%d\t",i);
         allocate_all_memory();
         protect_all_memory();
         validate_all_memory();

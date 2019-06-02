@@ -700,7 +700,7 @@ procdump(void) {
            }
 
         }
-       p->protectedPages = protected;
+       //p->protectedPages = protected;
 
         cprintf("%d %s %d %d %d %d %d %s", p->pid, state,
                 p->pagesCounter, p->pagesinSwap, p->protectedPages,
@@ -722,66 +722,64 @@ procdump(void) {
 void
 turnOnPM( void *p ){
     pte_t *pte;
-    //TODO maybe we should P2V(p)
-    pte = walkpgdir2(myproc()->pgdir, p, 0);
-    //TODO - what is PM bit? why not to turn on PTE_W?
-    *pte = PTE_PM_1(*pte);
+    pte = walkpgdir2(myproc()->pgdir, p, 0); //find the address
+    *pte = PTE_PM_1(*pte); //turn on flag, defined in mmu.h
+    updatePTE();
+}
+
+//turn off PM( pmalloced ) flag
+void
+turnOffPM( void *p ){
+    pte_t *pte;
+    pte = walkpgdir2(myproc()->pgdir, p, 0); //find the address
+    *pte = PTE_PM_0(*pte); //turn on flag, defined in mmu.h
+    updatePTE();
 }
 
 
 
-//return -1 if not pmalloced, else return 1 and turn W flag off
+//return -1 if not pmalloced, else turn W flag off and return 1
 int
 turnOffW( void *p ){
     pte_t *pte;
-    //TODO maybe we should P2V(p)
-    pte = walkpgdir2(myproc()->pgdir, p, 0);
-    if( ( *pte & PTE_PM ) != 0){
+    pte = walkpgdir2(myproc()->pgdir, p, 0);//find the address
+    if( ( *pte & PTE_PM ) != 0){//check if flag was on before the syscall
         *pte = PTE_W_0(*pte);
+        updatePTE();
         return 1;
     }
     return -1;
 }
 
-//return -1 if not pmalloced, else return 1 and turn W flag off
+//return -1 if not pmalloced, else turn W flag on, PM flag off and return 1
 int
 turnOnW( void *p ){
     pte_t *pte;
-    //TODO maybe we should P2V(p)
-    pte = walkpgdir2(myproc()->pgdir, p, 0);
-    if( ( *pte & PTE_PM ) != 0){
+    pte = walkpgdir2(myproc()->pgdir, p, 0);//find the address
+    /*if( ( *pte & PTE_PM ) != 0){
         *pte = PTE_W_1(*pte);
         *pte = PTE_PM_0(*pte);
+        updatePTE();
         return 1;
-    }
-    return -1;
+    }*/
+    *pte = PTE_W_1(*pte);
+    updatePTE();
+    return 1;
 }
 
-
+//return 1 if PM flag is on and W flag is on
 int
 checkOnPM( void *p ){
     pte_t *pte;
-    //TODO maybe we should P2V(p)
-    pte = walkpgdir2(myproc()->pgdir, p, 0);
-    if( ( ( *pte & PTE_PM ) != 0) && ( ( *pte & PTE_W ) == 0) ) {
+    pte = walkpgdir2(myproc()->pgdir, p, 0);//find the address
+//    if( ( ( *pte & PTE_PM ) != 0) && ( ( *pte & PTE_W ) != 0) ) {
+    if( ( ( *pte & PTE_PM ) != 0) ) { //TODO - not sure that need to check PTE_W
         return 1;
     }
     return 0;
 
 }
 
-
-
-//used to locate page index of page in  p->pages
-void movePageByPageIdInPages(struct page *cg, int num) {
-    struct proc *p = myproc();
-    for (cg = p->pages; cg < &p->pages[MAX_TOTAL_PAGES]; cg++) {
-        //if this is the pid of file ->return
-        if (cg->pageid == num)
-            return;
-    }
-    panic2("don't find specific num!\n");
-}
 
 
 int
@@ -795,8 +793,8 @@ findFreeEntryInSwapFile(struct proc *p) {
 
 
 
-//TODO - make sure that before calling to this func to check:
-//TODO - #if( defined(LIFO) || defined(SCFIFO))
+//make sure that before calling to this func to check:
+//#if( defined(LIFO) || defined(SCFIFO))
 void
 swapOutPage(struct proc *p, pde_t *pgdir) {
     if (DEBUGMODE == 2 && notShell())
@@ -835,7 +833,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 
     while( !found && valid < MAX_TOTAL_PAGES ) {
         minSeq = p->pagesequel;
-
+        //search for min sequal page
         for (sg = p->pages; sg < &p->pages[MAX_TOTAL_PAGES]; sg++) {
             if (sg->active && sg->present && sg->sequel < minSeq) {
                 pg = sg;
@@ -843,7 +841,7 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
             }
         }
         tmpAdress = pg->virtAdress;
-        tmppgtble = walkpgdir2(pgdir, tmpAdress, 0);
+        tmppgtble = walkpgdir2(pgdir, tmpAdress, 0); //if A_FLAG is on -turn off
         if (*tmppgtble & PTE_A) {
             *tmppgtble = PTE_A_0(*tmppgtble);
             pg->sequel = p->pagesequel++;
@@ -890,4 +888,30 @@ swapOutPage(struct proc *p, pde_t *pgdir) {
 
     if (DEBUGMODE == 2 && notShell() )
         cprintf(">SWAPOUTPAGE-DONE!\n");
+}
+
+void
+updatePTE(void){
+    lcr3(V2P(myproc()->pgdir));
+}
+
+//called from umalloc
+//0/1 - update protectedPages ; 2/3 - update pagesCounter
+void
+updateProc(int num){
+    switch (num) {
+        case 1:
+            myproc()->protectedPages++;
+            break;
+        case 0:
+            myproc()->protectedPages--;
+            break;
+        case 2:
+            myproc()->pagesCounter--;
+            break;
+        case 3:
+            myproc()->pagesCounter++;
+            break;
+
+    }
 }

@@ -72,8 +72,10 @@ void allocate_all_memory(){
     memory_allocations_sizes_index = 0;
 
     for(int i = 0;i < NUM_MEMORY_ALLOCATIONS;i++){
+//        printf(2,"\n\nCHECKPOINT %d\n\n",i);
         allocate_memory(i,&memory_allocations[i],&memory_allocations_sizes[i]);
     }
+//    printf(2,"\n\nCHECKPOINT %d\n\n",2);
 }
 
 void validate_all_memory(){
@@ -105,6 +107,7 @@ void free_all_memory_with_pfree(){
     memory_allocations_sizes_index = 0;
 
     for(int i = 0;i < NUM_MEMORY_ALLOCATIONS;i++){
+//        printf(2,"\n\nCHECKPOINT %d\n\n",i);
         free_memory(memory_allocations[i]);
     }
 }
@@ -162,10 +165,13 @@ void free_memory(char* mem){
     memory_allocations_functions_index = (memory_allocations_functions_index + 1) % NELEM(memory_allocations_functions_scheme);
 
     if(free_func == pmalloc_helper){
+//        printf(1,"\npmalloc_helper\n");
         pfree_helper(mem,1);
     }
     else if(free_func == malloc_helper){
+//        printf(2,"\nmalloc_helper, mem: %d\n",mem);
         pfree_helper(mem,0);
+//        printf(1,"\nCHECKPOINT!\n");
         free_helper(mem);
     }
     else{
