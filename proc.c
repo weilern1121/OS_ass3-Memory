@@ -395,7 +395,7 @@ exit(void) {
     curproc->state = ZOMBIE;
 
     //check VERBOSE for task 4
-#if(VERBOSE_PRINT)
+#if (defined(VERBOSE_PRINT_TRUE))
     procdump();
 #endif
     sched();
